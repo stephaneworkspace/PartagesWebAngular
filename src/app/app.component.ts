@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faCoffee, faDesktop } from '@fortawesome/free-solid-svg-icons';
+import { faCoffee, faDesktop, faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { SizeProp } from '@fortawesome/fontawesome-svg-core';
 
 @Component({
@@ -11,11 +11,14 @@ export class AppComponent implements OnInit {
   title = 'PartagesWebAngular';
   faCoffee = faCoffee;
   faDesktop = faDesktop;
+  faGlobe = faGlobe;
   public faSizeProp: SizeProp;
-  public faSpinProp: boolean; // on mouse over true
+  public faSpinPropDesktop: boolean;
+  public faSpinPropGlobe: boolean;
 
   ngOnInit() {
     this.faSizeProp = '1x';
-    this.faSpinProp = false;
+    this.faSpinPropDesktop = false;
+    this.faSpinPropGlobe = false;
   }
 }
