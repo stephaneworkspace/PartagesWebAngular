@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   public faSpinPropGlobe: boolean;
 
   ngOnInit() {
-    this.faSizeProp = '1x';
+    this.faSizeProp = 'lg';
     this.faSpinPropDesktop = false;
     this.faSpinPropGlobe = false;
   }
