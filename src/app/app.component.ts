@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   public faSpinProp: boolean; // on mouse over true
 
   ngOnInit() {
-    this.faSizeProp = '5x';
+    this.faSizeProp = '1x';
     this.faSpinProp = false;
   }
 }
