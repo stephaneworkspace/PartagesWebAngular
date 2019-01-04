@@ -16,7 +16,8 @@ export class CategoriesComponent implements OnInit {
   }
 
   getCategories() {
-    this.http.get('http://www.partages-web.net:81/api/categories').subscribe(response => {
+      // this.http.get('http://www.partages-web.net:81/api/categories').subscribe(response => {
+      this.http.get('http://vps631991.ovh.net:81/api/categories').subscribe(response => {
       this.values = response;
     }, error => {
       console.log(error);
