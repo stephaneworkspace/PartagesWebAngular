@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./categories.component.scss']
 })
 export class CategoriesComponent implements OnInit {
-  values: any;
+  categories: any;
 
   constructor(private http: HttpClient) { }
 
@@ -18,7 +18,7 @@ export class CategoriesComponent implements OnInit {
   getCategories() {
       // this.http.get('http://www.partages-web.net:81/api/categories').subscribe(response => {
       this.http.get('http://vps631991.ovh.net:81/api/categories').subscribe(response => {
-      this.values = response;
+      this.categories = response;
     }, error => {
       console.log(error);
     });
