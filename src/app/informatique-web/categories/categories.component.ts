@@ -12,10 +12,11 @@ export class CategoriesComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
+    this.getCategories();
   }
 
   getCategories() {
-    this.http.get('http://www.partages-web.net:8050/api/categories').subscribe(response => {
+    this.http.get('http://www.partages-web.net:81/api/categories').subscribe(response => {
       this.values = response;
     }, error => {
       console.log(error);
