@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { IndexComponent } from './informatique-web/index/index.component';
-import { IndexComponent as IndexComponentRoot } from './index/index.component';
+import { NavComponent } from './informatique-web/nav/nav.component';
+import { IndexComponent } from './index/index.component';
 
 const routes: Routes = [
   {
     path: 'informatique-web',
-    component: IndexComponent
+    component: NavComponent
   },
   {
     path: '**',
-    component: IndexComponentRoot
+    component: IndexComponent
   }
 ];
 

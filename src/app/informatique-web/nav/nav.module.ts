@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IndexComponent } from './index.component';
+import { NavComponent } from './nav.component';
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [IndexComponent]
+  declarations: [NavComponent]
 })
 export class IndexModule { }

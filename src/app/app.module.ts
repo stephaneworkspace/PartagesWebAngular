@@ -7,15 +7,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CategoriesComponent } from './informatique-web/categories/categories.component';
-import { IndexComponent } from './informatique-web/index/index.component';
-import { IndexComponent as IndexComponentRoot } from './index/index.component';
+import { NavComponent } from './informatique-web/nav/nav.component';
+import { IndexComponent } from './index/index.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CategoriesComponent,
-    IndexComponent,
-    IndexComponentRoot
+    NavComponent,
+    IndexComponent
   ],
   imports: [
     BrowserModule,
