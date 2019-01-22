@@ -30,7 +30,7 @@
       <form #loginForm="ngForm" class="form-inline my-2 my-lg-0" (ngSubmit)="login()">
         <input class="form-control mr-sm-2" type="text" placeholder="Username" aria-label="Username" required name="username" [(ngModel)]="model.username">
         <input class="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password" required name="password" [(ngModel)]="model.password">
-        <button [disable]="!loginForm.valid" class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+        <button [disabled]="!loginForm.valid" class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
       </form>
     </div>
   </nav>
