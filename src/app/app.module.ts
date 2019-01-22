@@ -8,7 +8,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CategoriesComponent } from './informatique-web/categories/categories.component';
-import { NavComponent } from './informatique-web/nav/nav.component';
+import { NavComponent } from './nav/nav.component';
 import { IndexComponent } from './index/index.component';
 
 import { AuthService } from './_services/auth.service';
