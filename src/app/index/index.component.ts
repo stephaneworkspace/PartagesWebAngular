@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faCoffee, faDesktop, faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { SizeProp } from '@fortawesome/fontawesome-svg-core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-index',
@@ -17,14 +18,22 @@ export class IndexComponent implements OnInit {
   public faSpinPropDesktop: boolean;
   public faSpinPropGlobe: boolean;
 
+  registerMode = false;
+
+  constructor(private http: HttpClient) { }
+
   ngOnInit() {
     this.faSizeProp = 'lg';
     this.faSpinPropDesktop = false;
     this.faSpinPropGlobe = false;
   }
 
-  alertify() {
-    //
+  registerToggle() {
+    this.registerMode = true;
+  }
+
+  cancelRegisterMode(registerMode: boolean) {
+    this.registerMode = registerMode;
   }
 
 }

@@ -14,6 +14,7 @@ import { IndexComponent } from './index/index.component';
 import { AuthService } from './_services/auth.service';
 import { RegisterComponent } from './register/register.component';
 import { AlertifyService } from './_services/alertify.service';
+import { MembersComponent } from './members/members.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { AlertifyService } from './_services/alertify.service';
       CategoriesComponent,
       NavComponent,
       IndexComponent,
-      RegisterComponent
+      RegisterComponent,
+      MembersComponent
    ],
    imports: [
       BrowserModule,
