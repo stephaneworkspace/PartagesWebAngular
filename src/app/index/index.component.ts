@@ -23,4 +23,8 @@ export class IndexComponent implements OnInit {
     this.faSpinPropGlobe = false;
   }
 
+  alertify() {
+    //
+  }
+
 }

@@ -12,26 +12,32 @@ import { NavComponent } from './nav/nav.component';
 import { IndexComponent } from './index/index.component';
 
 import { AuthService } from './_services/auth.service';
+import { RegisterComponent } from './register/register.component';
+import { AlertifyService } from './_services/alertify.service';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    CategoriesComponent,
-    NavComponent,
-    IndexComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FontAwesomeModule,
-    NgbModule,
-    FormsModule
-  ],
-  providers: [
-    AuthService
-  ],
-  bootstrap: [AppComponent]
+   declarations: [
+      AppComponent,
+      CategoriesComponent,
+      NavComponent,
+      IndexComponent,
+      RegisterComponent
+   ],
+   imports: [
+      BrowserModule,
+      AppRoutingModule,
+      HttpClientModule,
+      FontAwesomeModule,
+      NgbModule,
+      FormsModule
+   ],
+   providers: [
+      AuthService,
+      AlertifyService
+   ],
+   bootstrap: [
+      AppComponent
+   ]
 })
 export class AppModule { }
