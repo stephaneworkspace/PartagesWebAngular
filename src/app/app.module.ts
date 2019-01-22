@@ -11,6 +11,8 @@ import { CategoriesComponent } from './informatique-web/categories/categories.co
 import { NavComponent } from './informatique-web/nav/nav.component';
 import { IndexComponent } from './index/index.component';
 
+import { AuthService } from './_services/auth.service';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { IndexComponent } from './index/index.component';
     NgbModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
