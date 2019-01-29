@@ -7,6 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { InformatiqueWebMainComponent } from './informatique-web/informatique-web-main/informatique-web-main.component';
 import { CategoriesComponent } from './informatique-web/categories/categories.component';
 import { NavComponent } from './nav/nav.component';
 import { IndexComponent } from './index/index.component';
@@ -20,6 +21,7 @@ import { MembersComponent } from './members/members.component';
 @NgModule({
    declarations: [
       AppComponent,
+      InformatiqueWebMainComponent,
       CategoriesComponent,
       NavComponent,
       IndexComponent,

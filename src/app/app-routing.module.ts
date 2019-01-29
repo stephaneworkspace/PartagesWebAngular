@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CategoriesComponent } from './informatique-web/categories/categories.component';
+import { InformatiqueWebMainComponent } from './informatique-web/informatique-web-main/informatique-web-main.component';
 import { IndexComponent } from './index/index.component';
 import { MembersComponent } from './members/members.component';
 import { AuthGuard } from './_guards/auth.guard';
@@ -12,7 +12,7 @@ const routes: Routes = [
   },
   {
     path: 'informatique-web',
-    component: CategoriesComponent
+    component: InformatiqueWebMainComponent
   },
   {
     path: '',
