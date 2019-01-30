@@ -4,11 +4,16 @@ import { InformatiqueWebMainComponent } from './informatique-web/informatique-we
 import { IndexComponent } from './index/index.component';
 import { MembersComponent } from './members/members.component';
 import { AuthGuard } from './_guards/auth.guard';
+import { GestionPagesComponent } from './admin/gestion-pages/gestion-pages.component';
 
 const routes: Routes = [
   {
     path: '',
     component: IndexComponent
+  },
+  { path: 'admin',
+    component: GestionPagesComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'informatique-web',
