@@ -4,26 +4,26 @@
       <ul class="list-unstyled components">
           <p>Administration</p>
           <li><!-- </li>class="active">-->
-              <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gestion pages</a>
-              <ul class="collapse list-unstyled" id="homeSubmenu">
-                  <li>
-                    <a href="#">Gestion pages</a>
-                  </li>                                                                  
-              </ul>
-          </li>     
+            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gestion pages</a>
+            <ul class="collapse list-unstyled" id="homeSubmenu">
+                <li>
+                  <a href="#">Gestion pages</a>
+                </li>                                                                  
+            </ul>
+        </li>     
       </ul>
-
   </nav>
   <!-- Page Content -->
   <div id="content">
     <div class="container-fluid">
       <div class="btn-group-vertical">
-        <button class="btn btn-light">Création d'une nouvelle section</button>
+        <button class="btn btn-light" routerLink="gestion-pages-nouvelle-section">Création d'une nouvelle section</button>
         <button class="btn btn-light">Création d'un titre de menu</button>
         <button class="btn btn-light">Création d'un sous titre de menu</button>
         <button class="btn btn-light">Création d'un article</button>
       </div>
-      <table class="table">
+      <br />
+      <table class="table table-borderless">
         <thead>
           <tr class="table-dark">
             <th scope="col"><fa-icon [icon]="faSitemap" [spin]="this.faSpinPropGlobe"></fa-icon></th>
@@ -34,103 +34,182 @@
           <tr>
             <th scope="row"><span class="textSection"><fa-icon [icon]="faDesktop" [spin]="this.faSpinPropGlobe"></fa-icon>&nbsp;Informatique web</span></th>
             <td><fa-icon [icon]="faEdit" [spin]="this.faSpinPropGlobe"></fa-icon></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td><fa-icon [icon]="faTrashAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelUpAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelDownAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
           </tr>
           <tr>
             <th scope="row"><span class="textTitre"><fa-icon [icon]="faPuzzlePiece" [spin]="this.faSpinPropGlobe"></fa-icon>&nbsp;Visual Studio 2017 Community</span></th>
             <td><fa-icon [icon]="faEdit" [spin]="this.faSpinPropGlobe"></fa-icon></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td><fa-icon [icon]="faTrashAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelUpAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelDownAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
           </tr>
           <tr>
             <th scope="row"><span class="textSousTitre"><fa-icon [icon]="faCaretSquareDown" [spin]="this.faSpinPropGlobe"></fa-icon>&nbsp;C# - Asp.net core 2.2</span></th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td><fa-icon [icon]="faEdit" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faTrashAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelUpAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelDownAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
           </tr>
           <tr>
             <th scope="row"><span class="textArticle"><fa-icon [icon]="faFileAlt" [spin]="this.faSpinPropGlobe"></fa-icon>&nbsp;Commencer un projet</span></th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td><fa-icon [icon]="faEdit" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faTrashAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelUpAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelDownAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
           </tr>  
           <tr>
-            <th scope="row">Swagger</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <th scope="row"><span class="textArticle"><fa-icon [icon]="faFileAlt" [spin]="this.faSpinPropGlobe"></fa-icon>&nbsp;Swagger</span></th>
+            <td><fa-icon [icon]="faEdit" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faTrashAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelUpAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelDownAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
           </tr>   
           <tr>
-            <th scope="row">Entity framework</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <th scope="row"><span class="textArticle"><fa-icon [icon]="faFileAlt" [spin]="this.faSpinPropGlobe"></fa-icon>&nbsp;Entity framework</span></th>
+            <td><fa-icon [icon]="faEdit" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faTrashAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelUpAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelDownAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
           </tr> 
           <tr>
-            <th scope="row">DTO</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <th scope="row"><span class="textArticle"><fa-icon [icon]="faFileAlt" [spin]="this.faSpinPropGlobe"></fa-icon>&nbsp;DTO</span></th>
+            <td><fa-icon [icon]="faEdit" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faTrashAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelUpAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelDownAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
           </tr>       
           <tr>
-            <th scope="row">Automapper</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <th scope="row"><span class="textArticle"><fa-icon [icon]="faFileAlt" [spin]="this.faSpinPropGlobe"></fa-icon>&nbsp;Automapper</span></th>
+            <td><fa-icon [icon]="faEdit" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faTrashAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelUpAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelDownAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
           </tr>  
           <tr>
-            <th scope="row">Filtre et tri</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <th scope="row"><span class="textArticle"><fa-icon [icon]="faFileAlt" [spin]="this.faSpinPropGlobe"></fa-icon>&nbsp;Filtre et tri</span></th>
+            <td><fa-icon [icon]="faEdit" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faTrashAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelUpAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelDownAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
           </tr>  
           <tr>
-            <th scope="row">Commandes linux</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <th scope="row"><span class="textArticle"><fa-icon [icon]="faFileAlt" [spin]="this.faSpinPropGlobe"></fa-icon>&nbsp;Commandes linux</span></th>
+            <td><fa-icon [icon]="faEdit" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faTrashAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelUpAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelDownAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
           </tr>
           <tr>
-            <th scope="row">Intégration continue avec Jenkins</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <th scope="row"><span class="textArticle"><fa-icon [icon]="faFileAlt" [spin]="this.faSpinPropGlobe"></fa-icon>&nbsp;Intégration continue avec Jenkins</span></th>
+            <td><fa-icon [icon]="faEdit" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faTrashAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelUpAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelDownAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
           </tr>
           <tr>
-            <th scope="row">Ableton live</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <th scope="row"><span class="textTitre"><fa-icon [icon]="faPuzzlePiece" [spin]="this.faSpinPropGlobe"></fa-icon>&nbsp;Visual Studio 2017 Community</span></th>
+            <td><fa-icon [icon]="faEdit" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faTrashAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelUpAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelDownAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+          </tr>  
+          <tr>
+            <th scope="row"><span class="textSousTitre"><fa-icon [icon]="faCaretSquareDown" [spin]="this.faSpinPropGlobe"></fa-icon>&nbsp;Node.js npm</span></th>
+            <td><fa-icon [icon]="faEdit" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faTrashAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelUpAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelDownAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
           </tr>
           <tr>
-            <th scope="row">ClyphX Pro</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <th scope="row"><span class="textArticle"><fa-icon [icon]="faFileAlt" [spin]="this.faSpinPropGlobe"></fa-icon>&nbsp;Commandes de base</span></th>
+            <td><fa-icon [icon]="faEdit" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faTrashAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelUpAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelDownAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+          </tr>  
+          <tr>
+            <th scope="row"><span class="textArticle"><fa-icon [icon]="faFileAlt" [spin]="this.faSpinPropGlobe"></fa-icon>&nbsp;Installer webpack</span></th>
+            <td><fa-icon [icon]="faEdit" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faTrashAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelUpAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelDownAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+          </tr> 
+ 
+          <tr>
+            <th scope="row"><span class="textTitre"><fa-icon [icon]="faPuzzlePiece" [spin]="this.faSpinPropGlobe"></fa-icon>&nbsp;Linux</span></th>
+            <td><fa-icon [icon]="faEdit" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faTrashAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelUpAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelDownAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
           </tr>
           <tr>
-            <th scope="row">Commandes</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <th scope="row"><span class="textSousTitre"><fa-icon [icon]="faCaretSquareDown" [spin]="this.faSpinPropGlobe"></fa-icon>&nbsp;Debian</span></th>
+            <td><fa-icon [icon]="faEdit" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faTrashAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelUpAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelDownAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
           </tr>
+          <tr>
+            <th scope="row"><span class="textArticle"><fa-icon [icon]="faFileAlt" [spin]="this.faSpinPropGlobe"></fa-icon>&nbsp;Commandes utile</span></th>
+            <td><fa-icon [icon]="faEdit" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faTrashAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelUpAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelDownAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+          </tr>           
+          <tr>
+            <th scope="row"><span class="textArticle"><fa-icon [icon]="faFileAlt" [spin]="this.faSpinPropGlobe"></fa-icon>&nbsp;Commandes .net</span></th>
+            <td><fa-icon [icon]="faEdit" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faTrashAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelUpAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelDownAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+          </tr>   
+          <tr>
+            <th scope="row"><span class="textArticle"><fa-icon [icon]="faFileAlt" [spin]="this.faSpinPropGlobe"></fa-icon>&nbsp;Ajouter un utilisateur</span></th>
+            <td><fa-icon [icon]="faEdit" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faTrashAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelUpAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelDownAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+          </tr>  
+          <tr>
+            <th scope="row"><span class="textSection"><fa-icon [icon]="faGlobe" [spin]="this.faSpinPropGlobe"></fa-icon>&nbsp;Thème astral</span></th>
+            <td><fa-icon [icon]="faEdit" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faTrashAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelUpAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelDownAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+          </tr>   
+          <tr>
+            <th scope="row"><span class="textSection"><fa-icon [icon]="faMusic" [spin]="this.faSpinPropGlobe"></fa-icon>&nbsp;MAO</span></th>
+            <td><fa-icon [icon]="faEdit" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faTrashAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelUpAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelDownAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+          </tr>           
+          <tr>
+            <th scope="row"><span class="textTitre"><fa-icon [icon]="faPuzzlePiece" [spin]="this.faSpinPropGlobe"></fa-icon>&nbsp;Ableton live</span></th>
+            <td><fa-icon [icon]="faEdit" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faTrashAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelUpAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelDownAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+          </tr>
+          <tr>
+            <th scope="row"><span class="textSousTitre"><fa-icon [icon]="faCaretSquareDown" [spin]="this.faSpinPropGlobe"></fa-icon>&nbsp;ClyphX Pro</span></th>
+            <td><fa-icon [icon]="faEdit" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faTrashAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelUpAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelDownAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+          </tr>    
+          <tr>
+            <th scope="row"><span class="textArticle"><fa-icon [icon]="faFileAlt" [spin]="this.faSpinPropGlobe"></fa-icon>&nbsp;Commandes</span></th>
+            <td><fa-icon [icon]="faEdit" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faTrashAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelUpAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <td><fa-icon [icon]="faLevelDownAlt" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+          </tr>     
         </tbody>
       </table>
+      hors ligne à faire
     </div>
   </div>
 </div>

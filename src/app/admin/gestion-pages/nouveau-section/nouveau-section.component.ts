@@ -13,11 +13,11 @@ import {
   faLevelDownAlt } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'app-gestion-pages',
-  templateUrl: './gestion-pages.component.html',
-  styleUrls: ['./gestion-pages.component.scss']
+  selector: 'app-nouveau-section',
+  templateUrl: './nouveau-section.component.html',
+  styleUrls: ['./nouveau-section.component.scss']
 })
-export class GestionPagesComponent implements OnInit {
+export class NouveauSectionComponent implements OnInit {
   // Chargement de toutes les icones
   faEdit = faEdit;
   faPuzzlePiece = faPuzzlePiece;
@@ -34,7 +34,6 @@ export class GestionPagesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
   }
 
 }

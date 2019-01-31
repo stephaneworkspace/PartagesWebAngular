@@ -5,14 +5,21 @@ import { IndexComponent } from './index/index.component';
 import { MembersComponent } from './members/members.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { GestionPagesComponent } from './admin/gestion-pages/gestion-pages.component';
+import { NouveauSectionComponent } from './admin/gestion-pages/nouveau-section/nouveau-section.component';
 
 const routes: Routes = [
   {
     path: '',
     component: IndexComponent
   },
-  { path: 'admin',
+  {
+    path: 'admin',
     component: GestionPagesComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin/gestion-pages-nouvelle-section',
+    component: NouveauSectionComponent,
     canActivate: [AuthGuard],
   },
   {

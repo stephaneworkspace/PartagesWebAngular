@@ -17,6 +17,7 @@ import { RegisterComponent } from './register/register.component';
 import { AlertifyService } from './_services/alertify.service';
 import { MembersComponent } from './members/members.component';
 import { GestionPagesComponent } from './admin/gestion-pages/gestion-pages.component';
+import { NouveauSectionComponent } from './admin/gestion-pages/nouveau-section/nouveau-section.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { GestionPagesComponent } from './admin/gestion-pages/gestion-pages.compo
       IndexComponent,
       RegisterComponent,
       MembersComponent,
-      GestionPagesComponent
+      GestionPagesComponent,
+      NouveauSectionComponent,
    ],
    imports: [
       BrowserModule,
