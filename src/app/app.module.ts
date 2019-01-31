@@ -3,6 +3,10 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { far } from '@fortawesome/free-regular-svg-icons';
+import { fab } from '@fortawesome/free-brands-svg-icons';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +23,7 @@ import { MembersComponent } from './members/members.component';
 import { GestionPagesComponent } from './admin/gestion-pages/gestion-pages.component';
 import { NouveauSectionComponent } from './admin/gestion-pages/nouveau-section/nouveau-section.component';
 
+library.add(fas, far, fab);
 
 @NgModule({
    declarations: [
@@ -46,6 +51,9 @@ import { NouveauSectionComponent } from './admin/gestion-pages/nouveau-section/n
    ],
    bootstrap: [
       AppComponent
+   ],
+   exports: [
+      FontAwesomeModule
    ]
 })
 export class AppModule { }
