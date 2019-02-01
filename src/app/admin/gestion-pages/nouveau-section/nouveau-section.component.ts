@@ -14,6 +14,7 @@ export class NouveauSectionComponent implements OnInit {
 
   ngOnInit() {
     this.faSizeProp = 'lg';
+    this.model.typeSelect = 'none';
   }
 
 }
