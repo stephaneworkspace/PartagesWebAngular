@@ -22,6 +22,7 @@ import { AlertifyService } from './_services/alertify.service';
 import { MembersComponent } from './members/members.component';
 import { GestionPagesComponent } from './admin/gestion-pages/gestion-pages.component';
 import { NouveauSectionComponent } from './admin/gestion-pages/nouveau-section/nouveau-section.component';
+import { TitreMenuComponent } from './admin/gestion-pages/titre-menu/titre-menu.component';
 
 library.add(fas, far, fab);
 
@@ -36,6 +37,7 @@ library.add(fas, far, fab);
       MembersComponent,
       GestionPagesComponent,
       NouveauSectionComponent,
+      TitreMenuComponent
    ],
    imports: [
       BrowserModule,
@@ -51,9 +53,6 @@ library.add(fas, far, fab);
    ],
    bootstrap: [
       AppComponent
-   ],
-   exports: [
-      FontAwesomeModule
    ]
 })
 export class AppModule { }
