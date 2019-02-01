@@ -7,6 +7,7 @@ import { AuthGuard } from './_guards/auth.guard';
 import { GestionPagesComponent } from './admin/gestion-pages/gestion-pages.component';
 import { NouveauSectionComponent } from './admin/gestion-pages/nouveau-section/nouveau-section.component';
 import { TitreMenuComponent } from './admin/gestion-pages/titre-menu/titre-menu.component';
+import { SousTitreMenuComponent } from './admin/gestion-pages/sous-titre-menu/sous-titre-menu.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,11 @@ const routes: Routes = [
   {
     path: 'admin/gestion-pages-nouveau-titre',
     component: TitreMenuComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin/gestion-pages-nouveau-sous-titre',
+    component: SousTitreMenuComponent,
     canActivate: [AuthGuard],
   },
   {

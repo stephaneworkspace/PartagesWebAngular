@@ -23,6 +23,7 @@ import { MembersComponent } from './members/members.component';
 import { GestionPagesComponent } from './admin/gestion-pages/gestion-pages.component';
 import { NouveauSectionComponent } from './admin/gestion-pages/nouveau-section/nouveau-section.component';
 import { TitreMenuComponent } from './admin/gestion-pages/titre-menu/titre-menu.component';
+import { SousTitreMenuComponent } from './admin/gestion-pages/sous-titre-menu/sous-titre-menu.component';
 
 library.add(fas, far, fab);
 
@@ -37,7 +38,8 @@ library.add(fas, far, fab);
       MembersComponent,
       GestionPagesComponent,
       NouveauSectionComponent,
-      TitreMenuComponent
+      TitreMenuComponent,
+      SousTitreMenuComponent,
    ],
    imports: [
       BrowserModule,
