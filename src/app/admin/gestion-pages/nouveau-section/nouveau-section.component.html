@@ -23,18 +23,22 @@
           <small id="nomHelp" class="form-text text-muted">Ce nom doit être unique</small>
         </div>
         <div class="form-group">
-            <label for="iconeSelect">Example select</label>
-            <select class="form-control" id="iconeSelect"[(ngModel)]="model.iconeSelect" name="iconeSelect">
-              <option value="desktop">Informatique</option>
-              <option value="globe">Planète</option>
-              <option value="coffee">3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
-            <fa-icon *ngIf="model.iconeSelect != null" [icon]="['fa', model.iconeSelect]"></fa-icon>
-            <i class="fas fa-globe"></i>
-            <i class="fas fa-check"></i>
+          <label for="iconeSelect">Example select</label>
+          <select class="form-control" id="iconeSelect"[(ngModel)]="model.iconeSelect" name="iconeSelect">
+            <option value="desktop">Informatique</option>
+            <option value="globe">Planète</option>
+            <option value="coffee">3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+        <div *ngIf="model.iconeSelect != null">
+          <div class="form-group">
+            <label for="iconePreview">Preview</label>
+            <br />
+            <fa-icon class="icon-preview" *ngIf="model.iconeSelect != null" [icon]="['fa', model.iconeSelect]" [size]="this.faSizeProp"></fa-icon>
           </div>
+        </div>
         <div class="form-group form-check">
           <input type="checkbox" class="form-check-input" id="exampleCheck1" [(ngModel)]="model.test" name="test">
           <label class="form-check-label" for="exampleCheck1">Check me out</label>
