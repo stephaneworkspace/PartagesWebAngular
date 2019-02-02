@@ -24,6 +24,7 @@ import { GestionPagesComponent } from './admin/gestion-pages/gestion-pages.compo
 import { NouveauSectionComponent } from './admin/gestion-pages/nouveau-section/nouveau-section.component';
 import { NouveauTitreMenuComponent } from './admin/gestion-pages/nouveau-titre-menu/nouveau-titre-menu.component';
 import { NouveauSousTitreMenuComponent } from './admin/gestion-pages/nouveau-sous-titre-menu/nouveau-sous-titre-menu.component';
+import { NouveauArticleComponent } from './admin/gestion-pages/nouveau-article/nouveau-article.component';
 
 library.add(fas, far, fab);
 
@@ -40,6 +41,7 @@ library.add(fas, far, fab);
       NouveauSectionComponent,
       NouveauTitreMenuComponent,
       NouveauSousTitreMenuComponent,
+      NouveauArticleComponent
    ],
    imports: [
       BrowserModule,

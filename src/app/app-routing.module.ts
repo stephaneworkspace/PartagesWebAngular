@@ -8,6 +8,7 @@ import { GestionPagesComponent } from './admin/gestion-pages/gestion-pages.compo
 import { NouveauSectionComponent } from './admin/gestion-pages/nouveau-section/nouveau-section.component';
 import { NouveauTitreMenuComponent } from './admin/gestion-pages/nouveau-titre-menu/nouveau-titre-menu.component';
 import { NouveauSousTitreMenuComponent } from './admin/gestion-pages/nouveau-sous-titre-menu/nouveau-sous-titre-menu.component';
+import { NouveauArticleComponent } from './admin/gestion-pages/nouveau-article/nouveau-article.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,11 @@ const routes: Routes = [
   {
     path: 'admin/gestion-pages-nouveau-sous-titre',
     component: NouveauSousTitreMenuComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin/gestion-pages-nouveau-article',
+    component: NouveauArticleComponent,
     canActivate: [AuthGuard],
   },
   {
