@@ -7,7 +7,7 @@ import { marked } from 'marked';
   styleUrls: ['./nouveau-article.component.scss']
 })
 export class NouveauArticleComponent implements OnInit, OnChanges {
-  @Input() model: any = {};
+  model: any = {};
   markedArticle: string;
 
   constructor() { }
@@ -18,13 +18,20 @@ export class NouveauArticleComponent implements OnInit, OnChanges {
     this.model.sousTitreSelect = 'Hors-ligne';
   }
 
-
+  // ngOnChanges ne fonctionne pas
   ngOnChanges(changes: SimpleChanges) {
+      alert('passe ici');
     // if (changes['model.article']) {
-      const md = marked.setOptions({});
-      this.markedArticle = md.parse(this.model.article);
-      this.markedArticle = this.model.article;
+      // const md = marked.setOptions({});
+     //  this.markedArticle = md.parse(this.model.article);
+     // this.markedArticle = this.model.article;
     // }
+  }
+
+  valuechange(e: any) {
+    // const md = marked.setOptions({});
+    // this.markedArticle = md.parse(this.model.article);
+    this.markedArticle = this.model.article;
   }
 
 }
