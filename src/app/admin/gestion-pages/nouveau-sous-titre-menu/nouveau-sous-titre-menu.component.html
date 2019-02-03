@@ -1,43 +1,29 @@
 <div class="wrapper">
-    <!-- Sidebar -->
-    <nav id="sidebar">
-        <ul class="list-unstyled components">
-            <p>Administration</p>
-            <li><!-- </li>class="active">-->
-              <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gestion pages</a>
-              <ul class="collapse list-unstyled" id="homeSubmenu">
-                  <li>
-                    <a href="#">Gestion pages</a>
-                  </li>                                                                  
-              </ul>
-          </li>     
-        </ul>
-    </nav>
-    <!-- Page Content -->
-    <div id="content">
-      <div class="container-fluid">
-      <form #nouveauSousTitre="ngForm">
-        <div class="form-group">
-          <label for="sectionSelect">Sélection d'une section</label>
-          <select class="form-control" id="sectionSelect"[(ngModel)]="model.sectionSelect" name="sectionSelect">
+  <app-admin-sidebar></app-admin-sidebar>
+  <!-- Page Content -->
+  <div id="content">
+    <div class="container-fluid">
+    <form #nouveauSousTitre="ngForm">
+      <div class="form-group">
+        <label for="sectionSelect">Sélection d'une section</label>
+        <select class="form-control" id="sectionSelect"[(ngModel)]="model.sectionSelect" name="sectionSelect">
+          <option value="hors-ligne">Hors-ligne</option>
+          <option value="Developpement web">Developpement web</option>
+          <option value="MAO">MAO</option>
+        </select>
+      </div>
+      <div class="form-group">
+          <label for="titreSelect">Sélection d'un titre</label>
+          <select class="form-control" id="titreSelect"[(ngModel)]="model.titreSelect" name="titreSelect">
             <option value="hors-ligne">Hors-ligne</option>
-            <option value="Developpement web">Developpement web</option>
-            <option value="MAO">MAO</option>
           </select>
         </div>
-        <div class="form-group">
-            <label for="titreSelect">Sélection d'un titre</label>
-            <select class="form-control" id="titreSelect"[(ngModel)]="model.titreSelect" name="titreSelect">
-              <option value="hors-ligne">Hors-ligne</option>
-            </select>
-          </div>
-        <div class="form-group">
-          <label for="nom">Nom du sous titre</label>
-          <input type="nom" class="form-control" id="sousTitre" aria-describedby="sousTitreHelp" placeholder="Veuillez saisir un sous titre" [(ngModel)]="model.sousTitre" name="sousTitre">
-          <small id="sousTitreHelp" class="form-text text-muted">Ce titre n'est pas forcément unique, mais doit être unique dans la section / le titre</small>
-        </div>
-        <button type="submit" class="btn btn-primary">Créer sous-titre</button>
-      </form>
-    </div>
+      <div class="form-group">
+        <label for="nom">Nom du sous titre</label>
+        <input type="nom" class="form-control" id="sousTitre" aria-describedby="sousTitreHelp" placeholder="Veuillez saisir un sous titre" [(ngModel)]="model.sousTitre" name="sousTitre">
+        <small id="sousTitreHelp" class="form-text text-muted">Ce titre n'est pas forcément unique, mais doit être unique dans la section / le titre</small>
+      </div>
+      <button type="submit" class="btn btn-primary">Créer sous-titre</button>
+    </form>
   </div>
 </div>

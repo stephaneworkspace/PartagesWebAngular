@@ -1,52 +1,38 @@
 <div class="wrapper">
-    <!-- Sidebar -->
-    <nav id="sidebar">
-        <ul class="list-unstyled components">
-            <p>Administration</p>
-            <li><!-- </li>class="active">-->
-              <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gestion pages</a>
-              <ul class="collapse list-unstyled" id="homeSubmenu">
-                  <li>
-                    <a href="#">Gestion pages</a>
-                  </li>                                                                  
-              </ul>
-          </li>     
-        </ul>
-    </nav>
-    <!-- Page Content -->
-    <div id="content">
-      <div class="container-fluid">
-      <form #nouveauSection="ngForm">
+  <app-admin-sidebar></app-admin-sidebar>
+  <!-- Page Content -->
+  <div id="content">
+    <div class="container-fluid">
+    <form #nouveauSection="ngForm">
+      <div class="form-group">
+        <label for="nom">Nom de la section</label>
+        <input type="nom" class="form-control" id="nom" aria-describedby="nomHelp" placeholder="Veuillez saisir un nom" [(ngModel)]="model.nom" name="nom">
+        <small id="nomHelp" class="form-text text-muted">Ce nom doit être unique</small>
+      </div>
+      <div class="form-group">
+        <label for="iconeSelect">Sélection de l'icone</label>
+        <select class="form-control" id="iconeSelect"[(ngModel)]="model.iconeSelect" name="iconeSelect">
+          <option value="desktop">Informatique</option>
+          <option value="globe">Planète</option>
+          <option value="coffee">Café</option>
+        </select>
+      </div>
+      <div *ngIf="model.iconeSelect != null">
         <div class="form-group">
-          <label for="nom">Nom de la section</label>
-          <input type="nom" class="form-control" id="nom" aria-describedby="nomHelp" placeholder="Veuillez saisir un nom" [(ngModel)]="model.nom" name="nom">
-          <small id="nomHelp" class="form-text text-muted">Ce nom doit être unique</small>
+          <label for="iconePreview">Preview</label>
+          <br />
+          <fa-icon class="icon-preview" *ngIf="model.iconeSelect != null" [icon]="['fa', model.iconeSelect]" [size]="this.faSizeProp"></fa-icon>
         </div>
-        <div class="form-group">
-          <label for="iconeSelect">Sélection de l'icone</label>
-          <select class="form-control" id="iconeSelect"[(ngModel)]="model.iconeSelect" name="iconeSelect">
-            <option value="desktop">Informatique</option>
-            <option value="globe">Planète</option>
-            <option value="coffee">Café</option>
+      </div>
+      <div class="form-group">
+          <label for="typeSelect">Sélection du type</label>
+          <select class="form-control" id="typeSelect"[(ngModel)]="model.typeSelect" name="typeSelect">
+            <option value="none">Défaut</option>
+            <option value="astral">Thème astral</option>
+            <option value="forum">Index du forum</option>
           </select>
         </div>
-        <div *ngIf="model.iconeSelect != null">
-          <div class="form-group">
-            <label for="iconePreview">Preview</label>
-            <br />
-            <fa-icon class="icon-preview" *ngIf="model.iconeSelect != null" [icon]="['fa', model.iconeSelect]" [size]="this.faSizeProp"></fa-icon>
-          </div>
-        </div>
-        <div class="form-group">
-            <label for="typeSelect">Sélection du type</label>
-            <select class="form-control" id="typeSelect"[(ngModel)]="model.typeSelect" name="typeSelect">
-              <option value="none">Défaut</option>
-              <option value="astral">Thème astral</option>
-              <option value="forum">Index du forum</option>
-            </select>
-          </div>
-        <button type="submit" class="btn btn-primary">Créer section</button>
-      </form>
-    </div>
+      <button type="submit" class="btn btn-primary">Créer section</button>
+    </form>
   </div>
 </div>

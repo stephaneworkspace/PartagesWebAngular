@@ -25,6 +25,7 @@ import { NouveauSectionComponent } from './admin/gestion-pages/nouveau-section/n
 import { NouveauTitreMenuComponent } from './admin/gestion-pages/nouveau-titre-menu/nouveau-titre-menu.component';
 import { NouveauSousTitreMenuComponent } from './admin/gestion-pages/nouveau-sous-titre-menu/nouveau-sous-titre-menu.component';
 import { NouveauArticleComponent } from './admin/gestion-pages/nouveau-article/nouveau-article.component';
+import { AdminSidebarComponent } from './admin/admin-sidebar/admin-sidebar.component';
 
 library.add(fas, far, fab);
 
@@ -38,6 +39,7 @@ library.add(fas, far, fab);
       RegisterComponent,
       MembersComponent,
       GestionPagesComponent,
+      AdminSidebarComponent,
       NouveauSectionComponent,
       NouveauTitreMenuComponent,
       NouveauSousTitreMenuComponent,
