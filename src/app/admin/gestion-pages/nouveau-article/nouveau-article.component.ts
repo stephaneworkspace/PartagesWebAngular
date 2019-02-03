@@ -1,5 +1,8 @@
 import { Component, OnInit, OnChanges, SimpleChanges, Input } from '@angular/core';
-import { marked } from 'marked';
+import { modelGroupProvider } from '@angular/forms/src/directives/ng_model_group';
+
+declare var require: any;
+const myMarked = require('marked');
 
 @Component({
   selector: 'app-nouveau-article',
@@ -29,9 +32,21 @@ export class NouveauArticleComponent implements OnInit, OnChanges {
   }
 
   valuechange(e: any) {
-    // const md = marked.setOptions({});
-    // this.markedArticle = md.parse(this.model.article);
-    this.markedArticle = this.model.article;
+  myMarked.setOptions({
+      renderer: new myMarked.Renderer(),
+      highlight: function(code) {
+        return require('highlight.js').highlightAuto(code).value;
+      },
+      // pedantic: false,
+      // gfm: true,
+      // tables: true,
+      breaks: true,
+      sanitize: true,
+      // smartLists: true,
+      // smartypants: false,
+      // xhtml: false
+    });
+    this.markedArticle = myMarked(this.model.article);
   }
 
 }
