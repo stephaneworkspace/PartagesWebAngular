@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { CanDeactivate } from '@angular/router';
-import { EditionArticleComponent } from '../admin/gestion-pages/edition-article/edition-article.component';
 import { EditionSectionComponent } from '../admin/gestion-pages/edition-section/edition-section.component';
 
 @Injectable()
