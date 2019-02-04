@@ -26,6 +26,9 @@ import { NouveauTitreMenuComponent } from './admin/gestion-pages/nouveau-titre-m
 import { NouveauSousTitreMenuComponent } from './admin/gestion-pages/nouveau-sous-titre-menu/nouveau-sous-titre-menu.component';
 import { NouveauArticleComponent } from './admin/gestion-pages/nouveau-article/nouveau-article.component';
 import { AdminSidebarComponent } from './admin/admin-sidebar/admin-sidebar.component';
+import { ArticleService } from './_services/article.service';
+import { GestionPagesArticleEditionResolver } from './_resolver/gestion-pages-article-edition.resolver';
+import { EditionArticleComponent } from './admin/gestion-pages/edition-article/edition-article.component';
 
 library.add(fas, far, fab);
 
@@ -43,7 +46,8 @@ library.add(fas, far, fab);
       NouveauSectionComponent,
       NouveauTitreMenuComponent,
       NouveauSousTitreMenuComponent,
-      NouveauArticleComponent
+      NouveauArticleComponent,
+      EditionArticleComponent
    ],
    imports: [
       BrowserModule,
@@ -55,7 +59,9 @@ library.add(fas, far, fab);
    ],
    providers: [
       AuthService,
-      AlertifyService
+      AlertifyService,
+      ArticleService,
+      GestionPagesArticleEditionResolver
    ],
    bootstrap: [
       AppComponent
