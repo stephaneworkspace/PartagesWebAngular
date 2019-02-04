@@ -36,7 +36,7 @@ export class EditionArticleComponent implements OnInit {
   }
 
   updateArticle() {
-    this.articleService.updateArticle(this.authService.decodedToken.nameid, this.user).subscribe(next => {
+    this.articleService.updateArticle(this.authService.decodedToken.nameid, this.article).subscribe(next => {
       this.alertify.success('Article mis à jour');
       this.editionArticleForm.reset(this.article);
     }, error => {

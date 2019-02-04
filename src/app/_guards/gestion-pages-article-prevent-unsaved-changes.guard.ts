@@ -3,10 +3,11 @@ import { CanDeactivate } from '@angular/router';
 import { EditionArticleComponent } from '../admin/gestion-pages/edition-article/edition-article.component';
 
 @Injectable()
-export class GestionPagesArticlePreventUnsavedChanges implements CanDeactivate<EditionArticleComponent> {
+export class GestionPagesArticlePreventUnsavedChangesGuard implements CanDeactivate<EditionArticleComponent> {
     canDeactivate(component: EditionArticleComponent) {
         if (component.editionArticleForm.dirty) {
-            return confirm('Are you sure you want to continue?  Any unsaved changes will be lost');
+            // tslint:disable-next-line:max-line-length
+            return confirm('Êtes-vous sur de vouloir continuer sans sauvegarder les modifications des données de l\'article ? Tous changements sera alors perdu');
         }
         return true;
     }

@@ -29,6 +29,10 @@ import { AdminSidebarComponent } from './admin/admin-sidebar/admin-sidebar.compo
 import { ArticleService } from './_services/article.service';
 import { GestionPagesArticleEditionResolver } from './_resolver/gestion-pages-article-edition.resolver';
 import { EditionArticleComponent } from './admin/gestion-pages/edition-article/edition-article.component';
+import { EditionSectionComponent } from './admin/gestion-pages/edition-section/edition-section.component';
+import { SectionService } from './_services/section.service';
+import { GestionPagesSectionEditionResolver } from './_resolver/gestion-pages-section-edition.resolver.ts';
+import { GestionPagesSectionPreventUnsavedChangesGuard } from './_guards/gestion-pages-article-prevent-unsaved-change.guard';
 
 library.add(fas, far, fab);
 
@@ -47,6 +51,7 @@ library.add(fas, far, fab);
       NouveauTitreMenuComponent,
       NouveauSousTitreMenuComponent,
       NouveauArticleComponent,
+      EditionSectionComponent,
       EditionArticleComponent
    ],
    imports: [
@@ -60,8 +65,12 @@ library.add(fas, far, fab);
    providers: [
       AuthService,
       AlertifyService,
+      SectionService,
       ArticleService,
-      GestionPagesArticleEditionResolver
+      GestionPagesSectionEditionResolver,
+      GestionPagesArticleEditionResolver,
+      GestionPagesSectionPreventUnsavedChangesGuard,
+      GestionPagesSectionPreventUnsavedChangesGuard
    ],
    bootstrap: [
       AppComponent
