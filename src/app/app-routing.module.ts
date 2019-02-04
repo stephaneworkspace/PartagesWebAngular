@@ -15,9 +15,9 @@ import { GestionPagesArticlePreventUnsavedChangesGuard } from './_guards/gestion
 import { GestionPagesSectionEditionResolver } from './_resolver/gestion-pages-section-edition.resolver.ts';
 import { GestionPagesSectionPreventUnsavedChangesGuard } from './_guards/gestion-pages-section-prevent-unsaved-change.guard';
 import { EditionSectionComponent } from './admin/gestion-pages/edition-section/edition-section.component';
-import { EditionTitreComponent } from './admin/gestion-pages/edition-titre/edition-titre.component';
-import { GestionPagesTitreEditionResolver } from './_resolver/gestion-pages-titre-edition.resolver';
-import { GestionPagesTitrePreventUnsavedChangesGuard } from './_guards/gestion-pages-titre-prevent-unsaved-changes.guard';
+import { EditionTitreMenuComponent } from './admin/gestion-pages/edition-titre-menu/edition-titre-menu.component';
+import { GestionPagesTitreMenuEditionResolver } from './_resolver/gestion-pages-titre-menu-edition.resolver';
+import { GestionPagesTitreMenuPreventUnsavedChangesGuard } from './_guards/gestion-pages-titre-menu-prevent-unsaved-changes.guard';
 
 const routes: Routes = [
   {
@@ -57,9 +57,9 @@ const routes: Routes = [
   },
   {
     path: 'admin/gestion-pages-edition-titre/:id',
-    component: EditionTitreComponent,
+    component: EditionTitreMenuComponent,
     canActivate: [AuthGuard],
-    resolve: {user: GestionPagesTitreEditionResolver}, canDeactivate: [GestionPagesTitrePreventUnsavedChangesGuard],
+    resolve: {user: GestionPagesTitreMenuEditionResolver}, canDeactivate: [GestionPagesTitreMenuPreventUnsavedChangesGuard],
   },
   {
     path: 'admin/gestion-pages-edition-article/:id',

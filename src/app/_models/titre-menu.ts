@@ -1,10 +1,8 @@
 import { Section } from './section';
-import { Titre } from './titre';
 
-export interface SousTitre {
+export interface TitreMenu {
   id: number;
   section?: Section;
-  titre?: Titre;
   nom: string;
   position: number;
 }

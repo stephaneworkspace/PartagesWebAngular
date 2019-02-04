@@ -1,12 +1,12 @@
 import { Section } from './section';
-import { Titre } from './titre';
-import { SousTitre } from './sous-titre';
+import { TitreMenu } from './titre-menu';
+import { SousTitreMenu } from './sous-titre-menu';
 
 export interface Article {
   id: number;
   section?: Section;
-  titre?: Titre;
-  sousTitre?: SousTitre;
+  titreMenu?: TitreMenu;
+  sousTitreMenu?: SousTitreMenu;
   nom: string;
   article: string;
   position: number;

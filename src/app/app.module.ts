@@ -32,12 +32,12 @@ import { EditionArticleComponent } from './admin/gestion-pages/edition-article/e
 import { EditionSectionComponent } from './admin/gestion-pages/edition-section/edition-section.component';
 import { SectionService } from './_services/section.service';
 import { GestionPagesSectionEditionResolver } from './_resolver/gestion-pages-section-edition.resolver.ts';
-import { GestionPagesTitreEditionResolver } from './_resolver/gestion-pages-titre-edition.resolver';
+import { GestionPagesTitreMenuEditionResolver } from './_resolver/gestion-pages-titre-menu-edition.resolver';
 import { GestionPagesSousTitreEditionResolver } from './_resolver/gestion-pages-sous-titre-edition.resolver';
 import { GestionPagesSectionPreventUnsavedChangesGuard } from './_guards/gestion-pages-section-prevent-unsaved-change.guard';
 import { GestionPagesArticlePreventUnsavedChangesGuard } from './_guards/gestion-pages-article-prevent-unsaved-changes.guard';
-import { GestionPagesTitrePreventUnsavedChangesGuard } from './_guards/gestion-pages-titre-prevent-unsaved-changes.guard';
-import { EditionTitreComponent } from './admin/gestion-pages/edition-titre/edition-titre.component';
+import { GestionPagesTitreMenuPreventUnsavedChangesGuard } from './_guards/gestion-pages-titre-menu-prevent-unsaved-changes.guard';
+import { EditionTitreMenuComponent } from './admin/gestion-pages/edition-titre-menu/edition-titre-menu.component';
 
 library.add(fas, far, fab);
 
@@ -57,7 +57,7 @@ library.add(fas, far, fab);
       NouveauSousTitreMenuComponent,
       NouveauArticleComponent,
       EditionSectionComponent,
-      EditionTitreComponent,
+      EditionTitreMenuComponent,
       EditionArticleComponent
    ],
    imports: [
@@ -74,11 +74,11 @@ library.add(fas, far, fab);
       SectionService,
       ArticleService,
       GestionPagesSectionEditionResolver,
-      GestionPagesTitreEditionResolver,
+      GestionPagesTitreMenuEditionResolver,
       GestionPagesSousTitreEditionResolver,
       GestionPagesArticleEditionResolver,
       GestionPagesSectionPreventUnsavedChangesGuard,
-      GestionPagesTitrePreventUnsavedChangesGuard,
+      GestionPagesTitreMenuPreventUnsavedChangesGuard,
       GestionPagesArticlePreventUnsavedChangesGuard
    ],
    bootstrap: [
