@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import { CanDeactivate } from '@angular/router';
 import { EditionArticleComponent } from '../admin/gestion-pages/edition-article/edition-article.component';
 

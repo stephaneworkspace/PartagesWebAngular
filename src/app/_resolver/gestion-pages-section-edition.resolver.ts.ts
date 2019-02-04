@@ -1,6 +1,6 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Section } from '../_models/section';
-import {Resolve, Router, ActivatedRouteSnapshot} from '@angular/router';
+import { Resolve, Router, ActivatedRouteSnapshot } from '@angular/router';
 import { SectionService } from '../_services/section.service';
 import { AlertifyService } from '../_services/alertify.service';
 import { Observable, of } from 'rxjs';

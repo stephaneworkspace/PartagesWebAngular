@@ -3,4 +3,5 @@ export interface Section {
     nom: string;
     icone: string;
     type: string;
+    position: number;
 }
