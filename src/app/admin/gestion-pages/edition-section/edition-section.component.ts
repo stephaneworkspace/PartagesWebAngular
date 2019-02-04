@@ -13,11 +13,11 @@ import { AuthService } from 'src/app/_services/auth.service';
 })
 export class EditionSectionComponent implements OnInit {
   // Voir guards, 4 février 2019 je ne l'ai pas testé
-  @ViewChild('editionArticleForm') editionArticleForm: NgForm;
+  @ViewChild('editForm') editForm: NgForm;
   section: Section;
   @HostListener('window:beforeunload', ['$event'])
   unloadNotification($event: any) {
-    if (this.editionArticleForm.dirty) {
+    if (this.editForm.dirty) {
       $event.returnValue = true;
     }
   }
@@ -37,7 +37,7 @@ ngOnInit() {
 updateArticle() {
   this.sectionService.updateSection(this.authService.decodedToken.nameid, this.section).subscribe(next => {
     this.alertify.success('Section mise à jour');
-    this.editionArticleForm.reset(this.section);
+    this.editForm.reset(this.section);
   }, error => {
     this.alertify.error(error);
   });

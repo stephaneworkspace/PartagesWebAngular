@@ -13,11 +13,11 @@ import { AuthService } from 'src/app/_services/auth.service';
 })
 export class EditionSousTitreMenuComponent implements OnInit {
   // Voir guards, 4 février 2019 je ne l'ai pas testé
-  @ViewChild('editionSousTitreMenuForm') editionSousTitreMenuForm: NgForm;
+  @ViewChild('editForm') editForm: NgForm;
   sousTitreMenu: SousTitreMenu;
   @HostListener('window:beforeunload', ['$event'])
   unloadNotification($event: any) {
-    if (this.editionSousTitreMenuForm.dirty) {
+    if (this.editForm.dirty) {
       $event.returnValue = true;
     }
   }
@@ -38,7 +38,7 @@ ngOnInit() {
 updateTitreMenu() {
   this.sousTitreMenuService.updateSousTitreMenu(this.authService.decodedToken.nameid, this.sousTitreMenu).subscribe(next => {
     this.alertify.success('Sous titre mis à jour');
-    this.editionSousTitreMenuForm.reset(this.sousTitreMenu);
+    this.editForm.reset(this.sousTitreMenu);
   }, error => {
     this.alertify.error(error);
   });

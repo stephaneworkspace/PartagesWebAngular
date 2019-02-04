@@ -7,11 +7,11 @@
         <h1>Article</h1>
     </div>
     <div class="col-sm-8">
-      <div *ngIf="editionArticleForm.dirty" class="alert alert-info">
+      <div *ngIf="editForm.dirty" class="alert alert-info">
         <strong>Information:</strong> You have made changes.  Any unsaved changes will be lost!
       </div>
     </div>
-    <form #editionArticleForm="ngForm">
+    <form #editForm="ngForm">
       <div class="form-group">
         <label for="sectionSelect">Sélection d'une section</label>
         <select class="form-control" id="sectionSelect" [(ngModel)]="model.sectionSelect" name="sectionSelect">
@@ -53,7 +53,7 @@
         *ngIf="model.article != null"
       ></div>
       <button 
-        [disabled]="!editionArticleForm.dirty" 
+        [disabled]="!editForm.dirty" 
         type="submit" 
         class="btn btn-primary"
         (ngSubmit)="updateArticle()"

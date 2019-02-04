@@ -7,11 +7,11 @@
         <h1>Sous Titre</h1>
     </div>
     <div class="col-sm-8">
-      <div *ngIf="editionSousTitreMenuForm.dirty" class="alert alert-info">
+      <div *ngIf="editForm.dirty" class="alert alert-info">
         <strong>Information:</strong> You have made changes.  Any unsaved changes will be lost!
       </div>
     </div>
-    <form #editionArticleForm="ngForm">
+    <form #editForm="ngForm">
       <div class="form-group">
         <label for="sectionSelect">Sélection d'une section</label>
         <select class="form-control" id="sectionSelect" [(ngModel)]="model.sectionSelect" name="sectionSelect">
@@ -32,7 +32,7 @@
         <small id="sousTitreMenuHelp" class="form-text text-muted">Ce titre n'est pas forcément unique, mais doit être unique dans la section / le titre</small>
       </div>
       <button 
-        [disabled]="!editionSousTitreMenuForm.dirty" 
+        [disabled]="!editForm.dirty" 
         type="submit" 
         class="btn btn-primary"
         (ngSubmit)="updateSousTitreMenu()"

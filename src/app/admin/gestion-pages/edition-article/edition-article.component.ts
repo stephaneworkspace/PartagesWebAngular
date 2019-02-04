@@ -13,11 +13,11 @@ import { Article } from 'src/app/_models/article';
 })
 export class EditionArticleComponent implements OnInit {
   // Voir guards, 4 février 2019 je ne l'ai pas testé
-  @ViewChild('editionArticleForm') editionArticleForm: NgForm;
+  @ViewChild('editForm') editForm: NgForm;
   article: Article;
   @HostListener('window:beforeunload', ['$event'])
   unloadNotification($event: any) {
-    if (this.editionArticleForm.dirty) {
+    if (this.editForm.dirty) {
       $event.returnValue = true;
     }
   }
@@ -38,7 +38,7 @@ export class EditionArticleComponent implements OnInit {
   updateArticle() {
     this.articleService.updateArticle(this.authService.decodedToken.nameid, this.article).subscribe(next => {
       this.alertify.success('Article mis à jour');
-      this.editionArticleForm.reset(this.article);
+      this.editForm.reset(this.article);
     }, error => {
       this.alertify.error(error);
     });

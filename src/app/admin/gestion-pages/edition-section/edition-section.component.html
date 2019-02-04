@@ -7,11 +7,11 @@
         <h1>Section</h1>
     </div>
     <div class="col-sm-8">
-      <div *ngIf="editionArticleForm.dirty" class="alert alert-info">
+      <div *ngIf="editForm.dirty" class="alert alert-info">
         <strong>Information:</strong> You have made changes.  Any unsaved changes will be lost!
       </div>
     </div>
-    <form #editionSectionForm="ngForm">
+    <form #editForm="ngForm">
       <div class="form-group">
         <label for="nom">Nom de la section</label>
         <input type="nom" class="form-control" id="nom" aria-describedby="nomHelp" placeholder="Veuillez saisir un nom" [(ngModel)]="model.nom" name="nom">
@@ -41,7 +41,7 @@
           </select>
         </div>
       <button 
-        [disabled]="!editionSectionForm.dirty" 
+        [disabled]="!editForm.dirty" 
         type="submit" 
         class="btn btn-primary"
         (ngSubmit)="updateArticle()"
