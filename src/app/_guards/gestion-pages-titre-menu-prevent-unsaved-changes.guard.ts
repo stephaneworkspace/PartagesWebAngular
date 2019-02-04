@@ -5,7 +5,7 @@ import { EditionTitreMenuComponent } from '../admin/gestion-pages/edition-titre-
 @Injectable()
 export class GestionPagesTitreMenuPreventUnsavedChangesGuard implements CanDeactivate<EditionTitreMenuComponent> {
     canDeactivate(component: EditionTitreMenuComponent) {
-        if (component.editionTitreForm.dirty) {
+        if (component.editionTitreMenuForm.dirty) {
             // tslint:disable-next-line:max-line-length
             return confirm('Êtes-vous sur de vouloir continuer sans sauvegarder les modifications des données du titre ? Tous changements sera alors perdu');
         }

@@ -8,14 +8,14 @@ import { catchError } from 'rxjs/operators';
 import { AuthService } from '../_services/auth.service';
 
 @Injectable()
-export class GestionPagesSousTitreEditionResolver implements Resolve<Article> {
+export class GestionPagesSousTitreMenuEditionResolver implements Resolve<Article> {
     constructor(private sousTitreService: SousTitreMenuService, private router: Router,
         private alertify: AlertifyService, private authService: AuthService) {}
 
     resolve(route: ActivatedRouteSnapshot): Observable<Article> {
         return this.sousTitreService.getSousTitreMenu(this.authService.decodedToken.nameid).pipe(
             catchError(error => {
-                this.alertify.error('Problème de chargement des données du sous titre');
+                this.alertify.error('Problème de chargement des données du sous titre du menu');
                 this.router.navigate(['/admin']);
                 return of(null);
             })

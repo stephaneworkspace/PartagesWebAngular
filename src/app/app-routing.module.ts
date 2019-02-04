@@ -18,6 +18,8 @@ import { EditionSectionComponent } from './admin/gestion-pages/edition-section/e
 import { EditionTitreMenuComponent } from './admin/gestion-pages/edition-titre-menu/edition-titre-menu.component';
 import { GestionPagesTitreMenuEditionResolver } from './_resolver/gestion-pages-titre-menu-edition.resolver';
 import { GestionPagesTitreMenuPreventUnsavedChangesGuard } from './_guards/gestion-pages-titre-menu-prevent-unsaved-changes.guard';
+import { EditionSousTitreMenuComponent } from './admin/gestion-pages/edition-sous-titre-menu/edition-sous-titre-menu.component';
+import { GestionPagesSousTitreMenuEditionResolver } from './_resolver/gestion-pages-sous-titre-menu-edition.resolver';
 
 const routes: Routes = [
   {
@@ -60,6 +62,12 @@ const routes: Routes = [
     component: EditionTitreMenuComponent,
     canActivate: [AuthGuard],
     resolve: {user: GestionPagesTitreMenuEditionResolver}, canDeactivate: [GestionPagesTitreMenuPreventUnsavedChangesGuard],
+  },
+  {
+    path: 'admin/gestion-pages-edition-sous-titre/:id',
+    component: EditionSousTitreMenuComponent,
+    canActivate: [AuthGuard],
+    resolve: {user: GestionPagesSousTitreMenuEditionResolver}, canDeactivate: [GestionPagesTitreMenuPreventUnsavedChangesGuard],
   },
   {
     path: 'admin/gestion-pages-edition-article/:id',

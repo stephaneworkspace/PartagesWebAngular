@@ -7,7 +7,7 @@
         <h1>Titre</h1>
     </div>
     <div class="col-sm-8">
-      <div *ngIf="editionTitreForm.dirty" class="alert alert-info">
+      <div *ngIf="editionTitreMenuForm.dirty" class="alert alert-info">
         <strong>Information:</strong> You have made changes.  Any unsaved changes will be lost!
       </div>
     </div>
@@ -26,7 +26,7 @@
         <small id="titreHelp" class="form-text text-muted">Ce titre n'est pas forcément unique, mais doit être unique dans la section</small>
       </div>
       <button 
-        [disabled]="!editionTitreForm.dirty" 
+        [disabled]="!editionTitreMenuForm.dirty" 
         type="submit" 
         class="btn btn-primary"
         (ngSubmit)="updateTitreMenu()"

@@ -3,27 +3,40 @@
   <!-- Page Content -->
   <div id="content">
     <div class="container-fluid">
-    <form #nouveauSousTitre="ngForm">
+    <div class="col-sm-4">
+        <h1>Sous Titre</h1>
+    </div>
+    <div class="col-sm-8">
+      <div *ngIf="editionSousTitreMenuForm.dirty" class="alert alert-info">
+        <strong>Information:</strong> You have made changes.  Any unsaved changes will be lost!
+      </div>
+    </div>
+    <form #editionArticleForm="ngForm">
       <div class="form-group">
         <label for="sectionSelect">Sélection d'une section</label>
-        <select class="form-control" id="sectionSelect"[(ngModel)]="model.sectionSelect" name="sectionSelect">
+        <select class="form-control" id="sectionSelect" [(ngModel)]="model.sectionSelect" name="sectionSelect">
           <option value="hors-ligne">Hors-ligne</option>
           <option value="Developpement web">Developpement web</option>
           <option value="MAO">MAO</option>
         </select>
       </div>
       <div class="form-group">
-          <label for="titreMenuSelect">Sélection d'un titre</label>
-          <select class="form-control" id="titreMenuSelect"[(ngModel)]="model.titreMenuSelect" name="titreMenuSelect">
-            <option value="hors-ligne">Hors-ligne</option>
-          </select>
-        </div>
+        <label for="titreSelect">Sélection d'un titre</label>
+        <select class="form-control" id="titreSelect"[(ngModel)]="model.titreSelect" name="titreSelect">
+          <option value="hors-ligne">Hors-ligne</option>
+        </select>
+      </div>      
       <div class="form-group">
         <label for="nom">Nom du sous titre</label>
         <input type="nom" class="form-control" id="sousTitreMenu" aria-describedby="sousTitreMenuHelp" placeholder="Veuillez saisir un sous titre" [(ngModel)]="model.sousTitreMenu" name="sousTitreMenu">
         <small id="sousTitreMenuHelp" class="form-text text-muted">Ce titre n'est pas forcément unique, mais doit être unique dans la section / le titre</small>
       </div>
-      <button type="submit" class="btn btn-primary">Créer sous-titre</button>
+      <button 
+        [disabled]="!editionSousTitreMenuForm.dirty" 
+        type="submit" 
+        class="btn btn-primary"
+        (ngSubmit)="updateSousTitreMenu()"
+      >Éditer sous titre</button>
     </form>
   </div>
 </div>
