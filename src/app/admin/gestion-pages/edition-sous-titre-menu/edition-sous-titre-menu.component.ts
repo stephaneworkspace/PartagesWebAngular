@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { AlertifyService } from 'src/app/_services/alertify.service';
 import { SousTitreMenuService } from 'src/app/_services/sous-titre-menu.service';
 import { AuthService } from 'src/app/_services/auth.service';
+import { Section } from 'src/app/_models/section';
 
 @Component({
   selector: 'app-edition-sous-titre-menu',
@@ -15,6 +16,7 @@ export class EditionSousTitreMenuComponent implements OnInit {
   // Voir guards, 4 février 2019 je ne l'ai pas testé
   @ViewChild('editForm') editForm: NgForm;
   sousTitreMenu: SousTitreMenu;
+  section: Section[];
   @HostListener('window:beforeunload', ['$event'])
   unloadNotification($event: any) {
     if (this.editForm.dirty) {

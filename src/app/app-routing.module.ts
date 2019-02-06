@@ -20,6 +20,7 @@ import { GestionPagesTitreMenuEditionResolver } from './_resolver/gestion-pages-
 import { GestionPagesTitreMenuPreventUnsavedChangesGuard } from './_guards/gestion-pages-titre-menu-prevent-unsaved-changes.guard';
 import { EditionSousTitreMenuComponent } from './admin/gestion-pages/edition-sous-titre-menu/edition-sous-titre-menu.component';
 import { GestionPagesSousTitreMenuEditionResolver } from './_resolver/gestion-pages-sous-titre-menu-edition.resolver';
+import { GestionPagesSectionSelectResolver } from './_resolver/gestion-pages-section-select.resolver.ts';
 
 const routes: Routes = [
   {
@@ -55,25 +56,28 @@ const routes: Routes = [
     path: 'admin/gestion-pages-edition-section/:id',
     component: EditionSectionComponent,
     canActivate: [AuthGuard],
-    resolve: {user: GestionPagesSectionEditionResolver}, canDeactivate: [GestionPagesSectionPreventUnsavedChangesGuard],
+    resolve: {section: GestionPagesSectionEditionResolver}, canDeactivate: [GestionPagesSectionPreventUnsavedChangesGuard],
   },
   {
     path: 'admin/gestion-pages-edition-titre/:id',
     component: EditionTitreMenuComponent,
     canActivate: [AuthGuard],
-    resolve: {user: GestionPagesTitreMenuEditionResolver}, canDeactivate: [GestionPagesTitreMenuPreventUnsavedChangesGuard],
+    resolve: {
+      titreMenu: GestionPagesTitreMenuEditionResolver,
+      section: GestionPagesSectionSelectResolver,
+    }, canDeactivate: [GestionPagesTitreMenuPreventUnsavedChangesGuard],
   },
   {
     path: 'admin/gestion-pages-edition-sous-titre/:id',
     component: EditionSousTitreMenuComponent,
     canActivate: [AuthGuard],
-    resolve: {user: GestionPagesSousTitreMenuEditionResolver}, canDeactivate: [GestionPagesTitreMenuPreventUnsavedChangesGuard],
+    resolve: {sousTitreMenu: GestionPagesSousTitreMenuEditionResolver}, canDeactivate: [GestionPagesTitreMenuPreventUnsavedChangesGuard],
   },
   {
     path: 'admin/gestion-pages-edition-article/:id',
     component: EditionArticleComponent,
     canActivate: [AuthGuard],
-    resolve: {user: GestionPagesArticleEditionResolver}, canDeactivate: [GestionPagesArticlePreventUnsavedChangesGuard],
+    resolve: {article: GestionPagesArticleEditionResolver}, canDeactivate: [GestionPagesArticlePreventUnsavedChangesGuard],
   },
   {
     path: 'informatique-web',

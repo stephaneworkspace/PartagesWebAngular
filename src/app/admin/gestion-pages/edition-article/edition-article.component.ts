@@ -5,6 +5,7 @@ import { AlertifyService } from 'src/app/_services/alertify.service';
 import { ArticleService } from 'src/app/_services/article.service';
 import { AuthService } from 'src/app/_services/auth.service';
 import { Article } from 'src/app/_models/article';
+import { Section } from 'src/app/_models/section';
 
 @Component({
   selector: 'app-edition-article',
@@ -15,6 +16,7 @@ export class EditionArticleComponent implements OnInit {
   // Voir guards, 4 février 2019 je ne l'ai pas testé
   @ViewChild('editForm') editForm: NgForm;
   article: Article;
+  section: Section[];
   @HostListener('window:beforeunload', ['$event'])
   unloadNotification($event: any) {
     if (this.editForm.dirty) {
