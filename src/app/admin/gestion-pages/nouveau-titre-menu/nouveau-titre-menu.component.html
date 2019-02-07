@@ -3,21 +3,31 @@
   <!-- Page Content -->
   <div id="content">
     <div class="container-fluid">
-    <form #nouveauTitre="ngForm">
+      <form #editForm="ngForm">
       <div class="form-group">
         <label for="sectionSelect">Sélection d'une section</label>
-        <select class="form-control" id="sectionSelect"[(ngModel)]="model.sectionSelect" name="sectionSelect">
+        <select class="form-control" id="sectionSelect" [(ngModel)]="model.sectionSelect" name="sectionSelect">
           <option value="hors-ligne">Hors-ligne</option>
           <option value="Developpement web">Developpement web</option>
           <option value="MAO">MAO</option>
         </select>
+        <select class="form-control" id="sectionSelect2" [(ngModel)]="model.sectionSelect2" name="sectionSelect2">
+          <option 
+            *ngFor="let item of section; let item = index" 
+            [value]="item.value">{{ item.nom }}</option>
+        </select>        
       </div>
       <div class="form-group">
         <label for="nom">Nom du titre</label>
         <input type="nom" class="form-control" id="titre" aria-describedby="titreHelp" placeholder="Veuillez saisir un titre" [(ngModel)]="model.titre" name="titre">
         <small id="titreHelp" class="form-text text-muted">Ce titre n'est pas forcément unique, mais doit être unique dans la section</small>
       </div>
-      <button type="submit" class="btn btn-primary">Créer titre</button>
+      <button 
+        [disabled]="!editForm.dirty" 
+        type="submit" 
+        class="btn btn-primary"
+        (ngSubmit)="createTitreMenu()"
+      >Créer titre</button>
     </form>
   </div>
 </div>

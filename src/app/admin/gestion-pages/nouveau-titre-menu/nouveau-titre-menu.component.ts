@@ -1,5 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { modelGroupProvider } from '@angular/forms/src/directives/ng_model_group';
+import { NgForm } from '@angular/forms';
+import { Section } from 'src/app/_models/section';
+import { AuthService } from 'src/app/_services/auth.service';
+import { TitreMenuService } from 'src/app/_services/titre-menu.service';
+import { AlertifyService } from 'src/app/_services/alertify.service';
+import { ActivatedRoute } from '@angular/router';
+import { TitreMenu } from 'src/app/_models/titre-menu';
 
 @Component({
   selector: 'app-nouveau-titre-menu',
@@ -7,12 +14,63 @@ import { modelGroupProvider } from '@angular/forms/src/directives/ng_model_group
   styleUrls: ['./nouveau-titre-menu.component.scss']
 })
 export class NouveauTitreMenuComponent implements OnInit {
+  @ViewChild('editForm') editForm: NgForm;
   model: any = {};
+  section: Section[] = [
+    {
+      id: 1,
+      nom: 'Developpement web',
+      icone: 'web',
+      type: 'type01',
+      position: 1
+    },
+    {
+      id: 1,
+      nom: 'Thème astral',
+      icone: 'globe',
+      type: 'type01',
+      position: 2
+    },
+    {
+      id: 1,
+      nom: 'MAO',
+      icone: 'globe',
+      type: 'type01',
+      position: 2
+    },
+    {
+      id: 0,
+      nom: 'Hors ligne',
+      icone: 'web',
+      type: 'type01',
+      position: 1
+    },
+  ];
 
-  constructor() { }
+  // titreMenu: TitreMenu; pour le post, afin de ne pas envoyer le form... 
+  // c'est peut être pas la meilleur methode
+  titreMenu: TitreMenu;
+
+  constructor(
+    private route: ActivatedRoute,
+    private alertify: AlertifyService,
+    private titreMenuService: TitreMenuService) { }
 
   ngOnInit() {
     this.model.sectionSelect = 'hors-ligne';
+    this.route.data.subscribe(data => {
+      // this.titreMenu = data['titre-menu'];
+      // A FAIRE 7 fevrier this.section = data['section'];
+    });
+  }
+
+  createTitreMenu() {
+    this.titreMenuService.createTitreMenu(this.titreMenu).subscribe(next => {
+      this.alertify.success('Titre crée');
+      // this.editForm.reset(this.titreMenu);
+    }, error => {
+      this.alertify.error(error);
+    });
   }
 
 }

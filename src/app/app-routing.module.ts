@@ -37,10 +37,15 @@ const routes: Routes = [
     component: NouveauSectionComponent,
     canActivate: [AuthGuard],
   },
+  // can desactive a faire
   {
     path: 'admin/gestion-pages-nouveau-titre',
     component: NouveauTitreMenuComponent,
     canActivate: [AuthGuard],
+    // 7 fevrier en attente d'un backend
+    // resolve: {
+    //  section: GestionPagesSectionSelectResolver
+    // },
   },
   {
     path: 'admin/gestion-pages-nouveau-sous-titre',

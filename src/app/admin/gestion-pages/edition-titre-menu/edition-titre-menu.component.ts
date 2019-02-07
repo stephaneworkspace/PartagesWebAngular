@@ -28,17 +28,19 @@ export class EditionTitreMenuComponent implements OnInit {
     private route: ActivatedRoute,
     private alertify: AlertifyService,
     private titreMenuService: TitreMenuService,
-    private authService: AuthService
+    // 7 fevrier private authService: AuthService
 ) { }
 
 ngOnInit() {
   this.route.data.subscribe(data => {
     this.titreMenu = data['titre-menu'];
+    this.section = data['section'];
   });
 }
 
 updateTitreMenu() {
-  this.titreMenuService.updateTitreMenu(this.authService.decodedToken.nameid, this.titreMenu).subscribe(next => {
+  // 7 fevrier , le token était envoyé ici ???
+  this.titreMenuService.updateTitreMenu(this.titreMenu.id, this.titreMenu).subscribe(next => {
     this.alertify.success('Titre mis à jour');
     this.editForm.reset(this.titreMenu);
   }, error => {
