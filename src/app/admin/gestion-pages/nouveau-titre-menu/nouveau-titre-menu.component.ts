@@ -22,28 +22,32 @@ export class NouveauTitreMenuComponent implements OnInit {
       nom: 'Developpement web',
       icone: 'web',
       type: 'type01',
-      position: 1
+      position: 1,
+      swHorsLigne: false
     },
     {
       id: 1,
       nom: 'Thème astral',
       icone: 'globe',
       type: 'type01',
-      position: 2
+      position: 2,
+      swHorsLigne: false
     },
     {
       id: 1,
       nom: 'MAO',
       icone: 'globe',
       type: 'type01',
-      position: 2
+      position: 3,
+      swHorsLigne: false
     },
     {
       id: 0,
       nom: 'Hors ligne',
       icone: 'web',
       type: 'type01',
-      position: 1
+      position: 4,
+      swHorsLigne: false
     },
   ];
 

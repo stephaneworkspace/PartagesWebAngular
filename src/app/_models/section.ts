@@ -4,4 +4,5 @@ export interface Section {
     icone: string;
     type: string;
     position: number;
+    swHorsLigne: boolean;
 }

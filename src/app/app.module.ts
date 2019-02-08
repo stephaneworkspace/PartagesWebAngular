@@ -42,6 +42,8 @@ import { EditionTitreMenuComponent } from './admin/gestion-pages/edition-titre-m
 import { GestionPagesSousTitreMenuPreventUnsavedChangesGuard } from './_guards/gestion-pages-sous-titre-menu-prevent-unsaved-changes.guard.ts';
 import { EditionSousTitreMenuComponent } from './admin/gestion-pages/edition-sous-titre-menu/edition-sous-titre-menu.component';
 import { GestionPagesSectionSelectResolver } from './_resolver/gestion-pages-section-select.resolver.ts';
+import { TitreMenuService } from './_services/titre-menu.service';
+import { SousTitreMenuService } from './_services/sous-titre-menu.service';
 
 library.add(fas, far, fab);
 
@@ -77,6 +79,8 @@ library.add(fas, far, fab);
       AuthService,
       AlertifyService,
       SectionService,
+      TitreMenuService,
+      SousTitreMenuService,
       ArticleService,
       GestionPagesSectionSelectResolver,
       GestionPagesSectionEditionResolver,
