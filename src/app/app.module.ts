@@ -44,6 +44,7 @@ import { EditionSousTitreMenuComponent } from './admin/gestion-pages/edition-sou
 import { GestionPagesSectionSelectResolver } from './_resolver/gestion-pages-section-select.resolver.ts';
 import { TitreMenuService } from './_services/titre-menu.service';
 import { SousTitreMenuService } from './_services/sous-titre-menu.service';
+import { GestionPagesSectionArbreEntierResolver } from './_resolver/gestion-pages-section-arbre-entier.resolver';
 
 library.add(fas, far, fab);
 
@@ -82,6 +83,7 @@ library.add(fas, far, fab);
       TitreMenuService,
       SousTitreMenuService,
       ArticleService,
+      GestionPagesSectionArbreEntierResolver,
       GestionPagesSectionSelectResolver,
       GestionPagesSectionEditionResolver,
       GestionPagesTitreMenuEditionResolver,

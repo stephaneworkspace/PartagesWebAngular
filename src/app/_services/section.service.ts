@@ -18,6 +18,10 @@ export class SectionService {
 
   constructor(private http: HttpClient) {}
 
+  GetArbreCompletSections(): Observable<Section[]> {
+    return this.http.get<Section[]>(this.baseUrl + 'sections/gestion-pages-avec-arbre-complet', httpOptions);
+  }
+
   getSections(): Observable<Section[]> {
     return this.http.get<Section[]>(this.baseUrl + 'sections', httpOptions);
   }
@@ -32,5 +36,9 @@ export class SectionService {
 
   updateSection(id: number, section: Section) {
     return this.http.put(this.baseUrl + 'sections/' + id, section);
+  }
+
+  deleteSection(id: number) {
+    return this.http.delete(this.baseUrl + 'sections/' + id);
   }
 }

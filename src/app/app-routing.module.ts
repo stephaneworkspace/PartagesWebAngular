@@ -21,6 +21,7 @@ import { GestionPagesTitreMenuPreventUnsavedChangesGuard } from './_guards/gesti
 import { EditionSousTitreMenuComponent } from './admin/gestion-pages/edition-sous-titre-menu/edition-sous-titre-menu.component';
 import { GestionPagesSousTitreMenuEditionResolver } from './_resolver/gestion-pages-sous-titre-menu-edition.resolver';
 import { GestionPagesSectionSelectResolver } from './_resolver/gestion-pages-section-select.resolver.ts';
+import { GestionPagesSectionArbreEntierResolver } from './_resolver/gestion-pages-section-arbre-entier.resolver';
 
 const routes: Routes = [
   {
@@ -31,6 +32,9 @@ const routes: Routes = [
     path: 'admin',
     component: GestionPagesComponent,
     canActivate: [AuthGuard],
+    resolve: {
+      section: GestionPagesSectionArbreEntierResolver
+    },
   },
   {
     path: 'admin/gestion-pages-nouvelle-section',

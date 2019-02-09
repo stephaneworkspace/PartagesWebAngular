@@ -18,6 +18,33 @@
           </tr>
         </thead>
         <tbody class="table-light">
+          <tr 
+            *ngFor="let item of section; let item = index"
+          >
+            <th scope="row">
+              <span class="textSection">
+                <fa-icon class="icon-preview" *ngIf="item.icone != null" [icon]="['fa', item.icone]"></fa-icon>&nbsp;{{ item.nom }}
+              </span>
+            </th>
+            <td><fa-icon [icon]="['fa', 'edit']" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+            <!-- Delete section -->
+            <!-- 8 février - à faire plus tard un modal êtes vous sur de vouloir effacer -->
+            <!-- 8 février - à faire curseur click et non pas pointeur -->
+            <td>
+              <fa-icon 
+                [icon]="['fa', 'trash-alt']" 
+                [spin]="this.faSpinPropGlobe"
+                (click)="deleteSection(item.id)"
+              >
+              </fa-icon>
+            </td>
+            <td>
+              <fa-icon [icon]="['fa', 'level-up-alt']" [spin]="this.faSpinPropGlobe"></fa-icon>
+            </td>
+            <td>
+              <fa-icon [icon]="['fa', 'level-down-alt']"  [spin]="this.faSpinPropGlobe"></fa-icon>
+            </td>
+          </tr>
           <tr>
             <th scope="row"><span class="textSection"><fa-icon [icon]="faDesktop" [spin]="this.faSpinPropGlobe"></fa-icon>&nbsp;Informatique web</span></th>
             <td><fa-icon [icon]="faEdit" [spin]="this.faSpinPropGlobe"></fa-icon></td>
