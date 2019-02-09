@@ -29,7 +29,8 @@ export class NouveauSectionComponent implements OnInit {
       this.alertify.success('Section crée');
       // this.editForm.reset(this.section); // redirection à faire
     }, error => {
-      this.alertify.error(error);
+      // console.log(error);
+      this.alertify.error(error.error);
     });
   }
 }
