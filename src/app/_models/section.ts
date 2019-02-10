@@ -1,8 +1,8 @@
 export interface Section {
-    id: number;
+    id?: number;
     nom: string;
     icone: string;
     type: string;
-    position: number;
+    position?: number;
     swHorsLigne: boolean;
 }
