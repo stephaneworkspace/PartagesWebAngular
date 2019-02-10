@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { SousTitreMenuComponent } from './sous-titre-menu.component';
+import { NouveauSousTitreMenuComponent } from './nouveau-sous-titre-menu.component';
 
-describe('SousTitreMenuComponent', () => {
-  let component: SousTitreMenuComponent;
-  let fixture: ComponentFixture<SousTitreMenuComponent>;
+describe('NouveauSousTitreMenuComponent', () => {
+  let component: NouveauSousTitreMenuComponent;
+  let fixture: ComponentFixture<NouveauSousTitreMenuComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SousTitreMenuComponent ]
+      declarations: [ NouveauSousTitreMenuComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SousTitreMenuComponent);
+    fixture = TestBed.createComponent(NouveauSousTitreMenuComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

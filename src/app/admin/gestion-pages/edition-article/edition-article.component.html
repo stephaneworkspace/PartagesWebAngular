@@ -12,6 +12,7 @@
       </div>
     </div>
     <form #editForm="ngForm">
+      <!--
       <div class="form-group">
         <label for="sectionSelect">Sélection d'une section</label>
         <select class="form-control" id="sectionSelect" [(ngModel)]="model.sectionSelect" name="sectionSelect">
@@ -22,7 +23,7 @@
       </div>
       <div class="form-group">
         <label for="titreSelect">Sélection d'un titre</label>
-        <select class="form-control" id="titreSelect"[(ngModel)]="model.titreSelect" name="titreSelect">
+        <select class="form-control" id="titreSelect" [(ngModel)]="model.titreSelect" name="titreSelect">
           <option value="hors-ligne">Hors-ligne</option>
         </select>
       </div>
@@ -51,7 +52,7 @@
       <div 
         [innerHTML]="markedArticle"
         *ngIf="model.article != null"
-      ></div>
+      ></div>-->
       <button 
         [disabled]="!editForm.dirty" 
         type="submit" 
