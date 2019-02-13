@@ -52,6 +52,14 @@ export class GestionPagesComponent implements OnInit {
     });
   }
 
+  getArbreEntier() {
+    this.sectionService.GetArbreCompletSections().subscribe((data: Array<Section>) => {
+    this.section = data;
+    }, error => {
+      this.alertify.error(error.error);
+    });
+  }
+
   /**
    * deleteSection()
    *
@@ -63,6 +71,7 @@ export class GestionPagesComponent implements OnInit {
     this.sectionService.deleteSection(id).subscribe(next => {
       // 8 février - Faire un message personalisé avec analyse du contenu
       this.alertify.success('Section effacé et contenu rendu hors ligne');
+      this.getArbreEntier();
       // this.editForm.reset(this.section); // redirection à faire
     }, error => {
       // console.log(error);
