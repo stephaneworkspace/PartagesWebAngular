@@ -29,10 +29,16 @@
         <fa-icon 
           [icon]="['fa', 'level-up-alt']" 
           [spin]="this.faSpinPropGlobe"
+          (click)="upSection(item.id)"
         ></fa-icon>
       </td>
       <td class="pointerFaIcon">
-        <fa-icon [icon]="['fa', 'level-down-alt']"  [spin]="this.faSpinPropGlobe"></fa-icon>
+        <fa-icon 
+          [icon]="['fa', 'level-down-alt']"  
+          [spin]="this.faSpinPropGlobe"
+          (click)="downSection(item.id)"
+        >
+      </fa-icon>
       </td>
     </tr>
   </tbody>

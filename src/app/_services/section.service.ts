@@ -41,4 +41,12 @@ export class SectionService {
   deleteSection(id: number) {
     return this.http.delete(this.baseUrl + 'sections/' + id);
   }
+
+  upSection(id: number) {
+    return this.http.post(this.baseUrl + 'sections/monter/' + id, {});
+  }
+
+  downSection(id: number) {
+    return this.http.post(this.baseUrl + 'sections/descendre/' + id, {});
+  }
 }
