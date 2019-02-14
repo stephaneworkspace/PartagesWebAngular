@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, SimpleChange } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChange, EventEmitter, Output } from '@angular/core';
 import { Section } from 'src/app/_models/section';
 
 @Component({
@@ -8,6 +8,7 @@ import { Section } from 'src/app/_models/section';
 })
 export class ModuleGestionPagesTableComponent implements OnInit, OnChanges {
   @Input() section: Section[];
+  @Output() outputDeleteSection: EventEmitter<number> = new EventEmitter<number>();
 
   sectionEnLigne: Section[];
   sectionHorsLigne: Section[];
@@ -21,6 +22,10 @@ export class ModuleGestionPagesTableComponent implements OnInit, OnChanges {
   ngOnChanges(changes: {[propName: string]: SimpleChange}) {
     // console.log('ngOnChanges - section = ' + changes['section'].currentValue);
     this.LoadArray();
+  }
+
+  private deleteSection(id: number) {
+    this.outputDeleteSection.emit(id);
   }
 
   private LoadArray() {

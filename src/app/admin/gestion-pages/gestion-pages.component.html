@@ -12,6 +12,7 @@
       <br />
       <app-module-gestion-pages-table 
         [section]="section"
+        (outputDeleteSection)="deleteSection($event)"
       ></app-module-gestion-pages-table>
       <!--
       <table class="table table-borderless">
