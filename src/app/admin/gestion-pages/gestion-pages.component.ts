@@ -39,10 +39,10 @@ export class GestionPagesComponent implements OnInit {
    * Celà de met pas la section hors ligne mais l'efface et rend
    * hors ligne tout son contenu
    */
-  deleteSection(id: number) {
-    this.sectionService.deleteSection(id).subscribe(next => {
+  deleteSection(item: Section) {
+    this.sectionService.deleteSection(item.id).subscribe(next => {
       // 8 février - Faire un message personalisé avec analyse du contenu
-      this.alertify.success('Section effacé et contenu rendu hors ligne');
+      this.alertify.success('Section &laquo;' + item.nom + '&raquo; effacé et contenu rendu hors ligne');
       this.getArbreEntier();
       // this.editForm.reset(this.section); // redirection à faire
     }, error => {
@@ -56,10 +56,10 @@ export class GestionPagesComponent implements OnInit {
    * Celà de met pas la section hors ligne mais l'efface et rend
    * hors ligne tout son contenu
    */
-  upSection(id: number) {
-    this.sectionService.upSection(id).subscribe(next => {
+  upSection(item: Section) {
+    this.sectionService.upSection(item.id).subscribe(next => {
       // 8 février - Faire un message personalisé avec analyse du contenu
-      this.alertify.success('Section montée');
+      this.alertify.success('Section &laquo;' + item.nom + '&raquo; montée');
       this.getArbreEntier();
       // this.editForm.reset(this.section); // redirection à faire
     }, error => {
@@ -73,10 +73,10 @@ export class GestionPagesComponent implements OnInit {
    * Celà de met pas la section hors ligne mais l'efface et rend
    * hors ligne tout son contenu
    */
-  downSection(id: number) {
-    this.sectionService.downSection(id).subscribe(next => {
+  downSection(item: Section) {
+    this.sectionService.downSection(item.id).subscribe(next => {
       // 8 février - Faire un message personalisé avec analyse du contenu
-      this.alertify.success('Section descendue');
+      this.alertify.success('Section &laquo;' + item.nom + '&raquo; descendue');
       this.getArbreEntier();
       // this.editForm.reset(this.section); // redirection à faire
     }, error => {

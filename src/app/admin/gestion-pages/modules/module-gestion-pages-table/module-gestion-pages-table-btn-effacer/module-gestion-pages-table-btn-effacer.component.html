@@ -1,0 +1,28 @@
+<ng-template #content let-modal>
+  <div class="modal-header bg-danger">
+    <h4 class="modal-title text-light">Attention</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Êtes-vous sur de vouloir effacer &laquo;{{ sectionItem.nom }}&raquo; ?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Oui click'); deleteSection()">Oui</button>
+    <button type="button" class="btn btn-light" (click)="modal.close('Non click')">Non</button>
+  </div>
+</ng-template>
+<button 
+  [disabled]="disable"
+  class="btn btn-sm btn-outline-danger" 
+  data-toggle="tooltip" 
+  data-placement="top" 
+  title="Effacer &laquo;{{ sectionItem.nom }}&raquo;"
+  (click)="openModal(content)"
+>
+  <fa-icon 
+    [icon]="['fa', 'trash-alt']" 
+    [spin]="this.faSpinPropGlobe"
+  ></fa-icon>
+</button>

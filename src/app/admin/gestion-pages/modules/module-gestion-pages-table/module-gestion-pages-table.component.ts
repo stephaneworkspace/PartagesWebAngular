@@ -8,9 +8,9 @@ import { Section } from 'src/app/_models/section';
 })
 export class ModuleGestionPagesTableComponent implements OnInit, OnChanges {
   @Input() section: Section[];
-  @Output() outputDeleteSection: EventEmitter<number> = new EventEmitter<number>();
-  @Output() outputUpSection: EventEmitter<number> = new EventEmitter<number>();
-  @Output() outputDownSection: EventEmitter<number> = new EventEmitter<number>();
+  @Output() outputDeleteSection: EventEmitter<Section> = new EventEmitter<Section>();
+  @Output() outputUpSection: EventEmitter<Section> = new EventEmitter<Section>();
+  @Output() outputDownSection: EventEmitter<Section> = new EventEmitter<Section>();
 
   sectionEnLigne: Section[];
   sectionHorsLigne: Section[];
@@ -26,16 +26,16 @@ export class ModuleGestionPagesTableComponent implements OnInit, OnChanges {
     this.LoadArray();
   }
 
-  private deleteSection(id: number) {
-    this.outputDeleteSection.emit(id);
+  private deleteSection(item: Section) {
+    this.outputDeleteSection.emit(item);
   }
 
-  private upSection(id: number) {
-    this.outputUpSection.emit(id);
+  private upSection(item: Section) {
+    this.outputUpSection.emit(item);
   }
 
-  private downSection(id: number) {
-    this.outputDownSection.emit(id);
+  private downSection(item: Section) {
+    this.outputDownSection.emit(item);
   }
 
   private LoadArray() {

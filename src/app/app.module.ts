@@ -45,7 +45,14 @@ import { GestionPagesSectionSelectResolver } from './_resolver/gestion-pages-sec
 import { TitreMenuService } from './_services/titre-menu.service';
 import { SousTitreMenuService } from './_services/sous-titre-menu.service';
 import { GestionPagesSectionArbreEntierResolver } from './_resolver/gestion-pages-section-arbre-entier.resolver';
+// tslint:disable-next-line:max-line-length
 import { ModuleGestionPagesTableComponent } from './admin/gestion-pages/modules/module-gestion-pages-table/module-gestion-pages-table.component';
+// tslint:disable-next-line:max-line-length
+import { ModuleGestionPagesTableBtnEffacerComponent } from './admin/gestion-pages/modules/module-gestion-pages-table/module-gestion-pages-table-btn-effacer/module-gestion-pages-table-btn-effacer.component';
+// tslint:disable-next-line:max-line-length
+import { ModuleGestionPagesTableBtnMonterComponent } from './admin/gestion-pages/modules/module-gestion-pages-table/module-gestion-pages-table-btn-monter/module-gestion-pages-table-btn-monter.component';
+// tslint:disable-next-line:max-line-length
+import { ModuleGestionPagesTableBtnDescendreComponent } from './admin/gestion-pages/modules/module-gestion-pages-table/module-gestion-pages-table-btn-descendre/module-gestion-pages-table-btn-descendre.component';
 
 library.add(fas, far, fab);
 
@@ -60,6 +67,9 @@ library.add(fas, far, fab);
       MembersComponent,
       GestionPagesComponent,
       ModuleGestionPagesTableComponent,
+      ModuleGestionPagesTableBtnEffacerComponent,
+      ModuleGestionPagesTableBtnMonterComponent,
+      ModuleGestionPagesTableBtnDescendreComponent,
       AdminSidebarComponent,
       NouveauSectionComponent,
       NouveauTitreMenuComponent,

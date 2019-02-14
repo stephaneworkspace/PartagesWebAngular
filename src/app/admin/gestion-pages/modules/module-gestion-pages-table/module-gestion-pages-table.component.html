@@ -14,78 +14,27 @@
           <fa-icon class="icon-preview" *ngIf="item.icone != null" [icon]="['fa', item.icone]"></fa-icon>&nbsp;{{ item.nom }}
         </span>
       </th>
-      <td class="pointerFaIcon"><fa-icon [icon]="['fa', 'edit']" [spin]="this.faSpinPropGlobe"></fa-icon></td>
-      <!-- Delete section -->
-      <!-- 8 février - à faire plus tard un modal êtes vous sur de vouloir effacer -->
+      <td><fa-icon [icon]="['fa', 'edit']" [spin]="this.faSpinPropGlobe"></fa-icon></td>
       <td>
-        <button 
-          class="btn btn-sm btn-outline-danger" 
-          data-toggle="tooltip" 
-          data-placement="top" 
-          title="Effacer &laquo;{{ item.nom }}&raquo;"
-        >
-          <fa-icon 
-            [icon]="['fa', 'trash-alt']" 
-            [spin]="this.faSpinPropGlobe"
-            (click)="deleteSection(item.id)"
-          ></fa-icon>
-        </button>
+        <app-module-gestion-pages-table-btn-effacer
+          [sectionItem]="item"
+          [disable]="false"
+          (outputDeleteSection)="deleteSection($event)"
+        ></app-module-gestion-pages-table-btn-effacer>
       </td>
-      <td *ngIf="i == 0">
-        <button 
-          disabled
-          class="btn btn-sm btn-outline-warning" 
-          data-toggle="tooltip" 
-          data-placement="top" 
-          title="Monter &laquo;{{ item.nom }}&raquo;"
-        >
-          <fa-icon 
-            [icon]="['fa', 'level-up-alt']" 
-            [spin]="this.faSpinPropGlobe"
-          ></fa-icon>
-        </button>
+      <td>
+        <app-module-gestion-pages-table-btn-monter
+          [sectionItem]="item"
+          [disable]="i == 0"
+          (outputUpSection)="upSection($event)"
+        ></app-module-gestion-pages-table-btn-monter>
       </td>      
-      <td *ngIf="i != 0">
-        <button 
-          class="btn btn-sm btn-outline-warning" 
-          data-toggle="tooltip" 
-          data-placement="top" 
-          title="Monter &laquo;{{ item.nom }}&raquo;"
-        >
-          <fa-icon 
-            [icon]="['fa', 'level-up-alt']" 
-            [spin]="this.faSpinPropGlobe"
-            (click)="upSection(item.id)"
-          ></fa-icon>
-        </button>
-      </td>
-      <td *ngIf="i == sectionEnLigne.length - 1">
-        <button 
-          disabled
-          class="btn btn-sm btn-outline-warning" 
-          data-toggle="tooltip" 
-          data-placement="top" 
-          title="Descendre &laquo;{{ item.nom }}&raquo;"
-        >
-          <fa-icon 
-            [icon]="['fa', 'level-down-alt']"  
-            [spin]="this.faSpinPropGlobe"
-          ></fa-icon>
-        </button>
-      </td>
-      <td *ngIf="i != sectionEnLigne.length - 1">
-        <button 
-          class="btn btn-sm btn-outline-warning" 
-          data-toggle="tooltip" 
-          data-placement="top" 
-          title="Descendre &laquo;{{ item.nom }}&raquo;"
-        >
-          <fa-icon 
-            [icon]="['fa', 'level-down-alt']"  
-            [spin]="this.faSpinPropGlobe"
-            (click)="downSection(item.id)"
-          ></fa-icon>
-        </button>
+      <td>
+        <app-module-gestion-pages-table-btn-descendre
+        [sectionItem]="item"
+        [disable]="i == sectionEnLigne.length - 1"
+        (outputDownSection)="downSection($event)"
+        ></app-module-gestion-pages-table-btn-descendre>
       </td>
     </tr>
   </tbody>
@@ -105,43 +54,28 @@
           <fa-icon class="icon-preview" *ngIf="item.icone != null" [icon]="['fa', item.icone]"></fa-icon>&nbsp;{{ item.nom }}
         </span>
       </th>
-      <td class="pointerFaIcon"><fa-icon [icon]="['fa', 'edit']" [spin]="this.faSpinPropGlobe"></fa-icon></td>
-      <!-- Delete section -->
-      <!-- 8 février - à faire plus tard un modal êtes vous sur de vouloir effacer -->
-      <td class="pointerFaIcon">
-        <fa-icon 
-          [icon]="['fa', 'trash-alt']" 
-          [spin]="this.faSpinPropGlobe"
-          (click)="deleteSection(item.id)"
-        >
-        </fa-icon>
-      </td>
-      <td *ngIf="i == 0">
-        <fa-icon 
-          [icon]="['fa', 'level-up-alt']" 
-          [spin]="this.faSpinPropGlobe"
-        ></fa-icon>
-      </td>      
-      <td class="pointerFaIcon" *ngIf="i != 0">
-        <fa-icon 
-          [icon]="['fa', 'level-up-alt']" 
-          [spin]="this.faSpinPropGlobe"
-          (click)="upSection(item.id)"
-        ></fa-icon>
-      </td>
-      <td *ngIf="i == sectionEnLigne.length - 1">
-        <fa-icon 
-          [icon]="['fa', 'level-down-alt']"  
-          [spin]="this.faSpinPropGlobe"
-        ></fa-icon>
-      </td>
-      <td class="pointerFaIcon" *ngIf="i != sectionEnLigne.length - 1">
-        <fa-icon 
-          [icon]="['fa', 'level-down-alt']"  
-          [spin]="this.faSpinPropGlobe"
-          (click)="downSection(item.id)"
-        ></fa-icon>
-      </td>
+      <td><fa-icon [icon]="['fa', 'edit']" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+      <td>
+          <app-module-gestion-pages-table-btn-effacer
+            [sectionItem]="item"
+            [disable]="false"
+            (outputDeleteSection)="deleteSection($event)"
+          ></app-module-gestion-pages-table-btn-effacer>
+        </td>
+        <td>
+          <app-module-gestion-pages-table-btn-monter
+            [sectionItem]="item"
+            [disable]="i == 0"
+            (outputUpSection)="upSection($event)"
+          ></app-module-gestion-pages-table-btn-monter>
+        </td>      
+        <td>
+          <app-module-gestion-pages-table-btn-descendre
+          [sectionItem]="item"
+          [disable]="i == sectionEnLigne.length - 1"
+          (outputDownSection)="downSection($event)"
+          ></app-module-gestion-pages-table-btn-descendre>
+        </td>
   </tr>
 </tbody>  
 </table>

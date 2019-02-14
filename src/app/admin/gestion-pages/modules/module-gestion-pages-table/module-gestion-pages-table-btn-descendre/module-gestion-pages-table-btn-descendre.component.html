@@ -1,0 +1,13 @@
+<button 
+  [disabled]="disable"
+  class="btn btn-sm btn-outline-warning" 
+  data-toggle="tooltip" 
+  data-placement="top" 
+  title="Descendre &laquo;{{ sectionItem.nom }}&raquo;"
+  (click)="downSection()"
+>
+  <fa-icon 
+    [icon]="['fa', 'level-down-alt']" 
+    [spin]="this.faSpinPropGlobe"
+  ></fa-icon>
+</button>

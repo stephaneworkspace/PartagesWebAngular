@@ -1,0 +1,13 @@
+<button 
+  [disabled]="disable"
+  class="btn btn-sm btn-outline-warning" 
+  data-toggle="tooltip" 
+  data-placement="top" 
+  title="Monter &laquo;{{ sectionItem.nom }}&raquo;"
+  (click)="upSection()"
+>
+  <fa-icon 
+    [icon]="['fa', 'level-up-alt']" 
+    [spin]="this.faSpinPropGlobe"
+  ></fa-icon>
+</button>
