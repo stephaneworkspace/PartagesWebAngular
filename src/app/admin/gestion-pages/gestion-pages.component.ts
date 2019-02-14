@@ -1,4 +1,4 @@
-import { Component, OnInit, SimpleChange, OnChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   faEdit,
   faDesktop,
@@ -22,7 +22,7 @@ import { Section } from 'src/app/_models/section';
   templateUrl: './gestion-pages.component.html',
   styleUrls: ['./gestion-pages.component.scss']
 })
-export class GestionPagesComponent implements OnInit, OnChanges {
+export class GestionPagesComponent implements OnInit {
   // Chargement de toutes les icones
   faEdit = faEdit;
   faPuzzlePiece = faPuzzlePiece;
@@ -38,9 +38,6 @@ export class GestionPagesComponent implements OnInit, OnChanges {
 
   section: Section[];
 
-  sectionEnLigne: Section[];
-  sectionHorsLigne: Section[];
-
   constructor(
     private route: ActivatedRoute,
     private alertify: AlertifyService,
@@ -52,28 +49,18 @@ export class GestionPagesComponent implements OnInit, OnChanges {
   ngOnInit() {
     this.route.data.subscribe(data => {
       this.section = data['section'];
-      this.LoadArray();
     });
-  }
-
-  ngOnChanges(changes: {[propName: string]: SimpleChange}) {
-    console.log('ngOnChanges - section = ' + changes['section'].currentValue);
-    this.LoadArray();
   }
 
   getArbreEntier() {
     this.sectionService.GetArbreCompletSections().subscribe((data: Array<Section>) => {
     this.section = data;
-    this.LoadArray();
     }, error => {
       this.alertify.error(error.error);
     });
   }
 
-  private LoadArray() {
-    this.sectionEnLigne = this.section.filter(x => x.swHorsLigne !== true);
-    this.sectionHorsLigne = this.section.filter(x => x.swHorsLigne === true);
-  }
+
 
   /**
    * deleteSection()
