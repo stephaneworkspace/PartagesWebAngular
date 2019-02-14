@@ -1,16 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  faEdit,
-  faDesktop,
-  faMusic,
-  faGlobe,
-  faPuzzlePiece,
-  faSitemap,
-  faCaretSquareDown,
-  faFileAlt,
-  faTrashAlt,
-  faLevelUpAlt,
-  faLevelDownAlt } from '@fortawesome/free-solid-svg-icons';
 import { ActivatedRoute } from '@angular/router';
 import { AlertifyService } from 'src/app/_services/alertify.service';
 import { SectionService } from 'src/app/_services/section.service';
@@ -23,19 +11,6 @@ import { Section } from 'src/app/_models/section';
   styleUrls: ['./gestion-pages.component.scss']
 })
 export class GestionPagesComponent implements OnInit {
-  // Chargement de toutes les icones
-  faEdit = faEdit;
-  faPuzzlePiece = faPuzzlePiece;
-  faDesktop = faDesktop;
-  faMusic = faMusic;
-  faGlobe = faGlobe;
-  faSitemap = faSitemap;
-  faCaretSquareDown = faCaretSquareDown;
-  faFileAlt = faFileAlt;
-  faTrashAlt = faTrashAlt;
-  faLevelUpAlt = faLevelUpAlt;
-  faLevelDownAlt = faLevelDownAlt;
-
   section: Section[];
 
   constructor(
@@ -44,7 +19,6 @@ export class GestionPagesComponent implements OnInit {
     private sectionService: SectionService,
     private authService: AuthService
 ) { }
-
 
   ngOnInit() {
     this.route.data.subscribe(data => {
@@ -59,8 +33,6 @@ export class GestionPagesComponent implements OnInit {
       this.alertify.error(error.error);
     });
   }
-
-
 
   /**
    * deleteSection()
