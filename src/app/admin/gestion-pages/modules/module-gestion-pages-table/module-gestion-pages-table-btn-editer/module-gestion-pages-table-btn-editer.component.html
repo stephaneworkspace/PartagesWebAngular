@@ -1,0 +1,13 @@
+<button 
+  [disabled]="disable"
+  class="btn btn-sm btn-outline-seconday" 
+  data-toggle="tooltip" 
+  data-placement="top" 
+  title="Éditer &laquo;{{ sectionItem.nom }}&raquo;"
+  (click)="editSection()"
+>
+  <fa-icon 
+    [icon]="['fa', 'edit']" 
+    [spin]="this.faSpinPropGlobe"
+  ></fa-icon>
+</button>

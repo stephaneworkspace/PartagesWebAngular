@@ -12,7 +12,6 @@
       </div>
     </div>
     <form #editForm="ngForm">
-      <!--
       <div class="form-group">
         <label for="nom">Nom de la section</label>
         <input type="nom" class="form-control" id="nom" aria-describedby="nomHelp" placeholder="Veuillez saisir un nom" [(ngModel)]="model.nom" name="nom">
@@ -34,14 +33,13 @@
         </div>
       </div>
       <div class="form-group">
-          <label for="typeSelect">Sélection du type</label>
-          <select class="form-control" id="typeSelect"[(ngModel)]="model.typeSelect" name="typeSelect">
-            <option value="none">Défaut</option>
-            <option value="astral">Thème astral</option>
-            <option value="forum">Index du forum</option>
-          </select>
-        </div>
-      -->
+        <label for="typeSelect">Sélection du type</label>
+        <select class="form-control" id="typeSelect"[(ngModel)]="model.typeSelect" name="typeSelect">
+          <option value="none">Défaut</option>
+          <option value="astral">Thème astral</option>
+          <option value="forum">Index du forum</option>
+        </select>
+      </div>
       <button 
         [disabled]="!editForm.dirty" 
         type="submit" 

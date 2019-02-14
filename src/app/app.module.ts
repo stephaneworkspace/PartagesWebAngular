@@ -53,6 +53,8 @@ import { ModuleGestionPagesTableBtnEffacerComponent } from './admin/gestion-page
 import { ModuleGestionPagesTableBtnMonterComponent } from './admin/gestion-pages/modules/module-gestion-pages-table/module-gestion-pages-table-btn-monter/module-gestion-pages-table-btn-monter.component';
 // tslint:disable-next-line:max-line-length
 import { ModuleGestionPagesTableBtnDescendreComponent } from './admin/gestion-pages/modules/module-gestion-pages-table/module-gestion-pages-table-btn-descendre/module-gestion-pages-table-btn-descendre.component';
+// tslint:disable-next-line:max-line-length
+import { ModuleGestionPagesTableBtnEditerComponent } from './admin/gestion-pages/modules/module-gestion-pages-table/module-gestion-pages-table-btn-editer/module-gestion-pages-table-btn-editer.component';
 
 library.add(fas, far, fab);
 
@@ -67,6 +69,7 @@ library.add(fas, far, fab);
       MembersComponent,
       GestionPagesComponent,
       ModuleGestionPagesTableComponent,
+      ModuleGestionPagesTableBtnEditerComponent,
       ModuleGestionPagesTableBtnEffacerComponent,
       ModuleGestionPagesTableBtnMonterComponent,
       ModuleGestionPagesTableBtnDescendreComponent,

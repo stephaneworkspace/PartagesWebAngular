@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Section } from '../_models/section';
-import { Resolve, Router, ActivatedRouteSnapshot } from '@angular/router';
+import { Resolve, Router, ActivatedRouteSnapshot, Params } from '@angular/router';
 import { SectionService } from '../_services/section.service';
 import { AlertifyService } from '../_services/alertify.service';
 import { Observable, of } from 'rxjs';
@@ -13,7 +13,7 @@ export class GestionPagesSectionEditionResolver implements Resolve<Section> {
         private alertify: AlertifyService, private authService: AuthService) {}
 
     resolve(route: ActivatedRouteSnapshot): Observable<Section> {
-        return this.sectionService.getSection(this.authService.decodedToken.nameid).pipe(
+        return this.sectionService.getSection(route.params['id']).pipe(
             catchError(error => {
                 this.alertify.error('Problème de chargement des données de la section');
                 this.router.navigate(['/admin']);

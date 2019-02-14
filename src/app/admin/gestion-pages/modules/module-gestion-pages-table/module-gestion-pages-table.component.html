@@ -14,7 +14,13 @@
           <fa-icon class="icon-preview" *ngIf="item.icone != null" [icon]="['fa', item.icone]"></fa-icon>&nbsp;{{ item.nom }}
         </span>
       </th>
-      <td><fa-icon [icon]="['fa', 'edit']" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+      <td>
+          <app-module-gestion-pages-table-btn-editer
+          [sectionItem]="item"
+          [disable]="false"
+          (outputEditSection)="editSection($event)"
+        ></app-module-gestion-pages-table-btn-editer>
+      </td>
       <td>
         <app-module-gestion-pages-table-btn-effacer
           [sectionItem]="item"
@@ -54,7 +60,13 @@
           <fa-icon class="icon-preview" *ngIf="item.icone != null" [icon]="['fa', item.icone]"></fa-icon>&nbsp;{{ item.nom }}
         </span>
       </th>
-      <td><fa-icon [icon]="['fa', 'edit']" [spin]="this.faSpinPropGlobe"></fa-icon></td>
+      <td>
+          <app-module-gestion-pages-table-btn-editer
+          [sectionItem]="item"
+          [disable]="false"
+          (outputEditSection)="editSection($event)"
+        ></app-module-gestion-pages-table-btn-editer>
+      </td>
       <td>
           <app-module-gestion-pages-table-btn-effacer
             [sectionItem]="item"

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AlertifyService } from 'src/app/_services/alertify.service';
 import { SectionService } from 'src/app/_services/section.service';
 import { AuthService } from 'src/app/_services/auth.service';
@@ -14,6 +14,7 @@ export class GestionPagesComponent implements OnInit {
   section: Section[];
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private alertify: AlertifyService,
     private sectionService: SectionService,
@@ -32,6 +33,14 @@ export class GestionPagesComponent implements OnInit {
     }, error => {
       this.alertify.error(error.error);
     });
+  }
+
+  /**
+   * Edite la section
+   * https://alligator.io/angular/animating-route-changes/ animation
+   */
+  editSection(item: Section) {
+    this.router.navigate(['/admin/gestion-pages-edition-section/' + item.id]);
   }
 
   /**

@@ -8,6 +8,7 @@ import { Section } from 'src/app/_models/section';
 })
 export class ModuleGestionPagesTableComponent implements OnInit, OnChanges {
   @Input() section: Section[];
+  @Output() outputEditSection: EventEmitter<Section> = new EventEmitter<Section>();
   @Output() outputDeleteSection: EventEmitter<Section> = new EventEmitter<Section>();
   @Output() outputUpSection: EventEmitter<Section> = new EventEmitter<Section>();
   @Output() outputDownSection: EventEmitter<Section> = new EventEmitter<Section>();
@@ -24,6 +25,10 @@ export class ModuleGestionPagesTableComponent implements OnInit, OnChanges {
   ngOnChanges(changes: {[propName: string]: SimpleChange}) {
     // console.log('ngOnChanges - section = ' + changes['section'].currentValue);
     this.LoadArray();
+  }
+
+  private editSection(item: Section) {
+    this.outputEditSection.emit(item);
   }
 
   private deleteSection(item: Section) {

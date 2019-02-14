@@ -12,6 +12,7 @@
       <br />
       <app-module-gestion-pages-table 
         [section]="section"
+        (outputEditSection)="editSection($event)"
         (outputDeleteSection)="deleteSection($event)"
         (outputUpSection)="upSection($event)"
         (outputDownSection)="downSection($event)"
