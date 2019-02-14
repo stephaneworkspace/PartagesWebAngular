@@ -17,39 +17,75 @@
       <td class="pointerFaIcon"><fa-icon [icon]="['fa', 'edit']" [spin]="this.faSpinPropGlobe"></fa-icon></td>
       <!-- Delete section -->
       <!-- 8 février - à faire plus tard un modal êtes vous sur de vouloir effacer -->
-      <td class="pointerFaIcon">
-        <fa-icon 
-          [icon]="['fa', 'trash-alt']" 
-          [spin]="this.faSpinPropGlobe"
-          (click)="deleteSection(item.id)"
+      <td>
+        <button 
+          class="btn btn-sm btn-outline-danger" 
+          data-toggle="tooltip" 
+          data-placement="top" 
+          title="Effacer &laquo;{{ item.nom }}&raquo;"
         >
-        </fa-icon>
+          <fa-icon 
+            [icon]="['fa', 'trash-alt']" 
+            [spin]="this.faSpinPropGlobe"
+            (click)="deleteSection(item.id)"
+          ></fa-icon>
+        </button>
       </td>
       <td *ngIf="i == 0">
-        <fa-icon 
-          [icon]="['fa', 'level-up-alt']" 
-          [spin]="this.faSpinPropGlobe"
-        ></fa-icon>
+        <button 
+          disabled
+          class="btn btn-sm btn-outline-warning" 
+          data-toggle="tooltip" 
+          data-placement="top" 
+          title="Monter &laquo;{{ item.nom }}&raquo;"
+        >
+          <fa-icon 
+            [icon]="['fa', 'level-up-alt']" 
+            [spin]="this.faSpinPropGlobe"
+          ></fa-icon>
+        </button>
       </td>      
-      <td class="pointerFaIcon" *ngIf="i != 0">
-        <fa-icon 
-          [icon]="['fa', 'level-up-alt']" 
-          [spin]="this.faSpinPropGlobe"
-          (click)="upSection(item.id)"
-        ></fa-icon>
+      <td *ngIf="i != 0">
+        <button 
+          class="btn btn-sm btn-outline-warning" 
+          data-toggle="tooltip" 
+          data-placement="top" 
+          title="Monter &laquo;{{ item.nom }}&raquo;"
+        >
+          <fa-icon 
+            [icon]="['fa', 'level-up-alt']" 
+            [spin]="this.faSpinPropGlobe"
+            (click)="upSection(item.id)"
+          ></fa-icon>
+        </button>
       </td>
       <td *ngIf="i == sectionEnLigne.length - 1">
-        <fa-icon 
-          [icon]="['fa', 'level-down-alt']"  
-          [spin]="this.faSpinPropGlobe"
-        ></fa-icon>
+        <button 
+          disabled
+          class="btn btn-sm btn-outline-warning" 
+          data-toggle="tooltip" 
+          data-placement="top" 
+          title="Descendre &laquo;{{ item.nom }}&raquo;"
+        >
+          <fa-icon 
+            [icon]="['fa', 'level-down-alt']"  
+            [spin]="this.faSpinPropGlobe"
+          ></fa-icon>
+        </button>
       </td>
-      <td class="pointerFaIcon" *ngIf="i != sectionEnLigne.length - 1">
-        <fa-icon 
-          [icon]="['fa', 'level-down-alt']"  
-          [spin]="this.faSpinPropGlobe"
-          (click)="downSection(item.id)"
-        ></fa-icon>
+      <td *ngIf="i != sectionEnLigne.length - 1">
+        <button 
+          class="btn btn-sm btn-outline-warning" 
+          data-toggle="tooltip" 
+          data-placement="top" 
+          title="Descendre &laquo;{{ item.nom }}&raquo;"
+        >
+          <fa-icon 
+            [icon]="['fa', 'level-down-alt']"  
+            [spin]="this.faSpinPropGlobe"
+            (click)="downSection(item.id)"
+          ></fa-icon>
+        </button>
       </td>
     </tr>
   </tbody>
