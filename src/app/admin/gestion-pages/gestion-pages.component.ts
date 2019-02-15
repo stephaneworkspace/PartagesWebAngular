@@ -51,7 +51,12 @@ export class GestionPagesComponent implements OnInit {
   deleteSection(item: Section) {
     this.sectionService.deleteSection(item.id).subscribe(next => {
       // 8 février - Faire un message personalisé avec analyse du contenu
-      this.alertify.success('Section &laquo;' + item.nom + '&raquo; effacé et contenu rendu hors ligne');
+      // 15 février si il n'y a pas de contenu dans le else, traîter correctement
+      if (item.swHorsLigne) {
+        this.alertify.success('Section &laquo;' + item.nom + '&raquo; effacé');
+      } else {
+        this.alertify.success('Section &laquo;' + item.nom + '&raquo; effacé et contenu rendu hors ligne');
+      }
       this.getArbreEntier();
       // this.editForm.reset(this.section); // redirection à faire
     }, error => {
