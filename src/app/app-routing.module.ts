@@ -22,6 +22,7 @@ import { EditionSousTitreMenuComponent } from './admin/gestion-pages/edition-sou
 import { GestionPagesSousTitreMenuEditionResolver } from './_resolver/gestion-pages-sous-titre-menu-edition.resolver';
 import { GestionPagesSectionSelectResolver } from './_resolver/gestion-pages-section-select.resolver.ts';
 import { GestionPagesSectionArbreEntierResolver } from './_resolver/gestion-pages-section-arbre-entier.resolver';
+import { GestionPagesIconesSelectBoxResolver } from './_resolver/gestion-pages-icones-select-box.resolver';
 
 const routes: Routes = [
   {
@@ -40,6 +41,16 @@ const routes: Routes = [
     path: 'admin/gestion-pages-nouvelle-section',
     component: NouveauSectionComponent,
     canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin/gestion-pages-edition-section/:id',
+    component: EditionSectionComponent,
+    canActivate: [AuthGuard],
+    resolve: {
+      item: GestionPagesSectionEditionResolver,
+      selectBox: GestionPagesIconesSelectBoxResolver
+    },
+    canDeactivate: [GestionPagesSectionPreventUnsavedChangesGuard],
   },
   // can desactive a faire
   {
@@ -60,12 +71,6 @@ const routes: Routes = [
     path: 'admin/gestion-pages-nouveau-article',
     component: NouveauArticleComponent,
     canActivate: [AuthGuard],
-  },
-  {
-    path: 'admin/gestion-pages-edition-section/:id',
-    component: EditionSectionComponent,
-    canActivate: [AuthGuard],
-    resolve: {section: GestionPagesSectionEditionResolver}, canDeactivate: [GestionPagesSectionPreventUnsavedChangesGuard],
   },
   {
     path: 'admin/gestion-pages-edition-titre/:id',

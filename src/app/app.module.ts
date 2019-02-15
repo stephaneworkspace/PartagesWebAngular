@@ -55,6 +55,7 @@ import { ModuleGestionPagesTableBtnMonterComponent } from './admin/gestion-pages
 import { ModuleGestionPagesTableBtnDescendreComponent } from './admin/gestion-pages/modules/module-gestion-pages-table/module-gestion-pages-table-btn-descendre/module-gestion-pages-table-btn-descendre.component';
 // tslint:disable-next-line:max-line-length
 import { ModuleGestionPagesTableBtnEditerComponent } from './admin/gestion-pages/modules/module-gestion-pages-table/module-gestion-pages-table-btn-editer/module-gestion-pages-table-btn-editer.component';
+import { GestionPagesIconesSelectBoxResolver } from './_resolver/gestion-pages-icones-select-box.resolver';
 
 library.add(fas, far, fab);
 
@@ -98,6 +99,7 @@ library.add(fas, far, fab);
       TitreMenuService,
       SousTitreMenuService,
       ArticleService,
+      GestionPagesIconesSelectBoxResolver,
       GestionPagesSectionArbreEntierResolver,
       GestionPagesSectionSelectResolver,
       GestionPagesSectionEditionResolver,

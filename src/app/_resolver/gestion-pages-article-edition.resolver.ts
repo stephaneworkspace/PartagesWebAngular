@@ -9,8 +9,12 @@ import { AuthService } from '../_services/auth.service';
 
 @Injectable()
 export class GestionPagesArticleEditionResolver implements Resolve<Article> {
-    constructor(private articleService: ArticleService, private router: Router,
-        private alertify: AlertifyService, private authService: AuthService) {}
+    constructor(
+        private articleService: ArticleService,
+        private router: Router,
+        private alertify: AlertifyService,
+        private authService: AuthService
+    ) {}
 
     resolve(route: ActivatedRouteSnapshot): Observable<Article> {
         return this.articleService.getArticle(this.authService.decodedToken.nameid).pipe(

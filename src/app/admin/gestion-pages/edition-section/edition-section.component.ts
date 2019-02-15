@@ -3,8 +3,9 @@ import { NgForm } from '@angular/forms';
 import { Section } from 'src/app/_models/section';
 import { SectionService } from 'src/app/_services/section.service';
 import { AlertifyService } from 'src/app/_services/alertify.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
 import { AuthService } from 'src/app/_services/auth.service';
+import { Icone } from 'src/app/_models/icone';
 
 @Component({
   selector: 'app-edition-section',
@@ -14,7 +15,8 @@ import { AuthService } from 'src/app/_services/auth.service';
 export class EditionSectionComponent implements OnInit {
   // Voir guards, 4 février 2019 je ne l'ai pas testé
   @ViewChild('editForm') editForm: NgForm;
-  section: Section;
+  model: Section;
+  iconesSelectBox: Icone[];
   @HostListener('window:beforeunload', ['$event'])
   unloadNotification($event: any) {
     if (this.editForm.dirty) {
@@ -23,21 +25,29 @@ export class EditionSectionComponent implements OnInit {
   }
   constructor(
     private route: ActivatedRoute,
+    // private routeSnapshot: ActivatedRouteSnapshot,
     private alertify: AlertifyService,
     private sectionService: SectionService,
     private authService: AuthService
 ) { }
 
+/**
+ * Resolve ici
+ */
 ngOnInit() {
   this.route.data.subscribe(data => {
-    this.section = data['article'];
+    // Resolver
+    // console.log(data.selectBox.slice());
+    // console.log(data.item);
+    this.iconesSelectBox = data.selectBox.slice();
+    this.model = data.item;
   });
 }
 
 updateArticle() {
-  this.sectionService.updateSection(this.authService.decodedToken.nameid, this.section).subscribe(next => {
+  this.sectionService.updateSection(this.model.id, this.model).subscribe(next => {
     this.alertify.success('Section mise à jour');
-    this.editForm.reset(this.section);
+    this.editForm.reset(this.model);
   }, error => {
     this.alertify.error(error);
   });
