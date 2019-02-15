@@ -4,7 +4,7 @@ import { AlertifyService } from 'src/app/_services/alertify.service';
 import { SectionService } from 'src/app/_services/section.service';
 import { NgForm } from '@angular/forms';
 import { Icone } from 'src/app/_models/icone';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-nouveau-section',
@@ -19,6 +19,7 @@ export class NouveauSectionComponent implements OnInit {
   public faSizeProp: SizeProp;
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private alertify: AlertifyService,
     private sectionService: SectionService
 ) { }
@@ -37,8 +38,9 @@ export class NouveauSectionComponent implements OnInit {
 
   submitForm() {
     this.sectionService.createSection(this.model).subscribe(next => {
-      this.alertify.success('Section crée');
-      // this.editForm.reset(this.section); // redirection à faire
+      this.alertify.success('Section &laquo;' + this.model.nom + '&raquo; crée');
+      // this.editForm.reset(this.section); // pour @HostListener('window:beforeunload', ['$event'])
+      this.router.navigate(['/admin']);
     }, error => {
       // console.log(error);
       this.alertify.error(error.error);

@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Section } from 'src/app/_models/section';
 import { SectionService } from 'src/app/_services/section.service';
 import { AlertifyService } from 'src/app/_services/alertify.service';
-import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
+import { ActivatedRoute, ActivatedRouteSnapshot, Router } from '@angular/router';
 import { AuthService } from 'src/app/_services/auth.service';
 import { Icone } from 'src/app/_models/icone';
 
@@ -25,7 +25,7 @@ export class EditionSectionComponent implements OnInit {
   }
   constructor(
     private route: ActivatedRoute,
-    // private routeSnapshot: ActivatedRouteSnapshot,
+    private router: Router,
     private alertify: AlertifyService,
     private sectionService: SectionService,
     private authService: AuthService
@@ -37,18 +37,16 @@ export class EditionSectionComponent implements OnInit {
 ngOnInit() {
   this.route.data.subscribe(data => {
     // Resolver
-    // console.log(data.selectBox.slice());
-    // console.log(data.item);
     this.iconesSelectBox = data.selectBox.slice();
     this.model = data.item;
   });
 }
 
 submitForm() {
-  console.log(this.model);
   this.sectionService.updateSection(this.model.id, this.model).subscribe(next => {
-    this.alertify.success('Section mise à jour');
+    this.alertify.success('Section &laquo;' + this.model.nom + '&raquo; mise à jour');
     this.editForm.reset(this.model);
+    this.router.navigate(['/admin']);
   }, error => {
     this.alertify.error(error);
   });
