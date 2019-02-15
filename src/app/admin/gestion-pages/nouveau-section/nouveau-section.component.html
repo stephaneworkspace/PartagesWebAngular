@@ -3,7 +3,7 @@
   <!-- Page Content -->
   <div id="content">
     <div class="container-fluid">
-    <form #editForm="ngForm" (ngSubmit)="createSection()">
+    <form #editForm="ngForm" (ngSubmit)="submitForm()">
       <div class="form-group">
         <label for="nom">Nom de la section</label>
         <input type="nom" class="form-control" id="nom" aria-describedby="nomHelp" placeholder="Veuillez saisir un nom" [(ngModel)]="model.nom" name="nom">
@@ -11,13 +11,20 @@
       </div>
       <div class="form-group">
         <label for="icone">Sélection de l'icone</label>
-        <select class="form-control" id="iconeSelect" [(ngModel)]="model.icone" name="icone">
-          <option value="desktop">Informatique</option>
-          <option value="globe">Planète</option>
-          <option value="coffee">Café</option>
+        <select 
+          class="form-control custom-select"
+          id="icone" 
+          [(ngModel)]="model.icone"
+          name="icone"
+        >
+          <option 
+            *ngFor="let item of iconesSelectBox; let i = index"
+            [value]="item.faValeur"
+          >{{ item.nomSelectBox }}
+          </option>
         </select>
       </div>
-      <div *ngIf="model.iconeSelect != null">
+      <div *ngIf="model.icone != null">
         <div class="form-group">
           <label for="icone">Preview</label>
           <br />

@@ -23,8 +23,8 @@
           class="form-control" 
           id="icone" 
           [(ngModel)]="model.icone"
-          (ngModelChange)="updateChanges()"
           name="icone"
+          placeholder="Choisir une icone"
         >
           <option 
             *ngFor="let item of iconesSelectBox; let i = index"

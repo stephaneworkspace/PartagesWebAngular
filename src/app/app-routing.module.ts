@@ -40,6 +40,9 @@ const routes: Routes = [
   {
     path: 'admin/gestion-pages-nouvelle-section',
     component: NouveauSectionComponent,
+    resolve: {
+      selectBox: GestionPagesIconesSelectBoxResolver
+    },
     canActivate: [AuthGuard],
   },
   {
