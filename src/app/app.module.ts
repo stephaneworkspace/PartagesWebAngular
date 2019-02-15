@@ -76,10 +76,10 @@ library.add(fas, far, fab);
       ModuleGestionPagesTableBtnDescendreComponent,
       AdminSidebarComponent,
       NouveauSectionComponent,
+      EditionSectionComponent,
       NouveauTitreMenuComponent,
       NouveauSousTitreMenuComponent,
       NouveauArticleComponent,
-      EditionSectionComponent,
       EditionTitreMenuComponent,
       EditionSousTitreMenuComponent,
       EditionArticleComponent

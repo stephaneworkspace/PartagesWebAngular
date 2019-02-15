@@ -44,7 +44,8 @@ ngOnInit() {
   });
 }
 
-updateArticle() {
+submitForm() {
+  console.log(this.model);
   this.sectionService.updateSection(this.model.id, this.model).subscribe(next => {
     this.alertify.success('Section mise à jour');
     this.editForm.reset(this.model);

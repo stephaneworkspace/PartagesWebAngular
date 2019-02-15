@@ -11,25 +11,37 @@
         <strong>Information:</strong> Vous avez fait des changements. Tous changements non validé seront perdus !
       </div>
     </div>
-    <form #editForm="ngForm">
+    <form #editForm="ngForm" (ngSubmit)="submitForm()">
       <div class="form-group">
         <label for="nom">Nom de la section</label>
         <input type="nom" class="form-control" id="nom" aria-describedby="nomHelp" placeholder="Veuillez saisir un nom" [(ngModel)]="model.nom" name="nom">
         <small id="nomHelp" class="form-text text-muted">Ce nom doit être unique</small>
       </div>
       <div class="form-group">
-        <label for="iconeSelect">Sélection de l'icone</label>
-        <select class="form-control" id="iconeSelect"[(ngModel)]="model.iconeSelect" name="iconeSelect">
-          <option value="desktop">Informatique</option>
-          <option value="globe">Planète</option>
-          <option value="coffee">Café</option>
-        </select>
+        <label for="icone">Sélection de l'icone</label>
+        <select 
+          class="form-control" 
+          id="icone" 
+          [(ngModel)]="model.icone"
+          (ngModelChange)="updateChanges()"
+          name="icone"
+        >
+          <option 
+            *ngFor="let item of iconesSelectBox; let i = index"
+            [value]="item.faValeur">{{ item.nomSelectBox }}
+          </option>
+        </select>        
       </div>
-      <div *ngIf="model.iconeSelect != null">
+      <div *ngIf="model.icone != null">
         <div class="form-group">
           <label for="iconePreview">Preview</label>
           <br />
-          <fa-icon class="icon-preview" *ngIf="model.iconeSelect != null" [icon]="['fa', model.iconeSelect]" [size]="this.faSizeProp"></fa-icon>
+          <fa-icon 
+            class="icon-preview" 
+            *ngIf="model.icone != null" 
+            [icon]="['fa', model.icone]" 
+            [size]="this.faSizeProp">
+          </fa-icon>
         </div>
       </div>
       <div class="form-group">
@@ -44,7 +56,6 @@
         [disabled]="!editForm.dirty" 
         type="submit" 
         class="btn btn-primary"
-        (ngSubmit)="updateArticle()"
       >Éditer section</button>
     </form>
   </div>
