@@ -31,22 +31,22 @@ export class SectionService {
   }
 
   createSection(section: Section) {
-    return this.http.post(this.baseUrl + 'sections', section);
+    return this.http.post(this.baseUrl + 'sections', section, httpOptions);
   }
 
   updateSection(id: number, section: Section) {
-    return this.http.put(this.baseUrl + 'sections/' + id, section);
+    return this.http.put(this.baseUrl + 'sections/' + id, section, httpOptions);
   }
 
   deleteSection(id: number) {
-    return this.http.delete(this.baseUrl + 'sections/' + id);
+    return this.http.delete(this.baseUrl + 'sections/' + id, httpOptions);
   }
 
   upSection(id: number) {
-    return this.http.post(this.baseUrl + 'sections/monter/' + id, {});
+    return this.http.post(this.baseUrl + 'sections/monter/' + id, {}, httpOptions);
   }
 
   downSection(id: number) {
-    return this.http.post(this.baseUrl + 'sections/descendre/' + id, {});
+    return this.http.post(this.baseUrl + 'sections/descendre/' + id, {}, httpOptions);
   }
 }
