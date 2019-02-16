@@ -37,6 +37,13 @@ export class FormError {
     }
 
     /**
+     * Retourne le tout
+     */
+    getAll() {
+        return this.errors;
+    }
+
+    /**
      * Record the new errors.
      *
      * @param errors record à envoyer à la classe

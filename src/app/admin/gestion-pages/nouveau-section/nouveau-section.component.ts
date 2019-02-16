@@ -41,6 +41,9 @@ export class NouveauSectionComponent implements OnInit {
     });
   }
 
+  /**
+   * Envoyer le formulaire
+   */
   submitForm() {
     // Initialisation des erreurs précédantes
     this.formError.clear();
@@ -56,12 +59,18 @@ export class NouveauSectionComponent implements OnInit {
         this.alertify.error(error.error);
       } else {
         this.formError.record(error.error.errors);
-        console.log('has Icone ->' + this.formError.has('Icone'));
-        console.log('get message Icone -> ' + this.formError.get('Icone'));
-        console.log('has Type ->' + this.formError.has('Type'));
-        console.log('get message Type -> ' + this.formError.get('Type'));
+        Object.keys(this.formError.getAll()).forEach(element => {
+          this.alertify.error(this.formError.get(element));
+        });
       }
     });
+  }
+
+  /**
+   * Dans le cas ou le formulaire est touché, suppression des erreurs en petit rouge
+   */
+  setDirtyFlag() {
+    this.formError.clear();
   }
 
 }

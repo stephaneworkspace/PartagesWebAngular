@@ -3,7 +3,7 @@
   <!-- Page Content -->
   <div id="content">
     <div class="container-fluid">
-    <form #editForm="ngForm" (ngSubmit)="submitForm()">
+    <form #editForm="ngForm" (ngSubmit)="submitForm()" (change)="setDirtyFlag()">
       <div class="form-group">
         <label for="nom">Nom de la section</label>
         <input type="nom" class="form-control" id="nom" aria-describedby="nomHelp" placeholder="Veuillez saisir un nom (ce nom doit être unique)" [(ngModel)]="model.nom" name="nom">
