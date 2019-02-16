@@ -26,7 +26,6 @@
         <small id="titreHelp" class="form-text text-muted">Ce titre n'est pas forcément unique, mais doit être unique dans la section</small>
       </div>
       <button 
-        [disabled]="!editForm.dirty" 
         type="submit" 
         class="btn btn-primary"
         (ngSubmit)="updateTitreMenu()"
