@@ -5,6 +5,7 @@ import { SectionService } from 'src/app/_services/section.service';
 import { NgForm } from '@angular/forms';
 import { Icone } from 'src/app/_models/icone';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FormError } from '../../../_class/form-error';
 
 @Component({
   selector: 'app-nouveau-section',
@@ -15,6 +16,7 @@ export class NouveauSectionComponent implements OnInit {
   @ViewChild('editForm') editForm: NgForm;
   model: any = {};
   iconesSelectBox: Icone[];
+  formError: any;
 
   public faSizeProp: SizeProp;
   constructor(
@@ -30,6 +32,9 @@ export class NouveauSectionComponent implements OnInit {
   ngOnInit() {
     this.faSizeProp = 'lg';
     this.model.typeSelect = 'none';
+    // Initialisation des erreurs de formulaires
+    this.formError = new FormError();
+    // Resolve
     this.route.data.subscribe(data => {
       // Resolver
       this.iconesSelectBox = data.selectBox.slice();
@@ -37,13 +42,26 @@ export class NouveauSectionComponent implements OnInit {
   }
 
   submitForm() {
+    // Initialisation des erreurs précédantes
+    this.formError.clear();
     this.sectionService.createSection(this.model).subscribe(next => {
       this.alertify.success('Section &laquo;' + this.model.nom + '&raquo; crée');
       // this.editForm.reset(this.section); // pour @HostListener('window:beforeunload', ['$event'])
       this.router.navigate(['/admin']);
     }, error => {
-      // console.log(error);
-      this.alertify.error(error.error);
+
+      // https://github.com/laracasts/Vue-Forms/blob/master/public/js/app.js
+      // Ensuite trouver moyen de traduire les messages d'erreurs
+      if (typeof error.error === 'string') {
+        this.alertify.error(error.error);
+      } else {
+        this.formError.record(error.error.errors);
+        console.log('has Icone ->' + this.formError.has('Icone'));
+        console.log('get message Icone -> ' + this.formError.get('Icone'));
+        console.log('has Type ->' + this.formError.has('Type'));
+        console.log('get message Type -> ' + this.formError.get('Type'));
+      }
     });
   }
+
 }
