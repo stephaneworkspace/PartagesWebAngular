@@ -19,7 +19,6 @@ export class SectionService {
   constructor(private http: HttpClient) {}
 
   GetArbreCompletSections(): Observable<Section[]> {
-    console.log(localStorage.getItem('token'));
     return this.http.get<Section[]>(this.baseUrl + 'Sections/gestion-pages-avec-arbre-complet', httpOptions);
   }
 
