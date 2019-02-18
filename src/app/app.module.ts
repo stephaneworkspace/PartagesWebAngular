@@ -41,7 +41,7 @@ import { EditionTitreMenuComponent } from './admin/gestion-pages/edition-titre-m
 // tslint:disable-next-line:max-line-length
 import { GestionPagesSousTitreMenuPreventUnsavedChangesGuard } from './_guards/gestion-pages-sous-titre-menu-prevent-unsaved-changes.guard.ts';
 import { EditionSousTitreMenuComponent } from './admin/gestion-pages/edition-sous-titre-menu/edition-sous-titre-menu.component';
-import { GestionPagesSectionSelectResolver } from './_resolver/gestion-pages-section-select.resolver.ts';
+import { GestionPagesSectionSelectBoxResolver } from './_resolver/gestion-pages-section-select-box.resolver.ts';
 import { TitreMenuService } from './_services/titre-menu.service';
 import { SousTitreMenuService } from './_services/sous-titre-menu.service';
 import { GestionPagesSectionArbreEntierResolver } from './_resolver/gestion-pages-section-arbre-entier.resolver';
@@ -101,7 +101,7 @@ library.add(fas, far, fab);
       ArticleService,
       GestionPagesIconesSelectBoxResolver,
       GestionPagesSectionArbreEntierResolver,
-      GestionPagesSectionSelectResolver,
+      GestionPagesSectionSelectBoxResolver,
       GestionPagesSectionEditionResolver,
       GestionPagesTitreMenuEditionResolver,
       GestionPagesSousTitreMenuEditionResolver,

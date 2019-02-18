@@ -7,18 +7,18 @@ import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 @Injectable()
-export class GestionPagesSectionArbreEntierResolver implements Resolve<Section> {
+export class GestionPagesSectionArbreEntierResolver implements Resolve<Section[]> {
     constructor(
         private sectionService: SectionService,
         private router: Router,
         private alertify: AlertifyService) {}
 
-    resolve(route: ActivatedRouteSnapshot): Observable<Section> {
+    resolve(route: ActivatedRouteSnapshot): Observable<Section[]> {
         return this.sectionService.GetArbreCompletSections().pipe(
             catchError(error => {
                 // tslint:disable-next-line:max-line-length
                 this.alertify.error('Problème de chargement de l\'arbre "sections - titres menus - sous titre menus - articles" de gestion pages');
-                this.router.navigate(['/admin']);
+                this.router.navigate(['/']);
                 return of(null);
             })
         );

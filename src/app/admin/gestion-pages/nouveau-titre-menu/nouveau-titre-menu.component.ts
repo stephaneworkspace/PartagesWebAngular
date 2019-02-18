@@ -16,42 +16,9 @@ import { TitreMenu } from 'src/app/_models/titre-menu';
 export class NouveauTitreMenuComponent implements OnInit {
   @ViewChild('editForm') editForm: NgForm;
   model: any = {};
-  section: Section[] = [
-    {
-      id: 1,
-      nom: 'Developpement web',
-      icone: 'web',
-      type: 'type01',
-      position: 1,
-      swHorsLigne: false
-    },
-    {
-      id: 1,
-      nom: 'Thème astral',
-      icone: 'globe',
-      type: 'type01',
-      position: 2,
-      swHorsLigne: false
-    },
-    {
-      id: 1,
-      nom: 'MAO',
-      icone: 'globe',
-      type: 'type01',
-      position: 3,
-      swHorsLigne: false
-    },
-    {
-      id: 0,
-      nom: 'Hors ligne',
-      icone: 'web',
-      type: 'type01',
-      position: 4,
-      swHorsLigne: false
-    },
-  ];
+  section: Section[];
 
-  // titreMenu: TitreMenu; pour le post, afin de ne pas envoyer le form... 
+  // titreMenu: TitreMenu; pour le post, afin de ne pas envoyer le form... ??? 17 février
   // c'est peut être pas la meilleur methode
   titreMenu: TitreMenu;
 
@@ -61,10 +28,10 @@ export class NouveauTitreMenuComponent implements OnInit {
     private titreMenuService: TitreMenuService) { }
 
   ngOnInit() {
-    this.model.sectionSelect = 'hors-ligne';
+    // inutile 17 février... this.model.sectionSelect = 'hors-ligne';
+    // Resolver
     this.route.data.subscribe(data => {
-      // this.titreMenu = data['titre-menu'];
-      // A FAIRE 7 fevrier this.section = data['section'];
+      this.section = data['sectionSelectBox'];
     });
   }
 

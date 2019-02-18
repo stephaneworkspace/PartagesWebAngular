@@ -20,7 +20,7 @@ import { GestionPagesTitreMenuEditionResolver } from './_resolver/gestion-pages-
 import { GestionPagesTitreMenuPreventUnsavedChangesGuard } from './_guards/gestion-pages-titre-menu-prevent-unsaved-changes.guard';
 import { EditionSousTitreMenuComponent } from './admin/gestion-pages/edition-sous-titre-menu/edition-sous-titre-menu.component';
 import { GestionPagesSousTitreMenuEditionResolver } from './_resolver/gestion-pages-sous-titre-menu-edition.resolver';
-import { GestionPagesSectionSelectResolver } from './_resolver/gestion-pages-section-select.resolver.ts';
+import { GestionPagesSectionSelectBoxResolver } from './_resolver/gestion-pages-section-select-box.resolver.ts';
 import { GestionPagesSectionArbreEntierResolver } from './_resolver/gestion-pages-section-arbre-entier.resolver';
 import { GestionPagesIconesSelectBoxResolver } from './_resolver/gestion-pages-icones-select-box.resolver';
 
@@ -57,16 +57,15 @@ const routes: Routes = [
   },
   // can desactive a faire
   {
-    path: 'admin/gestion-pages-nouveau-titre',
+    path: 'admin/gestion-pages-nouveau-titre-menu',
     component: NouveauTitreMenuComponent,
     canActivate: [AuthGuard],
-    // 7 fevrier en attente d'un backend
-    // resolve: {
-    //  section: GestionPagesSectionSelectResolver
-    // },
+    resolve: {
+      sectionSelectBox: GestionPagesSectionSelectBoxResolver
+    },
   },
   {
-    path: 'admin/gestion-pages-nouveau-sous-titre',
+    path: 'admin/gestion-pages-nouveau-sous-titre-menu',
     component: NouveauSousTitreMenuComponent,
     canActivate: [AuthGuard],
   },
@@ -76,16 +75,16 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path: 'admin/gestion-pages-edition-titre/:id',
+    path: 'admin/gestion-pages-edition-titre-menu/:id',
     component: EditionTitreMenuComponent,
     canActivate: [AuthGuard],
     resolve: {
       titreMenu: GestionPagesTitreMenuEditionResolver,
-      section: GestionPagesSectionSelectResolver,
+      section: GestionPagesSectionSelectBoxResolver,
     }, canDeactivate: [GestionPagesTitreMenuPreventUnsavedChangesGuard],
   },
   {
-    path: 'admin/gestion-pages-edition-sous-titre/:id',
+    path: 'admin/gestion-pages-edition-sous-titre-menu/:id',
     component: EditionSousTitreMenuComponent,
     canActivate: [AuthGuard],
     resolve: {sousTitreMenu: GestionPagesSousTitreMenuEditionResolver}, canDeactivate: [GestionPagesTitreMenuPreventUnsavedChangesGuard],
