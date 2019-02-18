@@ -3,29 +3,46 @@
   <!-- Page Content -->
   <div id="content">
     <div class="container-fluid">
-      <form #editForm="ngForm">
+      <form #editForm="ngForm" (ngSubmit)="submitForm()" (change)="setDirtyFlag()">
       <div class="form-group">
-        <label for="sectionSelect">Sélection d'une section</label>
-        <select class="form-control" id="sectionSelect" [(ngModel)]="model.sectionSelect" name="sectionSelect">
-          <option value="hors-ligne">Hors-ligne</option>
-          <option value="Developpement web">Developpement web</option>
-          <option value="MAO">MAO</option>
-        </select>
-        <select class="form-control" id="sectionSelect2" [(ngModel)]="model.sectionSelect2" name="sectionSelect2">
+        <label for="sectionId">Sélection d'une section</label>
+        <select 
+          class="form-control custom-select"
+          id="sectionId" 
+          [(ngModel)]="model.sectionId"
+          name="sectionId"
+        >
           <option 
-            *ngFor="let item of section; let item = index" 
-            [value]="item.value">{{ item.nom }}</option>
-        </select>        
+            *ngFor="let item of section; let i = index"
+            [value]="item.id"
+          >{{ item.nom }}
+          </option>
+        </select>      
       </div>
       <div class="form-group">
-        <label for="nom">Nom du titre</label>
-        <input type="nom" class="form-control" id="titre" aria-describedby="titreHelp" placeholder="Veuillez saisir un titre" [(ngModel)]="model.titre" name="titre">
-        <small id="titreHelp" class="form-text text-muted">Ce titre n'est pas forcément unique, mais doit être unique dans la section</small>
+        <label for="nom">Nom du titre menu</label>
+        <input type="nom" class="form-control" id="titre" aria-describedby="titreHelp" placeholder="Veuillez saisir un titre menu (ce nom doit être unique dans la section)" [(ngModel)]="model.nom" name="nom">
+        <small 
+          id="iconeHelp" 
+          class="help text-danger" 
+          *ngIf="this.formError.has('Nom')"
+        >{{ this.formError.get('Nom') }}</small>
+      </div>
+      <div class="form-group">
+        <div class="form-group form-check">
+          <input 
+          class="form-check-input"
+          id="swHorsLigne"
+          type="checkbox" 
+          aria-label="Si on doit le classifier dans aucune section"
+          [(ngModel)]="model.swHorsLigne"
+          name="swHorsLigne">
+          <label class="form-check-label" for="swHorsLigne">Hors ligne</label>
+        </div>        
       </div>
       <button 
         type="submit" 
         class="btn btn-primary"
-        (ngSubmit)="createTitreMenu()"
       >Créer titre</button>
     </form>
   </div>

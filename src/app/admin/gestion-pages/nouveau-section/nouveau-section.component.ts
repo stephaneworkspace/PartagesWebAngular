@@ -52,7 +52,6 @@ export class NouveauSectionComponent implements OnInit {
       // this.editForm.reset(this.section); // pour @HostListener('window:beforeunload', ['$event'])
       this.router.navigate(['/admin']);
     }, error => {
-
       // https://github.com/laracasts/Vue-Forms/blob/master/public/js/app.js
       // Ensuite trouver moyen de traduire les messages d'erreurs
       if (typeof error.error === 'string') {

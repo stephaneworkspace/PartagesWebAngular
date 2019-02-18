@@ -19,14 +19,14 @@ export class ArticleService {
   constructor(private http: HttpClient) {}
 
   getArticles(): Observable<Article[]> {
-    return this.http.get<Article[]>(this.baseUrl + 'articles', httpOptions);
+    return this.http.get<Article[]>(this.baseUrl + 'Articles', httpOptions);
   }
 
   getArticle(id): Observable<Article> {
-    return this.http.get<Article>(this.baseUrl + 'articles/' + id, httpOptions);
+    return this.http.get<Article>(this.baseUrl + 'Articles/' + id, httpOptions);
   }
 
   updateArticle(id: number, article: Article) {
-    return this.http.put(this.baseUrl + 'articles/' + id, article);
+    return this.http.put(this.baseUrl + 'Articles/' + id, article);
   }
 }

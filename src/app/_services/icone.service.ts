@@ -19,19 +19,19 @@ export class IconeService {
   constructor(private http: HttpClient) {}
 
   getIcones(): Observable<Icone[]> {
-    return this.http.get<Icone[]>(this.baseUrl + 'icones', httpOptions);
+    return this.http.get<Icone[]>(this.baseUrl + 'Icones', httpOptions);
   }
 
   getIcone(id): Observable<Icone> {
-    return this.http.get<Icone>(this.baseUrl + 'icones/' + id, httpOptions);
+    return this.http.get<Icone>(this.baseUrl + 'Icones/' + id, httpOptions);
   }
 
   createSection(item: Icone) {
-    return this.http.post(this.baseUrl + 'icones', item);
+    return this.http.post(this.baseUrl + 'Icones', item);
   }
 
   updateSection(id: number, item: Icone) {
-    return this.http.put(this.baseUrl + 'icones/' + id, item);
+    return this.http.put(this.baseUrl + 'Icones/' + id, item);
   }
 
   deleteSection(id: number) {

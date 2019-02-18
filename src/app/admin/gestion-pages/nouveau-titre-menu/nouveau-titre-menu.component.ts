@@ -5,8 +5,9 @@ import { Section } from 'src/app/_models/section';
 import { AuthService } from 'src/app/_services/auth.service';
 import { TitreMenuService } from 'src/app/_services/titre-menu.service';
 import { AlertifyService } from 'src/app/_services/alertify.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TitreMenu } from 'src/app/_models/titre-menu';
+import { FormError } from 'src/app/_class/form-error';
 
 @Component({
   selector: 'app-nouveau-titre-menu',
@@ -17,6 +18,7 @@ export class NouveauTitreMenuComponent implements OnInit {
   @ViewChild('editForm') editForm: NgForm;
   model: any = {};
   section: Section[];
+  formError: any;
 
   // titreMenu: TitreMenu; pour le post, afin de ne pas envoyer le form... ??? 17 février
   // c'est peut être pas la meilleur methode
@@ -24,24 +26,46 @@ export class NouveauTitreMenuComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private alertify: AlertifyService,
     private titreMenuService: TitreMenuService) { }
 
   ngOnInit() {
     // inutile 17 février... this.model.sectionSelect = 'hors-ligne';
+
+    // Initialisation des erreurs de formulaires
+    this.formError = new FormError();
     // Resolver
     this.route.data.subscribe(data => {
       this.section = data['sectionSelectBox'];
     });
   }
 
-  createTitreMenu() {
-    this.titreMenuService.createTitreMenu(this.titreMenu).subscribe(next => {
-      this.alertify.success('Titre crée');
+  submitForm() {
+    // Initialisation des erreurs précédantes
+    this.formError.clear();
+    this.titreMenuService.createTitreMenu(this.model).subscribe(next => {
+      this.alertify.success('Titre Menu &laquo;' + this.model.nom + '&raquo; crée');
       // this.editForm.reset(this.titreMenu);
+      this.router.navigate(['/admin']);
     }, error => {
-      this.alertify.error(error);
+      // https://github.com/laracasts/Vue-Forms/blob/master/public/js/app.js
+      // Ensuite trouver moyen de traduire les messages d'erreurs
+      if (typeof error.error === 'string') {
+        this.alertify.error(error.error);
+      } else {
+        this.formError.record(error.error.errors);
+        Object.keys(this.formError.getAll()).forEach(element => {
+          this.alertify.error(this.formError.get(element));
+        });
+      }
     });
   }
 
+  /**
+   * Dans le cas ou le formulaire est touché, suppression des erreurs en petit rouge
+   */
+  setDirtyFlag() {
+    this.formError.clear();
+  }
 }
