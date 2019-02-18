@@ -5,14 +5,17 @@
       <th scope="col" colspan="4"></th>          
     </tr>
   </thead>
-  <tbody class="table-light">
-    <app-module-gestion-pages-table-core-sections
+</table>
+<!--<tbody class="table-light">-->
+      <app-module-gestion-pages-table-core-sections
       [section]="sectionEnLigne"
       (outputEditSection)="editSection($event)"
       (outputDeleteSection)="deleteSection($event)"
       (outputUpSection)="upSection($event)"
       (outputDownSection)="downSection($event)"
     ></app-module-gestion-pages-table-core-sections>
+  <table class="table table-borderless">
+      <tbody class="table-light">
     <tr 
       *ngFor="let item of sectionEnLigne; let i = index"
     >

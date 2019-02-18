@@ -56,3 +56,8 @@ a, a:hover, a:focus {
     vertical-align: middle;
     white-space: nowrap;
 }
+
+table {
+    width: 100% !important;
+    table-layout: unset;
+}

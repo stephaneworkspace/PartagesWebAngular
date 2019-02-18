@@ -1,34 +1,33 @@
-<div
-*ngFor="let item of section; let i = index"
->
+<table class="table table-borderless" *ngFor="let item of section; let i = index">
+  <tbody class="table-light">
   <tr>
-  <th scope="row">
+  <th scope="row" style="width:60%">
     <span class="textSection">
       <fa-icon class="icon-preview" *ngIf="item.icone != null" [icon]="['fa', item.icone]"></fa-icon>&nbsp;{{ item.nom }}
     </span>
   </th>
-  <td>
+  <td style="width:10%">
     <app-module-gestion-pages-table-btn-editer
       [sectionItem]="item"
       [disable]="false"
       (outputEditSection)="editSection($event)"
     ></app-module-gestion-pages-table-btn-editer>
   </td>
-  <td>
+  <td style="width:10%">
     <app-module-gestion-pages-table-btn-effacer
       [sectionItem]="item"
       [disable]="false"
       (outputDeleteSection)="deleteSection($event)"
     ></app-module-gestion-pages-table-btn-effacer>
   </td>
-  <td>
+  <td style="width:10%">
     <app-module-gestion-pages-table-btn-monter
       [sectionItem]="item"
       [disable]="i == 0"
       (outputUpSection)="upSection($event)"
     ></app-module-gestion-pages-table-btn-monter>
   </td>      
-  <td>
+  <td style="width:10%">
     <app-module-gestion-pages-table-btn-descendre
       [sectionItem]="item"
       [disable]="i == section.length - 1"
@@ -39,33 +38,33 @@
 <tr 
 *ngFor="let sousItem of item.titreMenus; let i = index"
 >
-<th scope="row">
+<th scope="row" style="width:60%">
     <span class="textTitreMenu">
       <fa-icon class="icon-preview" [icon]="['fa', 'puzzle-piece']"></fa-icon>&nbsp;{{ sousItem.nom }}
     </span>
   </th>
-  <td>
+  <td style="width:10%">
     <app-module-gestion-pages-table-btn-editer
       [sectionItem]="sousItem"
       [disable]="false"
       (outputEditSection)="editSection($event)"
     ></app-module-gestion-pages-table-btn-editer>
   </td>
-  <td>
+  <td style="width:10%">
     <app-module-gestion-pages-table-btn-effacer
       [sectionItem]="sousItem"
       [disable]="false"
       (outputDeleteSection)="deleteSection($event)"
     ></app-module-gestion-pages-table-btn-effacer>
   </td>
-  <td>
+  <td style="width:10%">
     <app-module-gestion-pages-table-btn-monter
       [sectionItem]="sousItem"
       [disable]="i == 0"
       (outputUpSection)="upSection($event)"
     ></app-module-gestion-pages-table-btn-monter>
   </td>      
-  <td>
+  <td style="width:10%">
     <app-module-gestion-pages-table-btn-descendre
       [sectionItem]="sousItem"
       [disable]="i == section.length - 1"
@@ -73,4 +72,5 @@
     ></app-module-gestion-pages-table-btn-descendre>
   </td>
 </tr>
-</div>
+</tbody>
+</table>
