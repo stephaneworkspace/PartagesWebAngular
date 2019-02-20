@@ -7,13 +7,11 @@
   </thead>
 </table>
 <app-module-gestion-pages-table-core
-[section]="sectionEnLigne"
-(outputEdit)="edit($event)"
-(outputDelete)="delete($event)"
-(outputUpSection)="upSection($event)"
-(outputDownSection)="downSection($event)"
-(outputUpTitreMenu)="upTitreMenu($event)"
-(outputDownTitreMenu)="downTitreMenu($event)"
+  [section]="sectionEnLigne"
+  (outputEdit)="edit($event)"
+  (outputDelete)="delete($event)"
+  (outputUp)="up($event)"
+  (outputDown)="down($event)"
 ></app-module-gestion-pages-table-core>
   <table class="table table-borderless">
       <tbody class="table-light">

@@ -24,14 +24,14 @@
     <app-module-gestion-pages-table-btn-monter
       [sectionItem]="item"
       [disable]="i == 0"
-      (outputUpSection)="upSection($event)"
+      (outputUp)="up($event)"
     ></app-module-gestion-pages-table-btn-monter>
   </td>      
   <td style="width:10%">
     <app-module-gestion-pages-table-btn-descendre
       [sectionItem]="item"
       [disable]="i == section.length - 1"
-      (outputDownSection)="downSection($event)"
+      (outputDown)="down($event)"
     ></app-module-gestion-pages-table-btn-descendre>
   </td>
 </tr>
@@ -61,15 +61,17 @@
   <td style="width:10%">
     <app-module-gestion-pages-table-btn-monter
       [sectionItem]="item"
+      [titreMenuItem]="sousItem"
       [disable]="i == 0"
-      (outputUpSection)="upSection($event)"
+      (outputUp)="up($event)"
     ></app-module-gestion-pages-table-btn-monter>
   </td>      
   <td style="width:10%">
     <app-module-gestion-pages-table-btn-descendre
       [sectionItem]="item"
+      [titreMenuItem]="sousItem"
       [disable]="i == item.titreMenus.length - 1"
-      (outputDownSection)="downSection($event)"
+      (outputDown)="down($event)"
     ></app-module-gestion-pages-table-btn-descendre>
   </td>
 </tr>

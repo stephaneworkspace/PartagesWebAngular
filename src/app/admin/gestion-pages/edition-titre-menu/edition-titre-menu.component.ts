@@ -40,7 +40,7 @@ ngOnInit() {
 
 updateTitreMenu() {
   // 7 fevrier , le token était envoyé ici ???
-  this.titreMenuService.updateTitreMenu(this.titreMenu.id, this.titreMenu).subscribe(next => {
+  this.titreMenuService.update(this.titreMenu.id, this.titreMenu).subscribe(next => {
     this.alertify.success('Titre mis à jour');
     this.editForm.reset(this.titreMenu);
   }, error => {

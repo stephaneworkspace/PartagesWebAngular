@@ -43,19 +43,24 @@ export class GestionPagesComponent implements OnInit {
       this.alertify.error(error.error);
     });
   }
+  /*
+   * *Note* 20 février à faire
+   * -------------------------------
+   * https://alligator.io/angular/animating-route-changes/ 
+   */
+
+  /**
+   * Edition
+   */
 
   edit(item: Dto) {
     if (item.titreMenu === undefined) {
       this.editSection(item);
     } else {
-      // à faire
+      this.editTitreMenu(item);
     }
   }
 
-  /**
-   * Navigation vers edition de Section
-   * https://alligator.io/angular/animating-route-changes/ animation
-   */
   editSection(item: Dto) {
     this.router.navigate(['/admin/gestion-pages-edition-section/' + item.section.id]);
   }
@@ -63,6 +68,10 @@ export class GestionPagesComponent implements OnInit {
   editTitreMenu(item: Dto) {
     this.router.navigate(['/admin/gestion-pages-edition-titre-menu/' + item.titreMenu.id]);
   }
+
+  /**
+   * Delete
+   */
 
   delete(item: Dto) {
     if (item.titreMenu === undefined) {
@@ -82,9 +91,8 @@ export class GestionPagesComponent implements OnInit {
         this.alertify.success('Section &laquo;' + item.section.nom + '&raquo; effacé et contenu rendu hors ligne');
       }
       this.getArbreEntier();
-      // this.editForm.reset(this.section); // redirection à faire
+      // this.editForm.reset(this.section); // *Note* 20 février, je garde ça en place au cas ou ça peux me servir
     }, error => {
-      // console.log(error);
       this.alertify.error(error.error);
     });
   }
@@ -93,6 +101,7 @@ export class GestionPagesComponent implements OnInit {
     this.titreMenuService.delete(item.titreMenu.id).subscribe(next => {
       // 8 février - Faire un message personalisé avec analyse du contenu
       // 15 février si il n'y a pas de contenu dans le else, traîter correctement
+      // *Note* *Erreur* swHorsLigne, precedant serrait inteligant
       if (item.titreMenu.swHorsLigne) {
         this.alertify.success('Titre menu &laquo;' + item.titreMenu.nom + '&raquo; effacé');
       } else {
@@ -104,26 +113,62 @@ export class GestionPagesComponent implements OnInit {
     });
   }
 
-  upSection(item: Section) {
-    this.sectionService.up(item.id).subscribe(next => {
-      // 8 février - Faire un message personalisé avec analyse du contenu
-      this.alertify.success('Section &laquo;' + item.nom + '&raquo; montée');
+  /**
+   * Up
+   */
+
+  up(item: Dto) {
+    if (item.titreMenu === undefined) {
+      this.upSection(item);
+    } else {
+      this.upTitreMenu(item);
+    }
+  }
+
+  upSection(item: Dto) {
+    this.sectionService.up(item.section.id).subscribe(next => {
+      this.alertify.success('Section &laquo;' + item.section.nom + '&raquo; montée');
       this.getArbreEntier();
-      // this.editForm.reset(this.section); // redirection à faire
     }, error => {
-      // console.log(error);
       this.alertify.error(error.error);
     });
   }
 
-  downSection(item: Section) {
-    this.sectionService.down(item.id).subscribe(next => {
-      // 8 février - Faire un message personalisé avec analyse du contenu
-      this.alertify.success('Section &laquo;' + item.nom + '&raquo; descendue');
+  upTitreMenu(item: Dto) {
+    this.titreMenuService.up(item.titreMenu.id).subscribe(next => {
+      this.alertify.success('Titre menu &laquo;' + item.titreMenu.nom + '&raquo; montée');
       this.getArbreEntier();
-      // this.editForm.reset(this.section); // redirection à faire
     }, error => {
-      // console.log(error);
+      this.alertify.error(error.error);
+    });
+  }
+
+  /**
+   * Down
+   */
+
+  down(item: Dto) {
+    if (item.titreMenu === undefined) {
+      this.downSection(item);
+    } else {
+      this.downTitreMenu(item);
+    }
+  }
+
+  downSection(item: Dto) {
+    this.sectionService.down(item.section.id).subscribe(next => {
+      this.alertify.success('Section &laquo;' + item.section.nom + '&raquo; descendue');
+      this.getArbreEntier();
+    }, error => {
+      this.alertify.error(error.error);
+    });
+  }
+
+  downTitreMenu(item: Dto) {
+    this.titreMenuService.down(item.titreMenu.id).subscribe(next => {
+      this.alertify.success('Titre menu &laquo;' + item.titreMenu.nom + '&raquo; descendue');
+      this.getArbreEntier();
+    }, error => {
       this.alertify.error(error.error);
     });
   }

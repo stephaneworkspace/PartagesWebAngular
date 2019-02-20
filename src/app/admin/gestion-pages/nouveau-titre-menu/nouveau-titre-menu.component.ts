@@ -44,7 +44,7 @@ export class NouveauTitreMenuComponent implements OnInit {
   submitForm() {
     // Initialisation des erreurs précédantes
     this.formError.clear();
-    this.titreMenuService.createTitreMenu(this.model).subscribe(next => {
+    this.titreMenuService.create(this.model).subscribe(next => {
       this.alertify.success('Titre Menu &laquo;' + this.model.nom + '&raquo; crée');
       // this.editForm.reset(this.titreMenu);
       this.router.navigate(['/admin']);

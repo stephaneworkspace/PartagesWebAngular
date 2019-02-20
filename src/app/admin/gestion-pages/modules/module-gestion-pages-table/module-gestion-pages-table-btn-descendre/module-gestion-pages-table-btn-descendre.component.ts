@@ -1,5 +1,13 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Section } from 'src/app/_models/section';
+import { TitreMenu } from 'src/app/_models/titre-menu';
+import { SousTitreMenu } from 'src/app/_models/sous-titre-menu';
+
+interface Dto {
+  section: Section;
+  titreMenu?: TitreMenu;
+  sousTitreMenu?: SousTitreMenu;
+}
 
 @Component({
   selector: 'app-module-gestion-pages-table-btn-descendre',
@@ -9,15 +17,19 @@ import { Section } from 'src/app/_models/section';
 export class ModuleGestionPagesTableBtnDescendreComponent implements OnInit {
   @Input() disable: boolean;
   @Input() sectionItem: Section;
-  @Output() outputDownSection: EventEmitter<Section> = new EventEmitter<Section>();
+  @Input() titreMenuItem?: TitreMenu;
+  @Output() outputDown: EventEmitter<Dto> = new EventEmitter<Dto>();
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  private downSection() {
-    this.outputDownSection.emit(this.sectionItem);
+  private btnPush() {
+    this.outputDown.emit({
+      section: this.sectionItem,
+      titreMenu: this.titreMenuItem
+    });
   }
 
 }

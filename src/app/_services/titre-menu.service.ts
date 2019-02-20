@@ -26,15 +26,23 @@ export class TitreMenuService {
     return this.http.get<TitreMenu>(this.baseUrl + 'TitreMenus/' + id, httpOptions);
   }
 
-  updateTitreMenu(id: number, titreMenu: TitreMenu) {
+  update(id: number, titreMenu: TitreMenu) {
     return this.http.put(this.baseUrl + 'TitreMenus/' + id, titreMenu);
   }
 
-  createTitreMenu(titreMenu: TitreMenu) {
+  create(titreMenu: TitreMenu) {
     return this.http.post(this.baseUrl + 'TitreMenus', titreMenu);
   }
 
   delete(id: number) {
     return this.http.delete(this.baseUrl + 'TitreMenus/' + id, httpOptions);
+  }
+
+  up(id: number) {
+    return this.http.post(this.baseUrl + 'TitreMenus/monter/' + id, {}, httpOptions);
+  }
+
+  down(id: number) {
+    return this.http.post(this.baseUrl + 'TitreMenus/descendre/' + id, {}, httpOptions);
   }
 }

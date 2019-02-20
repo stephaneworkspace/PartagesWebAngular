@@ -31,7 +31,7 @@ export class ModuleGestionPagesTableBtnEffacerComponent implements OnInit {
     this.modalService.open(content, { centered: true });
   }
 
-  private btnPush() {
+  private btnYesPush() {
     this.outputDelete.emit({
       section: this.sectionItem,
       titreMenu: this.titreMenuItem

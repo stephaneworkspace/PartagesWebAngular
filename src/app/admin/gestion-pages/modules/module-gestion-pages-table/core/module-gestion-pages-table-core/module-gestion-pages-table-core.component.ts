@@ -18,10 +18,8 @@ export class ModuleGestionPagesTableCoreComponent implements OnInit {
   @Input() section: Section[];
   @Output() outputEdit: EventEmitter<Dto> = new EventEmitter<Dto>();
   @Output() outputDelete: EventEmitter<Dto> = new EventEmitter<Dto>();
-  @Output() outputUpSection: EventEmitter<Section> = new EventEmitter<Section>();
-  @Output() outputDownSection: EventEmitter<Section> = new EventEmitter<Section>();
-  @Output() outputUpTitreMenu: EventEmitter<Dto> = new EventEmitter<Dto>();
-  @Output() outputDownTitreMenu: EventEmitter<Dto> = new EventEmitter<Dto>();
+  @Output() outputUp: EventEmitter<Dto> = new EventEmitter<Dto>();
+  @Output() outputDown: EventEmitter<Dto> = new EventEmitter<Dto>();
 
   constructor() { }
 
@@ -42,23 +40,15 @@ export class ModuleGestionPagesTableCoreComponent implements OnInit {
     });
   }
 
-  private upSection(item: Section) {
-    this.outputUpSection.emit(item);
-  }
-
-  private downSection(item: Section) {
-    this.outputDownSection.emit(item);
-  }
-
-  private upTitreMenu(item: Dto) {
-    this.outputUpTitreMenu.emit({
+  private up(item: Dto) {
+    this.outputUp.emit({
       section: item.section,
       titreMenu: item.titreMenu
     });
   }
 
-  private downTitreMenu(item: Dto) {
-    this.outputDownTitreMenu.emit({
+  private down(item: Dto) {
+    this.outputDown.emit({
       section: item.section,
       titreMenu: item.titreMenu
     });
