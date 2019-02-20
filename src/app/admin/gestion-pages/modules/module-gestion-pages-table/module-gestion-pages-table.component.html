@@ -6,14 +6,17 @@
     </tr>
   </thead>
 </table>
-<!--<tbody class="table-light">-->
-      <app-module-gestion-pages-table-core-sections
-      [section]="sectionEnLigne"
-      (outputEditSection)="editSection($event)"
-      (outputDeleteSection)="deleteSection($event)"
-      (outputUpSection)="upSection($event)"
-      (outputDownSection)="downSection($event)"
-    ></app-module-gestion-pages-table-core-sections>
+<app-module-gestion-pages-table-core-sections
+[section]="sectionEnLigne"
+(outputEditSection)="editSection($event)"
+(outputDeleteSection)="deleteSection($event)"
+(outputUpSection)="upSection($event)"
+(outputDownSection)="downSection($event)"
+(outputEditTitreMenu)="editTitreMenu($event)"
+(outputDeleteTitreMenu)="deleteTitreMenu($event)"
+(outputUpTitreMenu)="upTitreMenu($event)"
+(outputDownTitreMenu)="downTitreMenu($event)"
+></app-module-gestion-pages-table-core-sections>
   <table class="table table-borderless">
       <tbody class="table-light">
     <tr 

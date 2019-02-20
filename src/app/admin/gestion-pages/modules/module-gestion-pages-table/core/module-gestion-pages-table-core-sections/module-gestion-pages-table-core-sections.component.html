@@ -35,6 +35,15 @@
     ></app-module-gestion-pages-table-btn-descendre>
   </td>
 </tr>
+<!--
+<app-module-gestion-pages-table-core-titre-menus
+[section]="item"
+[titreMenu]="item.titreMenus"
+(outputEditTitreMenu)="editTitreMenu($event)"
+(outputDeleteTitreMenu)="deleteTitreMenu($event)"
+(outputUpTitreMenu)="upTitreMenu($event)"
+(outputDownTitreMenu)="downTitreMenu($event)"
+></app-module-gestion-pages-table-core-titre-menus>-->
 <tr 
 *ngFor="let sousItem of item.titreMenus; let i = index"
 >
@@ -45,29 +54,30 @@
   </th>
   <td style="width:10%">
     <app-module-gestion-pages-table-btn-editer
-      [sectionItem]="sousItem"
+      [sectionItem]="item"
       [disable]="false"
       (outputEditSection)="editSection($event)"
     ></app-module-gestion-pages-table-btn-editer>
   </td>
   <td style="width:10%">
     <app-module-gestion-pages-table-btn-effacer
-      [sectionItem]="sousItem"
+      [sectionItem]="item"
+      [titreMenuItem]="sousItem"
       [disable]="false"
-      (outputDeleteSection)="deleteSection($event)"
+      (outputDelete)="deleteTitreMenu($event)"
     ></app-module-gestion-pages-table-btn-effacer>
   </td>
   <td style="width:10%">
     <app-module-gestion-pages-table-btn-monter
-      [sectionItem]="sousItem"
+      [sectionItem]="item"
       [disable]="i == 0"
       (outputUpSection)="upSection($event)"
     ></app-module-gestion-pages-table-btn-monter>
   </td>      
   <td style="width:10%">
     <app-module-gestion-pages-table-btn-descendre
-      [sectionItem]="sousItem"
-      [disable]="i == section.length - 1"
+      [sectionItem]="item"
+      [disable]="i == item.titreMenus.length - 1"
       (outputDownSection)="downSection($event)"
     ></app-module-gestion-pages-table-btn-descendre>
   </td>

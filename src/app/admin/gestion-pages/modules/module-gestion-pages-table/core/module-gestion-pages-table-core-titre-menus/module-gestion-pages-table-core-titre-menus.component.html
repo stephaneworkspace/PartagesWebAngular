@@ -1,0 +1,41 @@
+<table class="table table-borderless" *ngFor="let item of section; let i = index">
+  <tbody class="table-light">
+    <tr 
+    *ngFor="let item of titreMenu; let i = index"
+    >
+    <th scope="row" style="width:60%">
+        <span class="textTitreMenu">
+          <fa-icon class="icon-preview" [icon]="['fa', 'puzzle-piece']"></fa-icon>&nbsp;{{ item.nom }}
+        </span>
+      </th>
+      <td style="width:10%">
+        <app-module-gestion-pages-table-btn-editer
+          [sectionItem]="item"
+          [disable]="false"
+          (outputEditSection)="editTitreMenu($event)"
+        ></app-module-gestion-pages-table-btn-editer>
+      </td>
+      <td style="width:10%">
+        <app-module-gestion-pages-table-btn-effacer
+          [sectionItem]="item"
+          [disable]="false"
+          (outputDeleteSection)="deleteTitreMenu($event)"
+        ></app-module-gestion-pages-table-btn-effacer>
+      </td>
+      <td style="width:10%">
+        <app-module-gestion-pages-table-btn-monter
+          [sectionItem]="item"
+          [disable]="i == 0"
+          (outputUpSection)="upTitreMenu($event)"
+        ></app-module-gestion-pages-table-btn-monter>
+      </td>      
+      <td style="width:10%">
+        <app-module-gestion-pages-table-btn-descendre
+          [sectionItem]="item"
+          [disable]="i == item.length - 1"
+          (outputDownSection)="downTitreMenu($event)"
+        ></app-module-gestion-pages-table-btn-descendre>
+      </td>
+    </tr>
+  </tbody>
+</table>

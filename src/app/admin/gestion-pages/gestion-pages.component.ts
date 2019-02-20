@@ -4,6 +4,12 @@ import { AlertifyService } from 'src/app/_services/alertify.service';
 import { SectionService } from 'src/app/_services/section.service';
 import { AuthService } from 'src/app/_services/auth.service';
 import { Section } from 'src/app/_models/section';
+import { TitreMenu } from 'src/app/_models/titre-menu';
+
+interface DtoSectionTitreMenu {
+  section: Section;
+  titreMenu: TitreMenu;
+}
 
 @Component({
   selector: 'app-gestion-pages',
@@ -48,14 +54,14 @@ export class GestionPagesComponent implements OnInit {
    * Celà de met pas la section hors ligne mais l'efface et rend
    * hors ligne tout son contenu
    */
-  deleteSection(item: Section) {
-    this.sectionService.deleteSection(item.id).subscribe(next => {
+  deleteSection(item: DtoSectionTitreMenu) {
+    this.sectionService.deleteSection(item.section.id).subscribe(next => {
       // 8 février - Faire un message personalisé avec analyse du contenu
       // 15 février si il n'y a pas de contenu dans le else, traîter correctement
-      if (item.swHorsLigne) {
-        this.alertify.success('Section &laquo;' + item.nom + '&raquo; effacé');
+      if (item.section.swHorsLigne) {
+        this.alertify.success('Section &laquo;' + item.section.nom + '&raquo; effacé');
       } else {
-        this.alertify.success('Section &laquo;' + item.nom + '&raquo; effacé et contenu rendu hors ligne');
+        this.alertify.success('Section &laquo;' + item.section.nom + '&raquo; effacé et contenu rendu hors ligne');
       }
       this.getArbreEntier();
       // this.editForm.reset(this.section); // redirection à faire
