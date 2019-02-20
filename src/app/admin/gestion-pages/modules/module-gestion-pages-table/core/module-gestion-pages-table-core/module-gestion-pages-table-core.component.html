@@ -10,7 +10,7 @@
     <app-module-gestion-pages-table-btn-editer
       [sectionItem]="item"
       [disable]="false"
-      (outputEditSection)="edit($event)"
+      (outputEdit)="edit($event)"
     ></app-module-gestion-pages-table-btn-editer>
   </td>
   <td style="width:10%">
@@ -46,6 +46,7 @@
   <td style="width:10%">
     <app-module-gestion-pages-table-btn-editer
       [sectionItem]="item"
+      [titreMenuItem]="sousItem"
       [disable]="false"
       (outputEdit)="edit($event)"
     ></app-module-gestion-pages-table-btn-editer>

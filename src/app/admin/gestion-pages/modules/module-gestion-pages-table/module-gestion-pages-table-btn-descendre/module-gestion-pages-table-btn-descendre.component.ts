@@ -25,7 +25,7 @@ export class ModuleGestionPagesTableBtnDescendreComponent implements OnInit {
   ngOnInit() {
   }
 
-  private btnPush() {
+  btnPush() {
     this.outputDown.emit({
       section: this.sectionItem,
       titreMenu: this.titreMenuItem

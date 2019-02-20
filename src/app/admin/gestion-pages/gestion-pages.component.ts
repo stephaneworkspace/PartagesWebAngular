@@ -74,7 +74,7 @@ export class GestionPagesComponent implements OnInit {
    */
 
   delete(item: Dto) {
-    if (item.titreMenu === undefined) {
+    if (item.titreMenu === null) {
       this.deleteSection(item);
     } else {
       this.deleteTitreMenu(item);

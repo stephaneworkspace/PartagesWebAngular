@@ -24,7 +24,7 @@ export class ModuleGestionPagesTableBtnEditerComponent implements OnInit {
   ngOnInit() {
   }
 
-  private btnPush() {
+  btnPush() {
     this.outputEdit.emit({
       section: this.sectionItem,
       titreMenu: this.titreMenuItem

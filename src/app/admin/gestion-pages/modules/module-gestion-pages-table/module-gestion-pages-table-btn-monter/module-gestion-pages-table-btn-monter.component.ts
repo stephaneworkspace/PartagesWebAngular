@@ -25,7 +25,7 @@ export class ModuleGestionPagesTableBtnMonterComponent implements OnInit {
   ngOnInit() {
   }
 
-  private btnPush() {
+  btnPush() {
     this.outputUp.emit({
       section: this.sectionItem,
       titreMenu: this.titreMenuItem

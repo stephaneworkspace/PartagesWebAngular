@@ -35,23 +35,23 @@ export class ModuleGestionPagesTableComponent implements OnInit, OnChanges {
     this.LoadArray();
   }
 
-  private edit(item: Dto) {
+  edit(item: Dto) {
     this.outputEdit.emit(item);
   }
 
-  private delete(item: Dto) {
+  delete(item: Dto) {
     this.outputDelete.emit(item);
   }
 
-  private up(item: Dto) {
+  up(item: Dto) {
     this.outputUp.emit(item);
   }
 
-  private down(item: Dto) {
+  down(item: Dto) {
     this.outputDown.emit(item);
   }
 
-  private LoadArray() {
+  LoadArray() {
     this.sectionEnLigne = this.section.filter(x => x.swHorsLigne !== true);
     this.sectionHorsLigne = this.section.filter(x => x.swHorsLigne === true);
   }

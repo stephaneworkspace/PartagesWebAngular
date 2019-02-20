@@ -26,31 +26,19 @@ export class ModuleGestionPagesTableCoreComponent implements OnInit {
   ngOnInit() {
   }
 
-  private edit(item: Dto) {
-    this.outputEdit.emit({
-      section: item.section,
-      titreMenu: item.titreMenu,
-    });
+  edit(item: Dto) {
+    this.outputEdit.emit(item);
   }
 
-  private delete(item: Dto) {
-    this.outputDelete.emit({
-      section: item.section,
-      titreMenu: item.titreMenu,
-    });
+  delete(item: Dto) {
+    this.outputDelete.emit(item);
   }
 
-  private up(item: Dto) {
-    this.outputUp.emit({
-      section: item.section,
-      titreMenu: item.titreMenu
-    });
+  up(item: Dto) {
+    this.outputUp.emit(item);
   }
 
-  private down(item: Dto) {
-    this.outputDown.emit({
-      section: item.section,
-      titreMenu: item.titreMenu
-    });
+  down(item: Dto) {
+    this.outputDown.emit(item);
   }
 }
