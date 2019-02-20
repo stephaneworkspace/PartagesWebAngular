@@ -1,10 +1,12 @@
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import { TitreMenu } from 'src/app/_models/titre-menu';
 import { Section } from 'src/app/_models/section';
+import { SousTitreMenu } from 'src/app/_models/sous-titre-menu';
 
-interface DtoSectionTitreMenu {
+interface Dto {
   section: Section;
-  titreMenu: TitreMenu;
+  titreMenu?: TitreMenu;
+  sousTitreMenu?: SousTitreMenu;
 }
 
 @Component({
@@ -15,10 +17,10 @@ interface DtoSectionTitreMenu {
 export class ModuleGestionPagesTableCoreTitreMenusComponent implements OnInit {
   @Input() section: Section;
   @Input() titreMenu: TitreMenu[];
-  @Output() outputEditTitreMenu: EventEmitter<DtoSectionTitreMenu> = new EventEmitter<DtoSectionTitreMenu>();
-  @Output() outputDeleteTitreMenu: EventEmitter<DtoSectionTitreMenu> = new EventEmitter<DtoSectionTitreMenu>();
-  @Output() outputUpTitreMenu: EventEmitter<DtoSectionTitreMenu> = new EventEmitter<DtoSectionTitreMenu>();
-  @Output() outputDownTitreMenu: EventEmitter<DtoSectionTitreMenu> = new EventEmitter<DtoSectionTitreMenu>();
+  @Output() outputEditTitreMenu: EventEmitter<Dto> = new EventEmitter<Dto>();
+  @Output() outputDeleteTitreMenu: EventEmitter<Dto> = new EventEmitter<Dto>();
+  @Output() outputUpTitreMenu: EventEmitter<Dto> = new EventEmitter<Dto>();
+  @Output() outputDownTitreMenu: EventEmitter<Dto> = new EventEmitter<Dto>();
 
   dto: any;
 
@@ -27,28 +29,28 @@ export class ModuleGestionPagesTableCoreTitreMenusComponent implements OnInit {
   ngOnInit() {
   }
 
-  private editTitreMenu(item: DtoSectionTitreMenu) {
+  private editTitreMenu(item: Dto) {
     this.outputEditTitreMenu.emit({
       section: item.section,
       titreMenu: item.titreMenu
     });
   }
 
-  private deleteTitreMenu(item: DtoSectionTitreMenu) {
+  private deleteTitreMenu(item: Dto) {
     this.outputDeleteTitreMenu.emit({
       section: item.section,
       titreMenu: item.titreMenu
     });
   }
 
-  private upTitreMenu(item: DtoSectionTitreMenu) {
+  private upTitreMenu(item: Dto) {
     this.outputUpTitreMenu.emit({
       section: item.section,
       titreMenu: item.titreMenu
     });
   }
 
-  private downTitreMenu(item: DtoSectionTitreMenu) {
+  private downTitreMenu(item: Dto) {
     this.outputDownTitreMenu.emit({
       section: item.section,
       titreMenu: item.titreMenu

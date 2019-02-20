@@ -1,10 +1,12 @@
 import { Component, OnInit, Input, OnChanges, SimpleChange, EventEmitter, Output } from '@angular/core';
 import { Section } from 'src/app/_models/section';
 import { TitreMenu } from 'src/app/_models/titre-menu';
+import { SousTitreMenu } from 'src/app/_models/sous-titre-menu';
 
-interface DtoSectionTitreMenu {
+interface Dto {
   section: Section;
-  titreMenu: TitreMenu;
+  titreMenu?: TitreMenu;
+  sousTitreMenu?: SousTitreMenu;
 }
 
 @Component({
@@ -15,13 +17,13 @@ interface DtoSectionTitreMenu {
 export class ModuleGestionPagesTableComponent implements OnInit, OnChanges {
   @Input() section: Section[];
   @Output() outputEditSection: EventEmitter<Section> = new EventEmitter<Section>();
-  @Output() outputDeleteSection: EventEmitter<DtoSectionTitreMenu> = new EventEmitter<DtoSectionTitreMenu>();
+  @Output() outputDeleteSection: EventEmitter<Dto> = new EventEmitter<Dto>();
   @Output() outputUpSection: EventEmitter<Section> = new EventEmitter<Section>();
   @Output() outputDownSection: EventEmitter<Section> = new EventEmitter<Section>();
-  @Output() outputEditTitreMenu: EventEmitter<DtoSectionTitreMenu> = new EventEmitter<DtoSectionTitreMenu>();
-  @Output() outputDeleteTitreMenu: EventEmitter<DtoSectionTitreMenu> = new EventEmitter<DtoSectionTitreMenu>();
-  @Output() outputUpTitreMenu: EventEmitter<DtoSectionTitreMenu> = new EventEmitter<DtoSectionTitreMenu>();
-  @Output() outputDownTitreMenu: EventEmitter<DtoSectionTitreMenu> = new EventEmitter<DtoSectionTitreMenu>();
+  @Output() outputEditTitreMenu: EventEmitter<Dto> = new EventEmitter<Dto>();
+  @Output() outputDeleteTitreMenu: EventEmitter<Dto> = new EventEmitter<Dto>();
+  @Output() outputUpTitreMenu: EventEmitter<Dto> = new EventEmitter<Dto>();
+  @Output() outputDownTitreMenu: EventEmitter<Dto> = new EventEmitter<Dto>();
 
   sectionEnLigne: Section[];
   sectionHorsLigne: Section[];
@@ -41,7 +43,7 @@ export class ModuleGestionPagesTableComponent implements OnInit, OnChanges {
     this.outputEditSection.emit(item);
   }
 
-  private deleteSection(item: DtoSectionTitreMenu) {
+  private deleteSection(item: Dto) {
     this.outputDeleteSection.emit(item);
   }
 
@@ -53,19 +55,19 @@ export class ModuleGestionPagesTableComponent implements OnInit, OnChanges {
     this.outputDownSection.emit(item);
   }
 
-  private editTitreMenu(item: DtoSectionTitreMenu) {
+  private editTitreMenu(item: Dto) {
     this.outputEditTitreMenu.emit(item);
   }
 
-  private deleteTitreMenu(item: DtoSectionTitreMenu) {
+  private deleteTitreMenu(item: Dto) {
     this.outputDeleteTitreMenu.emit(item);
   }
 
-  private upTitreMenu(item: DtoSectionTitreMenu) {
+  private upTitreMenu(item: Dto) {
     this.outputUpTitreMenu.emit(item);
   }
 
-  private downTitreMenu(item: DtoSectionTitreMenu) {
+  private downTitreMenu(item: Dto) {
     this.outputDownTitreMenu.emit(item);
   }
 
