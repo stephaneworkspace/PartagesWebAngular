@@ -16,12 +16,10 @@ interface Dto {
 })
 export class ModuleGestionPagesTableComponent implements OnInit, OnChanges {
   @Input() section: Section[];
-  @Output() outputEditSection: EventEmitter<Section> = new EventEmitter<Section>();
-  @Output() outputDeleteSection: EventEmitter<Dto> = new EventEmitter<Dto>();
+  @Output() outputEdit: EventEmitter<Dto> = new EventEmitter<Dto>();
+  @Output() outputDelete: EventEmitter<Dto> = new EventEmitter<Dto>();
   @Output() outputUpSection: EventEmitter<Section> = new EventEmitter<Section>();
   @Output() outputDownSection: EventEmitter<Section> = new EventEmitter<Section>();
-  @Output() outputEditTitreMenu: EventEmitter<Dto> = new EventEmitter<Dto>();
-  @Output() outputDeleteTitreMenu: EventEmitter<Dto> = new EventEmitter<Dto>();
   @Output() outputUpTitreMenu: EventEmitter<Dto> = new EventEmitter<Dto>();
   @Output() outputDownTitreMenu: EventEmitter<Dto> = new EventEmitter<Dto>();
 
@@ -39,12 +37,12 @@ export class ModuleGestionPagesTableComponent implements OnInit, OnChanges {
     this.LoadArray();
   }
 
-  private editSection(item: Section) {
-    this.outputEditSection.emit(item);
+  private edit(item: Dto) {
+    this.outputEdit.emit(item);
   }
 
-  private deleteSection(item: Dto) {
-    this.outputDeleteSection.emit(item);
+  private delete(item: Dto) {
+    this.outputDelete.emit(item);
   }
 
   private upSection(item: Section) {
@@ -53,14 +51,6 @@ export class ModuleGestionPagesTableComponent implements OnInit, OnChanges {
 
   private downSection(item: Section) {
     this.outputDownSection.emit(item);
-  }
-
-  private editTitreMenu(item: Dto) {
-    this.outputEditTitreMenu.emit(item);
-  }
-
-  private deleteTitreMenu(item: Dto) {
-    this.outputDeleteTitreMenu.emit(item);
   }
 
   private upTitreMenu(item: Dto) {

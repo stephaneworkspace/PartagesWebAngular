@@ -20,7 +20,7 @@ export class ModuleGestionPagesTableBtnEffacerComponent implements OnInit {
   @Input() disable: boolean;
   @Input() sectionItem: Section;
   @Input() titreMenuItem?: TitreMenu;
-  @Output() outputDeleteSection: EventEmitter<Dto> = new EventEmitter<Dto>();
+  @Output() outputDelete: EventEmitter<Dto> = new EventEmitter<Dto>();
 
   constructor(private modalService: NgbModal) { }
 
@@ -32,7 +32,7 @@ export class ModuleGestionPagesTableBtnEffacerComponent implements OnInit {
   }
 
   private btnPush() {
-    this.outputDeleteSection.emit({
+    this.outputDelete.emit({
       section: this.sectionItem,
       titreMenu: this.titreMenuItem
     });

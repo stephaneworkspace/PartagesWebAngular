@@ -43,7 +43,7 @@ ngOnInit() {
 }
 
 submitForm() {
-  this.sectionService.updateSection(this.model.id, this.model).subscribe(next => {
+  this.sectionService.update(this.model.id, this.model).subscribe(next => {
     this.alertify.success('Section &laquo;' + this.model.nom + '&raquo; mise à jour');
     this.editForm.reset(this.model);
     this.router.navigate(['/admin']);

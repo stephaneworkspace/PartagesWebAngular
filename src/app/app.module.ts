@@ -57,8 +57,7 @@ import { ModuleGestionPagesTableBtnDescendreComponent } from './admin/gestion-pa
 import { ModuleGestionPagesTableBtnEditerComponent } from './admin/gestion-pages/modules/module-gestion-pages-table/module-gestion-pages-table-btn-editer/module-gestion-pages-table-btn-editer.component';
 import { GestionPagesIconesSelectBoxResolver } from './_resolver/gestion-pages-icones-select-box.resolver';
 // tslint:disable-next-line:max-line-length
-import { ModuleGestionPagesTableCoreSectionsComponent } from './admin/gestion-pages/modules/module-gestion-pages-table/core/module-gestion-pages-table-core-sections/module-gestion-pages-table-core-sections.component';
-import { ModuleGestionPagesTableCoreTitreMenusComponent } from './admin/gestion-pages/modules/module-gestion-pages-table/core/module-gestion-pages-table-core-titre-menus/module-gestion-pages-table-core-titre-menus.component';
+import { ModuleGestionPagesTableCoreComponent } from './admin/gestion-pages/modules/module-gestion-pages-table/core/module-gestion-pages-table-core/module-gestion-pages-table-core.component';
 
 library.add(fas, far, fab);
 
@@ -73,8 +72,7 @@ library.add(fas, far, fab);
       MembersComponent,
       GestionPagesComponent,
       ModuleGestionPagesTableComponent,
-      ModuleGestionPagesTableCoreSectionsComponent,
-      ModuleGestionPagesTableCoreTitreMenusComponent,
+      ModuleGestionPagesTableCoreComponent,
       ModuleGestionPagesTableBtnEditerComponent,
       ModuleGestionPagesTableBtnEffacerComponent,
       ModuleGestionPagesTableBtnMonterComponent,

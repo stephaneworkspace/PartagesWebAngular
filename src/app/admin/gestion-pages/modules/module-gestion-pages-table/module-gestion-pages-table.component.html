@@ -6,17 +6,15 @@
     </tr>
   </thead>
 </table>
-<app-module-gestion-pages-table-core-sections
+<app-module-gestion-pages-table-core
 [section]="sectionEnLigne"
-(outputEditSection)="editSection($event)"
-(outputDeleteSection)="deleteSection($event)"
+(outputEdit)="edit($event)"
+(outputDelete)="delete($event)"
 (outputUpSection)="upSection($event)"
 (outputDownSection)="downSection($event)"
-(outputEditTitreMenu)="editTitreMenu($event)"
-(outputDeleteTitreMenu)="deleteTitreMenu($event)"
 (outputUpTitreMenu)="upTitreMenu($event)"
 (outputDownTitreMenu)="downTitreMenu($event)"
-></app-module-gestion-pages-table-core-sections>
+></app-module-gestion-pages-table-core>
   <table class="table table-borderless">
       <tbody class="table-light">
     <tr 

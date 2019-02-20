@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { ModuleGestionPagesTableCoreSectionsComponent } from './module-gestion-pages-table-core-sections.component';
+import { ModuleGestionPagesTableCoreComponent } from './module-gestion-pages-table-core.component';
 
 describe('ModuleGestionPagesTableCoreSectionsComponent', () => {
-  let component: ModuleGestionPagesTableCoreSectionsComponent;
-  let fixture: ComponentFixture<ModuleGestionPagesTableCoreSectionsComponent>;
+  let component: ModuleGestionPagesTableCoreComponent;
+  let fixture: ComponentFixture<ModuleGestionPagesTableCoreComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ModuleGestionPagesTableCoreSectionsComponent ]
+      declarations: [ ModuleGestionPagesTableCoreComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ModuleGestionPagesTableCoreSectionsComponent);
+    fixture = TestBed.createComponent(ModuleGestionPagesTableCoreComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

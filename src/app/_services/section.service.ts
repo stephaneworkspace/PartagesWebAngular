@@ -30,23 +30,23 @@ export class SectionService {
     return this.http.get<Section>(this.baseUrl + 'Sections/' + id, httpOptions);
   }
 
-  createSection(section: Section) {
+  create(section: Section) {
     return this.http.post(this.baseUrl + 'Sections', section, httpOptions);
   }
 
-  updateSection(id: number, section: Section) {
+  update(id: number, section: Section) {
     return this.http.put(this.baseUrl + 'Sections/' + id, section, httpOptions);
   }
 
-  deleteSection(id: number) {
+  delete(id: number) {
     return this.http.delete(this.baseUrl + 'Sections/' + id, httpOptions);
   }
 
-  upSection(id: number) {
+  up(id: number) {
     return this.http.post(this.baseUrl + 'Sections/monter/' + id, {}, httpOptions);
   }
 
-  downSection(id: number) {
+  down(id: number) {
     return this.http.post(this.baseUrl + 'Sections/descendre/' + id, {}, httpOptions);
   }
 }

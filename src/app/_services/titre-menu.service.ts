@@ -33,4 +33,8 @@ export class TitreMenuService {
   createTitreMenu(titreMenu: TitreMenu) {
     return this.http.post(this.baseUrl + 'TitreMenus', titreMenu);
   }
+
+  delete(id: number) {
+    return this.http.delete(this.baseUrl + 'TitreMenus/' + id, httpOptions);
+  }
 }

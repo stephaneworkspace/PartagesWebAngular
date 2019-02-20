@@ -47,7 +47,7 @@ export class NouveauSectionComponent implements OnInit {
   submitForm() {
     // Initialisation des erreurs précédantes
     this.formError.clear();
-    this.sectionService.createSection(this.model).subscribe(next => {
+    this.sectionService.create(this.model).subscribe(next => {
       this.alertify.success('Section &laquo;' + this.model.nom + '&raquo; crée');
       // this.editForm.reset(this.section); // pour @HostListener('window:beforeunload', ['$event'])
       this.router.navigate(['/admin']);
