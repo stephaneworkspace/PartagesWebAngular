@@ -14,89 +14,18 @@
   (outputDown)="down($event)"
 ></app-module-gestion-pages-table-core>
   <table class="table table-borderless">
-      <tbody class="table-light">
-    <tr 
-      *ngFor="let item of sectionEnLigne; let i = index"
-    >
-      <th scope="row">
-        <span class="textSection">
-          <fa-icon class="icon-preview" *ngIf="item.icone != null" [icon]="['fa', item.icone]"></fa-icon>&nbsp;{{ item.nom }}
-        </span>
-      </th>
-      <td>
-          <app-module-gestion-pages-table-btn-editer
-          [sectionItem]="item"
-          [disable]="false"
-          (outputEditSection)="editSection($event)"
-        ></app-module-gestion-pages-table-btn-editer>
-      </td>
-      <td>
-        <app-module-gestion-pages-table-btn-effacer
-          [sectionItem]="item"
-          [disable]="false"
-          (outputDeleteSection)="deleteSection($event)"
-        ></app-module-gestion-pages-table-btn-effacer>
-      </td>
-      <td>
-        <app-module-gestion-pages-table-btn-monter
-          [sectionItem]="item"
-          [disable]="i == 0"
-          (outputUpSection)="upSection($event)"
-        ></app-module-gestion-pages-table-btn-monter>
-      </td>      
-      <td>
-        <app-module-gestion-pages-table-btn-descendre
-        [sectionItem]="item"
-        [disable]="i == sectionEnLigne.length - 1"
-        (outputDownSection)="downSection($event)"
-        ></app-module-gestion-pages-table-btn-descendre>
-      </td>
-    </tr>
-  </tbody>
   <thead>
     <tr class="table-dark">
       <th scope="col"><fa-icon [icon]="['fa', 'toggle-off']" [spin]="this.faSpinPropGlobe"></fa-icon> Éléments hors ligne</th>
       <th scope="col" colspan="4"></th>          
     </tr>
   </thead>
-  <!-- count *ngIf peut être si ça rend plus joli -->
-  <tbody class="table-light">
-    <tr 
-      *ngFor="let item of sectionHorsLigne; let i = index"
-    >
-      <th scope="row">
-        <span class="textSection">
-          <fa-icon class="icon-preview" *ngIf="item.icone != null" [icon]="['fa', item.icone]"></fa-icon>&nbsp;{{ item.nom }}
-        </span>
-      </th>
-      <td>
-          <app-module-gestion-pages-table-btn-editer
-          [sectionItem]="item"
-          [disable]="false"
-          (outputEditSection)="editSection($event)"
-        ></app-module-gestion-pages-table-btn-editer>
-      </td>
-      <td>
-          <app-module-gestion-pages-table-btn-effacer
-            [sectionItem]="item"
-            [disable]="false"
-            (outputDeleteSection)="deleteSection($event)"
-          ></app-module-gestion-pages-table-btn-effacer>
-        </td>
-        <td>
-          <app-module-gestion-pages-table-btn-monter
-            [sectionItem]="item"
-            [disable]="i == 0"
-            (outputUpSection)="upSection($event)"
-          ></app-module-gestion-pages-table-btn-monter>
-        </td>      
-        <td>
-          <app-module-gestion-pages-table-btn-descendre
-          [sectionItem]="item"
-          [disable]="i == sectionEnLigne.length - 1"
-          (outputDownSection)="downSection($event)"
-          ></app-module-gestion-pages-table-btn-descendre>
-        </td>
-  </tr>
-</tbody>  
 </table>
+<!-- count *ngIf peut être si ça rend plus joli en rapport avec *ngFor="let item of sectionHorsLigne; let i = index" -->
+<app-module-gestion-pages-table-core
+  [section]="sectionHorsLigne"
+  (outputEdit)="edit($event)"
+  (outputDelete)="delete($event)"
+  (outputUp)="up($event)"
+  (outputDown)="down($event)"
+></app-module-gestion-pages-table-core>
