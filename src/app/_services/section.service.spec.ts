@@ -86,7 +86,7 @@ describe('Service: Section', () => {
         swHorsLigne: true
     };
 
-      service.createSection(section).subscribe(res => {
+      service.create(section).subscribe(res => {
         // expect(users.length).toBe(2);
         // expect(users).toEqual(dummyUsers);
       });
