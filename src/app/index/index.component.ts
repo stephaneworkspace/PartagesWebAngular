@@ -14,9 +14,9 @@ export class IndexComponent implements OnInit {
   faCoffee = faCoffee;
   faDesktop = faDesktop;
   faGlobe = faGlobe;
-  public faSizeProp: SizeProp;
-  public faSpinPropDesktop: boolean;
-  public faSpinPropGlobe: boolean;
+  faSizeProp: SizeProp;
+  faSpinPropDesktop: boolean;
+  faSpinPropGlobe: boolean;
 
   registerMode = false;
 

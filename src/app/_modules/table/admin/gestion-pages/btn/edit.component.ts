@@ -32,13 +32,6 @@ export class ModuleTableAdminGestionPagesBtnEditComponent implements OnInit, OnC
     this.bind();
   }
 
-  btnPush() {
-    this.outputEdit.emit({
-      section: this.sectionItem,
-      titreMenu: this.titreMenuItem
-    });
-  }
-
   bind() {
     if (this.disable === true) {
       this.nom = '';
@@ -49,5 +42,12 @@ export class ModuleTableAdminGestionPagesBtnEditComponent implements OnInit, OnC
         this.nom = 'Éditer «' +  this.titreMenuItem.nom + '»';
       }
     }
+  }
+
+  btnPush() {
+    this.outputEdit.emit({
+      section: this.sectionItem,
+      titreMenu: this.titreMenuItem
+    });
   }
 }

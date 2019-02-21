@@ -34,17 +34,6 @@ export class ModuleTableAdminGestionPagesBtnDeleteComponent implements OnInit, O
     this.bind();
   }
 
-  openModal(content) {
-    this.modalService.open(content, { centered: true });
-  }
-
-  btnYesPush() {
-    this.outputDelete.emit({
-      section: this.sectionItem,
-      titreMenu: this.titreMenuItem
-    });
-  }
-
   bind() {
     if (this.titreMenuItem === undefined) {
       this.nom = 'Supprimer «' +  this.sectionItem.nom + '»';
@@ -60,5 +49,16 @@ export class ModuleTableAdminGestionPagesBtnDeleteComponent implements OnInit, O
         this.swAfficherListeQuiVaEtreMisHorsLigne = false;
       }
     }
+  }
+
+  openModal(content) {
+    this.modalService.open(content, { centered: true });
+  }
+
+  btnYesPush() {
+    this.outputDelete.emit({
+      section: this.sectionItem,
+      titreMenu: this.titreMenuItem
+    });
   }
 }

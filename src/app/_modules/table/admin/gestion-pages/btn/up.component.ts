@@ -32,13 +32,6 @@ export class ModuleTableAdminGestionPagesBtnUpComponent implements OnInit, OnCha
     this.bind();
   }
 
-  btnPush() {
-    this.outputUp.emit({
-      section: this.sectionItem,
-      titreMenu: this.titreMenuItem
-    });
-  }
-
   bind() {
     if (this.disable === true) {
       this.nom = '';
@@ -49,5 +42,12 @@ export class ModuleTableAdminGestionPagesBtnUpComponent implements OnInit, OnCha
         this.nom = 'Monter «' +  this.titreMenuItem.nom + '»';
       }
     }
+  }
+
+  btnPush() {
+    this.outputUp.emit({
+      section: this.sectionItem,
+      titreMenu: this.titreMenuItem
+    });
   }
 }

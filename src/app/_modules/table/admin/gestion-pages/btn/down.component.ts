@@ -32,13 +32,6 @@ export class ModuleTableAdminGestionPagesBtnDownComponent implements OnInit, OnC
     this.bind();
   }
 
-  btnPush() {
-    this.outputDown.emit({
-      section: this.sectionItem,
-      titreMenu: this.titreMenuItem
-    });
-  }
-
   bind() {
     if (this.disable === true) {
       this.nom = '';
@@ -49,5 +42,12 @@ export class ModuleTableAdminGestionPagesBtnDownComponent implements OnInit, OnC
         this.nom = 'Descendre «' +  this.titreMenuItem.nom + '»';
       }
     }
+  }
+
+  btnPush() {
+    this.outputDown.emit({
+      section: this.sectionItem,
+      titreMenu: this.titreMenuItem
+    });
   }
 }

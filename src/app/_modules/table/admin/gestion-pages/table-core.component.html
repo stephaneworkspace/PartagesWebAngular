@@ -1,10 +1,14 @@
 <table class="table table-borderless" *ngFor="let item of section; let i = index">
   <tbody class="table-light">
     <tr>
-      <th scope="row" style="width:60%">
-        <span class="textSection">
-          <fa-icon class="icon-preview" *ngIf="item.icone != null" [icon]="['fa', item.icone]"></fa-icon>&nbsp;{{ item.nom }}
-        </span>
+      <th scope="row" style="width:60%" (mouseover)="swChangeText=true" (mouseout)="swChangeText=false">
+        <app-module-table-admin-gestion-pages-span-nom
+          [text]="item.nom"
+          [icon]="item.icone"
+          [marginLeft]="_0px"
+          [swMouseOver]="swChangeText"
+        >
+        </app-module-table-admin-gestion-pages-span-nom>
       </th>
       <td style="width:10%">
         <app-module-table-admin-gestion-pages-btn-edit
@@ -37,7 +41,7 @@
     *ngFor="let sousItem of item.titreMenus; let i = index"
     >
       <th scope="row" style="width:60%">
-        <span class="textTitreMenu">
+        <span class="textMargin1">
           <fa-icon class="icon-preview" [icon]="['fa', 'puzzle-piece']"></fa-icon>&nbsp;{{ sousItem.nom }}
         </span>
       </th>
