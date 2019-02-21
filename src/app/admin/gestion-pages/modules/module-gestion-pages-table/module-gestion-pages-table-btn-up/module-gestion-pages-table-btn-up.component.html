@@ -3,11 +3,8 @@
   class="btn btn-sm btn-outline-warning" 
   data-toggle="tooltip" 
   data-placement="top" 
-  title="Monter &laquo;{{ sectionItem.nom }}&raquo;"
+  [title]="nom"
   (click)="btnPush()"
 >
-  <fa-icon 
-    [icon]="['fa', 'level-up-alt']" 
-    [spin]="this.faSpinPropGlobe"
-  > </fa-icon>
+  <fa-icon [icon]="['fa', 'level-up-alt']"></fa-icon>
 </button>

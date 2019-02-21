@@ -50,7 +50,7 @@ import { ModuleGestionPagesTableComponent } from './admin/gestion-pages/modules/
 // tslint:disable-next-line:max-line-length
 import { ModuleGestionPagesTableBtnEffacerComponent } from './admin/gestion-pages/modules/module-gestion-pages-table/module-gestion-pages-table-btn-effacer/module-gestion-pages-table-btn-effacer.component';
 // tslint:disable-next-line:max-line-length
-import { ModuleGestionPagesTableBtnMonterComponent } from './admin/gestion-pages/modules/module-gestion-pages-table/module-gestion-pages-table-btn-monter/module-gestion-pages-table-btn-monter.component';
+import { ModuleGestionPagesTableBtnUpComponent } from './admin/gestion-pages/modules/module-gestion-pages-table/module-gestion-pages-table-btn-up/module-gestion-pages-table-btn-up.component';
 // tslint:disable-next-line:max-line-length
 import { ModuleGestionPagesTableBtnDownComponent } from './admin/gestion-pages/modules/module-gestion-pages-table/module-gestion-pages-table-btn-down/module-gestion-pages-table-btn-down.component';
 // tslint:disable-next-line:max-line-length
@@ -75,7 +75,7 @@ library.add(fas, far, fab);
       ModuleGestionPagesTableCoreComponent,
       ModuleGestionPagesTableBtnEditerComponent,
       ModuleGestionPagesTableBtnEffacerComponent,
-      ModuleGestionPagesTableBtnMonterComponent,
+      ModuleGestionPagesTableBtnUpComponent,
       ModuleGestionPagesTableBtnDownComponent,
       AdminSidebarComponent,
       NouveauSectionComponent,
