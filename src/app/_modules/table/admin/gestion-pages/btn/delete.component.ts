@@ -17,12 +17,12 @@ interface Dto {
   styleUrls: ['./delete.component.scss']
 })
 export class ModuleTableAdminGestionPagesBtnDeleteComponent implements OnInit, OnChanges {
-  @Input() disable: boolean;
   @Input() sectionItem: Section;
   @Input() titreMenuItem?: TitreMenu;
   @Output() outputDelete: EventEmitter<Dto> = new EventEmitter<Dto>();
 
   nom: string;
+  swAfficherListeQuiVaEtreMisHorsLigne: boolean;
 
   constructor(private modalService: NgbModal) { }
 
@@ -46,13 +46,18 @@ export class ModuleTableAdminGestionPagesBtnDeleteComponent implements OnInit, O
   }
 
   bind() {
-    if (this.disable === true) {
-      this.nom = '';
+    if (this.titreMenuItem === undefined) {
+      this.nom = 'Supprimer «' +  this.sectionItem.nom + '»';
+    } else {
+      this.nom = 'Supprimer «' +  this.titreMenuItem.nom + '»';
+    }
+    if (this.sectionItem.titreMenus.length === 0) {
+      this.swAfficherListeQuiVaEtreMisHorsLigne = false;
     } else {
       if (this.titreMenuItem === undefined) {
-        this.nom = 'Supprimer «' +  this.sectionItem.nom + '»';
+        this.swAfficherListeQuiVaEtreMisHorsLigne = true;
       } else {
-        this.nom = 'Supprimer «' +  this.titreMenuItem.nom + '»';
+        this.swAfficherListeQuiVaEtreMisHorsLigne = false;
       }
     }
   }
