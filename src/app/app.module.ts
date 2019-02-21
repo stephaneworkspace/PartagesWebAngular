@@ -48,7 +48,7 @@ import { GestionPagesSectionArbreEntierResolver } from './_resolver/gestion-page
 // tslint:disable-next-line:max-line-length
 import { ModuleGestionPagesTableComponent } from './admin/gestion-pages/modules/module-gestion-pages-table/module-gestion-pages-table.component';
 // tslint:disable-next-line:max-line-length
-import { ModuleGestionPagesTableBtnEffacerComponent } from './admin/gestion-pages/modules/module-gestion-pages-table/module-gestion-pages-table-btn-effacer/module-gestion-pages-table-btn-effacer.component';
+import { ModuleGestionPagesTableBtnDeleteComponent } from './admin/gestion-pages/modules/module-gestion-pages-table/module-gestion-pages-table-btn-delete/module-gestion-pages-table-btn-delete.component';
 // tslint:disable-next-line:max-line-length
 import { ModuleGestionPagesTableBtnUpComponent } from './admin/gestion-pages/modules/module-gestion-pages-table/module-gestion-pages-table-btn-up/module-gestion-pages-table-btn-up.component';
 // tslint:disable-next-line:max-line-length
@@ -74,7 +74,7 @@ library.add(fas, far, fab);
       ModuleGestionPagesTableComponent,
       ModuleGestionPagesTableCoreComponent,
       ModuleGestionPagesTableBtnEditComponent,
-      ModuleGestionPagesTableBtnEffacerComponent,
+      ModuleGestionPagesTableBtnDeleteComponent,
       ModuleGestionPagesTableBtnUpComponent,
       ModuleGestionPagesTableBtnDownComponent,
       AdminSidebarComponent,

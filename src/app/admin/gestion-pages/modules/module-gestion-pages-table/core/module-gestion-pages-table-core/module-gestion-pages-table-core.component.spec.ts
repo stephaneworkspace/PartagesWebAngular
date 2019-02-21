@@ -1,7 +1,4 @@
-/* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
 
 import { ModuleGestionPagesTableCoreComponent } from './module-gestion-pages-table-core.component';
 
@@ -17,7 +14,7 @@ import { ModuleGestionPagesTableBtnEditComponent } from '../../module-gestion-pa
 // tslint:disable-next-line:max-line-length
 import { ModuleGestionPagesTableBtnUpComponent } from '../../module-gestion-pages-table-btn-up/module-gestion-pages-table-btn-up.component';
 // tslint:disable-next-line:max-line-length
-import { ModuleGestionPagesTableBtnEffacerComponent } from '../../module-gestion-pages-table-btn-effacer/module-gestion-pages-table-btn-effacer.component';
+import { ModuleGestionPagesTableBtnDeleteComponent } from '../../module-gestion-pages-table-btn-delete/module-gestion-pages-table-btn-delete.component';
 // tslint:disable-next-line:max-line-length
 import { ModuleGestionPagesTableBtnDownComponent } from '../../module-gestion-pages-table-btn-down/module-gestion-pages-table-btn-down.component';
 
@@ -31,7 +28,7 @@ describe('ModuleGestionPagesTableCoreSectionsComponent', () => {
       declarations: [
         ModuleGestionPagesTableCoreComponent,
         ModuleGestionPagesTableBtnEditComponent,
-        ModuleGestionPagesTableBtnEffacerComponent,
+        ModuleGestionPagesTableBtnDeleteComponent,
         ModuleGestionPagesTableBtnUpComponent,
         ModuleGestionPagesTableBtnDownComponent
       ],

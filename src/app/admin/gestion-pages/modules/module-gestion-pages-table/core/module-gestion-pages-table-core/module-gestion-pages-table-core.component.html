@@ -13,11 +13,10 @@
     ></app-module-gestion-pages-table-btn-edit>
   </td>
   <td style="width:10%">
-    <app-module-gestion-pages-table-btn-effacer
+    <app-module-gestion-pages-table-btn-delete
       [sectionItem]="item"
-      [disable]="false"
       (outputDelete)="delete($event)"
-    ></app-module-gestion-pages-table-btn-effacer>
+    ></app-module-gestion-pages-table-btn-delete>
   </td>
   <td style="width:10%">
     <app-module-gestion-pages-table-btn-up
@@ -50,12 +49,11 @@
     ></app-module-gestion-pages-table-btn-edit>
   </td>
   <td style="width:10%">
-    <app-module-gestion-pages-table-btn-effacer
+    <app-module-gestion-pages-table-btn-delete
       [sectionItem]="item"
       [titreMenuItem]="sousItem"
-      [disable]="false"
       (outputDelete)="delete($event)"
-    ></app-module-gestion-pages-table-btn-effacer>
+    ></app-module-gestion-pages-table-btn-delete>
   </td>
   <td style="width:10%">
     <app-module-gestion-pages-table-btn-up

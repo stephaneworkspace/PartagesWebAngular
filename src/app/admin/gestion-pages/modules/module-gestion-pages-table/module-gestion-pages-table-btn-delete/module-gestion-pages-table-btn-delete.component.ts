@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChange } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Section } from 'src/app/_models/section';
 import { TitreMenu } from 'src/app/_models/titre-menu';
@@ -12,19 +12,26 @@ interface Dto {
 }
 
 @Component({
-  selector: 'app-module-gestion-pages-table-btn-effacer',
-  templateUrl: './module-gestion-pages-table-btn-effacer.component.html',
-  styleUrls: ['./module-gestion-pages-table-btn-effacer.component.scss']
+  selector: 'app-module-gestion-pages-table-btn-delete',
+  templateUrl: './module-gestion-pages-table-btn-delete.component.html',
+  styleUrls: ['./module-gestion-pages-table-btn-delete.component.scss']
 })
-export class ModuleGestionPagesTableBtnEffacerComponent implements OnInit {
+export class ModuleGestionPagesTableBtnDeleteComponent implements OnInit, OnChanges {
   @Input() disable: boolean;
   @Input() sectionItem: Section;
   @Input() titreMenuItem?: TitreMenu;
   @Output() outputDelete: EventEmitter<Dto> = new EventEmitter<Dto>();
 
+  nom: string;
+
   constructor(private modalService: NgbModal) { }
 
   ngOnInit() {
+    this.bind();
+  }
+
+  ngOnChanges(changes: { [propName: string]: SimpleChange} ) {
+    this.bind();
   }
 
   openModal(content) {
@@ -38,4 +45,15 @@ export class ModuleGestionPagesTableBtnEffacerComponent implements OnInit {
     });
   }
 
+  bind() {
+    if (this.disable === true) {
+      this.nom = '';
+    } else {
+      if (this.titreMenuItem === undefined) {
+        this.nom = 'Supprimer «' +  this.sectionItem.nom + '»';
+      } else {
+        this.nom = 'Supprimer «' +  this.titreMenuItem.nom + '»';
+      }
+    }
+  }
 }
