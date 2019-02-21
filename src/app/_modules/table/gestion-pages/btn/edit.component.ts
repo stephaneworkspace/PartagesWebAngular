@@ -10,11 +10,11 @@ interface Dto {
 }
 
 @Component({
-  selector: 'app-module-gestion-pages-table-btn-edit',
-  templateUrl: './module-gestion-pages-table-btn-edit.component.html',
-  styleUrls: ['./module-gestion-pages-table-btn-edit.component.scss']
+  selector: 'app-module-table-gestion-pages-btn-edit',
+  templateUrl: './edit.component.html',
+  styleUrls: ['./edit.component.scss']
 })
-export class ModuleGestionPagesTableBtnEditComponent implements OnInit, OnChanges {
+export class ModuleTableGestionPagesBtnEditComponent implements OnInit, OnChanges {
   @Input() disable: boolean;
   @Input() sectionItem: Section;
   @Input() titreMenuItem?: TitreMenu;

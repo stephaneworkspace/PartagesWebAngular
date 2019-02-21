@@ -10,11 +10,11 @@ interface Dto {
 }
 
 @Component({
-  selector: 'app-module-gestion-pages-table',
-  templateUrl: './module-gestion-pages-table.component.html',
-  styleUrls: ['./module-gestion-pages-table.component.scss']
+  selector: 'app-module-table-gestion-pages',
+  templateUrl: './table.component.html',
+  styleUrls: ['./table.component.scss']
 })
-export class ModuleGestionPagesTableComponent implements OnInit, OnChanges {
+export class ModuleTableGestionPagesComponent implements OnInit, OnChanges {
   @Input() section: Section[];
   @Output() outputEdit: EventEmitter<Dto> = new EventEmitter<Dto>();
   @Output() outputDelete: EventEmitter<Dto> = new EventEmitter<Dto>();
@@ -31,7 +31,6 @@ export class ModuleGestionPagesTableComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: {[propName: string]: SimpleChange}) {
-    // console.log('ngOnChanges - section = ' + changes['section'].currentValue);
     this.LoadArray();
   }
 
@@ -55,5 +54,4 @@ export class ModuleGestionPagesTableComponent implements OnInit, OnChanges {
     this.sectionEnLigne = this.section.filter(x => x.swHorsLigne !== true);
     this.sectionHorsLigne = this.section.filter(x => x.swHorsLigne === true);
   }
-
 }

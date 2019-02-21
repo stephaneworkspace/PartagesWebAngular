@@ -10,15 +10,15 @@ interface Dto {
 }
 
 @Component({
-  selector: 'app-module-gestion-pages-table-btn-up',
-  templateUrl: './module-gestion-pages-table-btn-up.component.html',
-  styleUrls: ['./module-gestion-pages-table-btn-up.component.scss']
+  selector: 'app-module-table-gestion-pages-btn-down',
+  templateUrl: './down.component.html',
+  styleUrls: ['./down.component.scss']
 })
-export class ModuleGestionPagesTableBtnUpComponent implements OnInit, OnChanges {
+export class ModuleTableGestionPagesBtnDownComponent implements OnInit, OnChanges {
   @Input() disable: boolean;
   @Input() sectionItem: Section;
   @Input() titreMenuItem?: TitreMenu;
-  @Output() outputUp: EventEmitter<Dto> = new EventEmitter<Dto>();
+  @Output() outputDown: EventEmitter<Dto> = new EventEmitter<Dto>();
 
   nom: string;
 
@@ -33,7 +33,7 @@ export class ModuleGestionPagesTableBtnUpComponent implements OnInit, OnChanges 
   }
 
   btnPush() {
-    this.outputUp.emit({
+    this.outputDown.emit({
       section: this.sectionItem,
       titreMenu: this.titreMenuItem
     });
@@ -44,9 +44,9 @@ export class ModuleGestionPagesTableBtnUpComponent implements OnInit, OnChanges 
       this.nom = '';
     } else {
       if (this.titreMenuItem === undefined) {
-        this.nom = 'Monter «' +  this.sectionItem.nom + '»';
+        this.nom = 'Descendre «' +  this.sectionItem.nom + '»';
       } else {
-        this.nom = 'Monter «' +  this.titreMenuItem.nom + '»';
+        this.nom = 'Descendre «' +  this.titreMenuItem.nom + '»';
       }
     }
   }

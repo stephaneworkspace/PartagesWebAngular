@@ -10,11 +10,11 @@ interface Dto {
 }
 
 @Component({
-  selector: 'app-module-gestion-pages-table-core',
-  templateUrl: './module-gestion-pages-table-core.component.html',
-  styleUrls: ['./module-gestion-pages-table-core.component.scss']
+  selector: 'app-module-table-gestion-pages-core',
+  templateUrl: './table-core.component.html',
+  styleUrls: ['./table-core.component.scss']
 })
-export class ModuleGestionPagesTableCoreComponent implements OnInit {
+export class ModuleTableGestionPagesCoreComponent implements OnInit {
   @Input() section: Section[];
   @Output() outputEdit: EventEmitter<Dto> = new EventEmitter<Dto>();
   @Output() outputDelete: EventEmitter<Dto> = new EventEmitter<Dto>();

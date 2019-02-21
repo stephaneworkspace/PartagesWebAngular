@@ -1,9 +1,6 @@
-/* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
 
-import { ModuleGestionPagesTableComponent } from './module-gestion-pages-table.component';
+import { ModuleTableGestionPagesBtnDeleteComponent } from './delete.component';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
@@ -12,13 +9,13 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 library.add(fas, far, fab);
 
-describe('ModuleGestionPagesTableComponent', () => {
-  let component: ModuleGestionPagesTableComponent;
-  let fixture: ComponentFixture<ModuleGestionPagesTableComponent>;
+describe('ModuleGestionPagesTableBtnDeleteComponent', () => {
+  let component: ModuleTableGestionPagesBtnDeleteComponent;
+  let fixture: ComponentFixture<ModuleTableGestionPagesBtnDeleteComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ModuleGestionPagesTableComponent ],
+      declarations: [ ModuleTableGestionPagesBtnDeleteComponent ],
       imports: [
         FontAwesomeModule
       ],
@@ -27,7 +24,7 @@ describe('ModuleGestionPagesTableComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ModuleGestionPagesTableComponent);
+    fixture = TestBed.createComponent(ModuleTableGestionPagesBtnDeleteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

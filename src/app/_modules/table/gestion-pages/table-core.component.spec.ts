@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ModuleGestionPagesTableCoreComponent } from './module-gestion-pages-table-core.component';
+import { ModuleTableGestionPagesCoreComponent } from './table-core.component';
+import { ModuleGestionPagesTableBtnEditComponent } from './btn/edit.component';
+import { ModuleGestionPagesTableBtnUpComponent } from './btn/up.component';
+import { ModuleGestionPagesTableBtnDeleteComponent } from './btn/delete.component';
+import { ModuleGestionPagesTableBtnDownComponent } from './btn/down.component';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
@@ -9,24 +13,14 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 library.add(fas, far, fab);
 
-// tslint:disable-next-line:max-line-length
-import { ModuleGestionPagesTableBtnEditComponent } from '../../module-gestion-pages-table-btn-edit/module-gestion-pages-table-btn-edit.component';
-// tslint:disable-next-line:max-line-length
-import { ModuleGestionPagesTableBtnUpComponent } from '../../module-gestion-pages-table-btn-up/module-gestion-pages-table-btn-up.component';
-// tslint:disable-next-line:max-line-length
-import { ModuleGestionPagesTableBtnDeleteComponent } from '../../module-gestion-pages-table-btn-delete/module-gestion-pages-table-btn-delete.component';
-// tslint:disable-next-line:max-line-length
-import { ModuleGestionPagesTableBtnDownComponent } from '../../module-gestion-pages-table-btn-down/module-gestion-pages-table-btn-down.component';
-
-
 describe('ModuleGestionPagesTableCoreSectionsComponent', () => {
-  let component: ModuleGestionPagesTableCoreComponent;
-  let fixture: ComponentFixture<ModuleGestionPagesTableCoreComponent>;
+  let component: ModuleTableGestionPagesCoreComponent;
+  let fixture: ComponentFixture<ModuleTableGestionPagesCoreComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        ModuleGestionPagesTableCoreComponent,
+        ModuleTableGestionPagesCoreComponent,
         ModuleGestionPagesTableBtnEditComponent,
         ModuleGestionPagesTableBtnDeleteComponent,
         ModuleGestionPagesTableBtnUpComponent,

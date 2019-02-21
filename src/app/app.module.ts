@@ -45,19 +45,13 @@ import { GestionPagesSectionSelectBoxResolver } from './_resolver/gestion-pages-
 import { TitreMenuService } from './_services/titre-menu.service';
 import { SousTitreMenuService } from './_services/sous-titre-menu.service';
 import { GestionPagesSectionArbreEntierResolver } from './_resolver/gestion-pages-section-arbre-entier.resolver';
-// tslint:disable-next-line:max-line-length
-import { ModuleGestionPagesTableComponent } from './admin/gestion-pages/modules/module-gestion-pages-table/module-gestion-pages-table.component';
-// tslint:disable-next-line:max-line-length
-import { ModuleGestionPagesTableBtnDeleteComponent } from './admin/gestion-pages/modules/module-gestion-pages-table/module-gestion-pages-table-btn-delete/module-gestion-pages-table-btn-delete.component';
-// tslint:disable-next-line:max-line-length
-import { ModuleGestionPagesTableBtnUpComponent } from './admin/gestion-pages/modules/module-gestion-pages-table/module-gestion-pages-table-btn-up/module-gestion-pages-table-btn-up.component';
-// tslint:disable-next-line:max-line-length
-import { ModuleGestionPagesTableBtnDownComponent } from './admin/gestion-pages/modules/module-gestion-pages-table/module-gestion-pages-table-btn-down/module-gestion-pages-table-btn-down.component';
-// tslint:disable-next-line:max-line-length
-import { ModuleGestionPagesTableBtnEditComponent } from './admin/gestion-pages/modules/module-gestion-pages-table/module-gestion-pages-table-btn-edit/module-gestion-pages-table-btn-edit.component';
+import { ModuleTableGestionPagesComponent } from './_modules/table/gestion-pages/table.component';
+import { ModuleTableGestionPagesCoreComponent } from './_modules/table/gestion-pages/table-core.component';
+import { ModuleTableGestionPagesBtnEditComponent } from './_modules/table/gestion-pages/btn/edit.component';
+import { ModuleTableGestionPagesBtnDeleteComponent } from './_modules/table/gestion-pages/btn/delete.component';
+import { ModuleTableGestionPagesBtnUpComponent } from './_modules/table/gestion-pages/btn/up.component';
+import { ModuleTableGestionPagesBtnDownComponent } from './_modules/table/gestion-pages/btn/down.component';
 import { GestionPagesIconesSelectBoxResolver } from './_resolver/gestion-pages-icones-select-box.resolver';
-// tslint:disable-next-line:max-line-length
-import { ModuleGestionPagesTableCoreComponent } from './admin/gestion-pages/modules/module-gestion-pages-table/core/module-gestion-pages-table-core/module-gestion-pages-table-core.component';
 
 library.add(fas, far, fab);
 
@@ -71,12 +65,12 @@ library.add(fas, far, fab);
       RegisterComponent,
       MembersComponent,
       GestionPagesComponent,
-      ModuleGestionPagesTableComponent,
-      ModuleGestionPagesTableCoreComponent,
-      ModuleGestionPagesTableBtnEditComponent,
-      ModuleGestionPagesTableBtnDeleteComponent,
-      ModuleGestionPagesTableBtnUpComponent,
-      ModuleGestionPagesTableBtnDownComponent,
+      ModuleTableGestionPagesComponent,
+      ModuleTableGestionPagesCoreComponent,
+      ModuleTableGestionPagesBtnEditComponent,
+      ModuleTableGestionPagesBtnDeleteComponent,
+      ModuleTableGestionPagesBtnUpComponent,
+      ModuleTableGestionPagesBtnDownComponent,
       AdminSidebarComponent,
       NouveauSectionComponent,
       EditionSectionComponent,

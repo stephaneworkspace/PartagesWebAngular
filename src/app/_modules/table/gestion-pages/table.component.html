@@ -6,13 +6,13 @@
     </tr>
   </thead>
 </table>
-<app-module-gestion-pages-table-core
+<app-module-table-gestion-pages-core
   [section]="sectionEnLigne"
   (outputEdit)="edit($event)"
   (outputDelete)="delete($event)"
   (outputUp)="up($event)"
   (outputDown)="down($event)"
-></app-module-gestion-pages-table-core>
+></app-module-table-gestion-pages-core>
   <table class="table table-borderless">
   <thead>
     <tr class="table-dark">
@@ -22,10 +22,10 @@
   </thead>
 </table>
 <!-- count *ngIf peut être si ça rend plus joli en rapport avec *ngFor="let item of sectionHorsLigne; let i = index" -->
-<app-module-gestion-pages-table-core
+<app-module-table-gestion-pages-core
   [section]="sectionHorsLigne"
   (outputEdit)="edit($event)"
   (outputDelete)="delete($event)"
   (outputUp)="up($event)"
   (outputDown)="down($event)"
-></app-module-gestion-pages-table-core>
+></app-module-table-gestion-pages-core>

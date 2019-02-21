@@ -7,30 +7,30 @@
     </span>
   </th>
   <td style="width:10%">
-    <app-module-gestion-pages-table-btn-edit
+    <app-module-table-gestion-pages-btn-edit
       [sectionItem]="item"
       (outputEdit)="edit($event)"
-    ></app-module-gestion-pages-table-btn-edit>
+    ></app-module-table-gestion-pages-btn-edit>
   </td>
   <td style="width:10%">
-    <app-module-gestion-pages-table-btn-delete
+    <app-module-table-gestion-pages-btn-delete
       [sectionItem]="item"
       (outputDelete)="delete($event)"
-    ></app-module-gestion-pages-table-btn-delete>
+    ></app-module-table-gestion-pages-btn-delete>
   </td>
   <td style="width:10%">
-    <app-module-gestion-pages-table-btn-up
+    <app-module-table-gestion-pages-btn-up
       [sectionItem]="item"
       [disable]="i == 0"
       (outputUp)="up($event)"
-    ></app-module-gestion-pages-table-btn-up>
+    ></app-module-table-gestion-pages-btn-up>
   </td>      
   <td style="width:10%">
-    <app-module-gestion-pages-table-btn-down
+    <app-module-table-gestion-pages-btn-down
       [sectionItem]="item"
       [disable]="i == section.length - 1"
       (outputDown)="down($event)"
-    ></app-module-gestion-pages-table-btn-down>
+    ></app-module-table-gestion-pages-btn-down>
   </td>
 </tr>
 <tr 
@@ -42,34 +42,34 @@
     </span>
   </th>
   <td style="width:10%">
-    <app-module-gestion-pages-table-btn-edit
+    <app-module-table-gestion-pages-btn-edit
       [sectionItem]="item"
       [titreMenuItem]="sousItem"
       (outputEdit)="edit($event)"
-    ></app-module-gestion-pages-table-btn-edit>
+    ></app-module-table-gestion-pages-btn-edit>
   </td>
   <td style="width:10%">
-    <app-module-gestion-pages-table-btn-delete
+    <app-module-table-gestion-pages-btn-delete
       [sectionItem]="item"
       [titreMenuItem]="sousItem"
       (outputDelete)="delete($event)"
-    ></app-module-gestion-pages-table-btn-delete>
+    ></app-module-table-gestion-pages-btn-delete>
   </td>
   <td style="width:10%">
-    <app-module-gestion-pages-table-btn-up
+    <app-module-table-gestion-pages-btn-up
       [sectionItem]="item"
       [titreMenuItem]="sousItem"
       [disable]="i == 0"
       (outputUp)="up($event)"
-    ></app-module-gestion-pages-table-btn-up>
+    ></app-module-table-gestion-pages-btn-up>
   </td>      
   <td style="width:10%">
-    <app-module-gestion-pages-table-btn-down
+    <app-module-table-gestion-pages-btn-down
       [sectionItem]="item"
       [titreMenuItem]="sousItem"
       [disable]="i == item.titreMenus.length - 1"
       (outputDown)="down($event)"
-    ></app-module-gestion-pages-table-btn-down>
+    ></app-module-table-gestion-pages-btn-down>
   </td>
 </tr>
 </tbody>

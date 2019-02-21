@@ -12,11 +12,11 @@ interface Dto {
 }
 
 @Component({
-  selector: 'app-module-gestion-pages-table-btn-delete',
-  templateUrl: './module-gestion-pages-table-btn-delete.component.html',
-  styleUrls: ['./module-gestion-pages-table-btn-delete.component.scss']
+  selector: 'app-module-table-gestion-pages-btn-delete',
+  templateUrl: './delete.component.html',
+  styleUrls: ['./delete.component.scss']
 })
-export class ModuleGestionPagesTableBtnDeleteComponent implements OnInit, OnChanges {
+export class ModuleTableGestionPagesBtnDeleteComponent implements OnInit, OnChanges {
   @Input() disable: boolean;
   @Input() sectionItem: Section;
   @Input() titreMenuItem?: TitreMenu;
