@@ -25,10 +25,17 @@ describe('ModuleGestionPagesTableBtnDeleteComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ModuleTableAdminGestionPagesBtnDeleteComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    // fixture.detectChanges(); *Note*
   });
-/*
+
   it('should create', () => {
     expect(component).toBeTruthy();
-  });*/
+  });
+
+  it('should have a to do in comment', async () => {
+    // tslint:disable-next-line:no-shadowed-variable
+    const fixture = TestBed.createComponent(ModuleTableAdminGestionPagesBtnDeleteComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(!app).toBeTruthy(); // Composant avec liste en cas de switch pour afficher le contenu offline
+  });
 });

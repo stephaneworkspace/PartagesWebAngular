@@ -36,7 +36,8 @@ describe('ModuleGestionPagesTableBtnDownComponent', () => {
       icone: 'cafe',
       type: 'none',
       position: 1,
-      swHorsLigne: false
+      swHorsLigne: false,
+      titreMenus: []
     };
     fixture.detectChanges();
     expect(component).toBeTruthy();
@@ -50,7 +51,8 @@ describe('ModuleGestionPagesTableBtnDownComponent', () => {
       icone: 'cafe',
       type: 'none',
       position: 1,
-      swHorsLigne: false
+      swHorsLigne: false,
+      titreMenus: []
     };
     fixture.detectChanges();
     expect(fixture.nativeElement.querySelector('button')).not.toBe(null);
@@ -65,7 +67,8 @@ describe('ModuleGestionPagesTableBtnDownComponent', () => {
       icone: 'cafe',
       type: 'none',
       position: 1,
-      swHorsLigne: false
+      swHorsLigne: false,
+      titreMenus: []
     };
     fixture.detectChanges();
     expect(fixture.nativeElement.querySelector('button')).not.toBe(null);
@@ -80,7 +83,14 @@ describe('ModuleGestionPagesTableBtnDownComponent', () => {
       icone: 'cafe',
       type: 'none',
       position: 1,
-      swHorsLigne: false
+      swHorsLigne: false,
+      titreMenus: [{
+        id: 1,
+        sectionId: 1,
+        nom: 'Titre menu cafe',
+        position: 1,
+        swHorsLigne: false
+      }]
     };
     component.titreMenuItem = {
       id: 1,
