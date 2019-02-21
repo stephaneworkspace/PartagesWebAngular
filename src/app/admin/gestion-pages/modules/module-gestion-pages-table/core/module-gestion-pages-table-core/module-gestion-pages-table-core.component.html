@@ -28,11 +28,11 @@
     ></app-module-gestion-pages-table-btn-monter>
   </td>      
   <td style="width:10%">
-    <app-module-gestion-pages-table-btn-descendre
+    <app-module-gestion-pages-table-btn-down
       [sectionItem]="item"
       [disable]="i == section.length - 1"
       (outputDown)="down($event)"
-    ></app-module-gestion-pages-table-btn-descendre>
+    ></app-module-gestion-pages-table-btn-down>
   </td>
 </tr>
 <tr 
@@ -68,12 +68,12 @@
     ></app-module-gestion-pages-table-btn-monter>
   </td>      
   <td style="width:10%">
-    <app-module-gestion-pages-table-btn-descendre
+    <app-module-gestion-pages-table-btn-down
       [sectionItem]="item"
       [titreMenuItem]="sousItem"
       [disable]="i == item.titreMenus.length - 1"
       (outputDown)="down($event)"
-    ></app-module-gestion-pages-table-btn-descendre>
+    ></app-module-gestion-pages-table-btn-down>
   </td>
 </tr>
 </tbody>

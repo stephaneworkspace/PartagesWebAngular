@@ -6,5 +6,5 @@ export interface TitreMenu {
   section?: Section;
   nom: string;
   position: number;
-  swHorsLigne: number;
+  swHorsLigne: boolean;
 }

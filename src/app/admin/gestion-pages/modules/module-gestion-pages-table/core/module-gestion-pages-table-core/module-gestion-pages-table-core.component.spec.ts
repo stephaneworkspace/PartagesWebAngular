@@ -19,7 +19,7 @@ import { ModuleGestionPagesTableBtnMonterComponent } from '../../module-gestion-
 // tslint:disable-next-line:max-line-length
 import { ModuleGestionPagesTableBtnEffacerComponent } from '../../module-gestion-pages-table-btn-effacer/module-gestion-pages-table-btn-effacer.component';
 // tslint:disable-next-line:max-line-length
-import { ModuleGestionPagesTableBtnDescendreComponent } from '../../module-gestion-pages-table-btn-descendre/module-gestion-pages-table-btn-descendre.component';
+import { ModuleGestionPagesTableBtnDownComponent } from '../../module-gestion-pages-table-btn-down/module-gestion-pages-table-btn-down.component';
 
 
 describe('ModuleGestionPagesTableCoreSectionsComponent', () => {
@@ -33,7 +33,7 @@ describe('ModuleGestionPagesTableCoreSectionsComponent', () => {
         ModuleGestionPagesTableBtnEditerComponent,
         ModuleGestionPagesTableBtnEffacerComponent,
         ModuleGestionPagesTableBtnMonterComponent,
-        ModuleGestionPagesTableBtnDescendreComponent
+        ModuleGestionPagesTableBtnDownComponent
       ],
       imports: [
         FontAwesomeModule
