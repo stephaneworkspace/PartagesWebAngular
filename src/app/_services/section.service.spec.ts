@@ -50,7 +50,8 @@ describe('Service: Section', () => {
             nom: 'Test',
             icone: 'cafe',
             type: 'defaut',
-            swHorsLigne: true
+            swHorsLigne: true,
+            titreMenus: []
         };
         /*
         service.createSection(section).subscribe(
@@ -83,7 +84,8 @@ describe('Service: Section', () => {
         nom: 'Test2',
         icone: 'cafe',
         type: 'defaut',
-        swHorsLigne: true
+        swHorsLigne: true,
+        titreMenus: []
     };
 
       service.create(section).subscribe(res => {

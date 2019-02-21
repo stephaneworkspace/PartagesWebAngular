@@ -1,12 +1,12 @@
-<table class="table table-borderless" *ngFor="let item of section; let i = index">
+<table class="table table-borderless table-hover" *ngFor="let item of section; let i = index">
   <tbody class="table-light">
     <tr>
-      <th scope="row" style="width:60%" (mouseover)="swChangeText=true" (mouseout)="swChangeText=false">
+      <th scope="row" style="width:60%">
         <app-module-table-admin-gestion-pages-span-nom
           [text]="item.nom"
           [icon]="item.icone"
-          [marginLeft]="_0px"
-          [swMouseOver]="swChangeText"
+          [marginLeft]="0"
+          [swMouseOver]="item.swMouseOver"
         >
         </app-module-table-admin-gestion-pages-span-nom>
       </th>
@@ -14,12 +14,16 @@
         <app-module-table-admin-gestion-pages-btn-edit
           [sectionItem]="item"
           (outputEdit)="edit($event)"
+          (mouseover)="item.swMouseOver=true" 
+          (mouseout)="item.swMouseOver=false"
         ></app-module-table-admin-gestion-pages-btn-edit>
       </td>
       <td style="width:10%">
         <app-module-table-admin-gestion-pages-btn-delete
           [sectionItem]="item"
           (outputDelete)="delete($event)"
+          (mouseover)="item.swMouseOver=true" 
+          (mouseout)="item.swMouseOver=false"          
         ></app-module-table-admin-gestion-pages-btn-delete>
       </td>
       <td style="width:10%">
@@ -27,6 +31,8 @@
           [sectionItem]="item"
           [disable]="i == 0"
           (outputUp)="up($event)"
+          (mouseover)="item.swMouseOver=true" 
+          (mouseout)="item.swMouseOver=false"          
         ></app-module-table-admin-gestion-pages-btn-up>
       </td>      
       <td style="width:10%">
@@ -34,22 +40,33 @@
           [sectionItem]="item"
           [disable]="i == section.length - 1"
           (outputDown)="down($event)"
+          (mouseover)="item.swMouseOver=true" 
+          (mouseout)="item.swMouseOver=false"          
         ></app-module-table-admin-gestion-pages-btn-down>
       </td>
     </tr>
-    <tr 
-    *ngFor="let sousItem of item.titreMenus; let i = index"
-    >
+  </tbody>
+  <tbody class="table-light">
+    <tr *ngFor="let sousItem of item.titreMenus; let i = index">
       <th scope="row" style="width:60%">
-        <span class="textMargin1">
-          <fa-icon class="icon-preview" [icon]="['fa', 'puzzle-piece']"></fa-icon>&nbsp;{{ sousItem.nom }}
-        </span>
+          <app-module-table-admin-gestion-pages-span-nom
+            [text]="sousItem.nom"
+            icon="puzzle-piece"
+            [marginLeft]="1"
+            [swMouseOver]="sousItem.swMouseOver"
+          >
+          </app-module-table-admin-gestion-pages-span-nom>
+          <!--<span class="textMargin1">
+            <fa-icon class="icon-preview" [icon]="['fa', 'puzzle-piece']"></fa-icon>&nbsp;{{ sousItem.nom }}
+          </span>-->
       </th>
       <td style="width:10%">
         <app-module-table-admin-gestion-pages-btn-edit
           [sectionItem]="item"
           [titreMenuItem]="sousItem"
           (outputEdit)="edit($event)"
+          (mouseover)="sousItem.swMouseOver=true" 
+          (mouseout)="sousItem.swMouseOver=false" 
         ></app-module-table-admin-gestion-pages-btn-edit>
       </td>
       <td style="width:10%">
@@ -57,6 +74,8 @@
           [sectionItem]="item"
           [titreMenuItem]="sousItem"
           (outputDelete)="delete($event)"
+          (mouseover)="sousItem.swMouseOver=true" 
+          (mouseout)="sousItem.swMouseOver=false" 
         ></app-module-table-admin-gestion-pages-btn-delete>
       </td>
       <td style="width:10%">
@@ -65,6 +84,8 @@
           [titreMenuItem]="sousItem"
           [disable]="i == 0"
           (outputUp)="up($event)"
+          (mouseover)="sousItem.swMouseOver=true" 
+          (mouseout)="sousItem.swMouseOver=false" 
         ></app-module-table-admin-gestion-pages-btn-up>
       </td>      
       <td style="width:10%">
@@ -73,6 +94,8 @@
           [titreMenuItem]="sousItem"
           [disable]="i == item.titreMenus.length - 1"
           (outputDown)="down($event)"
+          (mouseover)="sousItem.swMouseOver=true" 
+          (mouseout)="sousItem.swMouseOver=false" 
         ></app-module-table-admin-gestion-pages-btn-down>
       </td>
     </tr>

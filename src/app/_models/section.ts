@@ -8,4 +8,6 @@ export interface Section {
     position?: number;
     swHorsLigne: boolean;
     titreMenus: TitreMenu[];
+    // Champ virtuel
+    swMouseOver?: boolean;
 }

@@ -11,6 +11,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ModuleTableAdminGestionPagesSpanNomComponent } from './span/nom.component';
 library.add(fas, far, fab);
 
 describe('ModuleGestionPagesTableCoreSectionsComponent', () => {
@@ -21,6 +22,7 @@ describe('ModuleGestionPagesTableCoreSectionsComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         ModuleTableAdminGestionPagesCoreComponent,
+        ModuleTableAdminGestionPagesSpanNomComponent,
         ModuleTableAdminGestionPagesBtnEditComponent,
         ModuleTableAdminGestionPagesBtnDeleteComponent,
         ModuleTableAdminGestionPagesBtnUpComponent,

@@ -1,12 +1,5 @@
 import { Component, OnInit, Input, OnChanges, SimpleChange } from '@angular/core';
 
-enum marginLeft {
-  _0px,
-  _15px,
-  _30px,
-  _45px,
-}
-
 @Component({
   selector: 'app-module-table-admin-gestion-pages-span-nom',
   templateUrl: './nom.component.html',
@@ -15,7 +8,7 @@ enum marginLeft {
 export class ModuleTableAdminGestionPagesSpanNomComponent implements OnInit, OnChanges {
   @Input() text: string;
   @Input() icon: string;
-  @Input() marginLeft: marginLeft;
+  @Input() marginLeft: number;
   @Input() swMouseOver: boolean;
 
   classStyle: string;
@@ -32,11 +25,17 @@ export class ModuleTableAdminGestionPagesSpanNomComponent implements OnInit, OnC
 
   bind() {
     switch (this.marginLeft) {
-      case marginLeft._0px:
-        this.classStyle = 'textMargin0';
+      case 0:
+        this.classStyle = 'text-margin-0';
         break;
-      case marginLeft._15px:
-        this.classStyle = 'textMargin1';
+      case 1:
+        this.classStyle = 'text-margin-1';
+        break;
+      case 2:
+        this.classStyle = 'text-margin-2';
+        break;
+      case 3:
+        this.classStyle = 'text-margin-3';
         break;
     }
   }

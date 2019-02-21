@@ -21,8 +21,6 @@ export class ModuleTableAdminGestionPagesCoreComponent implements OnInit {
   @Output() outputUp: EventEmitter<Dto> = new EventEmitter<Dto>();
   @Output() outputDown: EventEmitter<Dto> = new EventEmitter<Dto>();
 
-  swChangeText: boolean;
-
   constructor() { }
 
   ngOnInit() {

@@ -1,3 +1,14 @@
+// Custom.scss
+// Option A: Include all of Bootstrap
+// @import "node_modules/bootstrap/scss/bootstrap";
+// Custom.scss
+// Option B: Include parts of Bootstrap
+
+// Required
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+
 .textMargin0 {
    margin-left: 0px;
    outline-style: none;
@@ -25,3 +36,8 @@
    vertical-align: middle;
    white-space: nowrap;
 }
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+   color: gray("900");
+   background-color: theme-color("indigo");
+ }
