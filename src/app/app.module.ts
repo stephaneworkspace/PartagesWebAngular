@@ -53,6 +53,8 @@ import { ModuleTableAdminGestionPagesBtnDeleteComponent } from './_modules/table
 import { ModuleTableAdminGestionPagesBtnUpComponent } from './_modules/table/admin/gestion-pages/btn/up.component';
 import { ModuleTableAdminGestionPagesBtnDownComponent } from './_modules/table/admin/gestion-pages/btn/down.component';
 import { GestionPagesIconesSelectBoxResolver } from './_resolver/gestion-pages-icones-select-box.resolver';
+// tslint:disable-next-line:max-line-length
+import { TableAdminGestionPagesTableContentSectionForOfflineComponent } from './_modules/table/admin/gestion-pages/table-content-section-for-offline/table-content-section-for-offline.component';
 
 library.add(fas, far, fab);
 
@@ -68,6 +70,7 @@ library.add(fas, far, fab);
       GestionPagesComponent,
       ModuleTableAdminGestionPagesComponent,
       ModuleTableAdminGestionPagesCoreComponent,
+      TableAdminGestionPagesTableContentSectionForOfflineComponent,
       ModuleTableAdminGestionPagesSpanNomComponent,
       ModuleTableAdminGestionPagesBtnEditComponent,
       ModuleTableAdminGestionPagesBtnDeleteComponent,

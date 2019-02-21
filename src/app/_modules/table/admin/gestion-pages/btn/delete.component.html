@@ -7,7 +7,15 @@
   </div>
   <div class="modal-body">
     <p>Êtes-vous sur de vouloir effacer &laquo;{{ sectionItem.nom }}&raquo; ?</p>
-    <p *ngIf="swAfficherListeQuiVaEtreMisHorsLigne">swAfficherListeQuiVaEtreMisHorsLigne</p>
+    <p *ngIf="swAfficherListeQuiVaEtreMisHorsLigne">
+      Ceci va rendre hors ligne :
+    </p>
+    <p *ngIf="swAfficherListeQuiVaEtreMisHorsLigne">
+      <app-module-table-admin-gestion-pages-table-content-section-for-offline
+        [titreMenus]="sectionItem.titreMenus"
+      >
+      </app-module-table-admin-gestion-pages-table-content-section-for-offline>
+    </p>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-light" (click)="modal.close('Oui click'); btnYesPush()">Oui</button>
