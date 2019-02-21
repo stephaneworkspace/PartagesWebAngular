@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ModuleTableGestionPagesCoreComponent } from './table-core.component';
+import { ModuleTableAdminGestionPagesCoreComponent } from './table-core.component';
 import { ModuleGestionPagesTableBtnEditComponent } from './btn/edit.component';
 import { ModuleGestionPagesTableBtnUpComponent } from './btn/up.component';
 import { ModuleGestionPagesTableBtnDeleteComponent } from './btn/delete.component';
@@ -14,13 +14,13 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 library.add(fas, far, fab);
 
 describe('ModuleGestionPagesTableCoreSectionsComponent', () => {
-  let component: ModuleTableGestionPagesCoreComponent;
-  let fixture: ComponentFixture<ModuleTableGestionPagesCoreComponent>;
+  let component: ModuleTableAdminGestionPagesCoreComponent;
+  let fixture: ComponentFixture<ModuleTableAdminGestionPagesCoreComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        ModuleTableGestionPagesCoreComponent,
+        ModuleTableAdminGestionPagesCoreComponent,
         ModuleGestionPagesTableBtnEditComponent,
         ModuleGestionPagesTableBtnDeleteComponent,
         ModuleGestionPagesTableBtnUpComponent,
@@ -34,7 +34,7 @@ describe('ModuleGestionPagesTableCoreSectionsComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ModuleGestionPagesTableCoreComponent);
+    fixture = TestBed.createComponent(ModuleTableAdminGestionPagesCoreComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ModuleTableGestionPagesBtnDownComponent } from './down.component';
+import { ModuleTableAdminGestionPagesBtnUpComponent } from './up.component';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
@@ -9,13 +9,13 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 library.add(fas, far, fab);
 
-describe('ModuleGestionPagesTableBtnDownComponent', () => {
-  let component: ModuleTableGestionPagesBtnDownComponent;
-  let fixture: ComponentFixture<ModuleTableGestionPagesBtnDownComponent>;
+describe('ModuleGestionPagesTableBtnMonterComponent', () => {
+  let component: ModuleTableAdminGestionPagesBtnUpComponent;
+  let fixture: ComponentFixture<ModuleTableAdminGestionPagesBtnUpComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ModuleTableGestionPagesBtnDownComponent ],
+      declarations: [ ModuleTableAdminGestionPagesBtnUpComponent ],
       imports: [
         FontAwesomeModule
       ],
@@ -24,7 +24,7 @@ describe('ModuleGestionPagesTableBtnDownComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ModuleTableGestionPagesBtnDownComponent);
+    fixture = TestBed.createComponent(ModuleTableAdminGestionPagesBtnUpComponent);
     component = fixture.componentInstance;
   });
 
@@ -69,7 +69,7 @@ describe('ModuleGestionPagesTableBtnDownComponent', () => {
     };
     fixture.detectChanges();
     expect(fixture.nativeElement.querySelector('button')).not.toBe(null);
-    expect(fixture.nativeElement.querySelector('button').getAttribute('title')).toEqual('Descendre «Cafe de la section»');
+    expect(fixture.nativeElement.querySelector('button').getAttribute('title')).toEqual('Monter «Cafe de la section»');
   });
 
   it('should show tooltip button TitremenuItem "nom"', () => {
@@ -91,6 +91,6 @@ describe('ModuleGestionPagesTableBtnDownComponent', () => {
     };
     fixture.detectChanges();
     expect(fixture.nativeElement.querySelector('button')).not.toBe(null);
-    expect(fixture.nativeElement.querySelector('button').getAttribute('title')).toEqual('Descendre «Titre menu cafe»');
+    expect(fixture.nativeElement.querySelector('button').getAttribute('title')).toEqual('Monter «Titre menu cafe»');
   });
 });

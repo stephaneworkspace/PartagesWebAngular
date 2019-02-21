@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChange } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, SimpleChange, OnChanges } from '@angular/core';
 import { Section } from 'src/app/_models/section';
 import { TitreMenu } from 'src/app/_models/titre-menu';
 import { SousTitreMenu } from 'src/app/_models/sous-titre-menu';
@@ -10,15 +10,15 @@ interface Dto {
 }
 
 @Component({
-  selector: 'app-module-table-gestion-pages-btn-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss']
+  selector: 'app-module-table-admin-gestion-pages-btn-down',
+  templateUrl: './down.component.html',
+  styleUrls: ['./down.component.scss']
 })
-export class ModuleTableGestionPagesBtnEditComponent implements OnInit, OnChanges {
+export class ModuleTableAdminGestionPagesBtnDownComponent implements OnInit, OnChanges {
   @Input() disable: boolean;
   @Input() sectionItem: Section;
   @Input() titreMenuItem?: TitreMenu;
-  @Output() outputEdit: EventEmitter<Dto> = new EventEmitter<Dto>();
+  @Output() outputDown: EventEmitter<Dto> = new EventEmitter<Dto>();
 
   nom: string;
 
@@ -33,7 +33,7 @@ export class ModuleTableGestionPagesBtnEditComponent implements OnInit, OnChange
   }
 
   btnPush() {
-    this.outputEdit.emit({
+    this.outputDown.emit({
       section: this.sectionItem,
       titreMenu: this.titreMenuItem
     });
@@ -44,9 +44,9 @@ export class ModuleTableGestionPagesBtnEditComponent implements OnInit, OnChange
       this.nom = '';
     } else {
       if (this.titreMenuItem === undefined) {
-        this.nom = 'Éditer «' +  this.sectionItem.nom + '»';
+        this.nom = 'Descendre «' +  this.sectionItem.nom + '»';
       } else {
-        this.nom = 'Éditer «' +  this.titreMenuItem.nom + '»';
+        this.nom = 'Descendre «' +  this.titreMenuItem.nom + '»';
       }
     }
   }

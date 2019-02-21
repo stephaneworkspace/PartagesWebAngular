@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ModuleTableGestionPagesBtnEditComponent } from './edit.component';
+import { ModuleTableAdminGestionPagesBtnEditComponent } from './edit.component';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
@@ -10,12 +10,12 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 library.add(fas, far, fab);
 
 describe('ModuleGestionPagesTableBtnEditerComponent', () => {
-  let component: ModuleTableGestionPagesBtnEditComponent;
-  let fixture: ComponentFixture<ModuleTableGestionPagesBtnEditComponent>;
+  let component: ModuleTableAdminGestionPagesBtnEditComponent;
+  let fixture: ComponentFixture<ModuleTableAdminGestionPagesBtnEditComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ModuleTableGestionPagesBtnEditComponent ],
+      declarations: [ ModuleTableAdminGestionPagesBtnEditComponent ],
       imports: [
         FontAwesomeModule
       ],
@@ -24,7 +24,7 @@ describe('ModuleGestionPagesTableBtnEditerComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ModuleTableGestionPagesBtnEditComponent);
+    fixture = TestBed.createComponent(ModuleTableAdminGestionPagesBtnEditComponent);
     component = fixture.componentInstance;
   });
 

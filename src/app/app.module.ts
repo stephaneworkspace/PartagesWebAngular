@@ -45,12 +45,12 @@ import { GestionPagesSectionSelectBoxResolver } from './_resolver/gestion-pages-
 import { TitreMenuService } from './_services/titre-menu.service';
 import { SousTitreMenuService } from './_services/sous-titre-menu.service';
 import { GestionPagesSectionArbreEntierResolver } from './_resolver/gestion-pages-section-arbre-entier.resolver';
-import { ModuleTableGestionPagesComponent } from './_modules/table/gestion-pages/table.component';
-import { ModuleTableGestionPagesCoreComponent } from './_modules/table/gestion-pages/table-core.component';
-import { ModuleTableGestionPagesBtnEditComponent } from './_modules/table/gestion-pages/btn/edit.component';
-import { ModuleTableGestionPagesBtnDeleteComponent } from './_modules/table/gestion-pages/btn/delete.component';
-import { ModuleTableGestionPagesBtnUpComponent } from './_modules/table/gestion-pages/btn/up.component';
-import { ModuleTableGestionPagesBtnDownComponent } from './_modules/table/gestion-pages/btn/down.component';
+import { ModuleTableAdminGestionPagesComponent } from './_modules/table/admin/gestion-pages/table.component';
+import { ModuleTableAdminGestionPagesCoreComponent } from './_modules/table/admin/gestion-pages/table-core.component';
+import { ModuleTableAdminGestionPagesBtnEditComponent } from './_modules/table/admin/gestion-pages/btn/edit.component';
+import { ModuleTableAdminGestionPagesBtnDeleteComponent } from './_modules/table/admin/gestion-pages/btn/delete.component';
+import { ModuleTableAdminGestionPagesBtnUpComponent } from './_modules/table/admin/gestion-pages/btn/up.component';
+import { ModuleTableAdminGestionPagesBtnDownComponent } from './_modules/table/admin/gestion-pages/btn/down.component';
 import { GestionPagesIconesSelectBoxResolver } from './_resolver/gestion-pages-icones-select-box.resolver';
 
 library.add(fas, far, fab);
@@ -65,12 +65,12 @@ library.add(fas, far, fab);
       RegisterComponent,
       MembersComponent,
       GestionPagesComponent,
-      ModuleTableGestionPagesComponent,
-      ModuleTableGestionPagesCoreComponent,
-      ModuleTableGestionPagesBtnEditComponent,
-      ModuleTableGestionPagesBtnDeleteComponent,
-      ModuleTableGestionPagesBtnUpComponent,
-      ModuleTableGestionPagesBtnDownComponent,
+      ModuleTableAdminGestionPagesComponent,
+      ModuleTableAdminGestionPagesCoreComponent,
+      ModuleTableAdminGestionPagesBtnEditComponent,
+      ModuleTableAdminGestionPagesBtnDeleteComponent,
+      ModuleTableAdminGestionPagesBtnUpComponent,
+      ModuleTableAdminGestionPagesBtnDownComponent,
       AdminSidebarComponent,
       NouveauSectionComponent,
       EditionSectionComponent,

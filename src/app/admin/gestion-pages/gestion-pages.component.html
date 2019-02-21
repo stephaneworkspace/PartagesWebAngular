@@ -10,13 +10,13 @@
         <button class="btn btn-light" routerLink="gestion-pages-nouveau-article">Création d'un article</button>
       </div>
       <br />
-      <app-module-table-gestion-pages
+      <app-module-table-admin-gestion-pages
         [section]="section"
         (outputEdit)="edit($event)"
         (outputDelete)="delete($event)"
         (outputUp)="up($event)"
         (outputDown)="down($event)"
-      ></app-module-table-gestion-pages>
+      ></app-module-table-admin-gestion-pages>
       <!--
       <table class="table table-borderless">
         <thead>
