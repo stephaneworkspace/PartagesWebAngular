@@ -7,11 +7,10 @@
     </span>
   </th>
   <td style="width:10%">
-    <app-module-gestion-pages-table-btn-editer
+    <app-module-gestion-pages-table-btn-edit
       [sectionItem]="item"
-      [disable]="false"
       (outputEdit)="edit($event)"
-    ></app-module-gestion-pages-table-btn-editer>
+    ></app-module-gestion-pages-table-btn-edit>
   </td>
   <td style="width:10%">
     <app-module-gestion-pages-table-btn-effacer
@@ -44,12 +43,11 @@
     </span>
   </th>
   <td style="width:10%">
-    <app-module-gestion-pages-table-btn-editer
+    <app-module-gestion-pages-table-btn-edit
       [sectionItem]="item"
       [titreMenuItem]="sousItem"
-      [disable]="false"
       (outputEdit)="edit($event)"
-    ></app-module-gestion-pages-table-btn-editer>
+    ></app-module-gestion-pages-table-btn-edit>
   </td>
   <td style="width:10%">
     <app-module-gestion-pages-table-btn-effacer
