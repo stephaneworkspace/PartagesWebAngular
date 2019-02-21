@@ -13,7 +13,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 library.add(fas, far, fab);
 
 // tslint:disable-next-line:max-line-length
-import { ModuleGestionPagesTableBtnEditerComponent } from '../../module-gestion-pages-table-btn-editer/module-gestion-pages-table-btn-editer.component';
+import { ModuleGestionPagesTableBtnEditComponent } from '../../module-gestion-pages-table-btn-edit/module-gestion-pages-table-btn-edit.component';
 // tslint:disable-next-line:max-line-length
 import { ModuleGestionPagesTableBtnUpComponent } from '../../module-gestion-pages-table-btn-up/module-gestion-pages-table-btn-up.component';
 // tslint:disable-next-line:max-line-length
@@ -30,7 +30,7 @@ describe('ModuleGestionPagesTableCoreSectionsComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         ModuleGestionPagesTableCoreComponent,
-        ModuleGestionPagesTableBtnEditerComponent,
+        ModuleGestionPagesTableBtnEditComponent,
         ModuleGestionPagesTableBtnEffacerComponent,
         ModuleGestionPagesTableBtnUpComponent,
         ModuleGestionPagesTableBtnDownComponent

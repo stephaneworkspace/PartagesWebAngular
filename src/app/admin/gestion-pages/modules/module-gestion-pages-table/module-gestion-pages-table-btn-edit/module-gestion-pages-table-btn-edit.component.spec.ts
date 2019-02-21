@@ -26,10 +26,53 @@ describe('ModuleGestionPagesTableBtnEditerComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ModuleGestionPagesTableBtnEditComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
-/*
+
   it('should create', () => {
+    component.sectionItem = {
+      id: 1,
+      nom: 'Test',
+      icone: 'cafe',
+      type: 'none',
+      position: 1,
+      swHorsLigne: false
+    };
+    fixture.detectChanges();
     expect(component).toBeTruthy();
-  });*/
+  });
+
+  it('should show tooltip button SectionItem "nom"', () => {
+    component.sectionItem = {
+      id: 1,
+      nom: 'Cafe de la section',
+      icone: 'cafe',
+      type: 'none',
+      position: 1,
+      swHorsLigne: false
+    };
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('button')).not.toBe(null);
+    expect(fixture.nativeElement.querySelector('button').getAttribute('title')).toEqual('Éditer «Cafe de la section»');
+  });
+
+  it('should show tooltip button TitremenuItem "nom"', () => {
+    component.sectionItem = {
+      id: 1,
+      nom: 'Cafe de la section',
+      icone: 'cafe',
+      type: 'none',
+      position: 1,
+      swHorsLigne: false
+    };
+    component.titreMenuItem = {
+      id: 1,
+      sectionId: 1,
+      nom: 'Titre menu cafe',
+      position: 1,
+      swHorsLigne: false,
+    };
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('button')).not.toBe(null);
+    expect(fixture.nativeElement.querySelector('button').getAttribute('title')).toEqual('Éditer «Titre menu cafe»');
+  });
 });
