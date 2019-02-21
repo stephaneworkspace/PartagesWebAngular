@@ -1,10 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ModuleTableAdminGestionPagesCoreComponent } from './table-core.component';
-import { ModuleGestionPagesTableBtnEditComponent } from './btn/edit.component';
-import { ModuleGestionPagesTableBtnUpComponent } from './btn/up.component';
-import { ModuleGestionPagesTableBtnDeleteComponent } from './btn/delete.component';
-import { ModuleGestionPagesTableBtnDownComponent } from './btn/down.component';
+import { ModuleTableAdminGestionPagesBtnEditComponent } from './btn/edit.component';
+import { ModuleTableAdminGestionPagesBtnUpComponent } from './btn/up.component';
+import { ModuleTableAdminGestionPagesBtnDeleteComponent } from './btn/delete.component';
+import { ModuleTableAdminGestionPagesBtnDownComponent } from './btn/down.component';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
@@ -21,10 +21,10 @@ describe('ModuleGestionPagesTableCoreSectionsComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         ModuleTableAdminGestionPagesCoreComponent,
-        ModuleGestionPagesTableBtnEditComponent,
-        ModuleGestionPagesTableBtnDeleteComponent,
-        ModuleGestionPagesTableBtnUpComponent,
-        ModuleGestionPagesTableBtnDownComponent
+        ModuleTableAdminGestionPagesBtnEditComponent,
+        ModuleTableAdminGestionPagesBtnDeleteComponent,
+        ModuleTableAdminGestionPagesBtnUpComponent,
+        ModuleTableAdminGestionPagesBtnDownComponent
       ],
       imports: [
         FontAwesomeModule
