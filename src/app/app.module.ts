@@ -91,7 +91,7 @@ library.add(fas, far, fab);
       AppRoutingModule,
       HttpClientModule,
       FontAwesomeModule,
-      NgbModule,
+      NgbModule.forRoot(),
       FormsModule
    ],
    providers: [

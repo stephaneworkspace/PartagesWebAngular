@@ -1,9 +1,10 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 
 import { ModuleTableAdminGestionPagesBtnDeleteComponent } from './delete.component';
 // tslint:disable-next-line:max-line-length
 import { ModuleTableAdminGestionPagesTableContentSectionForOfflineComponent } from '../table-content-section-for-offline/table-content-section-for-offline.component';
 
+import { NgbModule, NgbActiveModal, NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
@@ -15,6 +16,8 @@ library.add(fas, far, fab);
 describe('ModuleGestionPagesTableBtnDeleteComponent', () => {
   let component: ModuleTableAdminGestionPagesBtnDeleteComponent;
   let fixture: ComponentFixture<ModuleTableAdminGestionPagesBtnDeleteComponent>;
+  let modalService: NgbModal;
+  // let modalRef: NgbModalRef;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -24,10 +27,19 @@ describe('ModuleGestionPagesTableBtnDeleteComponent', () => {
         ModuleTableAdminGestionPagesSpanNomComponent
        ],
       imports: [
-        FontAwesomeModule
+        FontAwesomeModule,
+        NgbModule,
+        // NgbActiveModal
+        // NgbModalRef
       ],
-    })
-    .compileComponents();
+    }).compileComponents().then(() => {
+      modalService = TestBed.get(NgbModal);
+      // modalRef = modalService.open(null);
+      fixture = TestBed.createComponent(ModuleTableAdminGestionPagesBtnDeleteComponent);
+      component = fixture.componentInstance;
+      // spyOn(modalService, 'open').and.returnValue(modalRef);
+      spyOn(console, 'log').and.callThrough();
+      });
   }));
 
   beforeEach(() => {
@@ -69,7 +81,7 @@ describe('ModuleGestionPagesTableBtnDeleteComponent', () => {
     };
     fixture.detectChanges();
     expect(fixture.nativeElement.querySelector('button')).not.toBe(null);
-    expect(fixture.nativeElement.querySelector('button').getAttribute('title')).toEqual('Effacer «Cafe de la section»');
+    expect(fixture.nativeElement.querySelector('button').getAttribute('title')).toEqual('Supprimer «Cafe de la section»');
   });
 
   it('should show tooltip button TitremenuItem "nom"', () => {
@@ -97,16 +109,53 @@ describe('ModuleGestionPagesTableBtnDeleteComponent', () => {
     };
     fixture.detectChanges();
     expect(fixture.nativeElement.querySelector('button')).not.toBe(null);
-    expect(fixture.nativeElement.querySelector('button').getAttribute('title')).toEqual('Effacer «Titre menu cafe»');
+    expect(fixture.nativeElement.querySelector('button').getAttribute('title')).toEqual('Supprimer «Titre menu cafe»');
   });
-/*
-  it('should', fakeAsync( () => {
+
+  it('#clicked() should show modal', () => {
+    component.sectionItem = {
+      id: 1,
+      nom: 'Cafe de la section',
+      icone: 'cafe',
+      type: 'none',
+      position: 1,
+      swHorsLigne: false,
+      titreMenus: [{
+        id: 1,
+        sectionId: 1,
+        nom: 'Titre menu cafe',
+        position: 1,
+        swHorsLigne: false
+      }]
+    };
+    component.titreMenuItem = {
+      id: 1,
+      sectionId: 1,
+      nom: 'Titre menu cafe',
+      position: 1,
+      swHorsLigne: false,
+    };
     fixture.detectChanges();
-    spyOn(componentInstance, 'method name'); //method attached to the click.
-    let btn = fixture.debugElement.query(By.css('button'));
-    btn.triggerEventHandler('click', null);
-    tick(); // simulates the passage of time until all pending asynchronous activities finish
+    // const compiled = fixture.debugElement.nativeElement;
+    // expect(fixture.nativeElement.querySelector('h4').textContent).not.toContain('Attention');
+    let el = fixture.nativeElement.querySelector('h4');
+    expect(el).not.toBeTruthy();
+    /*expect(component.).toBe(false, 'off at first');*/
+    component.openModal('null');
+
+    console.log(modalService);
+
+    const modalRef = modalService.open(null);
+    console.log(modalRef);
+
     fixture.detectChanges();
-    expect(componentInstance.methodName).toHaveBeenCalled();
-}));*/
+    el = fixture.nativeElement.querySelector('h4');
+    console.log(fixture.nativeElement);
+    // expect(el).toBeTruthy();
+    /*
+    expect(comp.isOn).toBe(true, 'on after click');
+    comp.clicked();
+    expect(comp.isOn).toBe(false, 'off after second click');*/
+  });
+
 });
