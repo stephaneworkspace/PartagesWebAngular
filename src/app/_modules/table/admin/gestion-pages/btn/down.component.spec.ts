@@ -43,6 +43,13 @@ describe('ModuleGestionPagesTableBtnDownComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should have a to do in comment', async () => {
+    // tslint:disable-next-line:no-shadowed-variable
+    const fixture = TestBed.createComponent(ModuleTableAdminGestionPagesBtnDownComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app).toBeTruthy();
+  });
+
   it('should show tooltip empty because @Input disable = true', () => {
     component.disable = true;
     component.sectionItem = {

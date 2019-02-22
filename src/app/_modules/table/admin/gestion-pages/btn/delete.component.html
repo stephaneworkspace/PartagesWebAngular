@@ -23,15 +23,11 @@
   </div>
 </ng-template>
 <button 
-  [disabled]="disable"
   class="btn btn-sm btn-outline-danger" 
   data-toggle="tooltip" 
   data-placement="top" 
-  title="Effacer &laquo;{{ sectionItem.nom }}&raquo;"
+  [title]="nom"
   (click)="openModal(content)"
 >
-  <fa-icon 
-    [icon]="['fa', 'trash-alt']" 
-    [spin]="this.faSpinPropGlobe"
-  ></fa-icon>
+  <fa-icon [icon]="['fa', 'trash-alt']" ></fa-icon>
 </button>

@@ -6,5 +6,5 @@ export interface TitreMenu {
   nom: string;
   position: number;
   swHorsLigne: boolean;
-  swMouseOver: boolean;
+  swMouseOver?: boolean;
 }

@@ -13,7 +13,7 @@
       <td style="width:10%">
         <app-module-table-admin-gestion-pages-btn-edit
           [sectionItem]="item"
-          (outputEdit)="edit($event)"
+          (output)="edit($event)"
           (mouseover)="item.swMouseOver=true" 
           (mouseout)="item.swMouseOver=false"
         ></app-module-table-admin-gestion-pages-btn-edit>
@@ -21,7 +21,7 @@
       <td style="width:10%">
         <app-module-table-admin-gestion-pages-btn-delete
           [sectionItem]="item"
-          (outputDelete)="delete($event)"
+          (output)="delete($event)"
           (mouseover)="item.swMouseOver=true" 
           (mouseout)="item.swMouseOver=false"          
         ></app-module-table-admin-gestion-pages-btn-delete>
@@ -30,7 +30,7 @@
         <app-module-table-admin-gestion-pages-btn-up
           [sectionItem]="item"
           [disable]="i == 0"
-          (outputUp)="up($event)"
+          (output)="up($event)"
           (mouseover)="item.swMouseOver=true" 
           (mouseout)="item.swMouseOver=false"          
         ></app-module-table-admin-gestion-pages-btn-up>
@@ -39,7 +39,7 @@
         <app-module-table-admin-gestion-pages-btn-down
           [sectionItem]="item"
           [disable]="i == section.length - 1"
-          (outputDown)="down($event)"
+          (output)="down($event)"
           (mouseover)="item.swMouseOver=true" 
           (mouseout)="item.swMouseOver=false"          
         ></app-module-table-admin-gestion-pages-btn-down>
@@ -64,7 +64,7 @@
         <app-module-table-admin-gestion-pages-btn-edit
           [sectionItem]="item"
           [titreMenuItem]="sousItem"
-          (outputEdit)="edit($event)"
+          (output)="edit($event)"
           (mouseover)="sousItem.swMouseOver=true" 
           (mouseout)="sousItem.swMouseOver=false" 
         ></app-module-table-admin-gestion-pages-btn-edit>
@@ -73,7 +73,7 @@
         <app-module-table-admin-gestion-pages-btn-delete
           [sectionItem]="item"
           [titreMenuItem]="sousItem"
-          (outputDelete)="delete($event)"
+          (output)="delete($event)"
           (mouseover)="sousItem.swMouseOver=true" 
           (mouseout)="sousItem.swMouseOver=false" 
         ></app-module-table-admin-gestion-pages-btn-delete>
@@ -83,7 +83,7 @@
           [sectionItem]="item"
           [titreMenuItem]="sousItem"
           [disable]="i == 0"
-          (outputUp)="up($event)"
+          (output)="up($event)"
           (mouseover)="sousItem.swMouseOver=true" 
           (mouseout)="sousItem.swMouseOver=false" 
         ></app-module-table-admin-gestion-pages-btn-up>
@@ -93,7 +93,7 @@
           [sectionItem]="item"
           [titreMenuItem]="sousItem"
           [disable]="i == item.titreMenus.length - 1"
-          (outputDown)="down($event)"
+          (output)="down($event)"
           (mouseover)="sousItem.swMouseOver=true" 
           (mouseout)="sousItem.swMouseOver=false" 
         ></app-module-table-admin-gestion-pages-btn-down>

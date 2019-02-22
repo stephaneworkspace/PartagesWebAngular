@@ -15,10 +15,9 @@ interface Dto {
   styleUrls: ['./edit.component.scss']
 })
 export class ModuleTableAdminGestionPagesBtnEditComponent implements OnInit, OnChanges {
-  @Input() disable: boolean;
   @Input() sectionItem: Section;
   @Input() titreMenuItem?: TitreMenu;
-  @Output() outputEdit: EventEmitter<Dto> = new EventEmitter<Dto>();
+  @Output() output: EventEmitter<Dto> = new EventEmitter<Dto>();
 
   nom: string;
 
@@ -33,19 +32,15 @@ export class ModuleTableAdminGestionPagesBtnEditComponent implements OnInit, OnC
   }
 
   bind() {
-    if (this.disable === true) {
-      this.nom = '';
+    if (this.titreMenuItem === undefined) {
+      this.nom = 'Éditer «' +  this.sectionItem.nom + '»';
     } else {
-      if (this.titreMenuItem === undefined) {
-        this.nom = 'Éditer «' +  this.sectionItem.nom + '»';
-      } else {
-        this.nom = 'Éditer «' +  this.titreMenuItem.nom + '»';
-      }
+      this.nom = 'Éditer «' +  this.titreMenuItem.nom + '»';
     }
   }
 
   btnPush() {
-    this.outputEdit.emit({
+    this.output.emit({
       section: this.sectionItem,
       titreMenu: this.titreMenuItem
     });

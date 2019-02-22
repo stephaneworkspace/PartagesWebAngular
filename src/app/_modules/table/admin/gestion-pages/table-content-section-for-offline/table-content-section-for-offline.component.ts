@@ -6,7 +6,7 @@ import { TitreMenu } from 'src/app/_models/titre-menu';
   templateUrl: './table-content-section-for-offline.component.html',
   styleUrls: ['./table-content-section-for-offline.component.scss']
 })
-export class TableAdminGestionPagesTableContentSectionForOfflineComponent implements OnInit {
+export class ModuleTableAdminGestionPagesTableContentSectionForOfflineComponent implements OnInit {
   @Input() titreMenus: TitreMenu[];
 
   constructor() { }

@@ -18,7 +18,7 @@ export class ModuleTableAdminGestionPagesBtnDownComponent implements OnInit, OnC
   @Input() disable: boolean;
   @Input() sectionItem: Section;
   @Input() titreMenuItem?: TitreMenu;
-  @Output() outputDown: EventEmitter<Dto> = new EventEmitter<Dto>();
+  @Output() output: EventEmitter<Dto> = new EventEmitter<Dto>();
 
   nom: string;
 
@@ -45,7 +45,7 @@ export class ModuleTableAdminGestionPagesBtnDownComponent implements OnInit, OnC
   }
 
   btnPush() {
-    this.outputDown.emit({
+    this.output.emit({
       section: this.sectionItem,
       titreMenu: this.titreMenuItem
     });

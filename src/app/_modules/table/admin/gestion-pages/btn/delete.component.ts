@@ -3,7 +3,6 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Section } from 'src/app/_models/section';
 import { TitreMenu } from 'src/app/_models/titre-menu';
 import { SousTitreMenu } from 'src/app/_models/sous-titre-menu';
-import { Article } from 'src/app/_models/article';
 
 interface Dto {
   section: Section;
@@ -19,7 +18,7 @@ interface Dto {
 export class ModuleTableAdminGestionPagesBtnDeleteComponent implements OnInit, OnChanges {
   @Input() sectionItem: Section;
   @Input() titreMenuItem?: TitreMenu;
-  @Output() outputDelete: EventEmitter<Dto> = new EventEmitter<Dto>();
+  @Output() output: EventEmitter<Dto> = new EventEmitter<Dto>();
 
   nom: string;
   swAfficherListeQuiVaEtreMisHorsLigne: boolean;
@@ -56,7 +55,7 @@ export class ModuleTableAdminGestionPagesBtnDeleteComponent implements OnInit, O
   }
 
   btnYesPush() {
-    this.outputDelete.emit({
+    this.output.emit({
       section: this.sectionItem,
       titreMenu: this.titreMenuItem
     });

@@ -3,23 +3,23 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { TableAdminGestionPagesTableContentSectionForOfflineComponent } from './table-content-section-for-offline.component';
+import { ModuleTableAdminGestionPagesTableContentSectionForOfflineComponent } from './table-content-section-for-offline.component';
 
 describe('TableContentSectionForOfflineComponent', () => {
-  let component: TableAdminGestionPagesTableContentSectionForOfflineComponent;
-  let fixture: ComponentFixture<TableAdminGestionPagesTableContentSectionForOfflineComponent>;
+  let component: ModuleTableAdminGestionPagesTableContentSectionForOfflineComponent;
+  let fixture: ComponentFixture<ModuleTableAdminGestionPagesTableContentSectionForOfflineComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TableAdminGestionPagesTableContentSectionForOfflineComponent ]
+      declarations: [ ModuleTableAdminGestionPagesTableContentSectionForOfflineComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TableAdminGestionPagesTableContentSectionForOfflineComponent);
+    fixture = TestBed.createComponent(ModuleTableAdminGestionPagesTableContentSectionForOfflineComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    // fixture.detectChanges();
   });
 
   it('should create', () => {

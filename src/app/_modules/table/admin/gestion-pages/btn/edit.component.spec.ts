@@ -42,6 +42,13 @@ describe('ModuleGestionPagesTableBtnEditerComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should have a to do in comment', async () => {
+    // tslint:disable-next-line:no-shadowed-variable
+    const fixture = TestBed.createComponent(ModuleTableAdminGestionPagesBtnEditComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app).toBeTruthy();
+  });
+
   it('should show tooltip button SectionItem "nom"', () => {
     component.sectionItem = {
       id: 1,
