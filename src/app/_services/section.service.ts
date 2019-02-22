@@ -18,7 +18,7 @@ export class SectionService {
 
   constructor(private http: HttpClient) {}
 
-  GetArbreCompletSections(): Observable<Section[]> {
+  getArbreCompletSections(): Observable<Section[]> {
     return this.http.get<Section[]>(this.baseUrl + 'Sections/gestion-pages-avec-arbre-complet', httpOptions);
   }
 
@@ -49,4 +49,5 @@ export class SectionService {
   down(id: number) {
     return this.http.post(this.baseUrl + 'Sections/descendre/' + id, {}, httpOptions);
   }
+
 }

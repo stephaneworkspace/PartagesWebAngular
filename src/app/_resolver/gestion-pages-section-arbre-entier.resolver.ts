@@ -14,7 +14,7 @@ export class GestionPagesSectionArbreEntierResolver implements Resolve<Section[]
         private alertify: AlertifyService) {}
 
     resolve(route: ActivatedRouteSnapshot): Observable<Section[]> {
-        return this.sectionService.GetArbreCompletSections().pipe(
+        return this.sectionService.getArbreCompletSections().pipe(
             catchError(error => {
                 // tslint:disable-next-line:max-line-length
                 this.alertify.error('Problème de chargement de l\'arbre "sections - titres menus - sous titre menus - articles" de gestion pages');

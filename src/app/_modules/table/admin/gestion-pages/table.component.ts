@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, SimpleChange, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChange, EventEmitter, Output, ChangeDetectorRef } from '@angular/core';
 import { Section } from 'src/app/_models/section';
 import { TitreMenu } from 'src/app/_models/titre-menu';
 import { SousTitreMenu } from 'src/app/_models/sous-titre-menu';
@@ -24,7 +24,8 @@ export class ModuleTableAdminGestionPagesComponent implements OnInit, OnChanges 
   sectionEnLigne: Section[];
   sectionHorsLigne: Section[];
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
     this.LoadArray();

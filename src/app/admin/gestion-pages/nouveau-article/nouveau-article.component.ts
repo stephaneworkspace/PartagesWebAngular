@@ -23,7 +23,6 @@ export class NouveauArticleComponent implements OnInit, OnChanges {
 
   // ngOnChanges ne fonctionne pas
   ngOnChanges(changes: SimpleChanges) {
-      alert('passe ici');
     // if (changes['model.article']) {
       // const md = marked.setOptions({});
      //  this.markedArticle = md.parse(this.model.article);

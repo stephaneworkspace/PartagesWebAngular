@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, NgZone } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlertifyService } from 'src/app/_services/alertify.service';
 import { SectionService } from 'src/app/_services/section.service';
@@ -21,13 +21,17 @@ interface Dto {
 export class GestionPagesComponent implements OnInit {
   section: Section[];
 
+  sectionsTemp: Section[];
+  titreMenusTemp: TitreMenu[];
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private alertify: AlertifyService,
     private sectionService: SectionService,
     private titreMenuService: TitreMenuService,
-    private authService: AuthService
+    private authService: AuthService,
+    private zone: NgZone
 ) { }
 
   ngOnInit() {
@@ -37,7 +41,7 @@ export class GestionPagesComponent implements OnInit {
   }
 
   getArbreEntier() {
-    this.sectionService.GetArbreCompletSections().subscribe((data: Array<Section>) => {
+    this.sectionService.getArbreCompletSections().subscribe((data: Array<Section>) => {
     this.section = data;
     }, error => {
       this.alertify.error(error.error);
@@ -46,7 +50,7 @@ export class GestionPagesComponent implements OnInit {
   /*
    * *Note* 20 février à faire
    * -------------------------------
-   * https://alligator.io/angular/animating-route-changes/ 
+   * https://alligator.io/angular/animating-route-changes/
    */
 
   /**
@@ -74,8 +78,7 @@ export class GestionPagesComponent implements OnInit {
    */
 
   delete(item: Dto) {
-    if (item.titreMenu === null || item.titreMenu === undefined) {
-      alert(item.section);
+    if (item.titreMenu === undefined) {
       this.deleteSection(item);
     } else {
       this.deleteTitreMenu(item);
@@ -84,31 +87,84 @@ export class GestionPagesComponent implements OnInit {
 
   deleteSection(item: Dto) {
     this.sectionService.delete(item.section.id).subscribe(next => {
-      // 8 février - Faire un message personalisé avec analyse du contenu
-      // 15 février si il n'y a pas de contenu dans le else, traîter correctement
       if (item.section.swHorsLigne) {
         this.alertify.success('Section &laquo;' + item.section.nom + '&raquo; effacé');
       } else {
         this.alertify.success('Section &laquo;' + item.section.nom + '&raquo; effacé et contenu rendu hors ligne');
       }
-      this.getArbreEntier();
+      const _this = this;
+      // this.section.forEach((itemArr, index) => {
+      //  if (itemArr === item.section) { _this.section.splice(index, 1); }
+      // });
+      let pos0 = 0;
+      _this.sectionsTemp = [];
+      this.section.forEach((itemArr, index) => {
+        if (itemArr !== item.section) {
+          pos0++;
+          _this.sectionsTemp.push({
+            id: itemArr.id !== undefined ? itemArr.id : undefined,
+            nom: itemArr.nom,
+            icone: itemArr.icone,
+            type: itemArr.type,
+            position: pos0,
+            swHorsLigne: itemArr.swHorsLigne,
+            titreMenus: itemArr.titreMenus !== undefined ? itemArr.titreMenus.slice() : undefined,
+            swMouseOver: itemArr.swMouseOver !== undefined ? itemArr.swMouseOver : undefined,
+          });
+        }
+      });
+      this.zone.run(() => {
+        this.section = _this.sectionsTemp.slice();
+      });
       // this.editForm.reset(this.section); // *Note* 20 février, je garde ça en place au cas ou ça peux me servir
     }, error => {
       this.alertify.error(error.error);
     });
   }
 
+
   deleteTitreMenu(item: Dto) {
     this.titreMenuService.delete(item.titreMenu.id).subscribe(next => {
-      // 8 février - Faire un message personalisé avec analyse du contenu
-      // 15 février si il n'y a pas de contenu dans le else, traîter correctement
-      // *Note* *Erreur* swHorsLigne, precedant serrait inteligant
       if (item.titreMenu.swHorsLigne) {
         this.alertify.success('Titre menu &laquo;' + item.titreMenu.nom + '&raquo; effacé');
       } else {
         this.alertify.success('Titre menu &laquo;' + item.titreMenu.nom + '&raquo; effacé et contenu rendu hors ligne');
       }
-      this.getArbreEntier();
+      const _this = this;
+      _this.sectionsTemp = [];
+      let pos0 = 0;
+      let pos1 = 0;
+      this.section.forEach((itemArr, index) => {
+        pos0++;
+        pos1 = 0;
+        _this.titreMenusTemp = [];
+        itemArr.titreMenus.forEach((sousItemArr, indexSousitem) => {
+          if (sousItemArr !== item.titreMenu) {
+            pos1++;
+            _this.titreMenusTemp.push({
+              id: sousItemArr.id,
+              sectionId: sousItemArr.sectionId !== undefined ? sousItemArr.sectionId : undefined,
+              nom: sousItemArr.nom,
+              position: pos1,
+              swHorsLigne: sousItemArr.swHorsLigne,
+              swMouseOver: sousItemArr.swMouseOver !== undefined ? sousItemArr.swMouseOver : undefined
+            });
+          }
+        });
+        _this.sectionsTemp.push({
+          id: itemArr.id !== undefined ? itemArr.id : undefined,
+          nom: itemArr.nom,
+          icone: itemArr.icone,
+          type: itemArr.type,
+          position: pos0,
+          swHorsLigne: itemArr.swHorsLigne,
+          titreMenus: _this.titreMenusTemp.slice(),
+          swMouseOver: itemArr.swMouseOver !== undefined ? itemArr.swMouseOver : undefined,
+        });
+      });
+      this.zone.run(() => {
+        this.section = _this.sectionsTemp.slice();
+      });
     }, error => {
       this.alertify.error(error.error);
     });

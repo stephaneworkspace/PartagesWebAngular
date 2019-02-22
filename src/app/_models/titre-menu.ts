@@ -4,7 +4,8 @@ export interface TitreMenu {
   id: number;
   sectionId?: number;
   nom: string;
-  position: number;
+  position?: number;
   swHorsLigne: boolean;
+  // Champ virtuel
   swMouseOver?: boolean;
 }
