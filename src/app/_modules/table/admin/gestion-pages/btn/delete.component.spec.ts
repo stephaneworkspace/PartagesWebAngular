@@ -15,7 +15,7 @@ import { ModuleTableAdminGestionPagesModalConfirmDeleteComponent } from '../moda
 import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 library.add(fas, far, fab);
 
-describe('ModuleGestionPagesTableBtnDeleteComponent', () => {
+describe('ModuleTableAdminGestionPagesBtnDeleteComponent', () => {
   let component: ModuleTableAdminGestionPagesBtnDeleteComponent;
   let fixture: ComponentFixture<ModuleTableAdminGestionPagesBtnDeleteComponent>;
   let modalService: NgbModal;
@@ -37,7 +37,8 @@ describe('ModuleGestionPagesTableBtnDeleteComponent', () => {
         // NgbActiveModal
         // NgbModalRef
       ],
-    }).overrideModule(BrowserDynamicTestingModule, {
+    })
+    .overrideModule(BrowserDynamicTestingModule, {
       set: {
         entryComponents: [ ModuleTableAdminGestionPagesModalConfirmDeleteComponent ],
       }
