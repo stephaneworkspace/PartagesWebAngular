@@ -122,7 +122,7 @@ describe('ModuleGestionPagesTableBtnDeleteComponent', () => {
     expect(fixture.nativeElement.querySelector('button').getAttribute('title')).toEqual('Supprimer «Titre menu cafe»');
   });
 
-  it('#clicked() should show modal', () => {
+  it('#clicked() should show and close modal', () => {
     component.sectionItem = {
       id: 1,
       nom: 'Cafe de la section',
@@ -146,26 +146,10 @@ describe('ModuleGestionPagesTableBtnDeleteComponent', () => {
       swHorsLigne: false,
     };
     fixture.detectChanges();
-    // const compiled = fixture.debugElement.nativeElement;
-    // expect(fixture.nativeElement.querySelector('h4').textContent).not.toContain('Attention');
-    let el = fixture.nativeElement.querySelector('h4');
-    expect(el).not.toBeTruthy();
-    /*expect(component.).toBe(false, 'off at first');*/
     component.openModal();
-
-    console.log(modalService);
-
-    const modalRef = modalService.open(ModuleTableAdminGestionPagesModalConfirmDeleteComponent);
-    console.log(modalRef);
-
     fixture.detectChanges();
-    el = fixture.nativeElement.querySelector('h4');
-    console.log(fixture.nativeElement);
-    // expect(el).toBeTruthy();
-    /*
-    expect(comp.isOn).toBe(true, 'on after click');
-    comp.clicked();
-    expect(comp.isOn).toBe(false, 'off after second click');*/
+    fixture.whenStable().then(() => {
+      modalService.dismissAll();
+    });
   });
-
 });
