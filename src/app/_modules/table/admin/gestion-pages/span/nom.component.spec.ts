@@ -12,7 +12,7 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 library.add(fas, far, fab);
 
-describe('SpanComponent', () => {
+describe('ModuleTableAdminGestionPagesSpanNomComponent', () => {
   let component: ModuleTableAdminGestionPagesSpanNomComponent;
   let fixture: ComponentFixture<ModuleTableAdminGestionPagesSpanNomComponent>;
 
