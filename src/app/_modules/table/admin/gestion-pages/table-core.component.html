@@ -1,6 +1,7 @@
+<!-- [@anim]="items !== undefined ? items.length : 0"-->
 <table class="table table-borderless table-hover" *ngFor="let item of section; let i = index">
   <tbody class="table-light">
-    <tr class="animated fadeIn">
+    <tr class="table-part-row">
       <th scope="row" style="width:60%">
         <app-module-table-admin-gestion-pages-span-nom
           [text]="item.nom"

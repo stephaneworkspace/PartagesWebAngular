@@ -27,8 +27,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "node_modules/animate.css/animate.css"
+              "src/styles.scss"
             ],
             "scripts": [
               "node_modules/alertifyjs/build/alertify.min.js"

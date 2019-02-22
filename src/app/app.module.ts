@@ -57,6 +57,7 @@ import { GestionPagesIconesSelectBoxResolver } from './_resolver/gestion-pages-i
 import { ModuleTableAdminGestionPagesTableContentSectionForOfflineComponent } from './_modules/table/admin/gestion-pages/table-content-section-for-offline/table-content-section-for-offline.component';
 // tslint:disable-next-line:max-line-length
 import { ModuleTableAdminGestionPagesModalConfirmDeleteComponent } from './_modules/table/admin/gestion-pages/modal/confirm-delete.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 library.add(fas, far, fab);
 
@@ -95,7 +96,8 @@ library.add(fas, far, fab);
       HttpClientModule,
       FontAwesomeModule,
       NgbModule.forRoot(),
-      FormsModule
+      FormsModule,
+      BrowserAnimationsModule // pour les animations
    ],
    providers: [
       AuthService,

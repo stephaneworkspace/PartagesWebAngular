@@ -92,6 +92,7 @@ export class GestionPagesComponent implements OnInit {
       } else {
         this.alertify.success('Section &laquo;' + item.section.nom + '&raquo; effacé et contenu rendu hors ligne');
       }
+      /*
       const _this = this;
       // this.section.forEach((itemArr, index) => {
       //  if (itemArr === item.section) { _this.section.splice(index, 1); }
@@ -115,7 +116,8 @@ export class GestionPagesComponent implements OnInit {
       });
       this.zone.run(() => {
         this.section = _this.sectionsTemp.slice();
-      });
+      });*/
+      this.getArbreEntier();
       // this.editForm.reset(this.section); // *Note* 20 février, je garde ça en place au cas ou ça peux me servir
     }, error => {
       this.alertify.error(error.error);
@@ -130,6 +132,7 @@ export class GestionPagesComponent implements OnInit {
       } else {
         this.alertify.success('Titre menu &laquo;' + item.titreMenu.nom + '&raquo; effacé et contenu rendu hors ligne');
       }
+      /*
       const _this = this;
       _this.sectionsTemp = [];
       let pos0 = 0;
@@ -164,7 +167,8 @@ export class GestionPagesComponent implements OnInit {
       });
       this.zone.run(() => {
         this.section = _this.sectionsTemp.slice();
-      });
+      });*/
+      this.getArbreEntier();
     }, error => {
       this.alertify.error(error.error);
     });
