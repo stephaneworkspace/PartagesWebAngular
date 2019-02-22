@@ -4,13 +4,15 @@ import { ModuleTableAdminGestionPagesBtnDeleteComponent } from './delete.compone
 // tslint:disable-next-line:max-line-length
 import { ModuleTableAdminGestionPagesTableContentSectionForOfflineComponent } from '../table-content-section-for-offline/table-content-section-for-offline.component';
 
-import { NgbModule, NgbActiveModal, NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbActiveModal, NgbModal, NgbModalRef, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ModuleTableAdminGestionPagesSpanNomComponent } from '../span/nom.component';
+import { ModuleTableAdminGestionPagesModalConfirmDeleteComponent } from '../modal/confirm-delete.component';
+import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 library.add(fas, far, fab);
 
 describe('ModuleGestionPagesTableBtnDeleteComponent', () => {
@@ -18,21 +20,29 @@ describe('ModuleGestionPagesTableBtnDeleteComponent', () => {
   let fixture: ComponentFixture<ModuleTableAdminGestionPagesBtnDeleteComponent>;
   let modalService: NgbModal;
   // let modalRef: NgbModalRef;
+  // const activeModal: NgbActiveModal = new NgbActiveModal();
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         ModuleTableAdminGestionPagesBtnDeleteComponent,
+        ModuleTableAdminGestionPagesModalConfirmDeleteComponent,
         ModuleTableAdminGestionPagesTableContentSectionForOfflineComponent,
         ModuleTableAdminGestionPagesSpanNomComponent
        ],
       imports: [
         FontAwesomeModule,
-        NgbModule,
+        NgbModule.forRoot(),
+        NgbModalModule
         // NgbActiveModal
         // NgbModalRef
       ],
-    }).compileComponents().then(() => {
+    }).overrideModule(BrowserDynamicTestingModule, {
+      set: {
+        entryComponents: [ ModuleTableAdminGestionPagesModalConfirmDeleteComponent ],
+      }
+    })
+    .compileComponents().then(() => {
       modalService = TestBed.get(NgbModal);
       // modalRef = modalService.open(null);
       fixture = TestBed.createComponent(ModuleTableAdminGestionPagesBtnDeleteComponent);
@@ -141,11 +151,11 @@ describe('ModuleGestionPagesTableBtnDeleteComponent', () => {
     let el = fixture.nativeElement.querySelector('h4');
     expect(el).not.toBeTruthy();
     /*expect(component.).toBe(false, 'off at first');*/
-    component.openModal('null');
+    component.openModal();
 
     console.log(modalService);
 
-    const modalRef = modalService.open(null);
+    const modalRef = modalService.open(ModuleTableAdminGestionPagesModalConfirmDeleteComponent);
     console.log(modalRef);
 
     fixture.detectChanges();

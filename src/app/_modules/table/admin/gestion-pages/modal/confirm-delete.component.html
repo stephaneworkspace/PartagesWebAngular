@@ -1,0 +1,22 @@
+<div class="modal-header bg-danger">
+  <h4 class="modal-title text-light">Attention</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <p>Êtes-vous sur de vouloir effacer &laquo;{{ nom }}&raquo; ?</p>
+  <p *ngIf="swAfficherListeQuiVaEtreMisHorsLigne">
+    Ceci va rendre hors ligne :
+  </p>
+  <p *ngIf="swAfficherListeQuiVaEtreMisHorsLigne">
+    <app-module-table-admin-gestion-pages-table-content-section-for-offline
+      [titreMenus]="sectionItem.titreMenus"
+    >
+    </app-module-table-admin-gestion-pages-table-content-section-for-offline>
+  </p>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-light" (click)="activeModal.close('Oui click'); btnYesPush()">Oui</button>
+  <button type="button" class="btn btn-light" (click)="activeModal.close('Non click')">Non</button>
+</div>

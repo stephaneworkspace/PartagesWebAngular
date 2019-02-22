@@ -55,6 +55,8 @@ import { ModuleTableAdminGestionPagesBtnDownComponent } from './_modules/table/a
 import { GestionPagesIconesSelectBoxResolver } from './_resolver/gestion-pages-icones-select-box.resolver';
 // tslint:disable-next-line:max-line-length
 import { ModuleTableAdminGestionPagesTableContentSectionForOfflineComponent } from './_modules/table/admin/gestion-pages/table-content-section-for-offline/table-content-section-for-offline.component';
+// tslint:disable-next-line:max-line-length
+import { ModuleTableAdminGestionPagesModalConfirmDeleteComponent } from './_modules/table/admin/gestion-pages/modal/confirm-delete.component';
 
 library.add(fas, far, fab);
 
@@ -76,6 +78,7 @@ library.add(fas, far, fab);
       ModuleTableAdminGestionPagesBtnDeleteComponent,
       ModuleTableAdminGestionPagesBtnUpComponent,
       ModuleTableAdminGestionPagesBtnDownComponent,
+      ModuleTableAdminGestionPagesModalConfirmDeleteComponent,
       AdminSidebarComponent,
       NouveauSectionComponent,
       EditionSectionComponent,
@@ -111,7 +114,10 @@ library.add(fas, far, fab);
       GestionPagesSectionPreventUnsavedChangesGuard,
       GestionPagesTitreMenuPreventUnsavedChangesGuard,
       GestionPagesSousTitreMenuPreventUnsavedChangesGuard,
-      GestionPagesArticlePreventUnsavedChangesGuard
+      GestionPagesArticlePreventUnsavedChangesGuard,
+   ],
+   entryComponents: [
+      ModuleTableAdminGestionPagesModalConfirmDeleteComponent
    ],
    bootstrap: [
       AppComponent

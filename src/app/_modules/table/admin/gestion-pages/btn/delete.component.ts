@@ -3,6 +3,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Section } from 'src/app/_models/section';
 import { TitreMenu } from 'src/app/_models/titre-menu';
 import { SousTitreMenu } from 'src/app/_models/sous-titre-menu';
+import { ModuleTableAdminGestionPagesModalConfirmDeleteComponent } from '../modal/confirm-delete.component';
 
 interface Dto {
   section: Section;
@@ -50,8 +51,15 @@ export class ModuleTableAdminGestionPagesBtnDeleteComponent implements OnInit, O
     }
   }
 
-  openModal(content) {
-    this.modalService.open(content, { centered: true });
+  openModal() {
+    const modalRef = this.modalService.open(ModuleTableAdminGestionPagesModalConfirmDeleteComponent, { centered: true });
+    modalRef.componentInstance.nom = this.nom;
+    modalRef.componentInstance.swAfficherListeQuiVaEtreMisHorsLigne = this.swAfficherListeQuiVaEtreMisHorsLigne;
+    modalRef.componentInstance.sectionItem = this.sectionItem;
+    modalRef.componentInstance.titreMenuItem = this.titreMenuItem;
+    modalRef.componentInstance.output.subscribe((result) => {
+      this.output.emit(result);
+    });
   }
 
   btnYesPush() {
