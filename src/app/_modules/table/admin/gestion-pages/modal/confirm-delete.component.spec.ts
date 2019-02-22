@@ -61,7 +61,33 @@ describe('ModuleTableAdminGestionPagesModalConfirmDeleteComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should show text id="etes-vous-sur" with TitremenuItem "nom"', () => {
+  it('should show text id="etes-vous-sur" with SectionMenuItem "nom" and show text id="ceci-va-rendre-hors-ligne"', () => {
+    component.nom = 'Cafe de la section';
+    component.swAfficherListeQuiVaEtreMisHorsLigne = true;
+    component.sectionItem = {
+      id: 1,
+      nom: 'Cafe de la section',
+      icone: 'cafe',
+      type: 'none',
+      position: 1,
+      swHorsLigne: false,
+      titreMenus: [{
+        id: 1,
+        sectionId: 1,
+        nom: 'Titre menu cafe',
+        position: 1,
+        swHorsLigne: false
+      }]
+    };
+    fixture.detectChanges();
+    const etesVousSur = fixture.debugElement.query(By.css('#etes-vous-sur')).nativeElement;
+    expect(etesVousSur.textContent).toContain('Êtes-vous sur de vouloir effacer «Cafe de la section» ?');
+
+    const ceciVaRendreHorsLigne = fixture.debugElement.query(By.css('#ceci-va-rendre-hors-ligne')).nativeElement;
+    expect(ceciVaRendreHorsLigne.textContent).toContain('Ceci va rendre hors ligne :');
+  });
+
+  it('should show text id="etes-vous-sur" with TitremenuItem "nom" and not show text id="ceci-va-rendre-hors-ligne"', () => {
     component.nom = 'Titre menu cafe';
     component.swAfficherListeQuiVaEtreMisHorsLigne = false;
     component.sectionItem = {
@@ -88,8 +114,10 @@ describe('ModuleTableAdminGestionPagesModalConfirmDeleteComponent', () => {
     };
     fixture.detectChanges();
     const etesVousSur = fixture.debugElement.query(By.css('#etes-vous-sur')).nativeElement;
-    console.log(etesVousSur);
-    expect(etesVousSur.textContent).toContain('Êtes-vous sur de vouloir effacer «Titre menu cafe» ?')
+    expect(etesVousSur.textContent).toContain('Êtes-vous sur de vouloir effacer «Titre menu cafe» ?');
+
+    const ceciVaRendreHorsLigne = fixture.debugElement.query(By.css('#ceci-va-rendre-hors-ligne'));
+    expect(ceciVaRendreHorsLigne).toBe(null);
   });
 
 });
