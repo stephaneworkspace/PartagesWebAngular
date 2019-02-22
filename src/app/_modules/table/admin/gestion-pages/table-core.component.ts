@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 import { Section } from 'src/app/_models/section';
 import { TitreMenu } from 'src/app/_models/titre-menu';
 import { SousTitreMenu } from 'src/app/_models/sous-titre-menu';

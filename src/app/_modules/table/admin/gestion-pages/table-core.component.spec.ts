@@ -44,4 +44,11 @@ describe('ModuleGestionPagesTableCoreSectionsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have a to do in comment', async () => {
+    // tslint:disable-next-line:no-shadowed-variable
+    const fixture = TestBed.createComponent(ModuleTableAdminGestionPagesCoreComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(!app).toBeTruthy(); // fade in correct, donc traitement de up, down, delete et edit en typescript
+  });
 });
