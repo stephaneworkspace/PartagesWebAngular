@@ -17,6 +17,7 @@ interface Dto {
   styleUrls: ['./delete.component.scss']
 })
 export class ModuleTableAdminGestionPagesBtnDeleteComponent implements OnInit, OnChanges {
+  @Input() disable: boolean;
   @Input() sectionItem: Section;
   @Input() titreMenuItem?: TitreMenu;
   @Output() output: EventEmitter<Dto> = new EventEmitter<Dto>();
@@ -35,10 +36,14 @@ export class ModuleTableAdminGestionPagesBtnDeleteComponent implements OnInit, O
   }
 
   bind() {
-    if (this.titreMenuItem === undefined) {
-      this.nom = 'Supprimer «' +  this.sectionItem.nom + '»';
+    if (this.disable === true) {
+      this.nom = '';
     } else {
-      this.nom = 'Supprimer «' +  this.titreMenuItem.nom + '»';
+      if (this.titreMenuItem === undefined) {
+        this.nom = 'Supprimer «' +  this.sectionItem.nom + '»';
+      } else {
+        this.nom = 'Supprimer «' +  this.titreMenuItem.nom + '»';
+      }
     }
     if (this.sectionItem.titreMenus.length === 0) {
       this.swAfficherListeQuiVaEtreMisHorsLigne = false;

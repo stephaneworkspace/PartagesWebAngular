@@ -13,6 +13,7 @@
       </th>
       <td style="width:10%">
         <app-module-table-admin-gestion-pages-btn-edit
+          [disable]="item.id == 0"
           [sectionItem]="item"
           (output)="edit($event)"
           (mouseover)="item.swMouseOver=true" 
@@ -21,6 +22,7 @@
       </td>
       <td style="width:10%">
         <app-module-table-admin-gestion-pages-btn-delete
+          [disable]="item.id == 0"
           [sectionItem]="item"
           (output)="delete($event)"
           (mouseover)="item.swMouseOver=true" 

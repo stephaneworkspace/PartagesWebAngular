@@ -23,6 +23,7 @@ export class ModuleTableAdminGestionPagesComponent implements OnInit, OnChanges 
 
   sectionEnLigne: Section[];
   sectionHorsLigne: Section[];
+  titremenuHorsLigne: Section[];
 
   constructor() {
   }
@@ -53,6 +54,7 @@ export class ModuleTableAdminGestionPagesComponent implements OnInit, OnChanges 
 
   LoadArray() {
     this.sectionEnLigne = this.section.filter(x => x.swHorsLigne !== true);
-    this.sectionHorsLigne = this.section.filter(x => x.swHorsLigne === true);
+    this.sectionHorsLigne = this.section.filter(x => x.swHorsLigne === true).filter(x => x.id > 0);
+    this.titremenuHorsLigne = this.section.filter(x => x.swHorsLigne === true).filter(x => x.id === 0);
   }
 }

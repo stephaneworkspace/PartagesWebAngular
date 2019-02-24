@@ -18,10 +18,6 @@ export class SectionService {
 
   constructor(private http: HttpClient) {}
 
-  getArbreCompletSections(): Observable<Section[]> {
-    return this.http.get<Section[]>(this.baseUrl + 'Sections/gestion-pages-avec-arbre-complet', httpOptions);
-  }
-
   getSections(): Observable<Section[]> {
     return this.http.get<Section[]>(this.baseUrl + 'Sections', httpOptions);
   }

@@ -5,7 +5,5 @@ export interface TitreMenu {
   sectionId?: number;
   nom: string;
   position?: number;
-  swHorsLigne: boolean;
-  // Champ virtuel
-  swMouseOver?: boolean;
+  swMouseOver?: boolean; // Champ virtuel
 }

@@ -40,8 +40,8 @@ export class GestionPagesComponent implements OnInit {
     });
   }
 
-  getArbreEntier() {
-    this.sectionService.getArbreCompletSections().subscribe((data: Array<Section>) => {
+  getSections() {
+    this.sectionService.getSections().subscribe((data: Array<Section>) => {
     this.section = data;
     }, error => {
       this.alertify.error(error.error);
@@ -87,6 +87,7 @@ export class GestionPagesComponent implements OnInit {
 
   deleteSection(item: Dto) {
     this.sectionService.delete(item.section.id).subscribe(next => {
+      // 25 février à faire titreMenu message sectionId
       if (item.section.swHorsLigne) {
         this.alertify.success('Section &laquo;' + item.section.nom + '&raquo; effacé');
       } else {
@@ -117,7 +118,7 @@ export class GestionPagesComponent implements OnInit {
       this.zone.run(() => {
         this.section = _this.sectionsTemp.slice();
       });*/
-      this.getArbreEntier();
+      this.getSections();
       // this.editForm.reset(this.section); // *Note* 20 février, je garde ça en place au cas ou ça peux me servir
     }, error => {
       this.alertify.error(error.error);
@@ -127,11 +128,11 @@ export class GestionPagesComponent implements OnInit {
 
   deleteTitreMenu(item: Dto) {
     this.titreMenuService.delete(item.titreMenu.id).subscribe(next => {
-      if (item.titreMenu.swHorsLigne) {
+      // 25 février, à faire :if (item.titreMenu.sectionId) {
         this.alertify.success('Titre menu &laquo;' + item.titreMenu.nom + '&raquo; effacé');
-      } else {
-        this.alertify.success('Titre menu &laquo;' + item.titreMenu.nom + '&raquo; effacé et contenu rendu hors ligne');
-      }
+      // } else {
+      //  this.alertify.success('Titre menu &laquo;' + item.titreMenu.nom + '&raquo; effacé et contenu rendu hors ligne');
+      // }
       /*
       const _this = this;
       _this.sectionsTemp = [];
@@ -168,7 +169,7 @@ export class GestionPagesComponent implements OnInit {
       this.zone.run(() => {
         this.section = _this.sectionsTemp.slice();
       });*/
-      this.getArbreEntier();
+      this.getSections();
     }, error => {
       this.alertify.error(error.error);
     });
@@ -189,7 +190,7 @@ export class GestionPagesComponent implements OnInit {
   upSection(item: Dto) {
     this.sectionService.up(item.section.id).subscribe(next => {
       this.alertify.success('Section &laquo;' + item.section.nom + '&raquo; montée');
-      this.getArbreEntier();
+      this.getSections();
     }, error => {
       this.alertify.error(error.error);
     });
@@ -198,7 +199,7 @@ export class GestionPagesComponent implements OnInit {
   upTitreMenu(item: Dto) {
     this.titreMenuService.up(item.titreMenu.id).subscribe(next => {
       this.alertify.success('Titre menu &laquo;' + item.titreMenu.nom + '&raquo; montée');
-      this.getArbreEntier();
+      this.getSections();
     }, error => {
       this.alertify.error(error.error);
     });
@@ -219,7 +220,7 @@ export class GestionPagesComponent implements OnInit {
   downSection(item: Dto) {
     this.sectionService.down(item.section.id).subscribe(next => {
       this.alertify.success('Section &laquo;' + item.section.nom + '&raquo; descendue');
-      this.getArbreEntier();
+      this.getSections();
     }, error => {
       this.alertify.error(error.error);
     });
@@ -228,7 +229,7 @@ export class GestionPagesComponent implements OnInit {
   downTitreMenu(item: Dto) {
     this.titreMenuService.down(item.titreMenu.id).subscribe(next => {
       this.alertify.success('Titre menu &laquo;' + item.titreMenu.nom + '&raquo; descendue');
-      this.getArbreEntier();
+      this.getSections();
     }, error => {
       this.alertify.error(error.error);
     });
