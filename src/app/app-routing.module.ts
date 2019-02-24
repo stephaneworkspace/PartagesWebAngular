@@ -21,7 +21,7 @@ import { GestionPagesTitreMenuPreventUnsavedChangesGuard } from './_guards/gesti
 import { EditionSousTitreMenuComponent } from './admin/gestion-pages/edition-sous-titre-menu/edition-sous-titre-menu.component';
 import { GestionPagesSousTitreMenuEditionResolver } from './_resolver/gestion-pages-sous-titre-menu-edition.resolver';
 import { GestionPagesSectionSelectBoxResolver } from './_resolver/gestion-pages-section-select-box.resolver.ts';
-import { GestionPagesSectionArbreEntierResolver } from './_resolver/gestion-pages-section-arbre-entier.resolver';
+import { GestionPagesSectionTableResolver } from './_resolver/gestion-pages-section-table.resolver';
 import { GestionPagesIconesSelectBoxResolver } from './_resolver/gestion-pages-icones-select-box.resolver';
 
 const routes: Routes = [
@@ -34,7 +34,7 @@ const routes: Routes = [
     component: GestionPagesComponent,
     canActivate: [AuthGuard],
     resolve: {
-      section: GestionPagesSectionArbreEntierResolver
+      section: GestionPagesSectionTableResolver
     },
   },
   {

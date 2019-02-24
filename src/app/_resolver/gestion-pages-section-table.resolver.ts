@@ -7,7 +7,7 @@ import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 @Injectable()
-export class GestionPagesSectionArbreEntierResolver implements Resolve<Section[]> {
+export class GestionPagesSectionTableResolver implements Resolve<Section[]> {
     constructor(
         private sectionService: SectionService,
         private router: Router,

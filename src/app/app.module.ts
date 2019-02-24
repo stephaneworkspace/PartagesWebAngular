@@ -44,7 +44,7 @@ import { EditionSousTitreMenuComponent } from './admin/gestion-pages/edition-sou
 import { GestionPagesSectionSelectBoxResolver } from './_resolver/gestion-pages-section-select-box.resolver.ts';
 import { TitreMenuService } from './_services/titre-menu.service';
 import { SousTitreMenuService } from './_services/sous-titre-menu.service';
-import { GestionPagesSectionArbreEntierResolver } from './_resolver/gestion-pages-section-arbre-entier.resolver';
+import { GestionPagesSectionTableResolver } from './_resolver/gestion-pages-section-table.resolver';
 import { ModuleTableAdminGestionPagesComponent } from './_modules/table/admin/gestion-pages/table.component';
 import { ModuleTableAdminGestionPagesCoreComponent } from './_modules/table/admin/gestion-pages/table-core.component';
 import { ModuleTableAdminGestionPagesSpanNomComponent } from './_modules/table/admin/gestion-pages/span/nom.component';
@@ -107,7 +107,7 @@ library.add(fas, far, fab);
       SousTitreMenuService,
       ArticleService,
       GestionPagesIconesSelectBoxResolver,
-      GestionPagesSectionArbreEntierResolver,
+      GestionPagesSectionTableResolver,
       GestionPagesSectionSelectBoxResolver,
       GestionPagesSectionEditionResolver,
       GestionPagesTitreMenuEditionResolver,
