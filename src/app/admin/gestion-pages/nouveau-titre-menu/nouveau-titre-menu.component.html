@@ -28,23 +28,10 @@
           *ngIf="this.formError.has('Nom')"
         >{{ this.formError.get('Nom') }}</small>
       </div>
-      <h1>A FAIRE</h1>
-      <div class="form-group">
-        <div class="form-group form-check">
-          <input 
-          class="form-check-input"
-          id="swHorsLigne"
-          type="checkbox" 
-          aria-label="Si on doit le classifier dans aucune section"
-          [(ngModel)]="model.swHorsLigne"
-          name="swHorsLigne">
-          <label class="form-check-label" for="swHorsLigne">Hors ligne</label>
-        </div>        
-      </div>
       <button 
         type="submit" 
         class="btn btn-primary"
-      >Créer titre</button>
+      >Créer titre du menu</button>
     </form>
   </div>
 </div>

@@ -70,7 +70,7 @@ export class GestionPagesComponent implements OnInit {
   }
 
   editTitreMenu(item: Dto) {
-    this.router.navigate(['/admin/gestion-pages-edition-titre-menu/' + item.titreMenu.id]);
+    this.router.navigate(['/admin/gestion-pages-edition-titre-menu/' + item.section.id + '/' + item.titreMenu.id]);
   }
 
   /**

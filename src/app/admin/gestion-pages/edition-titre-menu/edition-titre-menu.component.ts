@@ -28,7 +28,6 @@ export class EditionTitreMenuComponent implements OnInit {
     private route: ActivatedRoute,
     private alertify: AlertifyService,
     private titreMenuService: TitreMenuService,
-    // 7 fevrier private authService: AuthService
 ) { }
 
 ngOnInit() {
@@ -38,7 +37,7 @@ ngOnInit() {
   });
 }
 
-updateTitreMenu() {
+submitForm() {
   // 7 fevrier , le token était envoyé ici ???
   this.titreMenuService.update(this.titreMenu.id, this.titreMenu).subscribe(next => {
     this.alertify.success('Titre mis à jour');

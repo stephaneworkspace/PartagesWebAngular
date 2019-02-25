@@ -4,22 +4,28 @@
   <div id="content">
     <div class="container-fluid">
     <div class="col-sm-4">
-        <h1>Titre</h1>
+        <h1>Titre du menu</h1>
     </div>
     <div class="col-sm-8">
       <div *ngIf="editForm.dirty" class="alert alert-info">
         <strong>Information:</strong> Vous avez fait des changements. Tous changements non validés seront perdus !
       </div>
     </div>
-    <form #editForm="ngForm">
-      <h1>A FAIRE</h1>
+    <form #editForm="ngForm" (ngSubmit)="submitForm()" (change)="setDirtyFlag()">
       <div class="form-group">
-        <label for="sectionSelect">Sélection d'une section</label>
-        <select class="form-control" id="sectionSelect" [(ngModel)]="model.sectionSelect" name="sectionSelect">
-          <option value="hors-ligne">Hors-ligne</option>
-          <option value="Developpement web">Developpement web</option>
-          <option value="MAO">MAO</option>
-        </select>
+        <label for="sectionId">Sélection d'une section</label>
+        <select 
+          class="form-control custom-select"
+          id="sectionId" 
+          [(ngModel)]="model.sectionId"
+          name="sectionId"
+        >
+          <option 
+            *ngFor="let item of section; let i = index"
+            [value]="item.id"
+          >{{ item.nom }}
+          </option>
+        </select>      
       </div>
       <div class="form-group">
         <label for="nom">Nom du titre</label>
@@ -29,8 +35,7 @@
       <button 
         type="submit" 
         class="btn btn-primary"
-        (ngSubmit)="updateTitreMenu()"
-      >Éditer titre</button>
+      >Éditer titre du menu</button>
     </form>
   </div>
 </div>

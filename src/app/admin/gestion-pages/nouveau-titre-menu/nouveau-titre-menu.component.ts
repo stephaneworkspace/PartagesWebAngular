@@ -31,8 +31,6 @@ export class NouveauTitreMenuComponent implements OnInit {
     private titreMenuService: TitreMenuService) { }
 
   ngOnInit() {
-    // inutile 17 février... this.model.sectionSelect = 'hors-ligne';
-
     // Initialisation des erreurs de formulaires
     this.formError = new FormError();
     // Resolver

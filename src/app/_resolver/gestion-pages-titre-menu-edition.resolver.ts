@@ -13,7 +13,7 @@ export class GestionPagesTitreMenuEditionResolver implements Resolve<TitreMenu> 
         private alertify: AlertifyService, private authService: AuthService) {}
 
     resolve(route: ActivatedRouteSnapshot): Observable<TitreMenu> {
-        return this.titreMenuService.getTitreMenu(this.authService.decodedToken.nameid).pipe(
+        return this.titreMenuService.getTitreMenu(route.params['idTitreMenu']).pipe(
             catchError(error => {
                 this.alertify.error('Problème de chargement des données du titre du menu');
                 this.router.navigate(['/admin']);
