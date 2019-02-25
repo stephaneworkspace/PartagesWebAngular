@@ -39,10 +39,10 @@ export class TitreMenuService {
   }
 
   up(id: number) {
-    return this.http.post(this.baseUrl + 'TitreMenus/monter/' + id, {}, httpOptions);
+    return this.http.post(this.baseUrl + 'TitreMenus/up/' + id, {}, httpOptions);
   }
 
   down(id: number) {
-    return this.http.post(this.baseUrl + 'TitreMenus/descendre/' + id, {}, httpOptions);
+    return this.http.post(this.baseUrl + 'TitreMenus/down/' + id, {}, httpOptions);
   }
 }

@@ -39,11 +39,11 @@ export class SectionService {
   }
 
   up(id: number) {
-    return this.http.post(this.baseUrl + 'Sections/monter/' + id, {}, httpOptions);
+    return this.http.post(this.baseUrl + 'Sections/up/' + id, {}, httpOptions);
   }
 
   down(id: number) {
-    return this.http.post(this.baseUrl + 'Sections/descendre/' + id, {}, httpOptions);
+    return this.http.post(this.baseUrl + 'Sections/down/' + id, {}, httpOptions);
   }
 
 }
