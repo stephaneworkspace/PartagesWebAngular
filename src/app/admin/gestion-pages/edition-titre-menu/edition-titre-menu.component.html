@@ -3,39 +3,41 @@
   <!-- Page Content -->
   <div id="content">
     <div class="container-fluid">
-    <div class="col-sm-4">
-        <h1>Titre du menu</h1>
+      <div class="col-sm-4">
+          <h1>Titre du menu</h1>
+      </div>
+      <div class="col-sm-8">
+        <div *ngIf="editForm.dirty" class="alert alert-info">
+          <strong>Information:</strong> Vous avez fait des changements. Tous changements non validés seront perdus !
+        </div>
+      </div>
+      <!-- 25 février *Note* setDirtyFlag() à analyer-->
+      <form #editForm="ngForm" (ngSubmit)="submitForm()" (change)="setDirtyFlag()">
+        <div class="form-group">
+          <label for="sectionId">Sélection d'une section</label>
+          <select 
+            class="form-control custom-select"
+            id="sectionId" 
+            [(ngModel)]="model.sectionId"
+            name="sectionId"
+          >
+            <option 
+              *ngFor="let item of section; let i = index"
+              [value]="item.id"
+            >{{ item.nom }}
+            </option>
+          </select>      
+        </div>
+        <div class="form-group">
+          <label for="nom">Nom du titre</label>
+          <input type="nom" class="form-control" id="titre" aria-describedby="titreHelp" placeholder="Veuillez saisir un titre" [(ngModel)]="model.titre" name="titre">
+          <small id="titreHelp" class="form-text text-muted">Ce titre n'est pas forcément unique, mais doit être unique dans la section</small>
+        </div>
+        <button 
+          type="submit" 
+          class="btn btn-primary"
+        >Éditer titre du menu</button>
+      </form>
     </div>
-    <div class="col-sm-8">
-      <div *ngIf="editForm.dirty" class="alert alert-info">
-        <strong>Information:</strong> Vous avez fait des changements. Tous changements non validés seront perdus !
-      </div>
-    </div>
-    <form #editForm="ngForm" (ngSubmit)="submitForm()" (change)="setDirtyFlag()">
-      <div class="form-group">
-        <label for="sectionId">Sélection d'une section</label>
-        <select 
-          class="form-control custom-select"
-          id="sectionId" 
-          [(ngModel)]="model.sectionId"
-          name="sectionId"
-        >
-          <option 
-            *ngFor="let item of section; let i = index"
-            [value]="item.id"
-          >{{ item.nom }}
-          </option>
-        </select>      
-      </div>
-      <div class="form-group">
-        <label for="nom">Nom du titre</label>
-        <input type="nom" class="form-control" id="titre" aria-describedby="titreHelp" placeholder="Veuillez saisir un titre" [(ngModel)]="model.titre" name="titre">
-        <small id="titreHelp" class="form-text text-muted">Ce titre n'est pas forcément unique, mais doit être unique dans la section</small>
-      </div>
-      <button 
-        type="submit" 
-        class="btn btn-primary"
-      >Éditer titre du menu</button>
-    </form>
   </div>
 </div>

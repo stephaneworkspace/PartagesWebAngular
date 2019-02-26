@@ -15,7 +15,7 @@ import { Section } from 'src/app/_models/section';
 export class EditionTitreMenuComponent implements OnInit {
   // Voir guards, 4 février 2019 je ne l'ai pas testé
   @ViewChild('editForm') editForm: NgForm;
-  titreMenu: TitreMenu;
+  model: TitreMenu;
   section: Section[];
   @HostListener('window:beforeunload', ['$event'])
   unloadNotification($event: any) {
@@ -32,16 +32,16 @@ export class EditionTitreMenuComponent implements OnInit {
 
 ngOnInit() {
   this.route.data.subscribe(data => {
-    this.titreMenu = data['titre-menu'];
-    this.section = data['section'];
+    this.model = data.titreMenu;
+    this.section = data.section.slice();
   });
 }
 
 submitForm() {
   // 7 fevrier , le token était envoyé ici ???
-  this.titreMenuService.update(this.titreMenu.id, this.titreMenu).subscribe(next => {
+  this.titreMenuService.update(this.model.id, this.model).subscribe(next => {
     this.alertify.success('Titre mis à jour');
-    this.editForm.reset(this.titreMenu);
+    this.editForm.reset(this.model);
   }, error => {
     this.alertify.error(error);
   });
