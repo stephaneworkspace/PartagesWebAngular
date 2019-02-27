@@ -49,7 +49,7 @@ export class NouveauSectionComponent implements OnInit {
     this.formError.clear();
     this.sectionService.create(this.model).subscribe(next => {
       this.alertify.success('Section &laquo;' + this.model.nom + '&raquo; crée');
-      // this.editForm.reset(this.section); // pour @HostListener('window:beforeunload', ['$event'])
+      this.editForm.reset(this.model); // pour @HostListener('window:beforeunload', ['$event'])
       this.router.navigate(['/admin']);
     }, error => {
       // https://github.com/laracasts/Vue-Forms/blob/master/public/js/app.js

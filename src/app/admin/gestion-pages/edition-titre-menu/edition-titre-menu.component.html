@@ -29,9 +29,13 @@
           </select>      
         </div>
         <div class="form-group">
-          <label for="nom">Nom du titre</label>
-          <input type="nom" class="form-control" id="titre" aria-describedby="titreHelp" placeholder="Veuillez saisir un titre" [(ngModel)]="model.titre" name="titre">
-          <small id="titreHelp" class="form-text text-muted">Ce titre n'est pas forcément unique, mais doit être unique dans la section</small>
+          <label for="nom">Nom du titre menu</label>
+          <input type="nom" class="form-control" id="titre" aria-describedby="titreHelp" placeholder="Veuillez saisir un titre menu (ce nom doit être unique dans la section)" [(ngModel)]="model.nom" name="nom">
+          <small 
+            id="iconeHelp" 
+            class="help text-danger" 
+            *ngIf="this.formError.has('Nom')"
+          >{{ this.formError.get('Nom') }}</small>
         </div>
         <button 
           type="submit" 

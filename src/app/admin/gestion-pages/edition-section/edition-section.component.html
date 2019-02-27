@@ -14,8 +14,12 @@
       <form #editForm="ngForm" (ngSubmit)="submitForm()">
         <div class="form-group">
           <label for="nom">Nom de la section</label>
-          <input type="nom" class="form-control" id="nom" aria-describedby="nomHelp" placeholder="Veuillez saisir un nom" [(ngModel)]="model.nom" name="nom">
-          <small id="nomHelp" class="form-text text-muted">Ce nom doit être unique</small>
+          <input type="nom" class="form-control" id="nom" aria-describedby="nomHelp" placeholder="Veuillez saisir un nom (ce nom doit être unique)" [(ngModel)]="model.nom" name="nom">
+          <small 
+            id="iconeHelp" 
+            class="help text-danger" 
+            *ngIf="this.formError.has('Nom')"
+          >{{ this.formError.get('Nom') }}</small>
         </div>
         <div class="form-group">
           <label for="icone">Sélection de l'icone</label>
@@ -30,7 +34,12 @@
               *ngFor="let item of iconesSelectBox; let i = index"
               [value]="item.faValeur">{{ item.nomSelectBox }}
             </option>
-          </select>        
+          </select>   
+          <small 
+          id="iconeHelp" 
+          class="help text-danger" 
+          *ngIf="this.formError.has('Icone')"
+        >{{ this.formError.get('Icone') }}</small>   
         </div>
         <div *ngIf="model.icone != null">
           <div class="form-group">
@@ -51,6 +60,11 @@
             <option value="astral">Thème astral</option>
             <option value="forum">Index du forum</option>
           </select>
+          <small 
+          id="iconeHelp" 
+          class="help text-danger" 
+          *ngIf="this.formError.has('Type')"
+        >{{ this.formError.get('Type') }}</small>
         </div>
         <div class="form-group">
           <div class="form-group form-check">
