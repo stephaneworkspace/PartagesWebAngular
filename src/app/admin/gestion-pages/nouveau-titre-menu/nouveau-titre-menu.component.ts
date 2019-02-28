@@ -22,7 +22,7 @@ export class NouveauTitreMenuComponent implements OnInit {
 
   // titreMenu: TitreMenu; pour le post, afin de ne pas envoyer le form... ??? 17 février
   // c'est peut être pas la meilleur methode
-  titreMenu: TitreMenu;
+  // titreMenu: TitreMenu; // 28 Février *Note* désactivé
 
   constructor(
     private route: ActivatedRoute,
@@ -43,7 +43,7 @@ export class NouveauTitreMenuComponent implements OnInit {
     // Initialisation des erreurs précédantes
     this.formError.clear();
     this.titreMenuService.create(this.model).subscribe(next => {
-      this.alertify.success('Titre Menu &laquo;' + this.model.nom + '&raquo; crée');
+      this.alertify.success('Titre de menu &laquo;' + this.model.nom + '&raquo; crée');
       // this.editForm.reset(this.titreMenu);
       this.router.navigate(['/admin']);
     }, error => {

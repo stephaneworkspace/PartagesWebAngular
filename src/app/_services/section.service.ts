@@ -26,12 +26,12 @@ export class SectionService {
     return this.http.get<Section>(this.baseUrl + 'Sections/' + id, httpOptions);
   }
 
-  create(section: Section) {
-    return this.http.post(this.baseUrl + 'Sections', section, httpOptions);
+  create(item: Section) {
+    return this.http.post(this.baseUrl + 'Sections', item, httpOptions);
   }
 
-  update(id: number, section: Section) {
-    return this.http.put(this.baseUrl + 'Sections/' + id, section, httpOptions);
+  update(id: number, item: Section) {
+    return this.http.put(this.baseUrl + 'Sections/' + id, item, httpOptions);
   }
 
   delete(id: number) {

@@ -18,20 +18,20 @@ export class TitreMenuService {
 
   constructor(private http: HttpClient) {}
 
-  getTitreMenus(idSection: number): Observable<TitreMenu[]> {
-    return this.http.get<TitreMenu[]>(this.baseUrl + 'TitreMenus', httpOptions);
+  getTitreMenus(): Observable<TitreMenu[]> {
+    return this.http.get<TitreMenu[]>(this.baseUrl + 'TitreMenus/', httpOptions);
   }
 
   getTitreMenu(id: number): Observable<TitreMenu> {
     return this.http.get<TitreMenu>(this.baseUrl + 'TitreMenus/' + id, httpOptions);
   }
 
-  update(id: number, titreMenu: TitreMenu) {
-    return this.http.put(this.baseUrl + 'TitreMenus/' + id, titreMenu);
+  update(id: number, item: TitreMenu) {
+    return this.http.put(this.baseUrl + 'TitreMenus/' + id, item);
   }
 
-  create(titreMenu: TitreMenu) {
-    return this.http.post(this.baseUrl + 'TitreMenus', titreMenu);
+  create(item: TitreMenu) {
+    return this.http.post(this.baseUrl + 'TitreMenus', item);
   }
 
   delete(id: number) {

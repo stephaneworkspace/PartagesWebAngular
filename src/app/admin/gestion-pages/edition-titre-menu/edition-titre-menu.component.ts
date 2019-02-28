@@ -50,7 +50,7 @@ submitForm() {
   // Initialisation des erreurs précédantes
   this.formError.clear();
   this.titreMenuService.update(this.model.id, this.model).subscribe(next => {
-    this.alertify.success('Titre mis à jour');
+    this.alertify.success('Titre de menu &laquo;' + this.model.nom + '&raquo; mis à jour');
     this.editForm.reset(this.model);
     this.router.navigate(['/admin']);
   }, error => {

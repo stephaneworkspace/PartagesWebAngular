@@ -23,6 +23,7 @@ import { GestionPagesSousTitreMenuEditionResolver } from './_resolver/gestion-pa
 import { GestionPagesSectionSelectBoxResolver } from './_resolver/gestion-pages-section-select-box.resolver.ts';
 import { GestionPagesSectionTableResolver } from './_resolver/gestion-pages-section-table.resolver';
 import { GestionPagesIconesSelectBoxResolver } from './_resolver/gestion-pages-icones-select-box.resolver';
+import { GestionPagesTitreMenuSelectBoxResolver } from './_resolver/gestion-pages-titre-menu-select-box.resolver';
 
 const routes: Routes = [
   {
@@ -77,6 +78,9 @@ const routes: Routes = [
     path: 'admin/gestion-pages-nouveau-sous-titre-menu',
     component: NouveauSousTitreMenuComponent,
     canActivate: [AuthGuard],
+    resolve: {
+      titreMenuSelectBox: GestionPagesTitreMenuSelectBoxResolver
+    },
   },
   {
     path: 'admin/gestion-pages-nouveau-article',

@@ -18,15 +18,27 @@ export class SousTitreMenuService {
 
   constructor(private http: HttpClient) {}
 
-  getSousTitreMenus(idTitreMenu: number): Observable<SousTitreMenu[]> {
-    return this.http.get<SousTitreMenu[]>(this.baseUrl + 'SousTitresMenus', httpOptions);
-  }
-
   getSousTitreMenu(id: number): Observable<SousTitreMenu> {
     return this.http.get<SousTitreMenu>(this.baseUrl + 'SousTitresMenus/' + id, httpOptions);
   }
 
-  updateSousTitreMenu(id: number, sousTitreMenu: SousTitreMenu) {
-    return this.http.put(this.baseUrl + 'SousTitresMenus/' + id, sousTitreMenu);
+  update(id: number, item: SousTitreMenu) {
+    return this.http.put(this.baseUrl + 'SousTitresMenus/' + id, item);
+  }
+
+  create(item: SousTitreMenu) {
+    return this.http.post(this.baseUrl + 'SousTitresMenus', item);
+  }
+
+  delete(id: number) {
+    return this.http.delete(this.baseUrl + 'SousTitresMenus/' + id, httpOptions);
+  }
+
+  up(id: number) {
+    return this.http.post(this.baseUrl + 'SousTitresMenus/up/' + id, {}, httpOptions);
+  }
+
+  down(id: number) {
+    return this.http.post(this.baseUrl + 'SousTitresMenus/down/' + id, {}, httpOptions);
   }
 }

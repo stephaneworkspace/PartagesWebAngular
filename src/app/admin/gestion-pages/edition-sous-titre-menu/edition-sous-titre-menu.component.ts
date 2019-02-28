@@ -38,7 +38,7 @@ ngOnInit() {
 }
 
 updateTitreMenu() {
-  this.sousTitreMenuService.updateSousTitreMenu(this.authService.decodedToken.nameid, this.sousTitreMenu).subscribe(next => {
+  this.sousTitreMenuService.update(this.authService.decodedToken.nameid, this.sousTitreMenu).subscribe(next => {
     this.alertify.success('Sous titre mis à jour');
     this.editForm.reset(this.sousTitreMenu);
   }, error => {
