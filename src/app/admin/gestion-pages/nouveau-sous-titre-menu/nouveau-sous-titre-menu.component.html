@@ -12,11 +12,14 @@
           [(ngModel)]="model.titreMenuId"
           name="sectionId"
         >
-          <optgroup *ngFor="let item of titreMenu; let i = index" [label]="item.sectionId">
-            <option 
-              [value]="item.id"
-            >{{ item.nom }}
-            </option>
+          <optgroup *ngFor="let itemSection of sections; let j = index" [label]="itemSection.nom">
+           <ng-container *ngFor="let item of titreMenu; let i = index">
+              <option 
+                *ngIf="item.sectionId === itemSection.id || (item.sectionId === null &&  itemSection.id === 0)"
+                [value]="item.id"
+              >{{ item.nom }}
+              </option>
+            </ng-container>
           </optgroup>
         </select>  
       </div>

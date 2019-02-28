@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AlertifyService } from 'src/app/_services/alertify.service';
 import { SousTitreMenuService } from 'src/app/_services/sous-titre-menu.service';
 import { FormError } from 'src/app/_class/form-error';
+import { Section } from 'src/app/_models/section';
+import * as Sugar from 'sugar';
 
 @Component({
   selector: 'app-nouveau-sous-titre-menu',
@@ -13,6 +15,7 @@ import { FormError } from 'src/app/_class/form-error';
 export class NouveauSousTitreMenuComponent implements OnInit {
   model: any = {};
   titreMenu: TitreMenu[];
+  sections: Section[] = [];
   formError: any;
 
   constructor(
@@ -27,6 +30,14 @@ export class NouveauSousTitreMenuComponent implements OnInit {
       // Resolver
       this.route.data.subscribe(data => {
         this.titreMenu = data['titreMenuSelectBox'];
+        this.titreMenu.forEach(element => {
+          this.sections.push(element.section);
+        });
+        const tableTemp = Sugar.Array(this.sections).unique(function(item) {
+          return item.id;
+        }).clone();
+        this.sections = tableTemp['raw'].slice();
+        console.log(this.sections);
       });
     }
     submitForm() {
