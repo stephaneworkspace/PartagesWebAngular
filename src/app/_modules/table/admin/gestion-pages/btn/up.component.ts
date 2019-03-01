@@ -18,6 +18,7 @@ export class ModuleTableAdminGestionPagesBtnUpComponent implements OnInit, OnCha
   @Input() disable: boolean;
   @Input() sectionItem: Section;
   @Input() titreMenuItem?: TitreMenu;
+  @Input() sousTitreMenuItem?: SousTitreMenu;
   @Output() output: EventEmitter<Dto> = new EventEmitter<Dto>();
 
   nom: string;
@@ -47,7 +48,8 @@ export class ModuleTableAdminGestionPagesBtnUpComponent implements OnInit, OnCha
   btnPush() {
     this.output.emit({
       section: this.sectionItem,
-      titreMenu: this.titreMenuItem
+      titreMenu: this.titreMenuItem,
+      sousTitreMenu: this.sousTitreMenuItem
     });
   }
 }

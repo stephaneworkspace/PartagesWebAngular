@@ -7,4 +7,5 @@ export interface SousTitreMenu {
   titreMenu?: TitreMenu;
   nom: string;
   position: number;
+  swMouseOver?: boolean; // Champ virtuel
 }

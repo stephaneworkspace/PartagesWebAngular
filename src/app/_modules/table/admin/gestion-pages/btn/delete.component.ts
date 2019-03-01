@@ -4,6 +4,7 @@ import { Section } from 'src/app/_models/section';
 import { TitreMenu } from 'src/app/_models/titre-menu';
 import { SousTitreMenu } from 'src/app/_models/sous-titre-menu';
 import { ModuleTableAdminGestionPagesModalConfirmDeleteComponent } from '../modal/confirm-delete.component';
+import { SousTitreMenuService } from 'src/app/_services/sous-titre-menu.service';
 
 interface Dto {
   section: Section;
@@ -20,6 +21,7 @@ export class ModuleTableAdminGestionPagesBtnDeleteComponent implements OnInit, O
   @Input() disable: boolean;
   @Input() sectionItem: Section;
   @Input() titreMenuItem?: TitreMenu;
+  @Input() sousTitreMenuItem?: SousTitreMenu;
   @Output() output: EventEmitter<Dto> = new EventEmitter<Dto>();
 
   nom: string;
@@ -70,7 +72,8 @@ export class ModuleTableAdminGestionPagesBtnDeleteComponent implements OnInit, O
   btnYesPush() {
     this.output.emit({
       section: this.sectionItem,
-      titreMenu: this.titreMenuItem
+      titreMenu: this.titreMenuItem,
+      sousTitreMenu: this.sousTitreMenuItem
     });
   }
 }
