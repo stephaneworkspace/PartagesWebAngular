@@ -37,14 +37,14 @@ export class NouveauSousTitreMenuComponent implements OnInit {
           return item.id;
         }).clone();
         this.sections = tableTemp['raw'].slice();
-        console.log(this.sections);
+        // console.log(this.sections);
       });
     }
     submitForm() {
       // Initialisation des erreurs précédantes
       this.formError.clear();
       this.sousTitreMenuService.create(this.model).subscribe(next => {
-        this.alertify.success('Sous titre de menu &laquo;' + this.model.nom + '&raquo; crée');
+        this.alertify.success('Sous titre du menu &laquo;' + this.model.nom + '&raquo; crée');
         // this.editForm.reset(this.titreMenu);
         this.router.navigate(['/admin']);
       }, error => {

@@ -83,15 +83,18 @@ const routes: Routes = [
     },
   },
   {
+    path: 'admin/gestion-pages-edition-sous-titre-menu/:idSection/:idTitreMenu/:idSousTitreMenu',
+    component: EditionSousTitreMenuComponent,
+    canActivate: [AuthGuard],
+    resolve: {
+      sousTitreMenu: GestionPagesSousTitreMenuEditionResolver,
+      titreMenuSelectBox: GestionPagesTitreMenuSelectBoxResolver
+    }, canDeactivate: [GestionPagesTitreMenuPreventUnsavedChangesGuard],
+  },
+  {
     path: 'admin/gestion-pages-nouveau-article',
     component: NouveauArticleComponent,
     canActivate: [AuthGuard],
-  },
-  {
-    path: 'admin/gestion-pages-edition-sous-titre-menu/:id',
-    component: EditionSousTitreMenuComponent,
-    canActivate: [AuthGuard],
-    resolve: {sousTitreMenu: GestionPagesSousTitreMenuEditionResolver}, canDeactivate: [GestionPagesTitreMenuPreventUnsavedChangesGuard],
   },
   {
     path: 'admin/gestion-pages-edition-article/:id',

@@ -3,7 +3,7 @@ import { TitreMenu } from './titre-menu';
 
 export interface SousTitreMenu {
   id: number;
-  section?: Section;
+  titreMenuId?: number;
   titreMenu?: TitreMenu;
   nom: string;
   position: number;

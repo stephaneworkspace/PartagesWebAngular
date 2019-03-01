@@ -13,7 +13,7 @@ export class GestionPagesSousTitreMenuEditionResolver implements Resolve<Article
         private alertify: AlertifyService, private authService: AuthService) {}
 
     resolve(route: ActivatedRouteSnapshot): Observable<Article> {
-        return this.sousTitreService.getSousTitreMenu(this.authService.decodedToken.nameid).pipe(
+        return this.sousTitreService.getSousTitreMenu(route.params['idSousTitreMenu']).pipe(
             catchError(error => {
                 this.alertify.error('Problème de chargement des données du sous titre du menu');
                 this.router.navigate(['/admin']);

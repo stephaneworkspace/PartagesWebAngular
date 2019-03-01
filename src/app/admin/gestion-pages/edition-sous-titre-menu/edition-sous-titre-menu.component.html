@@ -11,31 +11,39 @@
         <strong>Information:</strong> Vous avez fait des changements. Tous changements non validés seront perdus !
       </div>
     </div>
-    <form #editForm="ngForm">
+    <form #editForm="ngForm" (ngSubmit)="submitForm()" (change)="setDirtyFlag()">
       <div class="form-group">
-        <label for="sectionSelect">Sélection d'une section</label>
-        <select class="form-control" id="sectionSelect" [(ngModel)]="model.sectionSelect" name="sectionSelect">
-          <option value="hors-ligne">Hors-ligne</option>
-          <option value="Developpement web">Developpement web</option>
-          <option value="MAO">MAO</option>
-        </select>
-      </div>
+        <label for="titreMenuId">Sélection d'un titre de menu</label>
+        <select 
+          class="form-control custom-select"
+          id="sectionId" 
+          [(ngModel)]="model.titreMenuId"
+          name="sectionId"
+        >
+          <optgroup *ngFor="let itemSection of sections; let j = index" [label]="itemSection.nom">
+            <ng-container *ngFor="let item of titreMenu; let i = index">
+              <option 
+                *ngIf="item.sectionId === itemSection.id || (item.sectionId === null &&  itemSection.id === 0)"
+                [value]="item.id"
+              >{{ item.nom }}
+              </option>
+            </ng-container>
+          </optgroup>
+        </select>  
+      </div>    
       <div class="form-group">
-        <label for="titreSelect">Sélection d'un titre</label>
-        <select class="form-control" id="titreSelect"[(ngModel)]="model.titreSelect" name="titreSelect">
-          <option value="hors-ligne">Hors-ligne</option>
-        </select>
-      </div>      
-      <div class="form-group">
-        <label for="nom">Nom du sous titre</label>
-        <input type="nom" class="form-control" id="sousTitreMenu" aria-describedby="sousTitreMenuHelp" placeholder="Veuillez saisir un sous titre" [(ngModel)]="model.sousTitreMenu" name="sousTitreMenu">
-        <small id="sousTitreMenuHelp" class="form-text text-muted">Ce titre n'est pas forcément unique, mais doit être unique dans la section / le titre</small>
+        <label for="nom">Nom du sous titre de menu</label>
+        <input type="nom" class="form-control" id="titre" aria-describedby="titreHelp" placeholder="Veuillez saisir un sous titre de menu (ce nom doit être unique dans la section)" [(ngModel)]="model.nom" name="nom">
+        <small 
+          id="iconeHelp" 
+          class="help text-danger" 
+          *ngIf="this.formError.has('Nom')"
+        >{{ this.formError.get('Nom') }}</small>
       </div>
       <button 
         type="submit" 
         class="btn btn-primary"
-        (ngSubmit)="updateSousTitreMenu()"
-      >Éditer sous titre</button>
+      >Éditer sous titre du menu</button>
     </form>
   </div>
 </div>

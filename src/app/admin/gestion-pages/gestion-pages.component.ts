@@ -7,10 +7,13 @@ import { Section } from 'src/app/_models/section';
 import { TitreMenu } from 'src/app/_models/titre-menu';
 import { EditionArticleComponent } from './edition-article/edition-article.component';
 import { TitreMenuService } from 'src/app/_services/titre-menu.service';
+import { SousTitreMenu } from 'src/app/_models/sous-titre-menu';
+import { SousTitreMenuService } from 'src/app/_services/sous-titre-menu.service';
 
 interface Dto {
   section: Section;
   titreMenu?: TitreMenu;
+  sousTitreMenu?: SousTitreMenu;
 }
 
 @Component({
@@ -30,6 +33,7 @@ export class GestionPagesComponent implements OnInit {
     private alertify: AlertifyService,
     private sectionService: SectionService,
     private titreMenuService: TitreMenuService,
+    private sousTitreMenuService: SousTitreMenuService,
     private authService: AuthService,
     private zone: NgZone
 ) { }
@@ -61,7 +65,11 @@ export class GestionPagesComponent implements OnInit {
     if (item.titreMenu === undefined) {
       this.editSection(item);
     } else {
-      this.editTitreMenu(item);
+      if (item.sousTitreMenu === undefined) {
+        this.editTitreMenu(item);
+      } else {
+        this.editSousTitreMenu(item);
+      }
     }
   }
 
@@ -73,6 +81,11 @@ export class GestionPagesComponent implements OnInit {
     this.router.navigate(['/admin/gestion-pages-edition-titre-menu/' + item.section.id + '/' + item.titreMenu.id]);
   }
 
+  editSousTitreMenu(item: Dto) {
+    this.router.navigate(['/admin/gestion-pages-edition-sous-titre-menu/'
+    + item.section.id + '/' + item.titreMenu.id + '/' + item.sousTitreMenu.id]);
+  }
+
   /**
    * Delete
    */
@@ -81,7 +94,11 @@ export class GestionPagesComponent implements OnInit {
     if (item.titreMenu === undefined) {
       this.deleteSection(item);
     } else {
-      this.deleteTitreMenu(item);
+      if (item.sousTitreMenu === undefined) {
+        this.deleteTitreMenu(item);
+      } else {
+        this.deleteSousTitreMenu(item);
+      }
     }
   }
 
@@ -129,7 +146,7 @@ export class GestionPagesComponent implements OnInit {
   deleteTitreMenu(item: Dto) {
     this.titreMenuService.delete(item.titreMenu.id).subscribe(next => {
       // 25 février, à faire :if (item.titreMenu.sectionId) {
-        this.alertify.success('Titre menu &laquo;' + item.titreMenu.nom + '&raquo; effacé');
+        this.alertify.success('Titre du menu &laquo;' + item.titreMenu.nom + '&raquo; effacé');
       // } else {
       //  this.alertify.success('Titre menu &laquo;' + item.titreMenu.nom + '&raquo; effacé et contenu rendu hors ligne');
       // }
@@ -175,6 +192,15 @@ export class GestionPagesComponent implements OnInit {
     });
   }
 
+  deleteSousTitreMenu(item: Dto) {
+    this.sousTitreMenuService.delete(item.sousTitreMenu.id).subscribe(next => {
+      this.alertify.success('Sous titre du menu &laquo;' + item.sousTitreMenu.nom + '&raquo; effacé');
+      this.getSections();
+    }, error => {
+      this.alertify.error(error.error);
+    });
+  }
+
   /**
    * Up
    */
@@ -183,7 +209,11 @@ export class GestionPagesComponent implements OnInit {
     if (item.titreMenu === undefined) {
       this.upSection(item);
     } else {
-      this.upTitreMenu(item);
+      if (item.sousTitreMenu === undefined) {
+        this.upTitreMenu(item);
+      } else {
+        this.upSousTitreMenu(item);
+      }
     }
   }
 
@@ -198,7 +228,16 @@ export class GestionPagesComponent implements OnInit {
 
   upTitreMenu(item: Dto) {
     this.titreMenuService.up(item.titreMenu.id).subscribe(next => {
-      this.alertify.success('Titre menu &laquo;' + item.titreMenu.nom + '&raquo; montée');
+      this.alertify.success('Titre du menu &laquo;' + item.titreMenu.nom + '&raquo; monté');
+      this.getSections();
+    }, error => {
+      this.alertify.error(error.error);
+    });
+  }
+
+  upSousTitreMenu(item: Dto) {
+    this.sousTitreMenuService.up(item.sousTitreMenu.id).subscribe(next => {
+      this.alertify.success('Sous titre du menu &laquo;' + item.sousTitreMenu.nom + '&raquo; monté');
       this.getSections();
     }, error => {
       this.alertify.error(error.error);
@@ -213,7 +252,11 @@ export class GestionPagesComponent implements OnInit {
     if (item.titreMenu === undefined) {
       this.downSection(item);
     } else {
-      this.downTitreMenu(item);
+      if (item.sousTitreMenu === undefined) {
+        this.downTitreMenu(item);
+      } else {
+        this.downSousTitreMenu(item);
+      }
     }
   }
 
@@ -228,7 +271,16 @@ export class GestionPagesComponent implements OnInit {
 
   downTitreMenu(item: Dto) {
     this.titreMenuService.down(item.titreMenu.id).subscribe(next => {
-      this.alertify.success('Titre menu &laquo;' + item.titreMenu.nom + '&raquo; descendue');
+      this.alertify.success('Titre du menu &laquo;' + item.titreMenu.nom + '&raquo; descendu');
+      this.getSections();
+    }, error => {
+      this.alertify.error(error.error);
+    });
+  }
+
+  downSousTitreMenu(item: Dto) {
+    this.sousTitreMenuService.down(item.sousTitreMenu.id).subscribe(next => {
+      this.alertify.success('Sous titre du menu &laquo;' + item.sousTitreMenu.nom + '&raquo; descendu');
       this.getSections();
     }, error => {
       this.alertify.error(error.error);
