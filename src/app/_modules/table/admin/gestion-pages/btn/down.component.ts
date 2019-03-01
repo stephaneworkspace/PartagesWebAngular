@@ -40,7 +40,11 @@ export class ModuleTableAdminGestionPagesBtnDownComponent implements OnInit, OnC
       if (this.titreMenuItem === undefined) {
         this.nom = 'Descendre «' +  this.sectionItem.nom + '»';
       } else {
-        this.nom = 'Descendre «' +  this.titreMenuItem.nom + '»';
+        if (this.sousTitreMenuItem === undefined) {
+          this.nom = 'Descendre «' +  this.titreMenuItem.nom + '»';
+        } else {
+          this.nom = 'Descendre «' +  this.sousTitreMenuItem.nom + '»';
+        }
       }
     }
   }

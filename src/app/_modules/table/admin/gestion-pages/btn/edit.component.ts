@@ -40,7 +40,11 @@ export class ModuleTableAdminGestionPagesBtnEditComponent implements OnInit, OnC
       if (this.titreMenuItem === undefined) {
         this.nom = 'Éditer «' +  this.sectionItem.nom + '»';
       } else {
-        this.nom = 'Éditer «' +  this.titreMenuItem.nom + '»';
+        if (this.sousTitreMenuItem === undefined) {
+          this.nom = 'Éditer «' +  this.titreMenuItem.nom + '»';
+        } else {
+          this.nom = 'Éditer «' +  this.sousTitreMenuItem.nom + '»';
+        }
       }
     }
   }

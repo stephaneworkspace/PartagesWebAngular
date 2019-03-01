@@ -44,7 +44,11 @@ export class ModuleTableAdminGestionPagesBtnDeleteComponent implements OnInit, O
       if (this.titreMenuItem === undefined) {
         this.nom = 'Supprimer «' +  this.sectionItem.nom + '»';
       } else {
-        this.nom = 'Supprimer «' +  this.titreMenuItem.nom + '»';
+        if (this.sousTitreMenuItem === undefined) {
+          this.nom = 'Supprimer «' +  this.titreMenuItem.nom + '»';
+        } else {
+          this.nom = 'Supprimer «' +  this.sousTitreMenuItem.nom + '»';
+        }
       }
     }
     if (this.sectionItem.titreMenus.length === 0) {

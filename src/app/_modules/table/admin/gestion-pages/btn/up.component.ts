@@ -40,7 +40,11 @@ export class ModuleTableAdminGestionPagesBtnUpComponent implements OnInit, OnCha
       if (this.titreMenuItem === undefined) {
         this.nom = 'Monter «' +  this.sectionItem.nom + '»';
       } else {
-        this.nom = 'Monter «' +  this.titreMenuItem.nom + '»';
+        if (this.sousTitreMenuItem === undefined) {
+          this.nom = 'Monter «' +  this.titreMenuItem.nom + '»';
+        } else {
+          this.nom = 'Monter «' +  this.sousTitreMenuItem.nom + '»';
+        }
       }
     }
   }
