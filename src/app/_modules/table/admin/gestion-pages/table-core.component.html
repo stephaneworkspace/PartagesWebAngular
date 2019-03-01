@@ -68,6 +68,7 @@
           <app-module-table-admin-gestion-pages-btn-edit
             [sectionItem]="item"
             [titreMenuItem]="sousItem"
+            [disable]="sousItem.id == 0"
             (output)="edit($event)"
             (mouseover)="sousItem.swMouseOver=true" 
             (mouseout)="sousItem.swMouseOver=false" 
@@ -77,6 +78,7 @@
           <app-module-table-admin-gestion-pages-btn-delete
             [sectionItem]="item"
             [titreMenuItem]="sousItem"
+            [disable]="sousItem.id == 0"
             (output)="delete($event)"
             (mouseover)="sousItem.swMouseOver=true" 
             (mouseout)="sousItem.swMouseOver=false" 
@@ -86,7 +88,7 @@
           <app-module-table-admin-gestion-pages-btn-up
             [sectionItem]="item"
             [titreMenuItem]="sousItem"
-            [disable]="i == 0"
+            [disable]="i == 0 || sousItem.id == 0"
             (output)="up($event)"
             (mouseover)="sousItem.swMouseOver=true" 
             (mouseout)="sousItem.swMouseOver=false" 
@@ -96,7 +98,7 @@
           <app-module-table-admin-gestion-pages-btn-down
             [sectionItem]="item"
             [titreMenuItem]="sousItem"
-            [disable]="i == item.titreMenus.length - 1"
+            [disable]="i == item.titreMenus.length - 1 ? true : item.titreMenus[i + 1].id == 0"
             (output)="down($event)"
             (mouseover)="sousItem.swMouseOver=true" 
             (mouseout)="sousItem.swMouseOver=false" 
