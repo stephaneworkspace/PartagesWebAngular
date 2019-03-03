@@ -26,7 +26,23 @@ export class ArticleService {
     return this.http.get<Article>(this.baseUrl + 'Articles/' + id, httpOptions);
   }
 
-  updateArticle(id: number, article: Article) {
+  update(id: number, article: Article) {
     return this.http.put(this.baseUrl + 'Articles/' + id, article);
+  }
+
+  create(item: Article) {
+    return this.http.post(this.baseUrl + 'Articles', item);
+  }
+
+  delete(id: number) {
+    return this.http.delete(this.baseUrl + 'Articles/' + id, httpOptions);
+  }
+
+  up(id: number) {
+    return this.http.post(this.baseUrl + 'Articles/up/' + id, {}, httpOptions);
+  }
+
+  down(id: number) {
+    return this.http.post(this.baseUrl + 'Articles/down/' + id, {}, httpOptions);
   }
 }

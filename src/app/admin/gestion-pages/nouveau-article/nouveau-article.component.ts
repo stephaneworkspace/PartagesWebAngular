@@ -1,5 +1,11 @@
 import { Component, OnInit, OnChanges, SimpleChanges, Input } from '@angular/core';
 import { modelGroupProvider } from '@angular/forms/src/directives/ng_model_group';
+import { SousTitreMenu } from 'src/app/_models/sous-titre-menu';
+import { TitreMenu } from 'src/app/_models/titre-menu';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AlertifyService } from 'src/app/_services/alertify.service';
+import { ArticleService } from 'src/app/_services/article.service';
+import { FormError } from 'src/app/_class/form-error';
 
 declare var require: any;
 const myMarked = require('marked');
@@ -11,14 +17,32 @@ const myMarked = require('marked');
 })
 export class NouveauArticleComponent implements OnInit, OnChanges {
   model: any = {};
+  sousTitreMenu: SousTitreMenu[];
+  titreMenu: TitreMenu[] = [];
+  formError: any;
   markedArticle: string;
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private alertify: AlertifyService,
+    private articleService: ArticleService) { }
 
   ngOnInit() {
-    this.model.sectionSelect = 'Hors-ligne';
-    this.model.titreSelect = 'Hors-ligne';
-    this.model.sousTitreSelect = 'Hors-ligne';
+      // Initialisation des erreurs de formulaires
+      this.formError = new FormError();
+      // Resolver
+      this.route.data.subscribe(data => {
+        this.titreMenu = data['sousTitreMenuSelectBox'];
+        /*this.titreMenu.forEach(element => {
+          this.sections.push(element.section);
+        });*/ // 4 mars à faire
+        // const tableTemp = Sugar.Array(this.sections).unique(function(item) {
+        //  return item.id;
+        // }).clone();
+        // this.sections = tableTemp['raw'].slice();
+        // console.log(this.sections);
+      });
   }
 
   // ngOnChanges ne fonctionne pas
@@ -46,6 +70,34 @@ export class NouveauArticleComponent implements OnInit, OnChanges {
       // xhtml: false
     });
     this.markedArticle = myMarked(this.model.article);
+  }
+
+  submitForm() {
+    // Initialisation des erreurs précédantes
+    this.formError.clear();
+    this.articleService.create(this.model).subscribe(next => {
+      this.alertify.success('Article &laquo;' + this.model.nom + '&raquo; crée');
+      // this.editForm.reset(this.titreMenu);
+      this.router.navigate(['/admin']);
+    }, error => {
+      // https://github.com/laracasts/Vue-Forms/blob/master/public/js/app.js
+      // Ensuite trouver moyen de traduire les messages d'erreurs
+      if (typeof error.error === 'string') {
+        this.alertify.error(error.error);
+      } else {
+        this.formError.record(error.error.errors);
+        Object.keys(this.formError.getAll()).forEach(element => {
+          this.alertify.error(this.formError.get(element));
+        });
+      }
+    });
+  }
+
+  /**
+   * Dans le cas ou le formulaire est touché, suppression des erreurs en petit rouge
+   */
+  setDirtyFlag() {
+    this.formError.clear();
   }
 
 }
