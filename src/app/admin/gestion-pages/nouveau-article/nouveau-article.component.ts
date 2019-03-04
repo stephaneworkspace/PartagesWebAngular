@@ -6,6 +6,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AlertifyService } from 'src/app/_services/alertify.service';
 import { ArticleService } from 'src/app/_services/article.service';
 import { FormError } from 'src/app/_class/form-error';
+import * as Sugar from 'sugar';
+import { Section } from 'src/app/_models/section';
 
 declare var require: any;
 const myMarked = require('marked');
@@ -19,6 +21,7 @@ export class NouveauArticleComponent implements OnInit, OnChanges {
   model: any = {};
   sousTitreMenu: SousTitreMenu[];
   titreMenu: TitreMenu[] = [];
+  section: Section[] = [];
   formError: any;
   markedArticle: string;
 
@@ -33,15 +36,24 @@ export class NouveauArticleComponent implements OnInit, OnChanges {
       this.formError = new FormError();
       // Resolver
       this.route.data.subscribe(data => {
-        this.titreMenu = data['sousTitreMenuSelectBox'];
-        /*this.titreMenu.forEach(element => {
-          this.sections.push(element.section);
-        });*/ // 4 mars à faire
-        // const tableTemp = Sugar.Array(this.sections).unique(function(item) {
-        //  return item.id;
-        // }).clone();
-        // this.sections = tableTemp['raw'].slice();
-        // console.log(this.sections);
+        this.sousTitreMenu = data['sousTitreMenuSelectBox'];
+        this.sousTitreMenu.forEach(element => {
+          this.titreMenu.push(element.titreMenu);
+        });
+        let tableTemp = Sugar.Array(this.titreMenu).unique(function(item) {
+          return item.id;
+        }).clone();
+        this.titreMenu = tableTemp['raw'].slice();
+        this.titreMenu.forEach(element => {
+          this.section.push(element.section);
+        });
+        tableTemp = Sugar.Array(this.section).unique(function(item) {
+          return item.id;
+        }).clone();
+        this.section = tableTemp['raw'].slice();
+        // console.log(this.section);
+        // console.log(this.titreMenu);
+        // console.log(this.sousTitreMenu);
       });
   }
 

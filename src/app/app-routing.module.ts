@@ -24,6 +24,7 @@ import { GestionPagesSectionSelectBoxResolver } from './_resolver/gestion-pages-
 import { GestionPagesSectionTableResolver } from './_resolver/gestion-pages-section-table.resolver';
 import { GestionPagesIconesSelectBoxResolver } from './_resolver/gestion-pages-icones-select-box.resolver';
 import { GestionPagesTitreMenuSelectBoxResolver } from './_resolver/gestion-pages-titre-menu-select-box.resolver';
+import { GestionPagesSousTitreMenuSelectBoxResolver } from './_resolver/gestion-pages-sous-titre-menu-select-box.resolver';
 
 const routes: Routes = [
   {
@@ -95,6 +96,9 @@ const routes: Routes = [
     path: 'admin/gestion-pages-nouveau-article',
     component: NouveauArticleComponent,
     canActivate: [AuthGuard],
+    resolve: {
+      sousTitreMenuSelectBox: GestionPagesSousTitreMenuSelectBoxResolver
+    },
   },
   {
     path: 'admin/gestion-pages-edition-article/:id',

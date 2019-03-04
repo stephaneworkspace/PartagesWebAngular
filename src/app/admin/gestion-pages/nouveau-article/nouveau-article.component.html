@@ -12,14 +12,24 @@
             [(ngModel)]="model.sousTitreMenuId"
             name="sectionId"
           >
-            <optgroup *ngFor="let itemSection of sections; let j = index" [label]="itemSection.nom">
-             <optgroup *ngFor="let itemTitreMenu of itemSection; let k = index" [label]="itemTitreMenu.nom">
-             <ng-container *ngFor="let item of itemTitreMenu; let i = index">
+            <optgroup *ngFor="let itemSection of section; let j = index" [label]="itemSection.nom">
+              <ng-container *ngFor="let itemTitreMenu of titreMenu; let k = index">
                 <option 
-                  *ngIf="item.titreMenuId === itemTitreMenu.id || (item.titreMenuId === null &&  itemTitreMenu.id === 0)"
-                  [value]="item.id"
-                >{{ item.nom }}
-                </option>
+                  disabled 
+                  *ngIf="itemTitreMenu.sectionId == itemSection.id || (itemTitreMenu.sectionId === null &&  itemSection.id === 0)"
+                >{{itemTitreMenu.nom}}</option>
+                <!--<optgroup 
+                  *ngIf="itemTitreMenu.sectionId == itemSection.id || (itemTitreMenu.sectionId === null &&  itemSection.id === 0)"
+                  [label]="itemTitreMenu.nom"
+                >-->
+                  <ng-container *ngFor="let item of sousTitreMenu; let i = index">
+                    <option 
+                      *ngIf="(item.titreMenu.sectionId == itemSection.id || (item.titreMenu.sectionId === null &&  itemSection.id === 0)) && (item.titreMenuId === itemTitreMenu.id || (item.titreMenuId === null &&  itemTitreMenu.id === 0))"
+                      [value]="item.id"
+                    >{{ item.nom }}
+                    </option>
+                  </ng-container>
+                <!--</optgroup>-->
               </ng-container>
             </optgroup>
           </select>  

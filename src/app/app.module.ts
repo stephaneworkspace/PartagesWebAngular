@@ -59,6 +59,7 @@ import { ModuleTableAdminGestionPagesTableContentSectionForOfflineComponent } fr
 import { ModuleTableAdminGestionPagesModalConfirmDeleteComponent } from './_modules/table/admin/gestion-pages/modal/confirm-delete.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GestionPagesTitreMenuSelectBoxResolver } from './_resolver/gestion-pages-titre-menu-select-box.resolver';
+import { GestionPagesSousTitreMenuSelectBoxResolver } from './_resolver/gestion-pages-sous-titre-menu-select-box.resolver';
 
 library.add(fas, far, fab);
 
@@ -111,6 +112,7 @@ library.add(fas, far, fab);
       GestionPagesSectionTableResolver,
       GestionPagesSectionSelectBoxResolver,
       GestionPagesTitreMenuSelectBoxResolver,
+      GestionPagesSousTitreMenuSelectBoxResolver,
       GestionPagesSectionEditionResolver,
       GestionPagesTitreMenuEditionResolver,
       GestionPagesSousTitreMenuEditionResolver,

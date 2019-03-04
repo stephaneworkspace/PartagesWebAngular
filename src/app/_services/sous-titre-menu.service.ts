@@ -18,6 +18,10 @@ export class SousTitreMenuService {
 
   constructor(private http: HttpClient) {}
 
+  getSousTitreMenus(): Observable<SousTitreMenu[]> {
+    return this.http.get<SousTitreMenu[]>(this.baseUrl + 'SousTitreMenus/', httpOptions);
+  }
+
   getSousTitreMenu(id: number): Observable<SousTitreMenu> {
     return this.http.get<SousTitreMenu>(this.baseUrl + 'SousTitreMenus/' + id, httpOptions);
   }
