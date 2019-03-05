@@ -3,12 +3,7 @@ import { trigger, sequence, state, animate, transition, style, query, stagger, k
 import { Section } from 'src/app/_models/section';
 import { TitreMenu } from 'src/app/_models/titre-menu';
 import { SousTitreMenu } from 'src/app/_models/sous-titre-menu';
-
-interface Dto {
-  section: Section;
-  titreMenu?: TitreMenu;
-  sousTitreMenu?: SousTitreMenu;
-}
+import { DtoAdminGestionPagesTable as Dto } from 'src/app/_dto/admin/gestion-pages/table';
 
 @Component({
   selector: 'app-module-table-admin-gestion-pages-core',

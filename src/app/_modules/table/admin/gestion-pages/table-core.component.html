@@ -121,6 +121,7 @@
               [sectionItem]="item"
               [titreMenuItem]="sousItem"
               [sousTitreMenuItem]="sousSousitem"
+              [disable]="sousSousitem.id == 0"
               (output)="edit($event)"
               (mouseover)="sousSousitem.swMouseOver=true" 
               (mouseout)="sousSousitem.swMouseOver=false" 
@@ -131,6 +132,7 @@
               [sectionItem]="item"
               [titreMenuItem]="sousItem"
               [sousTitreMenuItem]="sousSousitem"
+              [disable]="sousSousitem.id == 0"
               (output)="delete($event)"
               (mouseover)="sousSousitem.swMouseOver=true" 
               (mouseout)="sousSousitem.swMouseOver=false" 
@@ -141,7 +143,7 @@
               [sectionItem]="item"
               [titreMenuItem]="sousItem"
               [sousTitreMenuItem]="sousSousitem"
-              [disable]="j == 0"
+              [disable]="j == 0 || sousSousitem.id == 0"
               (output)="up($event)"
               (mouseover)="sousSousitem.swMouseOver=true" 
               (mouseout)="sousSousitem.swMouseOver=false" 
@@ -152,13 +154,72 @@
               [sectionItem]="item"
               [titreMenuItem]="sousItem"
               [sousTitreMenuItem]="sousSousitem"
-              [disable]="j == sousItem.sousTitreMenus.length - 1"
+              [disable]="j == sousItem.sousTitreMenus.length - 1 ? true : sousItem.sousTitreMenus[j + 1].id == 0"
               (output)="down($event)"
               (mouseover)="sousSousitem.swMouseOver=true" 
               (mouseout)="sousSousitem.swMouseOver=false" 
             ></app-module-table-admin-gestion-pages-btn-down>
           </td>
         </tr>
+        <ng-container *ngFor="let articleItem of sousSousitem.articles; let k = index">
+          <tr>
+            <th scope="row" style="width:60%">
+              <app-module-table-admin-gestion-pages-span-nom
+                [text]="articleItem.nom"
+                icon="puzzle-piece"
+                [marginLeft]="3"
+                [swMouseOver]="articleItem.swMouseOver"
+              >
+              </app-module-table-admin-gestion-pages-span-nom>
+            </th>
+            <td style="width:10%">
+              <app-module-table-admin-gestion-pages-btn-edit
+                [sectionItem]="item"
+                [titreMenuItem]="sousItem"
+                [sousTitreMenuItem]="sousSousitem"
+                [articleItem]="articleItem"
+                (output)="edit($event)"
+                (mouseover)="articleItem.swMouseOver=true" 
+                (mouseout)="articleItem.swMouseOver=false" 
+              ></app-module-table-admin-gestion-pages-btn-edit>
+            </td>
+            <td style="width:10%">
+              <app-module-table-admin-gestion-pages-btn-delete
+                [sectionItem]="item"
+                [titreMenuItem]="sousItem"
+                [sousTitreMenuItem]="sousSousitem"
+                [articleItem]="articleItem"
+                (output)="delete($event)"
+                (mouseover)="articleItem.swMouseOver=true" 
+                (mouseout)="articleItem.swMouseOver=false" 
+              ></app-module-table-admin-gestion-pages-btn-delete>
+            </td>
+            <td style="width:10%">
+              <app-module-table-admin-gestion-pages-btn-up
+                [sectionItem]="item"
+                [titreMenuItem]="sousItem"
+                [sousTitreMenuItem]="sousSousitem"
+                [articleItem]="articleItem"
+                [disable]="k == 0"
+                (output)="up($event)"
+                (mouseover)="articleItem.swMouseOver=true" 
+                (mouseout)="articleItem.swMouseOver=false" 
+              ></app-module-table-admin-gestion-pages-btn-up>
+            </td>      
+            <td style="width:10%">
+              <app-module-table-admin-gestion-pages-btn-down
+                [sectionItem]="item"
+                [titreMenuItem]="sousItem"
+                [sousTitreMenuItem]="sousSousitem"
+                [articleItem]="articleItem"
+                [disable]="k == sousSousitem.articles.length - 1"
+                (output)="down($event)"
+                (mouseover)="articleItem.swMouseOver=true" 
+                (mouseout)="articleItem.swMouseOver=false" 
+              ></app-module-table-admin-gestion-pages-btn-down>
+            </td>
+          </tr>
+        </ng-container>
       </ng-container>
     </ng-container>
   </tbody>

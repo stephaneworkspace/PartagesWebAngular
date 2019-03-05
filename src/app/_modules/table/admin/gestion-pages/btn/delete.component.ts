@@ -5,12 +5,8 @@ import { TitreMenu } from 'src/app/_models/titre-menu';
 import { SousTitreMenu } from 'src/app/_models/sous-titre-menu';
 import { ModuleTableAdminGestionPagesModalConfirmDeleteComponent } from '../modal/confirm-delete.component';
 import { SousTitreMenuService } from 'src/app/_services/sous-titre-menu.service';
-
-interface Dto {
-  section: Section;
-  titreMenu?: TitreMenu;
-  sousTitreMenu?: SousTitreMenu;
-}
+import { Article } from 'src/app/_models/article';
+import { DtoAdminGestionPagesTable as Dto } from 'src/app/_dto/admin/gestion-pages/table';
 
 @Component({
   selector: 'app-module-table-admin-gestion-pages-btn-delete',
@@ -22,6 +18,7 @@ export class ModuleTableAdminGestionPagesBtnDeleteComponent implements OnInit, O
   @Input() sectionItem: Section;
   @Input() titreMenuItem?: TitreMenu;
   @Input() sousTitreMenuItem?: SousTitreMenu;
+  @Input() articleItem?: Article;
   @Output() output: EventEmitter<Dto> = new EventEmitter<Dto>();
 
   nom: string;
@@ -47,7 +44,11 @@ export class ModuleTableAdminGestionPagesBtnDeleteComponent implements OnInit, O
         if (this.sousTitreMenuItem === undefined) {
           this.nom = 'Supprimer «' +  this.titreMenuItem.nom + '»';
         } else {
-          this.nom = 'Supprimer «' +  this.sousTitreMenuItem.nom + '»';
+          if (this.articleItem === undefined) {
+            this.nom = 'Supprimer «' +  this.sousTitreMenuItem.nom + '»';
+          } else {
+            this.nom = 'Supprimer «' +  this.articleItem.nom + '»';
+          }
         }
       }
     }
@@ -68,6 +69,7 @@ export class ModuleTableAdminGestionPagesBtnDeleteComponent implements OnInit, O
     modalRef.componentInstance.swAfficherListeQuiVaEtreMisHorsLigne = this.swAfficherListeQuiVaEtreMisHorsLigne;
     modalRef.componentInstance.sectionItem = this.sectionItem;
     modalRef.componentInstance.titreMenuItem = this.titreMenuItem;
+    modalRef.componentInstance.articleItem = this.articleItem;
     modalRef.componentInstance.output.subscribe((result) => {
       this.output.emit(result);
     });
@@ -77,7 +79,8 @@ export class ModuleTableAdminGestionPagesBtnDeleteComponent implements OnInit, O
     this.output.emit({
       section: this.sectionItem,
       titreMenu: this.titreMenuItem,
-      sousTitreMenu: this.sousTitreMenuItem
+      sousTitreMenu: this.sousTitreMenuItem,
+      article: this.articleItem
     });
   }
 }

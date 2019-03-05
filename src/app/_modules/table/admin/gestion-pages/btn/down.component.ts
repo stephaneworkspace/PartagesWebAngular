@@ -2,12 +2,8 @@ import { Component, OnInit, Input, Output, EventEmitter, SimpleChange, OnChanges
 import { Section } from 'src/app/_models/section';
 import { TitreMenu } from 'src/app/_models/titre-menu';
 import { SousTitreMenu } from 'src/app/_models/sous-titre-menu';
-
-interface Dto {
-  section: Section;
-  titreMenu?: TitreMenu;
-  sousTitreMenu?: SousTitreMenu;
-}
+import { DtoAdminGestionPagesTable as Dto } from 'src/app/_dto/admin/gestion-pages/table';
+import { Article } from 'src/app/_models/article';
 
 @Component({
   selector: 'app-module-table-admin-gestion-pages-btn-down',
@@ -19,6 +15,7 @@ export class ModuleTableAdminGestionPagesBtnDownComponent implements OnInit, OnC
   @Input() sectionItem: Section;
   @Input() titreMenuItem?: TitreMenu;
   @Input() sousTitreMenuItem?: SousTitreMenu;
+  @Input() articleItem?: Article;
   @Output() output: EventEmitter<Dto> = new EventEmitter<Dto>();
 
   nom: string;
@@ -43,7 +40,11 @@ export class ModuleTableAdminGestionPagesBtnDownComponent implements OnInit, OnC
         if (this.sousTitreMenuItem === undefined) {
           this.nom = 'Descendre «' +  this.titreMenuItem.nom + '»';
         } else {
-          this.nom = 'Descendre «' +  this.sousTitreMenuItem.nom + '»';
+          if (this.articleItem === undefined) {
+            this.nom = 'Descendre «' +  this.sousTitreMenuItem.nom + '»';
+          } else {
+            this.nom = 'Descendre «' +  this.articleItem.nom + '»';
+          }
         }
       }
     }
@@ -53,7 +54,8 @@ export class ModuleTableAdminGestionPagesBtnDownComponent implements OnInit, OnC
     this.output.emit({
       section: this.sectionItem,
       titreMenu: this.titreMenuItem,
-      sousTitreMenu: this.sousTitreMenuItem
+      sousTitreMenu: this.sousTitreMenuItem,
+      article: this.articleItem
     });
   }
 }
