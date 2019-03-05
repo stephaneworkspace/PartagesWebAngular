@@ -9,12 +9,8 @@ import { EditionArticleComponent } from './edition-article/edition-article.compo
 import { TitreMenuService } from 'src/app/_services/titre-menu.service';
 import { SousTitreMenu } from 'src/app/_models/sous-titre-menu';
 import { SousTitreMenuService } from 'src/app/_services/sous-titre-menu.service';
-
-interface Dto {
-  section: Section;
-  titreMenu?: TitreMenu;
-  sousTitreMenu?: SousTitreMenu;
-}
+import { DtoAdminGestionPagesTable as Dto } from 'src/app/_dto/admin/gestion-pages/table';
+import { ArticleService } from 'src/app/_services/article.service';
 
 @Component({
   selector: 'app-gestion-pages',
@@ -34,6 +30,7 @@ export class GestionPagesComponent implements OnInit {
     private sectionService: SectionService,
     private titreMenuService: TitreMenuService,
     private sousTitreMenuService: SousTitreMenuService,
+    private articleService: ArticleService,
     private authService: AuthService,
     private zone: NgZone
 ) { }
@@ -68,7 +65,11 @@ export class GestionPagesComponent implements OnInit {
       if (item.sousTitreMenu === undefined) {
         this.editTitreMenu(item);
       } else {
-        this.editSousTitreMenu(item);
+        if (item.article === undefined) {
+          this.editSousTitreMenu(item);
+        } else {
+          this.editArticle(item);
+        }
       }
     }
   }
@@ -78,12 +79,15 @@ export class GestionPagesComponent implements OnInit {
   }
 
   editTitreMenu(item: Dto) {
-    this.router.navigate(['/admin/gestion-pages-edition-titre-menu/' + item.section.id + '/' + item.titreMenu.id]);
+    this.router.navigate(['/admin/gestion-pages-edition-titre-menu/' + item.titreMenu.id]);
   }
 
   editSousTitreMenu(item: Dto) {
-    this.router.navigate(['/admin/gestion-pages-edition-sous-titre-menu/'
-    + item.section.id + '/' + item.titreMenu.id + '/' + item.sousTitreMenu.id]);
+    this.router.navigate(['/admin/gestion-pages-edition-sous-titre-menu/' + item.sousTitreMenu.id]);
+  }
+
+  editArticle(item: Dto) {
+    this.router.navigate(['/admin/gestion-pages-edition-article/' + item.article.id]);
   }
 
   /**
@@ -97,7 +101,11 @@ export class GestionPagesComponent implements OnInit {
       if (item.sousTitreMenu === undefined) {
         this.deleteTitreMenu(item);
       } else {
-        this.deleteSousTitreMenu(item);
+        if (item.article === undefined) {
+          this.deleteSousTitreMenu(item);
+        } else {
+          this.deleteArticle(item);
+        }
       }
     }
   }
@@ -201,6 +209,15 @@ export class GestionPagesComponent implements OnInit {
     });
   }
 
+  deleteArticle(item: Dto) {
+    this.articleService.delete(item.article.id).subscribe(next => {
+      this.alertify.success('Article &laquo;' + item.article.nom + '&raquo; effacé');
+      this.getSections();
+    }, error => {
+      this.alertify.error(error.error);
+    });
+  }
+
   /**
    * Up
    */
@@ -212,7 +229,11 @@ export class GestionPagesComponent implements OnInit {
       if (item.sousTitreMenu === undefined) {
         this.upTitreMenu(item);
       } else {
-        this.upSousTitreMenu(item);
+        if (item.article === undefined) {
+          this.upSousTitreMenu(item);
+        } else {
+          this.upArticle(item);
+        }
       }
     }
   }
@@ -244,6 +265,15 @@ export class GestionPagesComponent implements OnInit {
     });
   }
 
+  upArticle(item: Dto) {
+    this.articleService.up(item.article.id).subscribe(next => {
+      this.alertify.success('Article &laquo;' + item.sousTitreMenu.nom + '&raquo; monté');
+      this.getSections();
+    }, error => {
+      this.alertify.error(error.error);
+    });
+  }
+
   /**
    * Down
    */
@@ -255,7 +285,11 @@ export class GestionPagesComponent implements OnInit {
       if (item.sousTitreMenu === undefined) {
         this.downTitreMenu(item);
       } else {
-        this.downSousTitreMenu(item);
+        if (item.article === undefined) {
+          this.downSousTitreMenu(item);
+        } else {
+          this.downArticle(item);
+        }
       }
     }
   }
@@ -281,6 +315,15 @@ export class GestionPagesComponent implements OnInit {
   downSousTitreMenu(item: Dto) {
     this.sousTitreMenuService.down(item.sousTitreMenu.id).subscribe(next => {
       this.alertify.success('Sous titre du menu &laquo;' + item.sousTitreMenu.nom + '&raquo; descendu');
+      this.getSections();
+    }, error => {
+      this.alertify.error(error.error);
+    });
+  }
+
+  downArticle(item: Dto) {
+    this.sousTitreMenuService.down(item.article.id).subscribe(next => {
+      this.alertify.success('Article &laquo;' + item.sousTitreMenu.nom + '&raquo; descendu');
       this.getSections();
     }, error => {
       this.alertify.error(error.error);

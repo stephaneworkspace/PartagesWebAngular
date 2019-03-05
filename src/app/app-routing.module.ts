@@ -67,7 +67,7 @@ const routes: Routes = [
     },
   },
   {
-    path: 'admin/gestion-pages-edition-titre-menu/:idSection/:idTitreMenu',
+    path: 'admin/gestion-pages-edition-titre-menu/:id',
     component: EditionTitreMenuComponent,
     canActivate: [AuthGuard],
     resolve: {
@@ -84,7 +84,7 @@ const routes: Routes = [
     },
   },
   {
-    path: 'admin/gestion-pages-edition-sous-titre-menu/:idSection/:idTitreMenu/:idSousTitreMenu',
+    path: 'admin/gestion-pages-edition-sous-titre-menu/:id',
     component: EditionSousTitreMenuComponent,
     canActivate: [AuthGuard],
     resolve: {
@@ -104,7 +104,9 @@ const routes: Routes = [
     path: 'admin/gestion-pages-edition-article/:id',
     component: EditionArticleComponent,
     canActivate: [AuthGuard],
-    resolve: {article: GestionPagesArticleEditionResolver}, canDeactivate: [GestionPagesArticlePreventUnsavedChangesGuard],
+    resolve: {
+      article: GestionPagesArticleEditionResolver
+    }, canDeactivate: [GestionPagesArticlePreventUnsavedChangesGuard],
   },
   {
     path: 'informatique-web',

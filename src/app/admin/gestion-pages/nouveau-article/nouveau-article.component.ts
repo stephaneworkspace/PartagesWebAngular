@@ -23,7 +23,7 @@ export class NouveauArticleComponent implements OnInit, OnChanges {
   titreMenu: TitreMenu[] = [];
   section: Section[] = [];
   formError: any;
-  markedArticle: string;
+  markedContenu: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -81,7 +81,7 @@ export class NouveauArticleComponent implements OnInit, OnChanges {
       // smartypants: false,
       // xhtml: false
     });
-    this.markedArticle = myMarked(this.model.article);
+    this.markedContenu = myMarked(this.model.contenu);
   }
 
   submitForm() {

@@ -4,10 +4,9 @@ import { SousTitreMenu } from './sous-titre-menu';
 
 export interface Article {
   id: number;
-  section?: Section;
-  titreMenu?: TitreMenu;
+  sousTitreMenuId?: number;
   sousTitreMenu?: SousTitreMenu;
   nom: string;
-  article: string;
+  contenu: string;
   position: number;
 }

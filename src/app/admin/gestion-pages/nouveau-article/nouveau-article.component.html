@@ -48,15 +48,20 @@
           class="form-control" 
           rows="5" 
           placeholder="Veuillez saisir le contenu de l'article" 
-          id="article"  
-          [(ngModel)]="model.article" 
-          name="article"
+          id="contenu"  
+          [(ngModel)]="model.contenu" 
+          name="contenu"
           (input)="valuechange($event)"
         ></textarea>
+        <small 
+        id="iconeHelp" 
+        class="help text-danger" 
+        *ngIf="this.formError.has('Contenu')"
+      >{{ this.formError.get('Contenu') }}</small>
       </div>
       <div 
-        [innerHTML]="markedArticle"
-        *ngIf="model.article != null"
+        [innerHTML]="markedContenu"
+        *ngIf="model.contenu != null"
       ></div>
       <button type="submit" class="btn btn-primary">Créer article</button>
     </form>
