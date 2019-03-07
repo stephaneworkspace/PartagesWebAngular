@@ -9,11 +9,19 @@
   <p id="ceci-va-rendre-hors-ligne" *ngIf="swAfficherListeQuiVaEtreMisHorsLigne">
     Ceci va rendre hors ligne :
   </p>
-  <p *ngIf="swAfficherListeQuiVaEtreMisHorsLigne">
+  <!-- Section Offline-->
+  <p *ngIf="swAfficherListeQuiVaEtreMisHorsLigne && titreMenuItem === undefined && sousTitreMenuItem === undefined && articleItem == undefined">
     <app-module-table-admin-gestion-pages-table-content-section-for-offline
       [titreMenus]="sectionItem.titreMenus"
     >
     </app-module-table-admin-gestion-pages-table-content-section-for-offline>
+  </p>
+  <!-- TitreMenu Offline -->
+  <p *ngIf="swAfficherListeQuiVaEtreMisHorsLigne && titreMenuItem !== undefined && sousTitreMenuItem === undefined && articleItem == undefined">
+    <app-module-table-admin-gestion-pages-table-content-titre-menu-for-offline
+      [sousTitreMenus]="sectiontitreMenuItemItem.sousTitreMenus"
+    >
+    </app-module-table-admin-gestion-pages-table-content-titre-menu-for-offline>
   </p>
 </div>
 <div class="modal-footer">

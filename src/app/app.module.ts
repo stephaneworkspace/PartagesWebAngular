@@ -54,12 +54,14 @@ import { ModuleTableAdminGestionPagesBtnUpComponent } from './_modules/table/adm
 import { ModuleTableAdminGestionPagesBtnDownComponent } from './_modules/table/admin/gestion-pages/btn/down.component';
 import { GestionPagesIconesSelectBoxResolver } from './_resolver/gestion-pages-icones-select-box.resolver';
 // tslint:disable-next-line:max-line-length
-import { ModuleTableAdminGestionPagesTableContentSectionForOfflineComponent } from './_modules/table/admin/gestion-pages/table-content-section-for-offline/table-content-section-for-offline.component';
+import { ModuleTableAdminGestionPagesModalTableContentSectionForOfflineComponent } from './_modules/table/admin/gestion-pages/modal/table-content-section-for-offline/table-content-section-for-offline.component';
 // tslint:disable-next-line:max-line-length
 import { ModuleTableAdminGestionPagesModalConfirmDeleteComponent } from './_modules/table/admin/gestion-pages/modal/confirm-delete.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GestionPagesTitreMenuSelectBoxResolver } from './_resolver/gestion-pages-titre-menu-select-box.resolver';
 import { GestionPagesSousTitreMenuSelectBoxResolver } from './_resolver/gestion-pages-sous-titre-menu-select-box.resolver';
+// tslint:disable-next-line: max-line-length
+import { ModuleTableAdminGestionPagesModalTableContentTitreMenuForOfflineComponent } from './_modules/table/admin/gestion-pages/modal/table-content-titre-menu-for-offline/table-content-titre-menu-for-offline.component';
 
 library.add(fas, far, fab);
 
@@ -75,7 +77,8 @@ library.add(fas, far, fab);
       GestionPagesComponent,
       ModuleTableAdminGestionPagesComponent,
       ModuleTableAdminGestionPagesCoreComponent,
-      ModuleTableAdminGestionPagesTableContentSectionForOfflineComponent,
+      ModuleTableAdminGestionPagesModalTableContentSectionForOfflineComponent,
+      ModuleTableAdminGestionPagesModalTableContentTitreMenuForOfflineComponent,
       ModuleTableAdminGestionPagesSpanNomComponent,
       ModuleTableAdminGestionPagesBtnEditComponent,
       ModuleTableAdminGestionPagesBtnDeleteComponent,
@@ -97,7 +100,7 @@ library.add(fas, far, fab);
       AppRoutingModule,
       HttpClientModule,
       FontAwesomeModule,
-      NgbModule.forRoot(),
+      NgbModule, // .forRoot(),
       FormsModule,
       BrowserAnimationsModule // pour les animations
    ],

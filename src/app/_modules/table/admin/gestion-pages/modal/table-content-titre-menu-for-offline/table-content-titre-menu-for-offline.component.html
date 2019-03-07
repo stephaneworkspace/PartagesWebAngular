@@ -1,0 +1,15 @@
+<table class="table table-borderless table-hover">
+  <tbody class="table-light">
+    <tr *ngFor="let item of sousTitreMenus; let i = index">
+      <th scope="row">
+         <app-module-table-admin-gestion-pages-span-nom
+          [text]="item.nom"
+          icon="puzzle-piece"
+          [marginLeft]="0"
+          [swMouseOver]="false"
+        >
+        </app-module-table-admin-gestion-pages-span-nom>
+      </th>
+    </tr>
+  </tbody>
+</table>
