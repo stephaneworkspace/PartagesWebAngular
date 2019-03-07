@@ -19,7 +19,7 @@
   <!-- TitreMenu Offline -->
   <p *ngIf="swAfficherListeQuiVaEtreMisHorsLigne && titreMenuItem !== undefined && sousTitreMenuItem === undefined && articleItem == undefined">
     <app-module-table-admin-gestion-pages-table-content-titre-menu-for-offline
-      [sousTitreMenus]="sectiontitreMenuItemItem.sousTitreMenus"
+      [sousTitreMenus]="titreMenuItem.sousTitreMenus"
     >
     </app-module-table-admin-gestion-pages-table-content-titre-menu-for-offline>
   </p>

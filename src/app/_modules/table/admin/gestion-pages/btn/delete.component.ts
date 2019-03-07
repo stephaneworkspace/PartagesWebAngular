@@ -52,13 +52,19 @@ export class ModuleTableAdminGestionPagesBtnDeleteComponent implements OnInit, O
         }
       }
     }
-    if (this.sectionItem.titreMenus.length === 0) {
-      this.swAfficherListeQuiVaEtreMisHorsLigne = false;
-    } else {
-      if (this.titreMenuItem === undefined) {
-        this.swAfficherListeQuiVaEtreMisHorsLigne = true;
-      } else {
+    if (this.titreMenuItem === undefined) {
+      if (this.sectionItem.titreMenus.length === 0) {
         this.swAfficherListeQuiVaEtreMisHorsLigne = false;
+      } else {
+          this.swAfficherListeQuiVaEtreMisHorsLigne = true;
+      }
+    } else {
+      if (this.sousTitreMenuItem === undefined) {
+        if (this.titreMenuItem.sousTitreMenus.length === 0) {
+          this.swAfficherListeQuiVaEtreMisHorsLigne = false;
+        } else {
+          this.swAfficherListeQuiVaEtreMisHorsLigne = true;
+        }
       }
     }
   }
