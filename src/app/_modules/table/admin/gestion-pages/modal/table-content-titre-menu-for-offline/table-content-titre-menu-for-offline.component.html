@@ -1,15 +1,30 @@
 <table class="table table-borderless table-hover">
   <tbody class="table-light">
-    <tr *ngFor="let item of sousTitreMenus; let i = index">
-      <th scope="row">
-         <app-module-table-admin-gestion-pages-span-nom
-          [text]="item.nom"
-          icon="puzzle-piece"
-          [marginLeft]="0"
-          [swMouseOver]="false"
-        >
-        </app-module-table-admin-gestion-pages-span-nom>
-      </th>
-    </tr>
+    <ng-container *ngFor="let item of sousTitreMenus; let i = index">
+      <tr>
+        <th scope="row">
+          <app-module-table-admin-gestion-pages-span-nom
+            [text]="item.nom"
+            icon="puzzle-piece"
+            [marginLeft]="0"
+            [swMouseOver]="false"
+          >
+          </app-module-table-admin-gestion-pages-span-nom>
+        </th>
+      </tr>
+      <ng-container *ngFor="let sousItem of item.articles; let j = index">
+        <tr>
+          <th scope="row">
+            <app-module-table-admin-gestion-pages-span-nom
+              [text]="sousItem.nom"
+              icon="puzzle-piece"
+              [marginLeft]="1"
+              [swMouseOver]="false"
+            >
+            </app-module-table-admin-gestion-pages-span-nom>
+          </th>
+        </tr>
+      </ng-container>
+    </ng-container>
   </tbody>
 </table>
