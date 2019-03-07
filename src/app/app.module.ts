@@ -62,6 +62,7 @@ import { GestionPagesTitreMenuSelectBoxResolver } from './_resolver/gestion-page
 import { GestionPagesSousTitreMenuSelectBoxResolver } from './_resolver/gestion-pages-sous-titre-menu-select-box.resolver';
 // tslint:disable-next-line: max-line-length
 import { ModuleTableAdminGestionPagesModalTableContentTitreMenuForOfflineComponent } from './_modules/table/admin/gestion-pages/modal/table-content-titre-menu-for-offline/table-content-titre-menu-for-offline.component';
+import { ModuleTableAdminGestionPagesModalTableContentSousTitreMenuForOfflineComponent } from './_modules/table/admin/gestion-pages/modal/table-content-sous-titre-menu-for-offline/table-content-sous-titre-menu-for-offline.component';
 
 library.add(fas, far, fab);
 
@@ -79,6 +80,7 @@ library.add(fas, far, fab);
       ModuleTableAdminGestionPagesCoreComponent,
       ModuleTableAdminGestionPagesModalTableContentSectionForOfflineComponent,
       ModuleTableAdminGestionPagesModalTableContentTitreMenuForOfflineComponent,
+      ModuleTableAdminGestionPagesModalTableContentSousTitreMenuForOfflineComponent,
       ModuleTableAdminGestionPagesSpanNomComponent,
       ModuleTableAdminGestionPagesBtnEditComponent,
       ModuleTableAdminGestionPagesBtnDeleteComponent,

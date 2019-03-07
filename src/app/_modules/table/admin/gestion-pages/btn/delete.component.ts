@@ -65,6 +65,14 @@ export class ModuleTableAdminGestionPagesBtnDeleteComponent implements OnInit, O
         } else {
           this.swAfficherListeQuiVaEtreMisHorsLigne = true;
         }
+      } else {
+        if (this.articleItem === undefined) {
+          if (this.sousTitreMenuItem.articles.length === 0) {
+            this.swAfficherListeQuiVaEtreMisHorsLigne = false;
+          } else {
+            this.swAfficherListeQuiVaEtreMisHorsLigne = true;
+          }
+        }
       }
     }
   }

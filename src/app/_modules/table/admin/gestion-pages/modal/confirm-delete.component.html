@@ -10,18 +10,25 @@
     Ceci va rendre hors ligne :
   </p>
   <!-- Section Offline-->
-  <p *ngIf="swAfficherListeQuiVaEtreMisHorsLigne && titreMenuItem === undefined && sousTitreMenuItem === undefined && articleItem == undefined">
+  <p *ngIf="swAfficherListeQuiVaEtreMisHorsLigne && titreMenuItem === undefined && sousTitreMenuItem === undefined && articleItem === undefined">
     <app-module-table-admin-gestion-pages-table-content-section-for-offline
       [titreMenus]="sectionItem.titreMenus"
     >
     </app-module-table-admin-gestion-pages-table-content-section-for-offline>
   </p>
   <!-- TitreMenu Offline -->
-  <p *ngIf="swAfficherListeQuiVaEtreMisHorsLigne && titreMenuItem !== undefined && sousTitreMenuItem === undefined && articleItem == undefined">
+  <p *ngIf="swAfficherListeQuiVaEtreMisHorsLigne && titreMenuItem !== undefined && sousTitreMenuItem === undefined && articleItem === undefined">
     <app-module-table-admin-gestion-pages-table-content-titre-menu-for-offline
       [sousTitreMenus]="titreMenuItem.sousTitreMenus"
     >
     </app-module-table-admin-gestion-pages-table-content-titre-menu-for-offline>
+  </p>
+  <!-- SousTitreMenu Offline -->
+  <p *ngIf="swAfficherListeQuiVaEtreMisHorsLigne && titreMenuItem !== undefined && sousTitreMenuItem !== undefined && articleItem === undefined">
+    <app-module-table-admin-gestion-pages-table-content-sous-titre-menu-for-offline
+      [articles]="sousTitreMenuItem.articles"
+    >
+    </app-module-table-admin-gestion-pages-table-content-sous-titre-menu-for-offline>
   </p>
 </div>
 <div class="modal-footer">
