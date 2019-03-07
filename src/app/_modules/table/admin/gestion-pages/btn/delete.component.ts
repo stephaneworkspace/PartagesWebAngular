@@ -69,18 +69,10 @@ export class ModuleTableAdminGestionPagesBtnDeleteComponent implements OnInit, O
     modalRef.componentInstance.swAfficherListeQuiVaEtreMisHorsLigne = this.swAfficherListeQuiVaEtreMisHorsLigne;
     modalRef.componentInstance.sectionItem = this.sectionItem;
     modalRef.componentInstance.titreMenuItem = this.titreMenuItem;
+    modalRef.componentInstance.sousTitreMenuItem = this.sousTitreMenuItem;
     modalRef.componentInstance.articleItem = this.articleItem;
     modalRef.componentInstance.output.subscribe((result) => {
       this.output.emit(result);
-    });
-  }
-
-  btnYesPush() {
-    this.output.emit({
-      section: this.sectionItem,
-      titreMenu: this.titreMenuItem,
-      sousTitreMenu: this.sousTitreMenuItem,
-      article: this.articleItem
     });
   }
 }

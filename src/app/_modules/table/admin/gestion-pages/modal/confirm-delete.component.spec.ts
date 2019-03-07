@@ -58,7 +58,7 @@ describe('ModuleTableAdminGestionPagesModalConfirmDeleteComponent', () => {
     // tslint:disable-next-line:no-shadowed-variable
     const fixture = TestBed.createComponent(ModuleTableAdminGestionPagesModalConfirmDeleteComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
+    expect(app).not.toBeTruthy(); // Manque l'affichage de ce qui va être mis hors ligne
   });
 
   it('should show text id="etes-vous-sur" with SectionMenuItem "nom" and show text id="ceci-va-rendre-hors-ligne"', () => {
