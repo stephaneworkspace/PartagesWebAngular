@@ -23,6 +23,7 @@ export class NouveauArticleComponent implements OnInit, OnChanges {
   titreMenu: TitreMenu[] = [];
   section: Section[] = [];
   formError: any;
+  markedNom: string;
   markedContenu: string;
 
   constructor(
@@ -82,6 +83,24 @@ export class NouveauArticleComponent implements OnInit, OnChanges {
       // xhtml: false
     });
     this.markedContenu = myMarked(this.model.contenu);
+  }
+
+  valueNomChange(e: any) {
+    myMarked.setOptions({
+      renderer: new myMarked.Renderer(),
+      highlight: function(code) {
+        return require('highlight.js').highlightAuto(code).value;
+      },
+      // pedantic: false,
+      // gfm: true,
+      // tables: true,
+      breaks: false,
+      sanitize: true,
+      // smartLists: true,
+      // smartypants: false,
+      // xhtml: false
+    });
+    this.markedNom = myMarked('# ' + this.model.nom);
   }
 
   submitForm() {

@@ -11,53 +11,84 @@
         <strong>Information:</strong> Vous avez fait des changements. Tous changements non validé seront perdus !
       </div>
     </div>
-    <form #editForm="ngForm">
-      <!--
+    <form #editForm="ngForm" (ngSubmit)="submitForm()" (change)="setDirtyFlag()">
       <div class="form-group">
-        <label for="sectionSelect">Sélection d'une section</label>
-        <select class="form-control" id="sectionSelect" [(ngModel)]="model.sectionSelect" name="sectionSelect">
-          <option value="hors-ligne">Hors-ligne</option>
-          <option value="Developpement web">Developpement web</option>
-          <option value="MAO">MAO</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="titreSelect">Sélection d'un titre</label>
-        <select class="form-control" id="titreSelect" [(ngModel)]="model.titreSelect" name="titreSelect">
-          <option value="hors-ligne">Hors-ligne</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="sousTitreSelect">Sélection d'un sous titre</label>
-        <select class="form-control" id="sousTitreSelect"[(ngModel)]="model.sousTitreSelect" name="sousTitreSelect">
-          <option value="hors-ligne">Hors-ligne</option>
-        </select>
+        <label for="sousTitreMenuId">Sélection d'un sous titre de menu</label>
+        <select 
+          class="form-control custom-select"
+          id="sectionId" 
+          [(ngModel)]="model.sousTitreMenuId"
+          name="sectionId"
+        >
+          <optgroup *ngFor="let itemSection of section; let j = index" [label]="itemSection.nom">
+            <ng-container *ngFor="let itemTitreMenu of titreMenu; let k = index">
+              <option 
+                disabled 
+                *ngIf="itemTitreMenu.sectionId == itemSection.id || (itemTitreMenu.sectionId === null &&  itemSection.id === 0)"
+              >{{itemTitreMenu.nom}}</option>
+              <!--<optgroup 
+                *ngIf="itemTitreMenu.sectionId == itemSection.id || (itemTitreMenu.sectionId === null &&  itemSection.id === 0)"
+                [label]="itemTitreMenu.nom"
+              >-->
+                <ng-container *ngFor="let item of sousTitreMenu; let i = index">
+                  <option 
+                    *ngIf="(item.titreMenu.sectionId == itemSection.id || (item.titreMenu.sectionId === null &&  itemSection.id === 0)) && (item.titreMenuId === itemTitreMenu.id || (item.titreMenuId === null &&  itemTitreMenu.id === 0))"
+                    [value]="item.id"
+                  >-> {{ item.nom }}
+                  </option>
+                </ng-container>
+              <!--</optgroup>-->
+            </ng-container>
+          </optgroup>
+        </select>  
       </div>
       <div class="form-group">
         <label for="nom">Nom de l'article</label>
-        <input type="nom" class="form-control" id="titreArticle" aria-describedby="titreArticleHelp" placeholder="Veuillez saisir un sous titre" [(ngModel)]="model.titreArticle" name="titreArticle">
-        <small id="sousTitreHelp" class="form-text text-muted">Ce titre n'est pas forcément unique, mais doit être unique dans la section / le titre</small>
-      </div>
-      <div class="form-group">
-        <textarea 
+        <input 
+          type="nom" 
           class="form-control" 
-          rows="5" 
-          placeholder="Veuillez saisir le contenu de l'article" 
-          id="article"  
-          [(ngModel)]="model.article" 
-          name="article"
-          (input)="valuechange($event)"
-        ></textarea>
+          id="titre" 
+          aria-describedby="titreHelp" 
+          placeholder="Veuillez saisir un article (ce nom doit être unique dans le sous titre du menu)" 
+          [(ngModel)]="model.nom" 
+          name="nom"
+          (input)="valueNomChange($event)">
+        <small 
+          id="iconeHelp" 
+          class="help text-danger" 
+          *ngIf="this.formError.has('Nom')"
+        >{{ this.formError.get('Nom') }}</small>
       </div>
-      <div 
-        [innerHTML]="markedArticle"
-        *ngIf="model.article != null"
-      ></div>-->
+    <div class="form-group">
+      <textarea 
+        class="form-control" 
+        rows="5" 
+        placeholder="Veuillez saisir le contenu de l'article" 
+        id="contenu"  
+        [(ngModel)]="model.contenu" 
+        name="contenu"
+        (input)="valuechange($event)"
+      ></textarea>
+      <small 
+      id="iconeHelp" 
+      class="help text-danger" 
+      *ngIf="this.formError.has('Contenu')"
+    >{{ this.formError.get('Contenu') }}</small>
+    </div>
+    <div
+      [innerHTML]="markedNom"
+      *ngIf="model.nom != null"
+      class="title-marked"
+    >
+    </div>
+    <div 
+      [innerHTML]="markedContenu"
+      *ngIf="model.contenu != null"
+    ></div>
       <button 
         [disabled]="!editForm.dirty" 
         type="submit" 
         class="btn btn-primary"
-        (ngSubmit)="submitForm()"
       >Éditer article</button>
     </form>
   </div>

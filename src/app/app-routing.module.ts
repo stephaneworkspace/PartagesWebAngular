@@ -105,7 +105,8 @@ const routes: Routes = [
     component: EditionArticleComponent,
     canActivate: [AuthGuard],
     resolve: {
-      article: GestionPagesArticleEditionResolver
+      article: GestionPagesArticleEditionResolver,
+      sousTitreMenuSelectBox: GestionPagesSousTitreMenuSelectBoxResolver
     }, canDeactivate: [GestionPagesArticlePreventUnsavedChangesGuard],
   },
   {
