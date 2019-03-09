@@ -31,8 +31,8 @@ describe('ModuleGestionPagesTableComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-/*
   it('should create', () => {
-    expect(component).toBeTruthy();
-  });*/
+    expect(component).toBeTruthy(); // LoadArray à faire voir ts
+    expect(component).not.toBeTruthy();
+  });
 });

@@ -322,8 +322,8 @@ export class GestionPagesComponent implements OnInit {
   }
 
   downArticle(item: Dto) {
-    this.sousTitreMenuService.down(item.article.id).subscribe(next => {
-      this.alertify.success('Article &laquo;' + item.sousTitreMenu.nom + '&raquo; descendu');
+    this.articleService.down(item.article.id).subscribe(next => {
+      this.alertify.success('Article &laquo;' + item.article.nom + '&raquo; descendu');
       this.getSections();
     }, error => {
       this.alertify.error(error.error);

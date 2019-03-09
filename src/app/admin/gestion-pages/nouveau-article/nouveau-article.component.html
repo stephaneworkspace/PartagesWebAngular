@@ -45,7 +45,6 @@
             [(ngModel)]="model.nom" 
             name="nom"
             (input)="valueNomChange($event)">
-            >
           <small 
             id="iconeHelp" 
             class="help text-danger" 
@@ -71,6 +70,7 @@
       <div
         [innerHTML]="markedNom"
         *ngIf="model.nom != null"
+        class="title-marked"
       >
       </div>     
       <div 
