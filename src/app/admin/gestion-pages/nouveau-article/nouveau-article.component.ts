@@ -104,7 +104,7 @@ export class NouveauArticleComponent implements OnInit, OnChanges {
   }
 
   submitForm() {
-    // Initialisation des erreurs précédantes
+    // Initialisation des erreurs précédentes
     this.formError.clear();
     this.articleService.create(this.model).subscribe(next => {
       this.alertify.success('Article &laquo;' + this.model.nom + '&raquo; crée');

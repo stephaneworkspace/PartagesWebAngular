@@ -1,0 +1,26 @@
+<table class="table table-borderless">
+  <thead>
+    <tr class="table-dark">
+      <th scope="col"></th>
+      <th scope="col">Sujets</th>    
+      <th scope="col">Postes</th>   
+      <th scope="col">Dernier poste</th>         
+    </tr>
+  </thead>
+</table>
+<table class="table table-borderless table-hover" *ngFor="let item of items; let i = index">
+  <tbody class="table-light">
+    <tr class="table-part-row">
+      <th scope="row" style="width:60%">
+        <app-module-table-forum-categories-span-nom
+          [item]="item"
+          [swMouseOver]="item.swMouseOver"
+        >
+        </app-module-table-forum-categories-span-nom>
+      </th>
+      <td style="width:10%"></td>
+      <td style="width:10%"></td>
+      <td style="width:20%"></td>
+    </tr>
+  </tbody>
+</table>

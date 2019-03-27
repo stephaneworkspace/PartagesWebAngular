@@ -62,7 +62,12 @@ import { GestionPagesTitreMenuSelectBoxResolver } from './_resolver/gestion-page
 import { GestionPagesSousTitreMenuSelectBoxResolver } from './_resolver/gestion-pages-sous-titre-menu-select-box.resolver';
 // tslint:disable-next-line: max-line-length
 import { ModuleTableAdminGestionPagesModalTableContentTitreMenuForOfflineComponent } from './_modules/table/admin/gestion-pages/modal/table-content-titre-menu-for-offline/table-content-titre-menu-for-offline.component';
+// tslint:disable-next-line: max-line-length
 import { ModuleTableAdminGestionPagesModalTableContentSousTitreMenuForOfflineComponent } from './_modules/table/admin/gestion-pages/modal/table-content-sous-titre-menu-for-offline/table-content-sous-titre-menu-for-offline.component';
+import { ModuleTableForumCategoriesComponent } from './_modules/table/forum/categories/categories.component';
+import { ModuleTableForumCategoriesSpanNomComponent } from './_modules/table/forum/categories/span/nom.component';
+import { ForumIndexComponent } from './forum/index.component';
+import { ForumCategoriesTableResolver } from './_resolver/forum-categories-table.resolver';
 
 library.add(fas, far, fab);
 
@@ -76,6 +81,7 @@ library.add(fas, far, fab);
       RegisterComponent,
       MembersComponent,
       GestionPagesComponent,
+      ForumIndexComponent,
       ModuleTableAdminGestionPagesComponent,
       ModuleTableAdminGestionPagesCoreComponent,
       ModuleTableAdminGestionPagesModalTableContentSectionForOfflineComponent,
@@ -87,6 +93,8 @@ library.add(fas, far, fab);
       ModuleTableAdminGestionPagesBtnUpComponent,
       ModuleTableAdminGestionPagesBtnDownComponent,
       ModuleTableAdminGestionPagesModalConfirmDeleteComponent,
+      ModuleTableForumCategoriesSpanNomComponent,
+      ModuleTableForumCategoriesComponent,
       AdminSidebarComponent,
       NouveauSectionComponent,
       EditionSectionComponent,
@@ -126,6 +134,7 @@ library.add(fas, far, fab);
       GestionPagesTitreMenuPreventUnsavedChangesGuard,
       GestionPagesSousTitreMenuPreventUnsavedChangesGuard,
       GestionPagesArticlePreventUnsavedChangesGuard,
+      ForumCategoriesTableResolver,
    ],
    entryComponents: [
       ModuleTableAdminGestionPagesModalConfirmDeleteComponent

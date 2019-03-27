@@ -25,6 +25,8 @@ import { GestionPagesSectionTableResolver } from './_resolver/gestion-pages-sect
 import { GestionPagesIconesSelectBoxResolver } from './_resolver/gestion-pages-icones-select-box.resolver';
 import { GestionPagesTitreMenuSelectBoxResolver } from './_resolver/gestion-pages-titre-menu-select-box.resolver';
 import { GestionPagesSousTitreMenuSelectBoxResolver } from './_resolver/gestion-pages-sous-titre-menu-select-box.resolver';
+import { ForumIndexComponent } from './forum/index.component';
+import { ForumCategoriesTableResolver } from './_resolver/forum-categories-table.resolver';
 
 const routes: Routes = [
   {
@@ -108,6 +110,14 @@ const routes: Routes = [
       article: GestionPagesArticleEditionResolver,
       sousTitreMenuSelectBox: GestionPagesSousTitreMenuSelectBoxResolver
     }, canDeactivate: [GestionPagesArticlePreventUnsavedChangesGuard],
+  },
+  {
+    path: 'forum',
+    component: ForumIndexComponent,
+    canActivate: [AuthGuard],
+    resolve: {
+      items: ForumCategoriesTableResolver
+    },
   },
   {
     path: 'informatique-web',
