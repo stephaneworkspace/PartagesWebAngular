@@ -20,7 +20,11 @@
       </th>
       <td style="width:10%">{{ item.countSujet }}</td>
       <td style="width:10%">{{ item.countPoste }}</td>
-      <td style="width:20%"></td>
+      <td style="width:20%" *ngIf="item.dernierPoste">{{ item.dernierPoste.forumSujet.nom }}<br /> 
+        par {{ item.dernierPoste.user.username | titlecase }}
+        <!--iconne View the latest post<br />--><br />
+        Sat Dec 22, 2018 4:35 pm</td>
+        <td style="width:20%" *ngIf="!item.dernierPoste"></td>        
     </tr>
   </tbody>
 </table>
