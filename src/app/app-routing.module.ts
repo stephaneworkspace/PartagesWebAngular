@@ -27,6 +27,8 @@ import { GestionPagesTitreMenuSelectBoxResolver } from './_resolver/gestion-page
 import { GestionPagesSousTitreMenuSelectBoxResolver } from './_resolver/gestion-pages-sous-titre-menu-select-box.resolver';
 import { ForumIndexComponent } from './forum/index.component';
 import { ForumCategoriesTableResolver } from './_resolver/forum-categories-table.resolver';
+import { ForumPosteDivResolver } from './_resolver/forum-postes-div.resolver';
+import { ForumPosteComponent } from './forum/poste.component';
 
 const routes: Routes = [
   {
@@ -114,9 +116,17 @@ const routes: Routes = [
   {
     path: 'forum',
     component: ForumIndexComponent,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     resolve: {
       items: ForumCategoriesTableResolver
+    },
+  },
+  {
+    path: 'forum/poste/:id',
+    component: ForumPosteComponent,
+    // canActivate: [AuthGuard],
+    resolve: {
+      items: ForumPosteDivResolver
     },
   },
   {

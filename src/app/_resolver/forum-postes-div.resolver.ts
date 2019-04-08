@@ -14,7 +14,7 @@ export class ForumPosteDivResolver implements Resolve<ForumPoste[]> {
         private alertify: AlertifyService) {}
 
     resolve(route: ActivatedRouteSnapshot): Observable<ForumPoste[]> {
-        return this.forumPosteService.getForumPostes(id).pipe(
+        return this.forumPosteService.getForumPoste(route.params['id']).pipe(
             catchError(error => {
                 // tslint:disable-next-line:max-line-length
                 this.alertify.error('Problème de chargement des catégories du forum');

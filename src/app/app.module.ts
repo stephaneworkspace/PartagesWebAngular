@@ -68,6 +68,9 @@ import { ModuleTableForumCategoriesComponent } from './_modules/table/forum/cate
 import { ModuleTableForumCategoriesSpanNomComponent } from './_modules/table/forum/categories/span/nom.component';
 import { ForumIndexComponent } from './forum/index.component';
 import { ForumCategoriesTableResolver } from './_resolver/forum-categories-table.resolver';
+import { ForumPosteComponent } from './forum/poste.component';
+import { ModuleTableForumPostesComponent } from './_modules/table/forum/postes/postes.component';
+import { ForumPosteDivResolver } from './_resolver/forum-postes-div.resolver';
 
 library.add(fas, far, fab);
 
@@ -82,6 +85,7 @@ library.add(fas, far, fab);
       MembersComponent,
       GestionPagesComponent,
       ForumIndexComponent,
+      ForumPosteComponent,
       ModuleTableAdminGestionPagesComponent,
       ModuleTableAdminGestionPagesCoreComponent,
       ModuleTableAdminGestionPagesModalTableContentSectionForOfflineComponent,
@@ -95,6 +99,7 @@ library.add(fas, far, fab);
       ModuleTableAdminGestionPagesModalConfirmDeleteComponent,
       ModuleTableForumCategoriesSpanNomComponent,
       ModuleTableForumCategoriesComponent,
+      ModuleTableForumPostesComponent,
       AdminSidebarComponent,
       NouveauSectionComponent,
       EditionSectionComponent,
@@ -135,6 +140,7 @@ library.add(fas, far, fab);
       GestionPagesSousTitreMenuPreventUnsavedChangesGuard,
       GestionPagesArticlePreventUnsavedChangesGuard,
       ForumCategoriesTableResolver,
+      ForumPosteDivResolver,
    ],
    entryComponents: [
       ModuleTableAdminGestionPagesModalConfirmDeleteComponent

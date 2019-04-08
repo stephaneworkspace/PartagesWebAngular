@@ -6,6 +6,7 @@ export interface ForumCategorie {
   countSujet: number;
   countPoste: number;
   dernierPoste?: ForumPoste;
+  countDernierPoste?: number;
   swMouseOver?: boolean; // Champ virtuel
   // dernierPoste: ForumPoste;
   // position: number; // amélioration au futur
