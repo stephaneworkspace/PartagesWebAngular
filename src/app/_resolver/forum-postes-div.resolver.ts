@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Resolve, Router, ActivatedRouteSnapshot } from '@angular/router';
 import { AlertifyService } from '../_services/alertify.service';
 import { Observable, of } from 'rxjs';
@@ -14,7 +14,8 @@ export class ForumPosteDivResolver implements Resolve<ForumPoste[]> {
         private alertify: AlertifyService) {}
 
     resolve(route: ActivatedRouteSnapshot): Observable<ForumPoste[]> {
-        return this.forumPosteService.getForumPoste(route.params['id']).pipe(
+        return this.forumPosteService.getForumPoste(route.params['id'], route.params['PageNumber']).pipe(
+            // this.route2.snapshot.queryParams['PageNumber']).pipe(
             catchError(error => {
                 // tslint:disable-next-line:max-line-length
                 this.alertify.error('Problème de chargement des catégories du forum');

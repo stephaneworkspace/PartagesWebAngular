@@ -19,7 +19,7 @@ export class ForumPosteService {
   constructor(private http: HttpClient) {}
 
   // pagination à faire ici
-  getForumPoste(id: number): Observable<ForumPoste[]> {
-    return this.http.get<ForumPoste[]>(this.baseUrl + 'ForumPostes/' + id, httpOptions);
+  getForumPoste(id: number, pageNumber: number): Observable<ForumPoste[]> {
+    return this.http.get<ForumPoste[]>(this.baseUrl + 'ForumPostes/' + id + '?PageNumber=' + pageNumber, httpOptions);
   }
 }
