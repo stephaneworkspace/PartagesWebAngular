@@ -20,11 +20,11 @@
       </th>
       <td style="width:10%">{{ item.countSujet }}</td>
       <td style="width:10%">{{ item.countPoste }}</td>
-      <td style="width:20%" *ngIf="item.dernierPoste"><a [routerLink]="[ '/forum/poste/' + item.dernierPoste.forumSujetId, {page: item.countDernierPoste } ]">{{ item.dernierPoste.forumSujet.nom }}</a><br /> 
+      <td style="width:20%" *ngIf="item.dernierPoste"><a [routerLink]="[ '/forum/poste/' + item.dernierPoste.forumSujetId, { PageSize: 5, PageNumber: item.pageDernierPoste } ]">{{ item.dernierPoste.forumSujet.nom }}</a><br /> 
         par {{ item.dernierPoste.user.username | titlecase }}
         <!--iconne View the latest post<br />--><br />
         Sat Dec 22, 2018 4:35 pm</td>
-        <td style="width:20%" *ngIf="!item.dernierPoste"></td>        
+        <td style="width:20%" *ngIf="!item.dernierPoste">Pas de dernier poste</td>        
     </tr>
   </tbody>
 </table>
