@@ -24,6 +24,7 @@
     "alertifyjs": "^1.11.2",
     "core-js": "^2.6.5",
     "marked": "^0.6.1",
+    "moment": "^2.24.0",
     "ngx-bootstrap": "^4.0.0",
     "rxjs": "~6.3.3",
     "sugar": "^2.0.6",

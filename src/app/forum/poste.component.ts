@@ -52,7 +52,7 @@ export class ForumPosteComponent implements OnInit {
       this.pagination.currentPage,
       this.pagination.itemsPerPage
     ).subscribe((res: PaginatedResult<ForumPoste[]>) => {
-      console.log(res);
+      // console.log(res);
       this.items = res.result;
       this.pagination = res.pagination;
     }, error => {
