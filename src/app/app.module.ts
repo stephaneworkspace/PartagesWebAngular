@@ -71,6 +71,7 @@ import { ForumCategoriesTableResolver } from './_resolver/forum-categories-table
 import { ForumPosteComponent } from './forum/poste.component';
 import { ModuleTableForumPostesComponent } from './_modules/table/forum/postes/postes.component';
 import { ForumPosteDivResolver } from './_resolver/forum-postes-div.resolver';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 library.add(fas, far, fab);
 
@@ -116,6 +117,7 @@ library.add(fas, far, fab);
       HttpClientModule,
       FontAwesomeModule,
       NgbModule, // .forRoot(),
+      PaginationModule.forRoot(),
       FormsModule,
       BrowserAnimationsModule // pour les animations
    ],
