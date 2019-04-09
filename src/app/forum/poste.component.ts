@@ -11,6 +11,9 @@ import { ForumPoste } from '../_models/Forum/forum-poste';
 export class ForumPosteComponent implements OnInit {
 
   items: ForumPoste[];
+  pageNumber: number;
+  pageSize: number;
+  // compteurTotal: number; Aller chercher dans le header
 
   constructor(
     private router: Router,
@@ -19,6 +22,11 @@ export class ForumPosteComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.route.paramMap.subscribe(params => {
+      this.pageNumber = parseInt(params.get('PageNumber'), 10);
+      this.pageSize = parseInt(params.get('PageSize'), 10);
+      // this.compteurTotal = parseInt(params.get('CompteurTotal'), 10);
+    });
     this.route.data.subscribe(data => {
       this.items = data['items'];
     });
