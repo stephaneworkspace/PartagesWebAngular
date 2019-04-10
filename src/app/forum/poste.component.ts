@@ -4,6 +4,8 @@ import { AlertifyService } from '../_services/alertify.service';
 import { ForumPoste } from '../_models/Forum/forum-poste';
 import { Pagination, PaginatedResult } from '../_reponse/pagination';
 import { ForumPosteService } from '../_services/forum/forum-poste.service';
+import { ForumCategorie } from '../_models/Forum/forum-categorie';
+import { ForumSujet } from '../_models/Forum/forum-sujet';
 
 @Component({
   selector: 'app-forum-poste',
@@ -11,13 +13,14 @@ import { ForumPosteService } from '../_services/forum/forum-poste.service';
   styleUrls: ['./poste.component.scss']
 })
 export class ForumPosteComponent implements OnInit {
-
   items: ForumPoste[];
+  categorie: ForumCategorie;
+  sujet: ForumSujet;
 //  pageNumber: number;
 //  pageSize: number;
   pagination: Pagination;
   sujetId: number;
- 
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -35,6 +38,10 @@ export class ForumPosteComponent implements OnInit {
       // Tutorial .result Course 14 140
       this.items = data['items'].result;
       this.pagination = data['items'].pagination;
+      if (this.items) {
+        this.categorie = this.items[0].forumSujet.forumCategorie;
+        this.sujet = this.items[0].forumSujet;
+      }
     });
     this.route.params.subscribe(params => {
       this.sujetId = params.id;

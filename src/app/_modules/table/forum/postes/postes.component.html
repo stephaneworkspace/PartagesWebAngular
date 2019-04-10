@@ -1,3 +1,11 @@
+<div class="container-fluid">
+    <div class="row justify-content-md-center">
+        <div class="col">
+            <a [routerLink]="[ '/forum/' ]">Index du forum</a> » {{ categorie.nom }} » {{ sujet.nom }}
+        </div>
+        <div class="col col-lg-2 user-data">Nous sommes le {{ dateFormatLLLL() }}</div>
+    </div>
+</div>
 <div class="container-fluid" *ngFor="let item of items; let i = index">
     <div class="row justify-content-md-center">
         <div class="col">
