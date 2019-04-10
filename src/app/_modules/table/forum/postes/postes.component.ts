@@ -18,8 +18,12 @@ export class ModuleTableForumPostesComponent implements OnInit {
     // console.log(moment().format('LLLL'));
   }
 
-  dateFormat(date: Date){
+  dateFormatLL(date: Date){
     return moment(date).format('LL');
+  }
+
+  dateFormatLLLL(date: Date){
+    return moment(date).format('LLLL');
   }
 
 }
