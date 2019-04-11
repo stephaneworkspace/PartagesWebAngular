@@ -13,12 +13,12 @@
             <div>par {{ item.user.username | titlecase }} {{ dateFormatLLLL(item.date) }}</div>
             <div>{{ item.contenu }}</div>
         </div>
-        <div class="col-md-auto"><fa-icon [icon]="['fa', 'quote-right']" ></fa-icon><!-- btn a faire--></div>
+        <div class="col-md-auto" *ngIf="loggedIn"><fa-icon [icon]="['fa', 'quote-right']" ></fa-icon><!-- btn a faire--></div>
         <div class="col col-lg-2 user-data">
             <div>{{ item.user.username | titlecase }}</div>
             <div>Postes : {{ item.user.messageCount }}</div>
             <div>Membre depuis : {{ dateFormatLL(item.user.created) }}</div>
-            <div>Contact <!-- btn a faire--><fa-icon [icon]="['fa', 'comment-dots']" ></fa-icon></div>
+            <div *ngIf="loggedIn">Contact <!-- btn a faire--><fa-icon [icon]="['fa', 'comment-dots']" ></fa-icon></div>
         </div>
     </div>
 </div>
