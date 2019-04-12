@@ -5,6 +5,7 @@ import 'moment/locale/fr';
 import { ForumCategorie } from 'src/app/_models/Forum/forum-categorie';
 import { ForumSujet } from 'src/app/_models/Forum/forum-sujet';
 import { AuthService } from 'src/app/_services/auth.service';
+import { User } from 'src/app/_models/user';
 
 @Component({
   selector: 'app-module-table-forum-postes',
@@ -30,6 +31,19 @@ export class ModuleTableForumPostesComponent implements OnInit {
 
   dateFormatLLLL(date: Date){
     return moment(date).format('LLLL');
+  }
+
+  btnReply(item: ForumSujet) {
+    alert('à faire');
+    // this.router.navigate(['/admin/gestion-pages-edition-section/' + item.section.id]);
+  }
+
+  btnQuoteReply(item: ForumPoste) {
+    alert('à faire');
+  }
+
+  btnPrivateMessage(item: User) {
+    alert('à faire');
   }
 
 }
