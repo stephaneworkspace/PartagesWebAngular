@@ -72,6 +72,8 @@ import { ForumPosteComponent } from './forum/poste.component';
 import { ModuleTableForumPostesComponent } from './_modules/table/forum/postes/postes.component';
 import { ForumPosteDivResolver } from './_resolver/forum-postes-div.resolver';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { ModuleTablePostesBtnQuoteComponent } from './_modules/table/forum/postes/btn/quote.component';
+import { ModuleTablePostesBtnReplyComponent } from './_modules/table/forum/postes/btn/reply.component';
 
 library.add(fas, far, fab);
 
@@ -101,6 +103,8 @@ library.add(fas, far, fab);
       ModuleTableForumCategoriesSpanNomComponent,
       ModuleTableForumCategoriesComponent,
       ModuleTableForumPostesComponent,
+      ModuleTablePostesBtnQuoteComponent,
+      ModuleTablePostesBtnReplyComponent,
       AdminSidebarComponent,
       NouveauSectionComponent,
       EditionSectionComponent,

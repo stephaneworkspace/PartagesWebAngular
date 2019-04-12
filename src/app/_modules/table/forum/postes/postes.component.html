@@ -13,7 +13,12 @@
             <div>par {{ item.user.username | titlecase }} {{ dateFormatLLLL(item.date) }}</div>
             <div>{{ item.contenu }}</div>
         </div>
-        <div class="col-md-auto" *ngIf="loggedIn"><fa-icon [icon]="['fa', 'quote-right']" ></fa-icon><!-- btn a faire--></div>
+        <div class="col-md-auto" *ngIf="loggedIn">
+            <app-module-table-postes-btn-quote
+                [item]="item"
+            >
+            </app-module-table-postes-btn-quote>
+        </div>
         <div class="col col-lg-2 user-data">
             <div>{{ item.user.username | titlecase }}</div>
             <div>Postes : {{ item.user.messageCount }}</div>
@@ -22,3 +27,13 @@
         </div>
     </div>
 </div>
+<div class="container-fluid" *ngIf="loggedIn">
+        <div class="row justify-content-md-center">
+            <div class="col">
+                <app-module-table-postes-btn-reply
+                    [sujet]="sujet"
+                >
+                </app-module-table-postes-btn-reply>
+            </div>
+        </div>
+    </div>
