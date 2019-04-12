@@ -75,6 +75,12 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { ModuleTablePostesBtnQuoteComponent } from './_modules/table/forum/postes/btn/quote.component';
 import { ModuleTablePostesBtnReplyComponent } from './_modules/table/forum/postes/btn/reply.component';
 import { ModuleTablePostesBtnPrivateMessageComponent } from './_modules/table/forum/postes/btn/private-message.component';
+import { ModuleTableForumSujetsComponent } from './_modules/table/forum/sujets/sujets.component';
+import { ModuleTableForumSujetsSpanNomComponent } from './_modules/table/forum/sujets/span/nom.component';
+import { ForumCategorieService } from './_services/forum/forum-categorie.service';
+import { ForumSujetService } from './_services/forum/forum-sujet.service';
+import { ForumPosteService } from './_services/forum/forum-poste.service';
+import { ForumSujetTableResolver } from './_resolver/forum-sujets-table.resolver';
 
 library.add(fas, far, fab);
 
@@ -107,6 +113,8 @@ library.add(fas, far, fab);
       ModuleTablePostesBtnQuoteComponent,
       ModuleTablePostesBtnReplyComponent,
       ModuleTablePostesBtnPrivateMessageComponent,
+      ModuleTableForumSujetsComponent,
+      ModuleTableForumSujetsSpanNomComponent,
       AdminSidebarComponent,
       NouveauSectionComponent,
       EditionSectionComponent,
@@ -134,6 +142,9 @@ library.add(fas, far, fab);
       TitreMenuService,
       SousTitreMenuService,
       ArticleService,
+      ForumCategorieService,
+      ForumSujetService,
+      ForumPosteService,
       GestionPagesIconesSelectBoxResolver,
       GestionPagesSectionTableResolver,
       GestionPagesSectionSelectBoxResolver,
@@ -149,6 +160,7 @@ library.add(fas, far, fab);
       GestionPagesArticlePreventUnsavedChangesGuard,
       ForumCategoriesTableResolver,
       ForumPosteDivResolver,
+      ForumSujetTableResolver,
    ],
    entryComponents: [
       ModuleTableAdminGestionPagesModalConfirmDeleteComponent

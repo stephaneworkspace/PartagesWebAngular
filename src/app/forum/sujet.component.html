@@ -1,0 +1,18 @@
+<app-module-table-forum-sujets 
+    [items]="items" 
+    [categorie]="categorie"
+></app-module-table-forum-sujets>
+<!--<ngb-pagination class="d-flex justify-content-center" [collectionSize]="pageSize" [(page)]="pageNumber"></ngb-pagination>-->
+<div class="d-flex justify-content-center">
+    <pagination 
+        [boundaryLinks]="true" 
+        [totalItems]="pagination.totalItems"
+        [itemsPerPage]="pagination.itemsPerPage"
+        [(ngModel)]="pagination.currentPage"
+        (pageChanged)="pageChanged($event)"
+        previousText="&lsaquo;" 
+        nextText="&rsaquo;" 
+        firstText="&laquo;" 
+        lastText="&raquo;">
+    </pagination>
+</div>
