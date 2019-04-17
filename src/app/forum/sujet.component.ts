@@ -8,9 +8,9 @@ import { ForumCategorie } from '../_models/Forum/forum-categorie';
 
 
 @Component({
-  selector: 'app-forum-poste',
-  templateUrl: './poste.component.html',
-  styleUrls: ['./poste.component.scss']
+  selector: 'app-forum-sujet',
+  templateUrl: './sujet.component.html',
+  styleUrls: ['./sujet.component.scss']
 })
 export class ForumSujetComponent implements OnInit {
   items: ForumSujet[];

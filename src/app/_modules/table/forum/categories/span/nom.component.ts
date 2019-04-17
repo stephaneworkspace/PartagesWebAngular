@@ -1,4 +1,4 @@
-import { Component, Input, } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ForumCategorie } from 'src/app/_models/Forum/forum-categorie';
 
 @Component({
@@ -11,5 +11,4 @@ export class ModuleTableForumCategoriesSpanNomComponent {
   @Input() swMouseOver: boolean;
 
   constructor() { }
-
 }

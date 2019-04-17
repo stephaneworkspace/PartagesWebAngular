@@ -81,6 +81,7 @@ import { ForumCategorieService } from './_services/forum/forum-categorie.service
 import { ForumSujetService } from './_services/forum/forum-sujet.service';
 import { ForumPosteService } from './_services/forum/forum-poste.service';
 import { ForumSujetTableResolver } from './_resolver/forum-sujets-table.resolver';
+import { ForumSujetComponent } from './forum/sujet.component';
 
 library.add(fas, far, fab);
 
@@ -96,6 +97,7 @@ library.add(fas, far, fab);
       GestionPagesComponent,
       ForumIndexComponent,
       ForumPosteComponent,
+      ForumSujetComponent,
       ModuleTableAdminGestionPagesComponent,
       ModuleTableAdminGestionPagesCoreComponent,
       ModuleTableAdminGestionPagesModalTableContentSectionForOfflineComponent,

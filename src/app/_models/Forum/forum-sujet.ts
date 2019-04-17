@@ -7,4 +7,5 @@ export interface ForumSujet {
     nom: string;
     date: Date;
     view: number;
+    countPoste?: number;
 }

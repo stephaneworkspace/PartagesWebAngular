@@ -4,5 +4,5 @@
     [icon]="['fab', 'forumbee']"
     [spin]="swMouseOver"
   >&nbsp;</fa-icon>
-    {{ item.nom }}
+  <a [routerLink]="[ '/forum/sujet/' + item.id, { PageSize: 5, PageNumber: 1 } ]">{{ item.nom }}</a>
 </span>

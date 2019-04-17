@@ -4,7 +4,7 @@
       <th scope="col"></th>
       <th scope="col">Sujets</th>    
       <th scope="col">Postes</th>   
-      <th scope="col">Dernier poste</th>         
+      <!--<th scope="col">Dernier poste</th>-->       
     </tr>
   </thead>
 </table>
@@ -18,8 +18,8 @@
         >
         </app-module-table-forum-sujets-span-nom>
       </th>
-      <td style="width:10%">A faire<!--{{ item.countSujet }}--></td>
-      <td style="width:10%">A faire<!--{{ item.countPoste }}--></td>
+      <td style="width:10%">{{ item.view }}</td>
+      <td style="width:10%">{{ item.countPoste }}</td>
       <!--<td style="width:20%" *ngIf="item.dernierPoste"><a [routerLink]="[ '/forum/poste/' + item.dernierPoste.forumSujetId, { PageSize: 5, PageNumber: item.pageDernierPoste } ]">{{ item.dernierPoste.forumSujet.nom }}</a><br /> 
         par {{ item.dernierPoste.user.username | titlecase }}
         <!--iconne View the latest post<br />--><!--<br />
