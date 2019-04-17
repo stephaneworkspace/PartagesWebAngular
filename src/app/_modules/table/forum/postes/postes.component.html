@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row justify-content-md-center">
         <div class="col">
-            <a [routerLink]="[ '/forum/' ]">Index du forum</a> » {{ categorie.nom }} » {{ sujet.nom }}
+            <a [routerLink]="[ '/forum/' ]">Index du forum</a> » <a [routerLink]="[ '/forum/sujet/' + categorie.id, { PageSize: 5, PageNumber: 1 } ]">{{ categorie.nom }}</a> » <a [routerLink]="[ '/forum/poste/' + sujet.id, { PageSize: 5, PageNumber: currentPage } ]">{{ sujet.nom }}</a>
         </div>
         <div class="col col-lg-2 user-data">Nous sommes le {{ dateFormatLLLL() }}</div>
     </div>

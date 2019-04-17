@@ -16,6 +16,7 @@ export class ModuleTableForumPostesComponent implements OnInit {
   @Input() items: ForumPoste[];
   @Input() categorie: ForumCategorie;
   @Input() sujet: ForumSujet;
+  @Input() currentPage: number;
   loggedIn: boolean;
 
   constructor(private authService: AuthService) { }
