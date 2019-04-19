@@ -82,6 +82,9 @@ import { ForumSujetService } from './_services/forum/forum-sujet.service';
 import { ForumPosteService } from './_services/forum/forum-poste.service';
 import { ForumSujetTableResolver } from './_resolver/forum-sujets-table.resolver';
 import { ForumSujetComponent } from './forum/sujet.component';
+import { ForumReponseDernierPosteComponent } from './forum/reponse/reponse-dernier-poste.component';
+import { ModuleDivForumReponseComponent } from './_modules/div/forum/reponse/reponse.component';
+import { ForumSujetDivResolver } from './_resolver/forum-sujet-div.resolver';
 
 library.add(fas, far, fab);
 
@@ -98,6 +101,8 @@ library.add(fas, far, fab);
       ForumIndexComponent,
       ForumPosteComponent,
       ForumSujetComponent,
+      ForumReponseDernierPosteComponent,
+      ModuleDivForumReponseComponent,
       ModuleTableAdminGestionPagesComponent,
       ModuleTableAdminGestionPagesCoreComponent,
       ModuleTableAdminGestionPagesModalTableContentSectionForOfflineComponent,
@@ -163,6 +168,7 @@ library.add(fas, far, fab);
       ForumCategoriesTableResolver,
       ForumPosteDivResolver,
       ForumSujetTableResolver,
+      ForumSujetDivResolver
    ],
    entryComponents: [
       ModuleTableAdminGestionPagesModalConfirmDeleteComponent

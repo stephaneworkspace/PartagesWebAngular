@@ -41,7 +41,7 @@ export class ForumSujetComponent implements OnInit {
   }
 
   loadForumPostes() {
-    this.service.getForumSujet(
+    this.service.getForumSujets(
       this.categorie.id,
       this.pagination.currentPage,
       this.pagination.itemsPerPage

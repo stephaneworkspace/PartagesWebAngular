@@ -26,7 +26,7 @@ export class ForumSujetService {
   constructor(private http: HttpClient) {}
 
   // pagination à faire ici
-  getForumSujet(id: number, page?, itemsPerPage?): Observable<PaginatedResult<ForumSujet[]>> {
+  getForumSujets(id: number, page?, itemsPerPage?): Observable<PaginatedResult<ForumSujet[]>> {
     const paginatedResult: PaginatedResult<ForumSujet[]> = new PaginatedResult<ForumSujet[]>();
 
     let params = new HttpParams();
@@ -47,5 +47,9 @@ export class ForumSujetService {
         return paginatedResult;
       })
     );
+  }
+
+  getForumSujet(id: number): Observable<ForumSujet> {
+    return this.http.get<ForumSujet>(this.baseUrl + 'ForumSujets/ForumSujetId/' + id, httpOptions);
   }
 }

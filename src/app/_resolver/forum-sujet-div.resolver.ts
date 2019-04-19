@@ -7,16 +7,16 @@ import { ForumSujet } from '../_models/Forum/forum-sujet';
 import { ForumSujetService } from '../_services/forum/forum-sujet.service';
 
 @Injectable()
-export class ForumSujetTableResolver implements Resolve<ForumSujet[]> {
+export class ForumSujetDivResolver implements Resolve<ForumSujet> {
     constructor(
         private forumSujetService: ForumSujetService,
         private router: Router,
         private alertify: AlertifyService) {}
 
-    resolve(route: ActivatedRouteSnapshot): Observable<ForumSujet[]> {
-        return this.forumSujetService.getForumSujets(route.params['id'], route.params['PageNumber']).pipe(
+    resolve(route: ActivatedRouteSnapshot): Observable<ForumSujet> {
+        return this.forumSujetService.getForumSujet(route.params['sujetId']).pipe(
             catchError(error => {
-                this.alertify.error('Problème de chargement des sujets du forum');
+                this.alertify.error('Problème de chargement du sujet «' + route.params['sujetId'] + '» du forum');
                 this.router.navigate(['/']);
                 return of(null);
             })

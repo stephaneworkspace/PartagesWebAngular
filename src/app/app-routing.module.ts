@@ -31,6 +31,8 @@ import { ForumPosteDivResolver } from './_resolver/forum-postes-div.resolver';
 import { ForumPosteComponent } from './forum/poste.component';
 import { ForumSujetComponent } from './forum/sujet.component';
 import { ForumSujetTableResolver } from './_resolver/forum-sujets-table.resolver';
+import { ForumReponseDernierPosteComponent } from './forum/reponse/reponse-dernier-poste.component';
+import { ForumSujetDivResolver } from './_resolver/forum-sujet-div.resolver';
 
 const routes: Routes = [
   {
@@ -138,7 +140,15 @@ const routes: Routes = [
     resolve: {
       items: ForumSujetTableResolver
     },
-  },  
+  },
+  // En cas de dernier poste sans citation
+  {
+    path: 'forum/poste/reponse/dernier-poste/:sujetId',
+    component: ForumReponseDernierPosteComponent,
+    resolve: {
+     sujet: ForumSujetDivResolver
+    }
+  },
   {
     path: 'informatique-web',
     component: InformatiqueWebMainComponent

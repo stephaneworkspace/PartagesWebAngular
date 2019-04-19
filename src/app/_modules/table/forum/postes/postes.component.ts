@@ -6,6 +6,7 @@ import { ForumCategorie } from 'src/app/_models/Forum/forum-categorie';
 import { ForumSujet } from 'src/app/_models/Forum/forum-sujet';
 import { AuthService } from 'src/app/_services/auth.service';
 import { User } from 'src/app/_models/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-module-table-forum-postes',
@@ -19,7 +20,7 @@ export class ModuleTableForumPostesComponent implements OnInit {
   @Input() currentPage: number;
   loggedIn: boolean;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
     moment.locale('fr');
@@ -35,8 +36,7 @@ export class ModuleTableForumPostesComponent implements OnInit {
   }
 
   btnReply(item: ForumSujet) {
-    alert('à faire');
-    // this.router.navigate(['/admin/gestion-pages-edition-section/' + item.section.id]);
+    this.router.navigate(['forum/poste/reponse/dernier-poste/' + item.id]);
   }
 
   btnQuoteReply(item: ForumPoste) {
