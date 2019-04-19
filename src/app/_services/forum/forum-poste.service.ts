@@ -25,7 +25,6 @@ export class ForumPosteService {
 
   constructor(private http: HttpClient) {}
 
-  // pagination à faire ici
   getForumPoste(id: number, page?, itemsPerPage?): Observable<PaginatedResult<ForumPoste[]>> {
     const paginatedResult: PaginatedResult<ForumPoste[]> = new PaginatedResult<ForumPoste[]>();
 
@@ -47,5 +46,9 @@ export class ForumPosteService {
         return paginatedResult;
       })
     );
+  }
+
+  putReponseForumPoste(item: ForumPoste) {
+    return this.http.post(this.baseUrl + 'ForumPoste', item, httpOptions);
   }
 }
