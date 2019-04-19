@@ -16,11 +16,11 @@ export class ModuleDivForumReponseComponent implements OnInit {
   ngOnInit() {
     moment.locale('fr');
   }
-  
+
   dateFormatLL(date: Date){
     return moment(date).format('LL');
   }
-  
+
   dateFormatLLLL(date: Date){
     return moment(date).format('LLLL');
   }
