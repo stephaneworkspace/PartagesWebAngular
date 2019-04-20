@@ -6,3 +6,24 @@
       <div class="col col-lg-2 user-data">Nous sommes le {{ dateFormatLLLL() }}</div>
   </div>
 </div>
+<br />
+<div class="container-fluid">
+  <div class="justify-content-lg-center">
+    <div class="form-group">
+      <textarea 
+        class="form-control" 
+        rows="15" 
+        placeholder="Veuillez saisir le contenu du message" 
+        id="contenu"  
+        [(ngModel)]="model.contenu" 
+        name="contenu"
+        (input)="valuechange($event)"
+      ></textarea>
+      <small 
+      id="iconeHelp" 
+      class="help text-danger" 
+      *ngIf="this.formError.has('Contenu')"
+    >{{ this.formError.get('Contenu') }}</small>
+    </div>
+  </div>
+</div>
