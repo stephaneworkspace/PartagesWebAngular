@@ -48,7 +48,7 @@ export class ForumPosteService {
     );
   }
 
-  putReponseForumPoste(item: ForumPoste) {
-    return this.http.post(this.baseUrl + 'ForumPoste', item, httpOptions);
+  postReponseForumPoste(item: ForumPoste) {
+    return this.http.post(this.baseUrl + 'ForumPostes', item, httpOptions);
   }
 }

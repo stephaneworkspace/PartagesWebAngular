@@ -3,6 +3,9 @@ import { ForumSujet } from 'src/app/_models/Forum/forum-sujet';
 import * as moment from 'moment';
 import 'moment/locale/fr';
 import { FormError } from 'src/app/_class/form-error';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AlertifyService } from 'src/app/_services/alertify.service';
+import { ForumPosteService } from 'src/app/_services/forum/forum-poste.service';
 
 @Component({
   selector: 'app-module-div-forum-reponse',
@@ -15,11 +18,17 @@ export class ModuleDivForumReponseComponent implements OnInit {
   model: any = {};
   formError: any;
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private alertify: AlertifyService,
+    private forumPosteService: ForumPosteService) { }
 
   ngOnInit() {
     this.formError = new FormError();
     moment.locale('fr');
+    this.model.forumSujetId = this.sujet.id;
+    this.model.forumSujet = this.sujet;
     this.model.contenu = this.contenu;
   }
 
@@ -27,19 +36,21 @@ export class ModuleDivForumReponseComponent implements OnInit {
     return moment(date).format('LL');
   }
 
-  dateFormatLLLL(date: Date){
+  dateFormatLLLL(date: Date) {
     return moment(date).format('LLLL');
+  }
+
+  btnReply() {
+    this.submitForm();
   }
 
 
   submitForm() {
     // Initialisation des erreurs précédantes
     this.formError.clear();
-    /*
-    this.articleService.update(this.model.id, this.model).subscribe(next => {
-      this.alertify.success('Article &laquo;' + this.model.nom + '&raquo; mis à jour');
-      this.editForm.reset(this.model);
-      this.router.navigate(['/admin']);
+    this.forumPosteService.postReponseForumPoste(this.model).subscribe(next => {
+      this.alertify.success('Message posté sur le forum');
+      this.router.navigate(['/forum/sujet/' + this.model.forumSujet.forumCategorieId , { PageSize: 5, PageNumber: 1 } ]);
     }, error => {
       // https://github.com/laracasts/Vue-Forms/blob/master/public/js/app.js
       // Ensuite trouver moyen de traduire les messages d'erreurs
@@ -51,7 +62,7 @@ export class ModuleDivForumReponseComponent implements OnInit {
           this.alertify.error(this.formError.get(element));
         });
       }
-    });*/
+    });
   }
 
 }

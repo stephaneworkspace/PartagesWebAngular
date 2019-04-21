@@ -85,6 +85,7 @@ import { ForumSujetComponent } from './forum/sujet.component';
 import { ForumReponseDernierPosteComponent } from './forum/reponse/reponse-dernier-poste.component';
 import { ModuleDivForumReponseComponent } from './_modules/div/forum/reponse/reponse.component';
 import { ForumSujetDivResolver } from './_resolver/forum-sujet-div.resolver';
+import { ModuleTableDivForumReponseBtnReplyComponent } from './_modules/div/forum/reponse/btn/reply.component';
 
 library.add(fas, far, fab);
 
@@ -103,6 +104,7 @@ library.add(fas, far, fab);
       ForumSujetComponent,
       ForumReponseDernierPosteComponent,
       ModuleDivForumReponseComponent,
+      ModuleTableDivForumReponseBtnReplyComponent,
       ModuleTableAdminGestionPagesComponent,
       ModuleTableAdminGestionPagesCoreComponent,
       ModuleTableAdminGestionPagesModalTableContentSectionForOfflineComponent,
