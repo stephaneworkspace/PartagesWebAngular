@@ -14,12 +14,12 @@ import { ForumSujet } from '../_models/Forum/forum-sujet';
 })
 export class ForumPosteComponent implements OnInit {
   items: ForumPoste[];
-  categorie: ForumCategorie;
-  sujet: ForumSujet;
+  forumCategorie: ForumCategorie;
+  forumSujet: ForumSujet;
 //  pageNumber: number;
 //  pageSize: number;
   pagination: Pagination;
-  sujetId: number;
+  forumSujetId: number;
 
   constructor(
     private router: Router,
@@ -39,12 +39,12 @@ export class ForumPosteComponent implements OnInit {
       this.items = data['items'].result;
       this.pagination = data['items'].pagination;
       if (this.items) {
-        this.categorie = this.items[0].forumSujet.forumCategorie;
-        this.sujet = this.items[0].forumSujet;
+        this.forumCategorie = this.items[0].forumSujet.forumCategorie;
+        this.forumSujet = this.items[0].forumSujet;
       }
     });
     this.route.params.subscribe(params => {
-      this.sujetId = params.id;
+      this.forumSujetId = params.id;
     });
   }
 
@@ -54,8 +54,8 @@ export class ForumPosteComponent implements OnInit {
   }
 
   loadForumPostes() {
-    this.service.getForumPoste(
-      this.sujetId,
+    this.service.getForumPostes(
+      this.forumSujetId,
       this.pagination.currentPage,
       this.pagination.itemsPerPage
     ).subscribe((res: PaginatedResult<ForumPoste[]>) => {

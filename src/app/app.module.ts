@@ -70,7 +70,7 @@ import { ForumIndexComponent } from './forum/index.component';
 import { ForumCategoriesTableResolver } from './_resolver/forum-categories-table.resolver';
 import { ForumPosteComponent } from './forum/poste.component';
 import { ModuleTableForumPostesComponent } from './_modules/table/forum/postes/postes.component';
-import { ForumPosteDivResolver } from './_resolver/forum-postes-div.resolver';
+import { ForumPostesDivResolver } from './_resolver/forum-postes-div.resolver';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { ModuleTablePostesBtnQuoteComponent } from './_modules/table/forum/postes/btn/quote.component';
 import { ModuleTablePostesBtnReplyComponent } from './_modules/table/forum/postes/btn/reply.component';
@@ -86,6 +86,8 @@ import { ForumReponseDernierPosteComponent } from './forum/reponse/reponse-derni
 import { ModuleDivForumReponseComponent } from './_modules/div/forum/reponse/reponse.component';
 import { ForumSujetDivResolver } from './_resolver/forum-sujet-div.resolver';
 import { ModuleTableDivForumReponseBtnReplyComponent } from './_modules/div/forum/reponse/btn/reply.component';
+import { ForumPosteDivResolver } from './_resolver/forum-poste-div.resolver';
+import { ForumReponseCitationComponent } from './forum/reponse/reponse-citation.component';
 
 library.add(fas, far, fab);
 
@@ -103,6 +105,7 @@ library.add(fas, far, fab);
       ForumPosteComponent,
       ForumSujetComponent,
       ForumReponseDernierPosteComponent,
+      ForumReponseCitationComponent,
       ModuleDivForumReponseComponent,
       ModuleTableDivForumReponseBtnReplyComponent,
       ModuleTableAdminGestionPagesComponent,
@@ -168,6 +171,7 @@ library.add(fas, far, fab);
       GestionPagesSousTitreMenuPreventUnsavedChangesGuard,
       GestionPagesArticlePreventUnsavedChangesGuard,
       ForumCategoriesTableResolver,
+      ForumPostesDivResolver,
       ForumPosteDivResolver,
       ForumSujetTableResolver,
       ForumSujetDivResolver

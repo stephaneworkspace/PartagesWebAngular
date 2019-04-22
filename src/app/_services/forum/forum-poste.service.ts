@@ -25,7 +25,7 @@ export class ForumPosteService {
 
   constructor(private http: HttpClient) {}
 
-  getForumPoste(id: number, page?, itemsPerPage?): Observable<PaginatedResult<ForumPoste[]>> {
+  getForumPostes(id: number, page?, itemsPerPage?): Observable<PaginatedResult<ForumPoste[]>> {
     const paginatedResult: PaginatedResult<ForumPoste[]> = new PaginatedResult<ForumPoste[]>();
 
     let params = new HttpParams();
@@ -50,5 +50,9 @@ export class ForumPosteService {
 
   postReponseForumPoste(item: ForumPoste) {
     return this.http.post(this.baseUrl + 'ForumPostes', item, httpOptions);
+  }
+
+  getForumPoste(id: number): Observable<ForumPoste> {
+    return this.http.get<ForumPoste>(this.baseUrl + 'ForumPostes/ForumPosteId/' + id, httpOptions);
   }
 }

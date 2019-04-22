@@ -8,7 +8,7 @@ import { ForumSujet } from 'src/app/_models/Forum/forum-sujet';
 })
 export class ModuleTableDivForumReponseBtnReplyComponent implements OnInit, OnChanges {
   @Input() disable: boolean;
-  @Input() sujet: ForumSujet;
+  @Input() forumSujet: ForumSujet;
   @Output() output: EventEmitter<ForumSujet> = new EventEmitter<ForumSujet>();
 
   nom: string;
@@ -24,10 +24,10 @@ export class ModuleTableDivForumReponseBtnReplyComponent implements OnInit, OnCh
   }
 
   bind() {
-    this.nom = 'Répondre à «' +  this.sujet.nom + '»';
+    this.nom = 'Répondre à «' +  this.forumSujet.nom + '»';
   }
 
   click() {
-    this.output.emit(this.sujet);
+    this.output.emit(this.forumSujet);
   }
 }

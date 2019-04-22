@@ -14,9 +14,9 @@ export class ForumSujetDivResolver implements Resolve<ForumSujet> {
         private alertify: AlertifyService) {}
 
     resolve(route: ActivatedRouteSnapshot): Observable<ForumSujet> {
-        return this.forumSujetService.getForumSujet(route.params['sujetId']).pipe(
+        return this.forumSujetService.getForumSujet(route.params['forumSujetId']).pipe(
             catchError(error => {
-                this.alertify.error('Problème de chargement du sujet «' + route.params['sujetId'] + '» du forum');
+                this.alertify.error('Problème de chargement du sujet «' + route.params['forumSujetId'] + '» du forum');
                 this.router.navigate(['/']);
                 return of(null);
             })

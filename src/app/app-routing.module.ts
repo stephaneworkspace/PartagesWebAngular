@@ -27,12 +27,14 @@ import { GestionPagesTitreMenuSelectBoxResolver } from './_resolver/gestion-page
 import { GestionPagesSousTitreMenuSelectBoxResolver } from './_resolver/gestion-pages-sous-titre-menu-select-box.resolver';
 import { ForumIndexComponent } from './forum/index.component';
 import { ForumCategoriesTableResolver } from './_resolver/forum-categories-table.resolver';
-import { ForumPosteDivResolver } from './_resolver/forum-postes-div.resolver';
+import { ForumPostesDivResolver } from './_resolver/forum-postes-div.resolver';
 import { ForumPosteComponent } from './forum/poste.component';
 import { ForumSujetComponent } from './forum/sujet.component';
 import { ForumSujetTableResolver } from './_resolver/forum-sujets-table.resolver';
 import { ForumReponseDernierPosteComponent } from './forum/reponse/reponse-dernier-poste.component';
 import { ForumSujetDivResolver } from './_resolver/forum-sujet-div.resolver';
+import { ForumReponseCitationComponent } from './forum/reponse/reponse-citation.component';
+import { ForumPosteDivResolver } from './_resolver/forum-poste-div.resolver';
 
 const routes: Routes = [
   {
@@ -130,7 +132,7 @@ const routes: Routes = [
     component: ForumPosteComponent,
     // canActivate: [AuthGuard],
     resolve: {
-      items: ForumPosteDivResolver
+      items: ForumPostesDivResolver
     },
   },
   {
@@ -143,10 +145,18 @@ const routes: Routes = [
   },
   // En cas de dernier poste sans citation
   {
-    path: 'forum/poste/reponse/dernier-poste/:sujetId',
+    path: 'forum/poste/reponse/dernier-poste/:forumSujetId',
     component: ForumReponseDernierPosteComponent,
     resolve: {
-     sujet: ForumSujetDivResolver
+      forumSujet: ForumSujetDivResolver
+    }
+  },
+  // Reponse a un poste precis cité
+  {
+    path: 'forum/poste/reponse/:forumPosteId',
+    component: ForumReponseCitationComponent,
+    resolve: {
+      forumPoste: ForumPosteDivResolver
     }
   },
   {

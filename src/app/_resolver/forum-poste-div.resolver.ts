@@ -7,18 +7,16 @@ import { ForumPoste } from '../_models/Forum/forum-poste';
 import { ForumPosteService } from '../_services/forum/forum-poste.service';
 
 @Injectable()
-export class ForumPostesDivResolver implements Resolve<ForumPoste[]> {
+export class ForumPosteDivResolver implements Resolve<ForumPoste> {
     constructor(
         private forumPosteService: ForumPosteService,
         private router: Router,
         private alertify: AlertifyService) {}
 
-    resolve(route: ActivatedRouteSnapshot): Observable<ForumPoste[]> {
-        return this.forumPosteService.getForumPostes(route.params['id'], route.params['PageNumber']).pipe(
-            // this.route2.snapshot.queryParams['PageNumber']).pipe(
+    resolve(route: ActivatedRouteSnapshot): Observable<ForumPoste> {
+        return this.forumPosteService.getForumPoste(route.params['forumPosteId']).pipe(
             catchError(error => {
-                // tslint:disable-next-line:max-line-length
-                this.alertify.error('Problème de chargement des catégories du forum');
+                this.alertify.error('Problème de chargement du poste «' + route.params['forumPosteId'] + '» du forum');
                 this.router.navigate(['/']);
                 return of(null);
             })

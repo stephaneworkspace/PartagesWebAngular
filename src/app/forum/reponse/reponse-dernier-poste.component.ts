@@ -8,13 +8,13 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./reponse-dernier-poste.component.scss']
 })
 export class ForumReponseDernierPosteComponent implements OnInit {
-  sujet: ForumSujet;
+  forumSujet: ForumSujet;
 
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.data.subscribe(data => {
-      this.sujet = data['sujet'];
+      this.forumSujet = data['forumSujet'];
     });
   }
 }

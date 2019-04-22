@@ -40,7 +40,7 @@ export class ModuleTableForumPostesComponent implements OnInit {
   }
 
   btnQuoteReply(item: ForumPoste) {
-    alert('à faire');
+    this.router.navigate(['forum/poste/reponse/' + item.id])
   }
 
   btnPrivateMessage(item: User) {

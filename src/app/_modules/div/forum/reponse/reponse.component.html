@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row justify-content-md-center">
       <div class="col">
-          <a [routerLink]="[ '/forum/' ]">Index du forum</a> » <a [routerLink]="[ '/forum/sujet/' + sujet.forumCategorie.id, { PageSize: 5, PageNumber: 1 } ]">{{ sujet.forumCategorie.nom }}</a> » <a [routerLink]="[ '/forum/poste/' + sujet.id, { PageSize: 5, PageNumber: currentPage } ]">{{ sujet.nom }}</a>
+          <a [routerLink]="[ '/forum/' ]">Index du forum</a> » <a [routerLink]="[ '/forum/sujet/' + forumSujet.forumCategorie.id, { PageSize: 5, PageNumber: 1 } ]">{{ forumSujet.forumCategorie.nom }}</a> » <a [routerLink]="[ '/forum/poste/' + forumSujet.id, { PageSize: 5, PageNumber: currentPage } ]">{{ forumSujet.nom }}</a>
       </div>
       <div class="col col-lg-2 user-data">Nous sommes le {{ dateFormatLLLL() }}</div>
   </div>
@@ -31,7 +31,7 @@
   <div class="row justify-content-md-center">
       <div class="col">
           <app-module-div-forum-reponse-btn-reply
-              [sujet]="sujet"
+              [forumSujet]="forumSujet"
               (output)="btnReply($event)"
           >
           </app-module-div-forum-reponse-btn-reply>

@@ -6,6 +6,7 @@ import { FormError } from 'src/app/_class/form-error';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlertifyService } from 'src/app/_services/alertify.service';
 import { ForumPosteService } from 'src/app/_services/forum/forum-poste.service';
+import { User } from 'src/app/_models/user';
 
 @Component({
   selector: 'app-module-div-forum-reponse',
@@ -13,8 +14,9 @@ import { ForumPosteService } from 'src/app/_services/forum/forum-poste.service';
   styleUrls: ['./reponse.component.scss']
 })
 export class ModuleDivForumReponseComponent implements OnInit {
-  @Input() sujet: ForumSujet;
+  @Input() forumSujet: ForumSujet;
   @Input() contenu?: string;
+  @Input() user?: User;
   model: any = {};
   formError: any;
 
@@ -27,9 +29,17 @@ export class ModuleDivForumReponseComponent implements OnInit {
   ngOnInit() {
     this.formError = new FormError();
     moment.locale('fr');
-    this.model.forumSujetId = this.sujet.id;
-    this.model.forumSujet = this.sujet;
-    this.model.contenu = this.contenu;
+    this.model.forumSujetId = this.forumSujet.id;
+    this.model.forumSujet = this.forumSujet;
+    // a faire citation correcte
+    if (this.contenu) {
+      this.model.contenu = this.contenu;
+      if (this.user) {
+        this.model.contenu = this.user.username + ':\n «' + this.model.contenu + ' »\n';
+      }
+    } else {
+      this.model.contenu = '';
+    }
   }
 
   dateFormatLL(date: Date){
@@ -43,7 +53,6 @@ export class ModuleDivForumReponseComponent implements OnInit {
   btnReply() {
     this.submitForm();
   }
-
 
   submitForm() {
     // Initialisation des erreurs précédantes
