@@ -88,6 +88,7 @@ import { ForumSujetDivResolver } from './_resolver/forum-sujet-div.resolver';
 import { ModuleTableDivForumReponseBtnReplyComponent } from './_modules/div/forum/reponse/btn/reply.component';
 import { ForumPosteDivResolver } from './_resolver/forum-poste-div.resolver';
 import { ForumReponseCitationComponent } from './forum/reponse/reponse-citation.component';
+import { ModuleTableForumSujetsBtnNewComponent } from './_modules/table/forum/sujets/btn/new.component';
 
 library.add(fas, far, fab);
 
@@ -120,6 +121,7 @@ library.add(fas, far, fab);
       ModuleTableAdminGestionPagesBtnDownComponent,
       ModuleTableAdminGestionPagesModalConfirmDeleteComponent,
       ModuleTableForumCategoriesSpanNomComponent,
+      ModuleTableForumSujetsBtnNewComponent,
       ModuleTableForumCategoriesComponent,
       ModuleTableForumPostesComponent,
       ModuleTablePostesBtnQuoteComponent,

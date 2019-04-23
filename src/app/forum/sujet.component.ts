@@ -14,7 +14,7 @@ import { ForumCategorie } from '../_models/Forum/forum-categorie';
 })
 export class ForumSujetComponent implements OnInit {
   items: ForumSujet[];
-  categorie: ForumCategorie;
+  forumCategorie: ForumCategorie;
   pagination: Pagination;
 
   constructor(
@@ -30,7 +30,7 @@ export class ForumSujetComponent implements OnInit {
       this.items = data['items'].result;
       this.pagination = data['items'].pagination;
       if (this.items) {
-        this.categorie = this.items[0].forumCategorie;
+        this.forumCategorie = this.items[0].forumCategorie;
       }
     });
   }
@@ -42,7 +42,7 @@ export class ForumSujetComponent implements OnInit {
 
   loadForumPostes() {
     this.service.getForumSujets(
-      this.categorie.id,
+      this.forumCategorie.id,
       this.pagination.currentPage,
       this.pagination.itemsPerPage
     ).subscribe((res: PaginatedResult<ForumSujet[]>) => {

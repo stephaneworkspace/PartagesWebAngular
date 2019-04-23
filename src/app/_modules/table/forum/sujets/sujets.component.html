@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row justify-content-md-center">
       <div class="col">
-          <a [routerLink]="[ '/forum/' ]">Index du forum</a> » <a [routerLink]="[ '/forum/sujet/' + categorie.id, { PageSize: 5, PageNumber: 1 } ]">{{ categorie.nom }}</a>
+          <a [routerLink]="[ '/forum/' ]">Index du forum</a> » <a [routerLink]="[ '/forum/sujet/' + forumCategorie.id, { PageSize: 5, PageNumber: 1 } ]">{{ forumCategorie.nom }}</a>
       </div>
       <div class="col col-lg-2 user-data">Nous sommes le {{ dateFormatLLLL() }}</div>
   </div>
@@ -36,3 +36,14 @@
     </tr>
   </tbody>
 </table>
+<div class="container-fluid">
+  <div class="row justify-content-md-center">
+      <div class="col">
+          <app-module-table-forum-sujets-btn-new
+              [forumCategorie]="forumCategorie"
+              (output)="btnNewTopic($event)"
+          >
+          </app-module-table-forum-sujets-btn-new>
+      </div>
+  </div>
+</div>

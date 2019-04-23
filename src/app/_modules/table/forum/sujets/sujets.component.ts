@@ -12,7 +12,7 @@ import { AuthService } from 'src/app/_services/auth.service';
 })
 export class ModuleTableForumSujetsComponent implements OnInit {
   @Input() items: ForumSujet[];
-  @Input() categorie: ForumCategorie;
+  @Input() forumCategorie: ForumCategorie;
   loggedIn: boolean;
 
   constructor(private authService: AuthService) { }
@@ -29,12 +29,13 @@ export class ModuleTableForumSujetsComponent implements OnInit {
   dateFormatLLLL(date: Date){
     return moment(date).format('LLLL');
   }
-/*
-  btnReply(item: ForumSujet) {
+
+  btnNewTopic(item: ForumCategorie) {
     alert('à faire');
     // this.router.navigate(['/admin/gestion-pages-edition-section/' + item.section.id]);
   }
-
+  
+  /*
   btnQuoteReply(item: ForumPoste) {
     alert('à faire');
   }
