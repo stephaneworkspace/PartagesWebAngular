@@ -6,7 +6,7 @@ import { ForumSujet } from 'src/app/_models/Forum/forum-sujet';
   templateUrl: './reply.component.html',
   styleUrls: ['./reply.component.scss']
 })
-export class ModuleTableDivForumReponseBtnReplyComponent implements OnInit, OnChanges {
+export class ModuleDivForumReponseBtnReplyComponent implements OnInit, OnChanges {
   @Input() disable: boolean;
   @Input() forumSujet: ForumSujet;
   @Output() output: EventEmitter<ForumSujet> = new EventEmitter<ForumSujet>();

@@ -18,7 +18,12 @@ export class ForumCategorieService {
 
   constructor(private http: HttpClient) {}
 
+  // Cette méthode est avec la pagination (inutile mais j'enleverai plus tard)
   getForumCategories(): Observable<ForumCategorie[]> {
     return this.http.get<ForumCategorie[]>(this.baseUrl + 'ForumCategories', httpOptions);
+  }
+
+  getForumCategorie(id: number): Observable<ForumCategorie> {
+    return this.http.get<ForumCategorie>(this.baseUrl + 'ForumCategories/' + id, httpOptions);
   }
 }

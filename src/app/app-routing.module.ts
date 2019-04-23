@@ -35,6 +35,8 @@ import { ForumReponseDernierPosteComponent } from './forum/reponse/reponse-derni
 import { ForumSujetDivResolver } from './_resolver/forum-sujet-div.resolver';
 import { ForumReponseCitationComponent } from './forum/reponse/reponse-citation.component';
 import { ForumPosteDivResolver } from './_resolver/forum-poste-div.resolver';
+import { ForumNouveauSujetComponent } from './forum/nouveau-sujet/nouveau-sujet.component';
+import { ForumCategorieDivResolver } from './_resolver/forum-categorie-div.resolver';
 
 const routes: Routes = [
   {
@@ -157,6 +159,14 @@ const routes: Routes = [
     component: ForumReponseCitationComponent,
     resolve: {
       forumPoste: ForumPosteDivResolver
+    }
+  },
+  // Nouveau sujet
+  {
+    path: 'forum/sujet/nouveau/:forumCategorieId',
+    component: ForumNouveauSujetComponent,
+    resolve: {
+      forumCategorie: ForumCategorieDivResolver
     }
   },
   {

@@ -5,6 +5,7 @@ import { ForumSujet } from 'src/app/_models/Forum/forum-sujet';
 import { Observable } from 'rxjs';
 import { PaginatedResult } from 'src/app/_reponse/pagination';
 import { map } from 'rxjs/operators';
+import { DtoForumNouveauSujet } from 'src/app/_dto/forum/nouveau-sujet/nouveau-sujet';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -52,4 +53,9 @@ export class ForumSujetService {
   getForumSujet(id: number): Observable<ForumSujet> {
     return this.http.get<ForumSujet>(this.baseUrl + 'ForumSujets/ForumSujetId/' + id, httpOptions);
   }
+
+  postForumSujet(item: DtoForumNouveauSujet) {
+    return this.http.post(this.baseUrl + 'ForumSujets', item, httpOptions);
+  }
+
 }

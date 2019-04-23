@@ -1,0 +1,57 @@
+<div class="container-fluid">
+  <div class="row justify-content-md-center">
+      <div class="col">
+          <a [routerLink]="[ '/forum/' ]">Index du forum</a> » <a [routerLink]="[ '/forum/sujet/' + forumCategorie.id, { PageSize: 5, PageNumber: 1 } ]">{{ forumCategorie.nom }}</a>
+      </div>
+      <div class="col col-lg-2 user-data">Nous sommes le {{ dateFormatLLLL() }}</div>
+  </div>
+</div>
+<div class="form-group">
+  <label for="nomSujet">Nom du sujet</label>
+  <input 
+    type="nom" 
+    class="form-control" 
+    id="titre" 
+    aria-describedby="titreHelp" 
+    placeholder="Veuillez saisir un nom de sujet (A FAIRE VERIFIER SI UNIQUE PEUT ÊTRE)" 
+    [(ngModel)]="model.nomSujet" 
+    name="nomSujet">
+  <small 
+    id="iconeHelp" 
+    class="help text-danger" 
+    *ngIf="this.formError.has('NomSujet')"
+  >{{ this.formError.get('NomSujet') }}
+  </small>
+</div>
+<br />
+<div class="container-fluid">
+  <div class="justify-content-lg-center">
+    <div class="form-group">
+      <textarea 
+        class="form-control" 
+        rows="15" 
+        placeholder="Veuillez saisir le contenu du message" 
+        id="contenu"  
+        [(ngModel)]="model.contenu" 
+        name="contenu"
+        (input)="valuechange($event)"
+      ></textarea>
+      <small 
+      id="iconeHelp" 
+      class="help text-danger" 
+      *ngIf="this.formError.has('Contenu')"
+    >{{ this.formError.get('Contenu') }}</small>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row justify-content-md-center">
+      <div class="col">
+          <app-module-div-forum-nouveau-sujet-btn-submit
+              [forumCategorie]="forumCategorie"
+              (output)="btnSubmit($event)"
+          >
+          </app-module-div-forum-nouveau-sujet-btn-submit>
+      </div>
+  </div>
+</div>

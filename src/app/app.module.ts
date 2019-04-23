@@ -85,10 +85,13 @@ import { ForumSujetComponent } from './forum/sujet.component';
 import { ForumReponseDernierPosteComponent } from './forum/reponse/reponse-dernier-poste.component';
 import { ModuleDivForumReponseComponent } from './_modules/div/forum/reponse/reponse.component';
 import { ForumSujetDivResolver } from './_resolver/forum-sujet-div.resolver';
-import { ModuleTableDivForumReponseBtnReplyComponent } from './_modules/div/forum/reponse/btn/reply.component';
+import { ModuleDivForumReponseBtnReplyComponent } from './_modules/div/forum/reponse/btn/reply.component';
 import { ForumPosteDivResolver } from './_resolver/forum-poste-div.resolver';
 import { ForumReponseCitationComponent } from './forum/reponse/reponse-citation.component';
 import { ModuleTableForumSujetsBtnNewComponent } from './_modules/table/forum/sujets/btn/new.component';
+import { ForumNouveauSujetComponent } from './forum/nouveau-sujet/nouveau-sujet.component';
+import { ForumCategorieDivResolver } from './_resolver/forum-categorie-div.resolver';
+import { ModuleDivForumNouveauSujetBtnSubmitComponent } from './_modules/div/forum/nouveau-sujet/btn/submit.component';
 
 library.add(fas, far, fab);
 
@@ -105,10 +108,12 @@ library.add(fas, far, fab);
       ForumIndexComponent,
       ForumPosteComponent,
       ForumSujetComponent,
+      ForumNouveauSujetComponent,
       ForumReponseDernierPosteComponent,
       ForumReponseCitationComponent,
       ModuleDivForumReponseComponent,
-      ModuleTableDivForumReponseBtnReplyComponent,
+      ModuleDivForumNouveauSujetBtnSubmitComponent,
+      ModuleDivForumReponseBtnReplyComponent,
       ModuleTableAdminGestionPagesComponent,
       ModuleTableAdminGestionPagesCoreComponent,
       ModuleTableAdminGestionPagesModalTableContentSectionForOfflineComponent,
@@ -173,6 +178,7 @@ library.add(fas, far, fab);
       GestionPagesSousTitreMenuPreventUnsavedChangesGuard,
       GestionPagesArticlePreventUnsavedChangesGuard,
       ForumCategoriesTableResolver,
+      ForumCategorieDivResolver,
       ForumPostesDivResolver,
       ForumPosteDivResolver,
       ForumSujetTableResolver,
