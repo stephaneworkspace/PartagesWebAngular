@@ -6,27 +6,31 @@
       <div class="col col-lg-2 user-data">Nous sommes le {{ dateFormatLLLL() }}</div>
   </div>
 </div>
-<div class="form-group">
-  <label for="nomSujet">Nom du sujet</label>
-  <input 
-    type="nom" 
-    class="form-control" 
-    id="titre" 
-    aria-describedby="titreHelp" 
-    placeholder="Veuillez saisir un nom de sujet (A FAIRE VERIFIER SI UNIQUE PEUT ÊTRE)" 
-    [(ngModel)]="model.nomSujet" 
-    name="nomSujet">
-  <small 
-    id="iconeHelp" 
-    class="help text-danger" 
-    *ngIf="this.formError.has('NomSujet')"
-  >{{ this.formError.get('NomSujet') }}
-  </small>
-</div>
-<br />
 <div class="container-fluid">
   <div class="justify-content-lg-center">
     <div class="form-group">
+      <label for="nomSujet">Nom du sujet</label>
+      <input 
+        type="nom" 
+        class="form-control" 
+        id="titre" 
+        aria-describedby="titreHelp" 
+        placeholder="Veuillez saisir un nom de sujet (A FAIRE VERIFIER SI UNIQUE PEUT ÊTRE)" 
+        [(ngModel)]="model.nomSujet" 
+        name="nomSujet">
+      <small 
+        id="iconeHelp" 
+        class="help text-danger" 
+        *ngIf="this.formError.has('NomSujet')"
+      >{{ this.formError.get('NomSujet') }}
+      </small>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="justify-content-lg-center">
+    <div class="form-group">
+      <label for="nomSujet">Contenu du sujet</label>
       <textarea 
         class="form-control" 
         rows="15" 
