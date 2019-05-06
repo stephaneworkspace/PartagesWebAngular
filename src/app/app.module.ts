@@ -93,6 +93,7 @@ import { ForumNouveauSujetComponent } from './forum/nouveau-sujet/nouveau-sujet.
 import { ForumCategorieDivResolver } from './_resolver/forum-categorie-div.resolver';
 import { ModuleDivForumNouveauSujetBtnSubmitComponent } from './_modules/div/forum/nouveau-sujet/btn/submit.component';
 import { ModuleTableForumPostesModalPrivateMessageComponent } from './_modules/table/forum/postes/modal/private-message.component';
+import { AutofocusDirective } from './_directives/autofocus.directive';
 
 library.add(fas, far, fab);
 
@@ -144,7 +145,8 @@ library.add(fas, far, fab);
       NouveauArticleComponent,
       EditionTitreMenuComponent,
       EditionSousTitreMenuComponent,
-      EditionArticleComponent
+      EditionArticleComponent,
+      AutofocusDirective
    ],
    imports: [
       BrowserModule,

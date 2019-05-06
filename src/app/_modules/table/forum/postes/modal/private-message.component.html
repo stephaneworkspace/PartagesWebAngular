@@ -6,6 +6,27 @@
 </div>
 <div class="modal-body">
   <p id="etes-vous-sur">Envoie d'un message privé à &laquo;{{ item.username }}&raquo; ?</p>
+  <div class="container-fluid">
+    <div class="justify-content-lg-center">
+      <div class="form-group">
+        <label for="nomSujet">Contenu du message</label>
+        <textarea 
+          class="form-control" 
+          rows="15" 
+          placeholder="Veuillez saisir le contenu du message" 
+          id="contenu"  
+          [(ngModel)]="model.contenu" 
+          name="contenu"
+          appAutofocus 
+        ></textarea>
+        <small 
+        id="iconeHelp" 
+        class="help text-danger" 
+        *ngIf="this.formError.has('Contenu')"
+      >{{ this.formError.get('Contenu') }}</small>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="modal-footer">
   <button type="button" class="btn btn-light" (click)="activeModal.close('Oui click'); btnEnvoyerPush()">Envoyer un message</button>
