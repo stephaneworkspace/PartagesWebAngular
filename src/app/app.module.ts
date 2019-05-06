@@ -92,6 +92,7 @@ import { ModuleTableForumSujetsBtnNewComponent } from './_modules/table/forum/su
 import { ForumNouveauSujetComponent } from './forum/nouveau-sujet/nouveau-sujet.component';
 import { ForumCategorieDivResolver } from './_resolver/forum-categorie-div.resolver';
 import { ModuleDivForumNouveauSujetBtnSubmitComponent } from './_modules/div/forum/nouveau-sujet/btn/submit.component';
+import { ModuleTableForumPostesModalPrivateMessageComponent } from './_modules/table/forum/postes/modal/private-message.component';
 
 library.add(fas, far, fab);
 
@@ -125,6 +126,7 @@ library.add(fas, far, fab);
       ModuleTableAdminGestionPagesBtnUpComponent,
       ModuleTableAdminGestionPagesBtnDownComponent,
       ModuleTableAdminGestionPagesModalConfirmDeleteComponent,
+      ModuleTableForumPostesModalPrivateMessageComponent,
       ModuleTableForumCategoriesSpanNomComponent,
       ModuleTableForumSujetsBtnNewComponent,
       ModuleTableForumCategoriesComponent,
@@ -185,7 +187,8 @@ library.add(fas, far, fab);
       ForumSujetDivResolver
    ],
    entryComponents: [
-      ModuleTableAdminGestionPagesModalConfirmDeleteComponent
+      ModuleTableAdminGestionPagesModalConfirmDeleteComponent,
+      ModuleTableForumPostesModalPrivateMessageComponent
    ],
    bootstrap: [
       AppComponent

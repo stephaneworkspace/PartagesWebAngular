@@ -2,6 +2,8 @@ import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChange
 import { ForumPoste } from 'src/app/_models/Forum/forum-poste';
 import { User } from 'src/app/_models/user';
 import { SizeProp } from '@fortawesome/fontawesome-svg-core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModuleTableForumPostesModalPrivateMessageComponent } from '../modal/private-message.component';
 
 @Component({
   selector: 'app-module-table-forum-postes-btn-private-message',
@@ -18,7 +20,7 @@ export class ModuleTableForumPostesBtnPrivateMessageComponent implements OnInit,
 
   faSizeProp: SizeProp;
 
-  constructor() { }
+  constructor(private modalService: NgbModal) { }
 
   ngOnInit() {
     this.bind();
@@ -33,7 +35,16 @@ export class ModuleTableForumPostesBtnPrivateMessageComponent implements OnInit,
     this.nom = 'Envoyer un message privé à ' +  this.item.username;
   }
 
-  click() {
-    this.output.emit(this.item);
+  openModal() {
+    const modalRef = this.modalService.open(ModuleTableForumPostesModalPrivateMessageComponent, { centered: true });
+   /* modalRef.componentInstance.nom = this.nom;
+    modalRef.componentInstance.swAfficherListeQuiVaEtreMisHorsLigne = this.swAfficherListeQuiVaEtreMisHorsLigne;
+    modalRef.componentInstance.sectionItem = this.sectionItem;
+    modalRef.componentInstance.titreMenuItem = this.titreMenuItem;
+    modalRef.componentInstance.sousTitreMenuItem = this.sousTitreMenuItem;
+    modalRef.componentInstance.articleItem = this.articleItem;*/
+    modalRef.componentInstance.output.subscribe((result) => {
+      this.output.emit(this.item);
+    });
   }
 }
