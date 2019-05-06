@@ -5,7 +5,7 @@
   </button>
 </div>
 <div class="modal-body">
-  <p id="etes-vous-sur">Envoie d'un message privé à &laquo;{{ nom }}&raquo; ?</p>
+  <p id="etes-vous-sur">Envoie d'un message privé à &laquo;{{ item.username }}&raquo; ?</p>
 </div>
 <div class="modal-footer">
   <button type="button" class="btn btn-light" (click)="activeModal.close('Oui click'); btnEnvoyerPush()">Envoyer un message</button>

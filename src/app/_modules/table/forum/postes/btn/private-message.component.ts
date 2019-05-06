@@ -37,7 +37,8 @@ export class ModuleTableForumPostesBtnPrivateMessageComponent implements OnInit,
 
   openModal() {
     const modalRef = this.modalService.open(ModuleTableForumPostesModalPrivateMessageComponent, { centered: true });
-   /* modalRef.componentInstance.nom = this.nom;
+    modalRef.componentInstance.item = this.item;
+    /* modalRef.componentInstance.nom = this.nom;
     modalRef.componentInstance.swAfficherListeQuiVaEtreMisHorsLigne = this.swAfficherListeQuiVaEtreMisHorsLigne;
     modalRef.componentInstance.sectionItem = this.sectionItem;
     modalRef.componentInstance.titreMenuItem = this.titreMenuItem;

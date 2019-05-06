@@ -24,7 +24,7 @@
             <div>{{ item.user.username | titlecase }}</div>
             <div>Postes : {{ item.user.messageCount }}</div>
             <div>Membre depuis : {{ dateFormatLL(item.user.created) }}</div>
-            <div *ngIf="loggedIn">Contact <app-module-table-forum-postes-btn-private-message
+            <div *ngIf="loggedIn && !item.swCurrentUser">Contact <app-module-table-forum-postes-btn-private-message
                 [item]="item.user"
                 (output)="btnPrivateMessage($event)"
                 ></app-module-table-forum-postes-btn-private-message></div>

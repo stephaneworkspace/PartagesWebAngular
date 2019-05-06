@@ -9,4 +9,6 @@ export interface ForumPoste {
     user: User;
     date: Date;
     contenu: string;
+    // virtual
+    swCurrentUser: boolean;
 }
