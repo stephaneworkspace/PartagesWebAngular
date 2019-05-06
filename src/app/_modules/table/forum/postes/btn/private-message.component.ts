@@ -4,11 +4,11 @@ import { User } from 'src/app/_models/user';
 import { SizeProp } from '@fortawesome/fontawesome-svg-core';
 
 @Component({
-  selector: 'app-module-table-postes-btn-private-message',
+  selector: 'app-module-table-forum-postes-btn-private-message',
   templateUrl: './private-message.component.html',
   styleUrls: ['./private-message.component.scss']
 })
-export class ModuleTablePostesBtnPrivateMessageComponent implements OnInit, OnChanges {
+export class ModuleTableForumPostesBtnPrivateMessageComponent implements OnInit, OnChanges {
   @Input() disable: boolean;
   @Input() item: User;
   @Output() output: EventEmitter<User> = new EventEmitter<User>();

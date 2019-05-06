@@ -74,7 +74,7 @@ import { ForumPostesDivResolver } from './_resolver/forum-postes-div.resolver';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { ModuleTablePostesBtnQuoteComponent } from './_modules/table/forum/postes/btn/quote.component';
 import { ModuleTablePostesBtnReplyComponent } from './_modules/table/forum/postes/btn/reply.component';
-import { ModuleTablePostesBtnPrivateMessageComponent } from './_modules/table/forum/postes/btn/private-message.component';
+import { ModuleTableForumPostesBtnPrivateMessageComponent } from './_modules/table/forum/postes/btn/private-message.component';
 import { ModuleTableForumSujetsComponent } from './_modules/table/forum/sujets/sujets.component';
 import { ModuleTableForumSujetsSpanNomComponent } from './_modules/table/forum/sujets/span/nom.component';
 import { ForumCategorieService } from './_services/forum/forum-categorie.service';
@@ -131,7 +131,7 @@ library.add(fas, far, fab);
       ModuleTableForumPostesComponent,
       ModuleTablePostesBtnQuoteComponent,
       ModuleTablePostesBtnReplyComponent,
-      ModuleTablePostesBtnPrivateMessageComponent,
+      ModuleTableForumPostesBtnPrivateMessageComponent,
       ModuleTableForumSujetsComponent,
       ModuleTableForumSujetsSpanNomComponent,
       AdminSidebarComponent,
