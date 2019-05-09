@@ -3,6 +3,8 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { DtoAdminGestionPagesTable as Dto } from 'src/app/_dto/admin/gestion-pages/table';
 import { User } from 'src/app/_models/user';
 import { FormError } from 'src/app/_class/form-error';
+import { MessagerieService } from 'src/app/_services/messagerie.service';
+import { AlertifyService } from 'src/app/_services/alertify.service';
 
 @Component({
   selector: 'app-module-table-forum-postes-modal-private-message-component',
@@ -15,7 +17,7 @@ export class ModuleTableForumPostesModalPrivateMessageComponent implements OnIni
   model: any = {};
   formError: any;
 
-  constructor(public activeModal: NgbActiveModal) { }
+  constructor(public activeModal: NgbActiveModal, public messagerieService: MessagerieService, public alertify: AlertifyService) { }
 
   ngOnInit() {
     this.formError = new FormError();
@@ -23,21 +25,14 @@ export class ModuleTableForumPostesModalPrivateMessageComponent implements OnIni
 
   btnEnvoyerPush() {
     this.formError.clear();
-    /*this.output.emit({
-      // item: this.item A FAIRE DTO
-    });*/
 
 
-
-
-
-
-
-
-/*
-    this.forumSujetService.postForumSujet(this.model).subscribe(next => {
-      this.alertify.success('Sujet envoyé sur le forum');
-      this.router.navigate(['/forum/sujet/' + this.model.forumCategorieId , { PageSize: 5, PageNumber: 1 } ]);
+    this.messagerieService.postEnvoiMessagerie(this.model).subscribe(next => {
+      this.alertify.success('Message envoyé');
+      this.output.emit(/*{
+        item: this.item // A FAIRE DTO 9 mai
+      }*/);
+      // this.router.navigate(['/forum/sujet/' + this.model.forumCategorieId , { PageSize: 5, PageNumber: 1 } ]);
     }, error => {
       // https://github.com/laracasts/Vue-Forms/blob/master/public/js/app.js
       // Ensuite trouver moyen de traduire les messages d'erreurs
@@ -49,9 +44,6 @@ export class ModuleTableForumPostesModalPrivateMessageComponent implements OnIni
           this.alertify.error(this.formError.get(element));
         });
       }
-    });*/
-
-
-
+    });
   }
 }
