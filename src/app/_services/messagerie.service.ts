@@ -26,6 +26,10 @@ export class MessagerieService {
 
   constructor(private http: HttpClient) {}
 
+  countMessagerie(): Observable<number> {
+    return this.http.get<number>(this.baseUrl + 'Messageries/Count', httpOptions);
+  }
+
   getMessageries(id: number, page?, itemsPerPage?): Observable<PaginatedResult<Messagerie[]>> {
     const paginatedResult: PaginatedResult<Messagerie[]> = new PaginatedResult<Messagerie[]>();
 

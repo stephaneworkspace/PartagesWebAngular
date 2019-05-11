@@ -31,8 +31,13 @@ export class NavComponent implements OnInit {
 
   logout() {
     localStorage.removeItem('token');
-    this.alertify.message('Deconnexion du site');
-    this.router.navigate(['/']);
+    this.authService.logout(null).subscribe(next => {
+      this.alertify.error('Erreur lors de la deconnexion');
+      this.logout();
+    }, error => {
+      this.alertify.message('Deconnexion du site');
+      this.router.navigate(['/']);
+    });
   }
 
 }
