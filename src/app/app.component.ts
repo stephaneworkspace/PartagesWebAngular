@@ -25,12 +25,14 @@ export class AppComponent implements OnInit {
       if (event instanceof NavigationStart) {
         // Show loading indicator
         this.messagesNonLu = 0;
-        messagerieService.countMessagerie().subscribe((res: number) => {
-          this.messagesNonLu = res;
-          // alert(this.messagesNonLu); // A FAIRE EGALEMENT AU MOMENT CLICK LOGIN
-        }, error => {
-          this.alertify.error('Impossible de se connecter à la messagerie !');
-        });
+        if (localStorage.getItem('token')) {
+          messagerieService.countMessagerie().subscribe((res: number) => {
+            this.messagesNonLu = res;
+            // alert(this.messagesNonLu); // A FAIRE EGALEMENT AU MOMENT CLICK LOGIN
+          }, error => {
+            this.alertify.error('Impossible de se connecter à la messagerie !');
+          });
+        }
       }
 
       if (event instanceof NavigationEnd) {
