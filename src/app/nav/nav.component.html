@@ -22,7 +22,10 @@
             <a class="dropdown-item" (click)="logout()">Logout</a>
           </div>
         </li>
-        <li *ngIf="loggedIn()" class="nav-item">
+        <li *ngIf="loggedIn() && messagesNonLuLocal > 0" class="nav-item">
+          <a class="nav-link" href="#">Messagerie ({{ messagesNonLuLocal }})</a>
+        </li>
+        <li *ngIf="loggedIn() && messagesNonLuLocal == 0" class="nav-item">
           <a class="nav-link" href="#">Messagerie ({{ messagesNonLu }})</a>
         </li>
         <li *ngIf="loggedIn()" class="nav-item dropdown">

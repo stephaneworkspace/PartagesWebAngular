@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from 'src/app/_services/auth.service';
 import { AlertifyService } from '../_services/alertify.service';
 import { Router } from '@angular/router';
+import { MessagerieService } from '../_services/messagerie.service';
 
 @Component({
   selector: 'app-nav',
@@ -10,9 +11,13 @@ import { Router } from '@angular/router';
 })
 export class NavComponent implements OnInit {
   @Input() messagesNonLu: number;
+  private messagesNonLuLocal: number;
   model: any = {};
 
-  constructor(public authService: AuthService, private alertify: AlertifyService, private router: Router) { }
+  constructor(public authService: AuthService,
+    private alertify: AlertifyService,
+    private router: Router,
+    private messagerieService: MessagerieService) { }
 
   ngOnInit() {
   }
@@ -20,6 +25,20 @@ export class NavComponent implements OnInit {
   login() {
     this.authService.login(this.model).subscribe(next => {
       this.alertify.success('Login avec succès');
+
+      // Show loading indicator
+      if (localStorage.getItem('token')) {
+        this.messagerieService.countMessagerie().subscribe((res: number) => {
+          this.messagesNonLuLocal = res;
+        }, error => {
+          this.messagesNonLuLocal = 0;
+          this.alertify.error('Impossible de se connecter à la messagerie !');
+        });
+      } else {
+        this.messagesNonLuLocal = 0;
+      }
+
+
     }, error => {
       this.router.navigate(['/members']);
     });
@@ -32,6 +51,7 @@ export class NavComponent implements OnInit {
 
   logout() {
     localStorage.removeItem('token');
+    this.messagesNonLuLocal = 0;
     this.authService.logout(null).subscribe(next => {
       this.alertify.error('Erreur lors de la deconnexion');
       this.logout();

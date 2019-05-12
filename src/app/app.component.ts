@@ -10,7 +10,7 @@ import { MessagerieService } from './_services/messagerie.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit  {
   title = 'PartagesWebAngular';
   faCoffee = faCoffee;
   faDesktop = faDesktop;
@@ -20,12 +20,12 @@ export class AppComponent implements OnInit {
   public faSpinPropGlobe: boolean;
   messagesNonLu = 0;
 
-  constructor(private router: Router, private alertify: AlertifyService, messagerieService: MessagerieService) {
+  constructor(private router: Router, private alertify: AlertifyService, private messagerieService: MessagerieService) {
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationStart) {
         // Show loading indicator
         if (localStorage.getItem('token')) {
-          messagerieService.countMessagerie().subscribe((res: number) => {
+          this.messagerieService.countMessagerie().subscribe((res: number) => {
             this.messagesNonLu = res;
           }, error => {
             this.messagesNonLu = 0;
@@ -54,4 +54,5 @@ export class AppComponent implements OnInit {
     this.faSpinPropDesktop = false;
     this.faSpinPropGlobe = false;
   }
+
 }

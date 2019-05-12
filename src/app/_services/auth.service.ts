@@ -38,6 +38,7 @@ export class AuthService {
   }
 
   logout(model: any) {
+    localStorage.removeItem('token');
     return this.http.post(this.baseUrl + 'logout', model);
   }
 }
