@@ -4,12 +4,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Icone } from '../_models/icone';
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Authorization': 'Bearer ' + localStorage.getItem('token')
-  })
-};
-
 @Injectable({
   providedIn: 'root'
 })
@@ -18,27 +12,38 @@ export class IconeService {
 
   constructor(private http: HttpClient) {}
 
+  // Headers
+  httpOptions = {};
+
+  setHeaders() {
+    this.httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      })
+    };
+  }
+
   getIcones(): Observable<Icone[]> {
-    return this.http.get<Icone[]>(this.baseUrl + 'Icones', httpOptions);
+    return this.http.get<Icone[]>(this.baseUrl + 'Icones', this.httpOptions);
   }
 
   getIcone(id): Observable<Icone> {
-    return this.http.get<Icone>(this.baseUrl + 'Icones/' + id, httpOptions);
+    return this.http.get<Icone>(this.baseUrl + 'Icones/' + id, this.httpOptions);
   }
 
-  createSection(item: Icone) {
-    return this.http.post(this.baseUrl + 'Icones', item);
+  create(item: Icone) {
+    return this.http.post(this.baseUrl + 'Icones', item, this.httpOptions);
   }
 
-  updateSection(id: number, item: Icone) {
-    return this.http.put(this.baseUrl + 'Icones/' + id, item);
+  update(id: number, item: Icone) {
+    return this.http.put(this.baseUrl + 'Icones/' + id, item, this.httpOptions);
   }
 
-  deleteSection(id: number) {
-    return this.http.delete(this.baseUrl + 'icones/' + id);
+  delete(id: number) {
+    return this.http.delete(this.baseUrl + 'icones/' + id, this.httpOptions);
   }
 
-  deleteSections() {
-    return this.http.delete(this.baseUrl + 'icones');
+  deleteIcones() {
+    return this.http.delete(this.baseUrl + 'icones', this.httpOptions);
   }
 }

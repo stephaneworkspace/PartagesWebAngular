@@ -4,45 +4,50 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { TitreMenu } from '../_models/titre-menu';
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Authorization': 'Bearer ' + localStorage.getItem('token')
-  })
-};
-
 @Injectable({
   providedIn: 'root'
 })
 export class TitreMenuService {
   baseUrl = environment.apiUrl;
 
+  // Headers
+  httpOptions = {};
+
   constructor(private http: HttpClient) {}
 
+  setHeaders() {
+    this.httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      })
+    };
+  }
+
   getTitreMenus(): Observable<TitreMenu[]> {
-    return this.http.get<TitreMenu[]>(this.baseUrl + 'TitreMenus/', httpOptions);
+    return this.http.get<TitreMenu[]>(this.baseUrl + 'TitreMenus/', this.httpOptions);
   }
 
   getTitreMenu(id: number): Observable<TitreMenu> {
-    return this.http.get<TitreMenu>(this.baseUrl + 'TitreMenus/' + id, httpOptions);
+    return this.http.get<TitreMenu>(this.baseUrl + 'TitreMenus/' + id, this.httpOptions);
   }
 
   update(id: number, item: TitreMenu) {
-    return this.http.put(this.baseUrl + 'TitreMenus/' + id, item);
+    return this.http.put(this.baseUrl + 'TitreMenus/' + id, item, this.httpOptions);
   }
 
   create(item: TitreMenu) {
-    return this.http.post(this.baseUrl + 'TitreMenus', item);
+    return this.http.post(this.baseUrl + 'TitreMenus', item, this.httpOptions);
   }
 
   delete(id: number) {
-    return this.http.delete(this.baseUrl + 'TitreMenus/' + id, httpOptions);
+    return this.http.delete(this.baseUrl + 'TitreMenus/' + id, this.httpOptions);
   }
 
   up(id: number) {
-    return this.http.post(this.baseUrl + 'TitreMenus/up/' + id, {}, httpOptions);
+    return this.http.post(this.baseUrl + 'TitreMenus/up/' + id, {}, this.httpOptions);
   }
 
   down(id: number) {
-    return this.http.post(this.baseUrl + 'TitreMenus/down/' + id, {}, httpOptions);
+    return this.http.post(this.baseUrl + 'TitreMenus/down/' + id, {}, this.httpOptions);
   }
 }

@@ -7,24 +7,28 @@ import { PaginatedResult } from 'src/app/_reponse/pagination';
 import { map } from 'rxjs/operators';
 import { DtoForumNouveauSujet } from 'src/app/_dto/forum/nouveau-sujet/nouveau-sujet';
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Authorization': 'Bearer ' + localStorage.getItem('token')
-  })
-};
-
-// Pour un ensemble déjà fermé
-const headers_fix = new HttpHeaders({
-  'Authorization': 'Bearer ' + localStorage.getItem('token')
-});
-
 @Injectable({
   providedIn: 'root'
 })
 export class ForumSujetService {
   baseUrl = environment.apiUrl;
 
+  // Headers
+  httpOptions = {};
+  headers_fix;
+
   constructor(private http: HttpClient) {}
+
+  setHeaders() {
+    this.httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      })
+    };
+    this.headers_fix = new HttpHeaders({
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    });
+  }
 
   // pagination à faire ici
   getForumSujets(id: number, page?, itemsPerPage?): Observable<PaginatedResult<ForumSujet[]>> {
@@ -38,7 +42,7 @@ export class ForumSujetService {
     if (itemsPerPage != null) {
       params = params.append('pageSize', itemsPerPage);
     }
-    return this.http.get<ForumSujet[]>(this.baseUrl + 'ForumSujets/' + id, { headers: headers_fix, observe: 'response', params })
+    return this.http.get<ForumSujet[]>(this.baseUrl + 'ForumSujets/' + id, { headers: this.headers_fix, observe: 'response', params })
     .pipe(
       map(response => {
         paginatedResult.result = response.body;
@@ -51,11 +55,11 @@ export class ForumSujetService {
   }
 
   getForumSujet(id: number): Observable<ForumSujet> {
-    return this.http.get<ForumSujet>(this.baseUrl + 'ForumSujets/ForumSujetId/' + id, httpOptions);
+    return this.http.get<ForumSujet>(this.baseUrl + 'ForumSujets/ForumSujetId/' + id, this.httpOptions);
   }
 
   postForumSujet(item: DtoForumNouveauSujet) {
-    return this.http.post(this.baseUrl + 'ForumSujets', item, httpOptions);
+    return this.http.post(this.baseUrl + 'ForumSujets', item, this.httpOptions);
   }
 
 }

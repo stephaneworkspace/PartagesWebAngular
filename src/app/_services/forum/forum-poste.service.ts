@@ -6,26 +6,31 @@ import { Observable } from 'rxjs';
 import { PaginatedResult } from 'src/app/_reponse/pagination';
 import { map } from 'rxjs/operators';
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Authorization': 'Bearer ' + localStorage.getItem('token')
-  })
-};
-
-// Pour un ensemble déjà fermé
-const headers_fix = new HttpHeaders({
-  'Authorization': 'Bearer ' + localStorage.getItem('token')
-});
-
 @Injectable({
   providedIn: 'root'
 })
 export class ForumPosteService {
   baseUrl = environment.apiUrl;
 
+  // Headers
+  httpOptions = {};
+  headers_fix;
+
   constructor(private http: HttpClient) {}
 
+  setHeaders() {
+    this.httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      })
+    };
+    this.headers_fix = new HttpHeaders({
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    });
+  }
+
   getForumPostes(id: number, page?, itemsPerPage?): Observable<PaginatedResult<ForumPoste[]>> {
+    this.setHeaders();
     const paginatedResult: PaginatedResult<ForumPoste[]> = new PaginatedResult<ForumPoste[]>();
 
     let params = new HttpParams();
@@ -36,7 +41,7 @@ export class ForumPosteService {
     if (itemsPerPage != null) {
       params = params.append('pageSize', itemsPerPage);
     }
-    return this.http.get<ForumPoste[]>(this.baseUrl + 'ForumPostes/' + id, { headers: headers_fix, observe: 'response', params })
+    return this.http.get<ForumPoste[]>(this.baseUrl + 'ForumPostes/' + id, { headers: this.headers_fix, observe: 'response', params })
     .pipe(
       map(response => {
         paginatedResult.result = response.body;
@@ -49,10 +54,12 @@ export class ForumPosteService {
   }
 
   postReponseForumPoste(item: ForumPoste) {
-    return this.http.post(this.baseUrl + 'ForumPostes', item, httpOptions);
+    this.setHeaders();
+    return this.http.post(this.baseUrl + 'ForumPostes', item, this.httpOptions);
   }
 
   getForumPoste(id: number): Observable<ForumPoste> {
-    return this.http.get<ForumPoste>(this.baseUrl + 'ForumPostes/ForumPosteId/' + id, httpOptions);
+    this.setHeaders();
+    return this.http.get<ForumPoste>(this.baseUrl + 'ForumPostes/ForumPosteId/' + id, this.httpOptions);
   }
 }

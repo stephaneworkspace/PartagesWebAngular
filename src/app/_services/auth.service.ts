@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { JwtHelperService } from '@auth0/angular-jwt';
-
+import { User } from '../_models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -12,18 +12,36 @@ export class AuthService {
   baseUrl = 'http://localhost:5000/api/Auth/';
   jwtHelper = new JwtHelperService();
   decodedToken: any;
+  currentUser: User;
+
+  // Headers
+  httpOptions = {};
 
   constructor(private http: HttpClient) { }
+
+  setHeaders() {
+    this.httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      })
+    };
+  }
 
   login(model: any) {
     return this.http.post(this.baseUrl + 'login', model).pipe(
       map((response: any) => {
+        /*localStorage.setItem('token', '');
+        localStorage.removeItem('token');
+        localStorage.clear();*/
         const user = response;
         if (user) {
           localStorage.setItem('token', user.token);
-          console.log(user.token)
+          localStorage.setItem('user', JSON.stringify(user.user));
+          localStorage.setItem('messagesNonLu', JSON.stringify(user.messagesNonLu));
+          this.currentUser = user.user;
+          // console.log(user.token)
           this.decodedToken = this.jwtHelper.decodeToken(user.token);
-          console.log(this.decodedToken);
+          // console.log(this.decodedToken);
         }
       })
     );
@@ -35,15 +53,7 @@ export class AuthService {
 
   loggedIn() {
     const token = localStorage.getItem('token');
-    // if (!this.jwtHelper.isTokenExpired(token)) {
-    //  localStorage.removeItem('token');
-    // }
     return !this.jwtHelper.isTokenExpired(token);
   }
 
-  logout(model: any) {
-    localStorage.removeItem('token');
-    localStorage.clear();
-    return this.http.post(this.baseUrl + 'logout', model);
-  }
 }

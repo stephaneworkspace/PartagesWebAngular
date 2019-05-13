@@ -14,7 +14,8 @@
         </li>
         <li *ngIf="loggedIn()" class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Bienvenue {{ authService.decodedToken?.unique_name | titlecase }}
+            <!--Bienvenue {{ this.authService.decodedToken?.unique_name | titlecase }}-->
+            Bienvenue {{ getUserName() | titlecase }}
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="#">Éditer le profil</a>

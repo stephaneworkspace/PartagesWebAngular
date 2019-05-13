@@ -3,6 +3,7 @@ import { AuthService } from 'src/app/_services/auth.service';
 import { AlertifyService } from '../_services/alertify.service';
 import { Router } from '@angular/router';
 import { MessagerieService } from '../_services/messagerie.service';
+import { User } from '../_models/user';
 
 @Component({
   selector: 'app-nav',
@@ -17,7 +18,7 @@ export class NavComponent implements OnInit, OnChanges {
   constructor(public authService: AuthService,
     private alertify: AlertifyService,
     private router: Router,
-    private messagerieService: MessagerieService) { }
+    ) { }
 
   ngOnInit() {
   }
@@ -31,14 +32,13 @@ export class NavComponent implements OnInit, OnChanges {
 
   login() {
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    localStorage.removeItem('messagesNonLu');
+    localStorage.clear();
     this.authService.login(this.model).subscribe(next => {
+      this._messagesNonLu = JSON.parse(localStorage.getItem('messagesNonLu'));
       this.alertify.success('Login avec succès');
       this.router.navigate(['/']);
-      this.messagerieService.countMessagerie().subscribe((res: number) => {
-        this._messagesNonLu = res;
-      }, error => {
-        this._messagesNonLu = 0;
-      });
     }, error => {
       this.router.navigate(['/members']);
     });
@@ -49,16 +49,20 @@ export class NavComponent implements OnInit, OnChanges {
     return !!token;
   }
 
+  getUserName() {
+    const user: User = JSON.parse(localStorage.getItem('user'));
+    return user.username;
+  }
+
   logout() {
-    localStorage.removeItem('token');
     this._messagesNonLu = 0;
-    this.authService.logout(null).subscribe(next => {
-      this.alertify.error('Erreur lors de la deconnexion');
-      this.logout();
-    }, error => {
-      this.alertify.message('Deconnexion du site');
-      this.router.navigate(['/']);
-    });
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    localStorage.removeItem('messagesNonLu');
+    this.authService.decodedToken = null;
+    this.authService.currentUser = null;
+    this.alertify.message('Deconnexion du site');
+    this.router.navigate(['/']);
   }
 
 }
