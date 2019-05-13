@@ -1,0 +1,14 @@
+<div class="modal-header bg-primary">
+  <h4 class="modal-title text-light">Nouveaux messages</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <p *ngIf="nombresMessagesNonLu == 1">Vous avez {{ nombresMessagesNonLu }} message non lu</p>
+  <p *ngIf="nombresMessagesNonLu != 1">Vous avez {{ nombresMessagesNonLu }} messages non lus</p>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-light" (click)="activeModal.close('Oui click'); btnYesPush()">Ouvrir la messagerie</button>
+  <button type="button" class="btn btn-light" (click)="activeModal.close('Non click')">Fermer</button>
+</div>

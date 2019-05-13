@@ -4,6 +4,8 @@ import { AlertifyService } from '../_services/alertify.service';
 import { Router } from '@angular/router';
 import { MessagerieService } from '../_services/messagerie.service';
 import { User } from '../_models/user';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModuleModalMessagerieMessagesNonLuComponent } from '../_modules/modal/messagerie/messages-non-lu.component';
 
 @Component({
   selector: 'app-nav',
@@ -18,7 +20,7 @@ export class NavComponent implements OnInit, OnChanges {
   constructor(public authService: AuthService,
     private alertify: AlertifyService,
     private router: Router,
-    ) { }
+    private modalService: NgbModal) { }
 
   ngOnInit() {
   }
@@ -28,6 +30,7 @@ export class NavComponent implements OnInit, OnChanges {
     // console.log('prev value: ', messagesNonLu.previousValue);
     // console.log('got name: ', messagesNonLu.currentValue);
     this._messagesNonLu = messagesNonLu.currentValue;
+    this.openModalMessage();
   }
 
   login() {
@@ -37,6 +40,9 @@ export class NavComponent implements OnInit, OnChanges {
     localStorage.clear();
     this.authService.login(this.model).subscribe(next => {
       this._messagesNonLu = JSON.parse(localStorage.getItem('messagesNonLu'));
+      if (this._messagesNonLu) {
+        this.openModalMessage();
+      }
       this.alertify.success('Login avec succès');
       this.router.navigate(['/']);
     }, error => {
@@ -63,6 +69,15 @@ export class NavComponent implements OnInit, OnChanges {
     this.authService.currentUser = null;
     this.alertify.message('Deconnexion du site');
     this.router.navigate(['/']);
+  }
+
+  openModalMessage() {
+    const modalRef = this.modalService.open(ModuleModalMessagerieMessagesNonLuComponent, { centered: true });
+    modalRef.componentInstance.nombresMessagesNonLu = this._messagesNonLu;
+    modalRef.componentInstance.output.subscribe((result) => {
+      // this.output.emit(result);
+      alert('à faire');
+    });
   }
 
 }

@@ -94,6 +94,7 @@ import { ForumCategorieDivResolver } from './_resolver/forum-categorie-div.resol
 import { ModuleDivForumNouveauSujetBtnSubmitComponent } from './_modules/div/forum/nouveau-sujet/btn/submit.component';
 import { ModuleTableForumPostesModalPrivateMessageComponent } from './_modules/table/forum/postes/modal/private-message.component';
 import { AutofocusDirective } from './_directives/autofocus.directive';
+import { ModuleModalMessagerieMessagesNonLuComponent } from './_modules/modal/messagerie/messages-non-lu.component';
 
 library.add(fas, far, fab);
 
@@ -116,6 +117,7 @@ library.add(fas, far, fab);
       ModuleDivForumReponseComponent,
       ModuleDivForumNouveauSujetBtnSubmitComponent,
       ModuleDivForumReponseBtnReplyComponent,
+      ModuleModalMessagerieMessagesNonLuComponent,
       ModuleTableAdminGestionPagesComponent,
       ModuleTableAdminGestionPagesCoreComponent,
       ModuleTableAdminGestionPagesModalTableContentSectionForOfflineComponent,
@@ -189,6 +191,7 @@ library.add(fas, far, fab);
       ForumSujetDivResolver
    ],
    entryComponents: [
+      ModuleModalMessagerieMessagesNonLuComponent,
       ModuleTableAdminGestionPagesModalConfirmDeleteComponent,
       ModuleTableForumPostesModalPrivateMessageComponent
    ],
