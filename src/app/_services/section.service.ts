@@ -24,30 +24,37 @@ export class SectionService {
   }
 
   getSections(): Observable<Section[]> {
+    this.setHeaders();
     return this.http.get<Section[]>(this.baseUrl + 'Sections', this.httpOptions);
   }
 
   getSection(id): Observable<Section> {
+    this.setHeaders();
     return this.http.get<Section>(this.baseUrl + 'Sections/' + id, this.httpOptions);
   }
 
   create(item: Section) {
+    this.setHeaders();
     return this.http.post(this.baseUrl + 'Sections', item, this.httpOptions);
   }
 
   update(id: number, item: Section) {
+    this.setHeaders();
     return this.http.put(this.baseUrl + 'Sections/' + id, item, this.httpOptions);
   }
 
   delete(id: number) {
+    this.setHeaders();
     return this.http.delete(this.baseUrl + 'Sections/' + id, this.httpOptions);
   }
 
   up(id: number) {
+    this.setHeaders();
     return this.http.post(this.baseUrl + 'Sections/up/' + id, {}, this.httpOptions);
   }
 
   down(id: number) {
+    this.setHeaders();
     return this.http.post(this.baseUrl + 'Sections/down/' + id, {}, this.httpOptions);
   }
 

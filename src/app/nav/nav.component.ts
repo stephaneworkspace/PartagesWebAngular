@@ -30,7 +30,9 @@ export class NavComponent implements OnInit, OnChanges {
     // console.log('prev value: ', messagesNonLu.previousValue);
     // console.log('got name: ', messagesNonLu.currentValue);
     this._messagesNonLu = messagesNonLu.currentValue;
-    this.openModalMessage();
+    if (this._messagesNonLu > 0 && this.loggedIn()) {
+      this.openModalMessage();
+    }
   }
 
   login() {
@@ -40,7 +42,7 @@ export class NavComponent implements OnInit, OnChanges {
     localStorage.clear();
     this.authService.login(this.model).subscribe(next => {
       this._messagesNonLu = JSON.parse(localStorage.getItem('messagesNonLu'));
-      if (this._messagesNonLu) {
+      if (this._messagesNonLu > 0 && this.loggedIn()) {
         this.openModalMessage();
       }
       this.alertify.success('Login avec succès');

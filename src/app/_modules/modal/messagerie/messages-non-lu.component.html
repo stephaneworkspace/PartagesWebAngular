@@ -5,8 +5,8 @@
   </button>
 </div>
 <div class="modal-body">
-  <p *ngIf="nombresMessagesNonLu == 1">Vous avez {{ nombresMessagesNonLu }} message non lu</p>
-  <p *ngIf="nombresMessagesNonLu != 1">Vous avez {{ nombresMessagesNonLu }} messages non lus</p>
+  <p *ngIf="_nombresMessagesNonLu == 1">Vous avez {{ _nombresMessagesNonLu }} message non lu</p>
+  <p *ngIf="_nombresMessagesNonLu != 1">Vous avez {{ _nombresMessagesNonLu }} messages non lus</p>
 </div>
 <div class="modal-footer">
   <button type="button" class="btn btn-light" (click)="activeModal.close('Oui click'); btnYesPush()">Ouvrir la messagerie</button>

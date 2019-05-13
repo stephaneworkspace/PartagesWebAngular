@@ -32,6 +32,8 @@ export class ForumSujetService {
 
   // pagination à faire ici
   getForumSujets(id: number, page?, itemsPerPage?): Observable<PaginatedResult<ForumSujet[]>> {
+    this.setHeaders();
+
     const paginatedResult: PaginatedResult<ForumSujet[]> = new PaginatedResult<ForumSujet[]>();
 
     let params = new HttpParams();
@@ -55,10 +57,12 @@ export class ForumSujetService {
   }
 
   getForumSujet(id: number): Observable<ForumSujet> {
+    this.setHeaders();
     return this.http.get<ForumSujet>(this.baseUrl + 'ForumSujets/ForumSujetId/' + id, this.httpOptions);
   }
 
   postForumSujet(item: DtoForumNouveauSujet) {
+    this.setHeaders();
     return this.http.post(this.baseUrl + 'ForumSujets', item, this.httpOptions);
   }
 

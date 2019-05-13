@@ -26,6 +26,7 @@ export class AppComponent implements OnInit  {
         // Show loading indicator
         this.messagerieService.countMessagerie().subscribe((res: number) => {
           this.messagesNonLu = res;
+          localStorage.setItem('messagesNonLu', JSON.stringify(this.messagesNonLu));
         }, error => {
           this.messagesNonLu = 0;
           // this.alertify.error('Impossible de se connecter à la messagerie !');

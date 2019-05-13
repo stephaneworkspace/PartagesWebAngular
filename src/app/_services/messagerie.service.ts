@@ -31,10 +31,13 @@ export class MessagerieService {
   }
 
   countMessagerie(): Observable<number> {
+    this.setHeaders();
     return this.http.get<number>(this.baseUrl + 'Messageries/Count', this.httpOptions);
   }
 
   getMessageries(id: number, page?, itemsPerPage?): Observable<PaginatedResult<Messagerie[]>> {
+    this.setHeaders();
+
     const paginatedResult: PaginatedResult<Messagerie[]> = new PaginatedResult<Messagerie[]>();
 
     let params = new HttpParams();
@@ -58,10 +61,12 @@ export class MessagerieService {
   }
 
   postEnvoiMessagerie(item: MessagerieDtoInput) {
+    this.setHeaders();
     return this.http.post(this.baseUrl + 'Messageries', item, this.httpOptions);
   }
 
   getMessagerie(id: number): Observable<Messagerie> {
+    this.setHeaders();
     return this.http.get<Messagerie>(this.baseUrl + 'Messageries/' + id, this.httpOptions);
   }
 }

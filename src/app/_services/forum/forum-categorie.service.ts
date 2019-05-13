@@ -25,10 +25,12 @@ export class ForumCategorieService {
 
   // Cette méthode est avec la pagination (inutile mais j'enleverai plus tard)
   getForumCategories(): Observable<ForumCategorie[]> {
+    this.setHeaders();
     return this.http.get<ForumCategorie[]>(this.baseUrl + 'ForumCategories', this.httpOptions);
   }
 
   getForumCategorie(id: number): Observable<ForumCategorie> {
+    this.setHeaders();
     return this.http.get<ForumCategorie>(this.baseUrl + 'ForumCategories/' + id, this.httpOptions);
   }
 }

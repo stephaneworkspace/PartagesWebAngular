@@ -24,30 +24,37 @@ export class SousTitreMenuService {
   }
 
   getSousTitreMenus(): Observable<SousTitreMenu[]> {
+    this.setHeaders();
     return this.http.get<SousTitreMenu[]>(this.baseUrl + 'SousTitreMenus/', this.httpOptions);
   }
 
   getSousTitreMenu(id: number): Observable<SousTitreMenu> {
+    this.setHeaders();
     return this.http.get<SousTitreMenu>(this.baseUrl + 'SousTitreMenus/' + id, this.httpOptions);
   }
 
   update(id: number, item: SousTitreMenu) {
+    this.setHeaders();
     return this.http.put(this.baseUrl + 'SousTitreMenus/' + id, item, this.httpOptions);
   }
 
   create(item: SousTitreMenu) {
+    this.setHeaders();
     return this.http.post(this.baseUrl + 'SousTitreMenus', item, this.httpOptions);
   }
 
   delete(id: number) {
+    this.setHeaders();
     return this.http.delete(this.baseUrl + 'SousTitreMenus/' + id, this.httpOptions);
   }
 
   up(id: number) {
+    this.setHeaders();
     return this.http.post(this.baseUrl + 'SousTitreMenus/up/' + id, {}, this.httpOptions);
   }
 
   down(id: number) {
+    this.setHeaders();
     return this.http.post(this.baseUrl + 'SousTitreMenus/down/' + id, {}, this.httpOptions);
   }
 }

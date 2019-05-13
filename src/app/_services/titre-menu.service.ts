@@ -24,30 +24,37 @@ export class TitreMenuService {
   }
 
   getTitreMenus(): Observable<TitreMenu[]> {
+    this.setHeaders();
     return this.http.get<TitreMenu[]>(this.baseUrl + 'TitreMenus/', this.httpOptions);
   }
 
   getTitreMenu(id: number): Observable<TitreMenu> {
+    this.setHeaders();
     return this.http.get<TitreMenu>(this.baseUrl + 'TitreMenus/' + id, this.httpOptions);
   }
 
   update(id: number, item: TitreMenu) {
+    this.setHeaders();
     return this.http.put(this.baseUrl + 'TitreMenus/' + id, item, this.httpOptions);
   }
 
   create(item: TitreMenu) {
+    this.setHeaders();
     return this.http.post(this.baseUrl + 'TitreMenus', item, this.httpOptions);
   }
 
   delete(id: number) {
+    this.setHeaders();
     return this.http.delete(this.baseUrl + 'TitreMenus/' + id, this.httpOptions);
   }
 
   up(id: number) {
+    this.setHeaders();
     return this.http.post(this.baseUrl + 'TitreMenus/up/' + id, {}, this.httpOptions);
   }
 
   down(id: number) {
+    this.setHeaders();
     return this.http.post(this.baseUrl + 'TitreMenus/down/' + id, {}, this.httpOptions);
   }
 }
