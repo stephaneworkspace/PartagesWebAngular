@@ -24,20 +24,16 @@ export class AppComponent implements OnInit  {
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationStart) {
         // Show loading indicator
-        if (localStorage.getItem('token')) {
-          this.messagerieService.countMessagerie().subscribe((res: number) => {
-            this.messagesNonLu = res;
-          }, error => {
-            this.messagesNonLu = 0;
-            this.alertify.error('Impossible de se connecter à la messagerie !');
-          });
-        } else {
+        this.messagerieService.countMessagerie().subscribe((res: number) => {
+          this.messagesNonLu = res;
+        }, error => {
           this.messagesNonLu = 0;
-        }
+          // this.alertify.error('Impossible de se connecter à la messagerie !');
+        });
       }
 
       if (event instanceof NavigationEnd) {
-          // Hide loading indicator
+        // Show loading indicator
       }
 
       if (event instanceof NavigationError) {

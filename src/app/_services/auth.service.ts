@@ -21,6 +21,7 @@ export class AuthService {
         const user = response;
         if (user) {
           localStorage.setItem('token', user.token);
+          console.log(user.token)
           this.decodedToken = this.jwtHelper.decodeToken(user.token);
           console.log(this.decodedToken);
         }
@@ -34,11 +35,15 @@ export class AuthService {
 
   loggedIn() {
     const token = localStorage.getItem('token');
+    // if (!this.jwtHelper.isTokenExpired(token)) {
+    //  localStorage.removeItem('token');
+    // }
     return !this.jwtHelper.isTokenExpired(token);
   }
 
   logout(model: any) {
     localStorage.removeItem('token');
+    localStorage.clear();
     return this.http.post(this.baseUrl + 'logout', model);
   }
 }

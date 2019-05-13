@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges, SimpleChange, OnChanges } from '@angular/core';
 import { AuthService } from 'src/app/_services/auth.service';
 import { AlertifyService } from '../_services/alertify.service';
 import { Router } from '@angular/router';
@@ -9,9 +9,9 @@ import { MessagerieService } from '../_services/messagerie.service';
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss']
 })
-export class NavComponent implements OnInit {
+export class NavComponent implements OnInit, OnChanges {
   @Input() messagesNonLu: number;
-  private messagesNonLuLocal: number;
+  private _messagesNonLu: number;
   model: any = {};
 
   constructor(public authService: AuthService,
@@ -22,23 +22,23 @@ export class NavComponent implements OnInit {
   ngOnInit() {
   }
 
+  ngOnChanges(changes: SimpleChanges) {
+    const messagesNonLu: SimpleChange = changes.messagesNonLu;
+    // console.log('prev value: ', messagesNonLu.previousValue);
+    // console.log('got name: ', messagesNonLu.currentValue);
+    this._messagesNonLu = messagesNonLu.currentValue;
+  }
+
   login() {
+    localStorage.removeItem('token');
     this.authService.login(this.model).subscribe(next => {
       this.alertify.success('Login avec succès');
-
-      // Show loading indicator
-      if (localStorage.getItem('token')) {
-        this.messagerieService.countMessagerie().subscribe((res: number) => {
-          this.messagesNonLuLocal = res;
-        }, error => {
-          this.messagesNonLuLocal = 0;
-          this.alertify.error('Impossible de se connecter à la messagerie !');
-        });
-      } else {
-        this.messagesNonLuLocal = 0;
-      }
-
-
+      this.router.navigate(['/']);
+      this.messagerieService.countMessagerie().subscribe((res: number) => {
+        this._messagesNonLu = res;
+      }, error => {
+        this._messagesNonLu = 0;
+      });
     }, error => {
       this.router.navigate(['/members']);
     });
@@ -51,7 +51,7 @@ export class NavComponent implements OnInit {
 
   logout() {
     localStorage.removeItem('token');
-    this.messagesNonLuLocal = 0;
+    this._messagesNonLu = 0;
     this.authService.logout(null).subscribe(next => {
       this.alertify.error('Erreur lors de la deconnexion');
       this.logout();
